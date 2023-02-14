@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078181A299BC88600FD916D /* TimeFlowApp.swift */; };
-		3078181D299BC88600FD916D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078181C299BC88600FD916D /* ContentView.swift */; };
 		3078181F299BC88800FD916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3078181E299BC88800FD916D /* Assets.xcassets */; };
 		30781822299BC88800FD916D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30781821299BC88800FD916D /* Preview Assets.xcassets */; };
+		3078182A299BC95F00FD916D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 30781829299BC95F00FD916D /* Alamofire */; };
+		3078182D299BC99F00FD916D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 3078182C299BC99F00FD916D /* KeychainAccess */; };
+		3078183A299BCC2800FD916D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3078183C299BCC2800FD916D /* Localizable.strings */; };
+		30781849299BCE9000FD916D /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 30781848299BCE9000FD916D /* RswiftLibrary */; };
+		3078184D299BD01B00FD916D /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3078184C299BD01B00FD916D /* NeedleFoundation */; };
+		30781859299BD12500FD916D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781858299BD12500FD916D /* MainViewModel.swift */; };
+		3078185B299BD13900FD916D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185A299BD13900FD916D /* MainView.swift */; };
+		3078185D299BD16D00FD916D /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185C299BD16D00FD916D /* MainComponent.swift */; };
+		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30781817299BC88600FD916D /* TimeFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3078181A299BC88600FD916D /* TimeFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlowApp.swift; sourceTree = "<group>"; };
-		3078181C299BC88600FD916D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3078181E299BC88800FD916D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30781821299BC88800FD916D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3078183B299BCC2800FD916D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30781858299BD12500FD916D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3078185A299BD13900FD916D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3078185C299BD16D00FD916D /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
+		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +38,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3078184D299BD01B00FD916D /* NeedleFoundation in Frameworks */,
+				3078182D299BC99F00FD916D /* KeychainAccess in Frameworks */,
+				3078182A299BC95F00FD916D /* Alamofire in Frameworks */,
+				30781849299BCE9000FD916D /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +67,10 @@
 		30781819299BC88600FD916D /* TimeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				30781854299BD10700FD916D /* Presentation */,
+				30781836299BCC0100FD916D /* Resources */,
 				3078181A299BC88600FD916D /* TimeFlowApp.swift */,
-				3078181C299BC88600FD916D /* ContentView.swift */,
+				30781860299BD22500FD916D /* NeedleGenerated.swift */,
 				3078181E299BC88800FD916D /* Assets.xcassets */,
 				30781820299BC88800FD916D /* Preview Content */,
 			);
@@ -67,6 +85,56 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		30781836299BCC0100FD916D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30781837299BCC1900FD916D /* Localizable */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		30781837299BCC1900FD916D /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				3078183C299BCC2800FD916D /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		30781854299BD10700FD916D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				30781855299BD10F00FD916D /* MainView */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		30781855299BD10F00FD916D /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				30781857299BD11B00FD916D /* ViewModel */,
+				30781856299BD11500FD916D /* Component */,
+				3078185A299BD13900FD916D /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		30781856299BD11500FD916D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3078185C299BD16D00FD916D /* MainComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		30781857299BD11B00FD916D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30781858299BD12500FD916D /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +142,24 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30781825299BC88800FD916D /* Build configuration list for PBXNativeTarget "TimeFlow" */;
 			buildPhases = (
+				3078184F299BD06C00FD916D /* Needle */,
 				30781813299BC88600FD916D /* Sources */,
 				30781814299BC88600FD916D /* Frameworks */,
 				30781815299BC88600FD916D /* Resources */,
+				3078182F299BCAFA00FD916D /* Swiftlint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				30781835299BCBD000FD916D /* PBXTargetDependency */,
 			);
 			name = TimeFlow;
+			packageProductDependencies = (
+				30781829299BC95F00FD916D /* Alamofire */,
+				3078182C299BC99F00FD916D /* KeychainAccess */,
+				30781848299BCE9000FD916D /* RswiftLibrary */,
+				3078184C299BD01B00FD916D /* NeedleFoundation */,
+			);
 			productName = TimeFlow;
 			productReference = 30781817299BC88600FD916D /* TimeFlow.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +188,12 @@
 				Base,
 			);
 			mainGroup = 3078180E299BC88600FD916D;
+			packageReferences = (
+				30781828299BC95F00FD916D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3078182B299BC99F00FD916D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				30781847299BCE9000FD916D /* XCRemoteSwiftPackageReference "R.swift" */,
+				3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */,
+			);
 			productRefGroup = 30781818299BC88600FD916D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,23 +209,85 @@
 			buildActionMask = 2147483647;
 			files = (
 				30781822299BC88800FD916D /* Preview Assets.xcassets in Resources */,
+				3078183A299BCC2800FD916D /* Localizable.strings in Resources */,
 				3078181F299BC88800FD916D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3078182F299BCAFA00FD916D /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		3078184F299BD06C00FD916D /* Needle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Needle;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which needle; then\n    SOURCEKIT_LOGGING=0 && needle generate $SRCROOT/$TARGETNAME/NeedleGenerated.swift $SRCROOT/$TARGETNAME\nelse\n  echo \"warning: Needle not installed, download from https://github.com/uber/needle using Homebrew\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		30781813299BC88600FD916D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3078181D299BC88600FD916D /* ContentView.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
+				3078185B299BD13900FD916D /* MainView.swift in Sources */,
+				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
+				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
+				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30781835299BCBD000FD916D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30781834299BCBD000FD916D /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3078183C299BCC2800FD916D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3078183B299BCC2800FD916D /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		30781823299BC88800FD916D /* Debug */ = {
@@ -268,6 +413,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeFlow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -279,6 +425,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hits.TimeFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -296,6 +443,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeFlow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,6 +485,68 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30781828299BC95F00FD916D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+		3078182B299BC99F00FD916D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+		30781847299BCE9000FD916D /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.4;
+			};
+		};
+		3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/needle.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.22.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30781829299BC95F00FD916D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30781828299BC95F00FD916D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3078182C299BC99F00FD916D /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3078182B299BC99F00FD916D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		30781834299BCBD000FD916D /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		30781848299BCE9000FD916D /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30781847299BCE9000FD916D /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		3078184C299BD01B00FD916D /* NeedleFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */;
+			productName = NeedleFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3078180F299BC88600FD916D /* Project object */;
 }
