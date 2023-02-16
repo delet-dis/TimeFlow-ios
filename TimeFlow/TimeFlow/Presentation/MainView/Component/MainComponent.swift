@@ -10,12 +10,13 @@ import NeedleFoundation
 import SwiftUI
 
 class MainComponent: BootstrapComponent {
+    
     var mainViewModel: MainViewModel {
         shared {
             MainViewModel()
         }
     }
-
+    
     var mainView: some View {
         shared {
             MainView()

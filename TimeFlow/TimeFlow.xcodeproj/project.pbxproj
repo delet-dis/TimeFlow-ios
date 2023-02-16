@@ -19,6 +19,13 @@
 		3078185B299BD13900FD916D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185A299BD13900FD916D /* MainView.swift */; };
 		3078185D299BD16D00FD916D /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185C299BD16D00FD916D /* MainComponent.swift */; };
 		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
+		4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */; };
+		4F58629D299E096300DB82FC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629C299E096300DB82FC /* LoginView.swift */; };
+		4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629E299E099200DB82FC /* LoginViewModel.swift */; };
+		4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */; };
+		4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */; };
+		4F5862AB299E0E3B00DB82FC /* LoginTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A7299E0C6A00DB82FC /* LoginTextFieldStyle.swift */; };
+		4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,13 @@
 		3078185A299BD13900FD916D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3078185C299BD16D00FD916D /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDisaplyingModeEnum.swift; sourceTree = "<group>"; };
+		4F58629C299E096300DB82FC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4F58629E299E099200DB82FC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		4F5862A7299E0C6A00DB82FC /* LoginTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldStyle.swift; sourceTree = "<group>"; };
+		4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,7 @@
 		30781819299BC88600FD916D /* TimeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				4F586292299E07B400DB82FC /* Data */,
 				30781854299BD10700FD916D /* Presentation */,
 				30781836299BCC0100FD916D /* Resources */,
 				3078181A299BC88600FD916D /* TimeFlowApp.swift */,
@@ -88,6 +103,7 @@
 		30781836299BCC0100FD916D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F5862A6299E0C4B00DB82FC /* StyleField */,
 				30781837299BCC1900FD916D /* Localizable */,
 			);
 			path = Resources;
@@ -104,6 +120,8 @@
 		30781854299BD10700FD916D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4F5862A0299E0AA000DB82FC /* AuthorizationView */,
+				4F586298299E092600DB82FC /* LoginView */,
 				30781855299BD10F00FD916D /* MainView */,
 			);
 			path = Presentation;
@@ -133,6 +151,97 @@
 				30781858299BD12500FD916D /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F586292299E07B400DB82FC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4F586293299E07BE00DB82FC /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4F586293299E07BE00DB82FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F586294299E07C800DB82FC /* Enums */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F586294299E07C800DB82FC /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4F586295299E07D400DB82FC /* Views */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		4F586295299E07D400DB82FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F586298299E092600DB82FC /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				4F586299299E093400DB82FC /* ViewModel */,
+				4F58629A299E094000DB82FC /* Component */,
+				4F58629C299E096300DB82FC /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		4F586299299E093400DB82FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F58629E299E099200DB82FC /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F58629A299E094000DB82FC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4F5862A0299E0AA000DB82FC /* AuthorizationView */ = {
+			isa = PBXGroup;
+			children = (
+				4F5862A2299E0AD400DB82FC /* Component */,
+				4F5862A1299E0AC800DB82FC /* ViewModel */,
+				4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */,
+			);
+			path = AuthorizationView;
+			sourceTree = "<group>";
+		};
+		4F5862A1299E0AC800DB82FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F5862A2299E0AD400DB82FC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4F5862A6299E0C4B00DB82FC /* StyleField */ = {
+			isa = PBXGroup;
+			children = (
+				4F5862A7299E0C6A00DB82FC /* LoginTextFieldStyle.swift */,
+			);
+			path = StyleField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */,
+				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
+				4F5862AB299E0E3B00DB82FC /* LoginTextFieldStyle.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
+				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
+				4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
+				4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */,
+				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,12 @@ import SwiftUI
 @main
 struct TimeFlowApp: App {
     init() {
-        registerProviderFactories()
-    }
+          registerProviderFactories()
+      }
 
-    var body: some Scene {
-        WindowGroup {
-            MainComponent().mainView
-        }
-    }
+      var body: some Scene {
+          WindowGroup {
+              MainComponent().mainView
+          }
+      }
 }

@@ -10,18 +10,26 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewModel
+    
+    @State private var displayMode = MainViewDisaplyingModeEnum.authorization
+    @State private var splashScreen = true
 
     init() {
         registerProviderFactories()
     }
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+           
+        }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
         MainView()
+            
     }
 }

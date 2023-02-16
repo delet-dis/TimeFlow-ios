@@ -19,6 +19,11 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 
 #else
+extension AuthorizationComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension MainComponent: Registration {
     public func registerItems() {
 
@@ -40,6 +45,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
+    registerProviderFactory("^->AuthorizationComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
 #endif
