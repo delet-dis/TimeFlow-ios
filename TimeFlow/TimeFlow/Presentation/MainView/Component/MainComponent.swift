@@ -46,9 +46,17 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var authorizationComponent: AuthorizationComponent {
+        shared {
+            AuthorizationComponent(parent: self)
+        }
+    }
+
     var mainViewModel: MainViewModel {
         shared {
-            MainViewModel()
+            MainViewModel(
+                authorizationComponent: authorizationComponent
+            )
         }
     }
 

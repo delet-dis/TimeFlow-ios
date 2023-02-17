@@ -7,4 +7,10 @@
 
 import Foundation
 
-class MainViewModel: ObservableObject {}
+class MainViewModel: ObservableObject {
+    private(set) var authorizationComponent: AuthorizationComponent?
+
+    init(authorizationComponent: AuthorizationComponent? = nil) {
+        self.authorizationComponent = authorizationComponent
+    }
+}

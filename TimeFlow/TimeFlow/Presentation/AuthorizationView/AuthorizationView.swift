@@ -9,24 +9,18 @@ import Foundation
 import SwiftUI
 
 struct AuthorizationView: View {
-    private enum UserField: Hashable {
+    private enum Field: Hashable {
         case email, password
     }
-    
+
     @EnvironmentObject private var viewModel: AuthorizationViewModel
-    
-    @FocusState private var focusedField: UserField?
-    
-    @State private var isValidFields = false
-    
+
+    @FocusState private var focusedField: Field?
+
     var body: some View {
         ZStack {
             VStack(spacing: 15) {
-                TextField("Почта", text: $viewModel.emailText)
-                    .modifier(TextFieldStyle())
-                    .font(.custom("Raleway", size: 15))
-                    .foregroundColor(
-                        Color(UIColor(named: "BlueCustom") ?? .blue))
+                TextField(R.string.localizable.email(), text: $viewModel.emailText)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
                     .submitLabel(.next)
@@ -34,22 +28,30 @@ struct AuthorizationView: View {
                     .onSubmit {
                         focusedField = .password
                     }
+                    .modifier(ViewWithRoundedGradientBackground())
+                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
+                    .foregroundColor(
+                        Color(R.color.blueCustom() ?? .blue)
+                    )
+                    // TODO: move into the view modifier
                     .shadow(
                         color: Color.black.opacity(0.9),
                         radius: 8,
                         x: 2,
                         y: 2
                     )
-                    
-                SecureField("Пароль", text: $viewModel.passwordText)
+
+                SecureField(R.string.localizable.password(), text: $viewModel.passwordText)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
                     .submitLabel(.done)
-                    .modifier(TextFieldStyle())
-                    .font(.custom("Raleway", size: 15))
-                    .foregroundColor(
-                        Color(UIColor(named: "BlueCustom") ?? .blue))
                     .focused($focusedField, equals: .password)
+                    // TODO: move into the view modifier
+                    .modifier(ViewWithRoundedGradientBackground())
+                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
+                    .foregroundColor(
+                        Color(R.color.blueCustom() ?? .blue)
+                    )
                     .shadow(
                         color: Color.black.opacity(0.9),
                         radius: 8,
@@ -57,88 +59,76 @@ struct AuthorizationView: View {
                         y: 2
                     )
             }
-            
+
             VStack(spacing: 15) {
-                // Добавить проверку на валидность полей и
-                // отобразить кнопку в другом состоянии
+                // TODO: Добавить проверку на валидность полей и отобразить кнопку в другом состоянии
                 Spacer()
+
                 Button {
                     focusedField = nil
+
                     viewModel.login()
                 } label: {
-                    Text("Войти")
-                        .font(.custom("Raleway", size: 15))
+                    Text(R.string.localizable.login())
+                        .font(
+                            Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium))
+                        )
                         .foregroundColor(
-                            Color(UIColor(named: "BlueCustom") ?? .blue))
+                            Color(R.color.blueCustom() ?? .blue)
+                        )
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .modifier(ViewWithRoundedGradientBackground())
                 }
-                .padding()
-                .cornerRadius(16)
-                .frame(minWidth: 0,
-                       maxWidth: .infinity)
-                .overlay(
-                    RoundedRectangle(
-                        cornerRadius: 15
-                    ).stroke(
-                        LinearGradient(gradient: Gradient(colors:
-                            [Color(UIColor(named:
-                                "GradientYellow")
-                                ?? .white),
-                            Color(UIColor(named:
-                                "GradientLightYellow")
-                                ?? .white),
-                            Color(UIColor(named:
-                                "GradientPurple")
-                                ?? .white)]),
-                        startPoint: .bottomTrailing, endPoint: .topLeading)
-                    )
-                )
                 .shadow(
                     color: Color.black.opacity(0.9),
                     radius: 8,
                     x: 2,
                     y: 2
                 )
-                .padding(.horizontal, 15)
-                
+
                 Button {
                     viewModel.setRegisrationViewClousure?()
                 } label: {
-                    Text("Зарегистрироваться")
-
-                        .font(.custom("Raleway", size: 15))
+                    Text(R.string.localizable.register())
+                        .font(
+                            Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium))
+                        )
                         .foregroundColor(
-                            Color(UIColor(named: "BlueCustom") ?? .blue))
+                            Color(R.color.blueCustom() ?? .blue)
+                        )
                 }
                 .padding(.horizontal, 10)
             }
             .ignoresSafeArea(.keyboard)
         }
         .background(
-            LinearGradient(gradient: Gradient(colors:
-                [Color(UIColor(named:
-                    "GradientYellow")
-                    ?? .white),
-                Color(UIColor(named:
-                    "GradientLightYellow")
-                    ?? .white),
-                Color(UIColor(named:
-                    "GradientPurple")
-                    ?? .white)]),
-            startPoint: .topLeading, endPoint: .bottomTrailing)
+            yellowPurpleGradient
+                .rotationEffect(.degrees(180))
+                .ignoresSafeArea()
         )
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {
-                    Button("Готово") {
+                    Button(R.string.localizable.ready()) {
                         focusedField = nil
                     }
                     .foregroundColor(
-                        Color(UIColor(named: "BlueCustom") ?? .blue))
+                        Color(R.color.blueCustom() ?? .blue)
+                    )
 
                     Spacer()
                 }
             }
         }
         // Добавить Алерт
+    }
+}
+
+struct AuthorizationView_Previews: PreviewProvider {
+    private static let mainComponent = MainComponent()
+
+    static var previews: some View {
+        AuthorizationView()
+            .environmentObject(mainComponent.authorizationComponent.authorizationViewModel)
     }
 }

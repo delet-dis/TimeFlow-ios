@@ -17,10 +17,29 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class AuthorizationComponentDependency01c300e9208281b9a593Provider: AuthorizationComponentDependency {
+    var loginUseCase: LoginUseCase {
+        return mainComponent.loginUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->AuthorizationComponent
+private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return AuthorizationComponentDependency01c300e9208281b9a593Provider(mainComponent: parent1(component) as! MainComponent)
+}
 
 #else
+extension AuthorizationComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\AuthorizationComponentDependency.loginUseCase] = "loginUseCase-LoginUseCase"
+    }
+}
 extension MainComponent: Registration {
     public func registerItems() {
+
 
     }
 }
@@ -40,6 +59,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
+    registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }
 #endif

@@ -8,4 +8,12 @@
 // MARK: NetworkingErrorsEnum
 "unableToGetData" = "Unable to get data";
 "wrongUserCredentials" = "Wrong user credentials";
-"email" = "email";
+
+// MARK: Authorization
+"email" = "Email";
+"password" = "Password";
+"login" = "Log in";
+"register" = "Register";
+
+// MARK: Toolbar items
+"ready" = "Ready";

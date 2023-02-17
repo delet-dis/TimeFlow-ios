@@ -8,4 +8,12 @@
 // MARK: NetworkingErrorsEnum
 "unableToGetData" = "Невозможно получить данные";
 "wrongUserCredentials" = "Неверные пользовательские данные";
+
+// MARK: Authorization
 "email" = "Почта";
+"password" = "Пароль";
+"login" = "Войти";
+"register" = "Зарегистрироваться";
+
+// MARK: Toolbar items
+"ready" = "Готово";

@@ -12,11 +12,7 @@ struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewModel
 
     @State private var displayMode = MainViewDisaplyingModeEnum.authorization
-    @State private var splashScreen = true
-
-    init() {
-        registerProviderFactories()
-    }
+    @State private var isSplashDisplaying = true
 
     var body: some View {
         ZStack {}
