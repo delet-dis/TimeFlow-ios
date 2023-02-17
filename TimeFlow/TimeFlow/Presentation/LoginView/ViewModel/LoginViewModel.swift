@@ -7,7 +7,4 @@
 
 import Foundation
 
-
-class LoginViewModel: ObservableObject{
-    
-}
+class LoginViewModel: ObservableObject {}

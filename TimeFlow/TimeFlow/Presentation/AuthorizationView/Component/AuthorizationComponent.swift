@@ -9,20 +9,22 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
+protocol AuthorizationComponentDependency: Dependency {
+    var loginUseCase: LoginUseCase { get }
+}
 
- final class AuthorizationComponent: BootstrapComponent{
-    
-//     var authorizationViewModel: AuthorizationViewModel {
-////         shared {
-////             AuthorizationViewModel(authorizationViewModel: authorizationViewModel)
-//       }
-//     }
+final class AuthorizationComponent: Component<AuthorizationComponentDependency> {
+    var authorizationViewModel: AuthorizationViewModel {
+        shared {
+            AuthorizationViewModel(
+                loginUseCase: dependency.loginUseCase)
+        }
+    }
 
-    
-//     var authorizationView: some View{
-//         shared{
-//             AuthorizationView()
-//                 .environmentObject(authorizationViewModel)
-//         }
-//     }
+    var authorizationView: some View {
+        shared {
+            AuthorizationView()
+                .environmentObject(authorizationViewModel)
+        }
+    }
 }

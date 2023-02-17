@@ -7,8 +7,4 @@
 
 import Foundation
 
-class MainViewModel: ObservableObject {
-    
-    
-    
-}
+class MainViewModel: ObservableObject {}

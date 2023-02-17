@@ -8,3 +8,4 @@
 // MARK: NetworkingErrorsEnum
 "unableToGetData" = "Невозможно получить данные";
 "wrongUserCredentials" = "Неверные пользовательские данные";
+"email" = "Почта";

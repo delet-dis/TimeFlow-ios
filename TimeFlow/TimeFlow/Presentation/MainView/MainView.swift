@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewModel
-    
+
     @State private var displayMode = MainViewDisaplyingModeEnum.authorization
     @State private var splashScreen = true
 
@@ -19,17 +19,12 @@ struct MainView: View {
     }
 
     var body: some View {
-        ZStack {
-           
-        }
+        ZStack {}
     }
 }
 
 struct MainView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         MainView()
-            
     }
 }

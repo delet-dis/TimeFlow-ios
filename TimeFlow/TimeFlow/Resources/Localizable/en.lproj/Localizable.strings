@@ -8,3 +8,4 @@
 // MARK: NetworkingErrorsEnum
 "unableToGetData" = "Unable to get data";
 "wrongUserCredentials" = "Wrong user credentials";
+"email" = "email";

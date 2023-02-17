@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-//struct LoginView: View {
+// struct LoginView: View {
 //    @EnvironmentObject private var viewModel: LoginViewModel
-//    
+//
 //    @State private var displayMode = MainViewDisaplyingModeEnum.authorization
-//    
-//}
+//
+// }

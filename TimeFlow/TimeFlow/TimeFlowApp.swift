@@ -16,7 +16,8 @@ struct TimeFlowApp: App {
 
       var body: some Scene {
           WindowGroup {
-              MainComponent().mainView
+             MainComponent().mainView
+             
           }
       }
 }

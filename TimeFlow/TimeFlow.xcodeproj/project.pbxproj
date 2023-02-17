@@ -31,6 +31,10 @@
 		3078185B299BD13900FD916D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185A299BD13900FD916D /* MainView.swift */; };
 		3078185D299BD16D00FD916D /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185C299BD16D00FD916D /* MainComponent.swift */; };
 		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
+		4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849D8299FC8600050439F /* RegistrationView.swift */; };
+		4F0849DB299FC8A20050439F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DA299FC8A20050439F /* RegistrationViewModel.swift */; };
+		4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DD299FC9820050439F /* RegistrationComponent.swift */; };
+		4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0849E0299FCA400050439F /* SwiftyUserDefaults */; };
 		4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */; };
 		4F58629D299E096300DB82FC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629C299E096300DB82FC /* LoginView.swift */; };
 		4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629E299E099200DB82FC /* LoginViewModel.swift */; };
@@ -63,6 +67,10 @@
 		3078185A299BD13900FD916D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3078185C299BD16D00FD916D /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		4F0849D8299FC8600050439F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		4F0849DA299FC8A20050439F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		4F0849DD299FC9820050439F /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
+		4F4E7FFB299F586000DFE386 /* Raleway.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Raleway.ttf; path = "../../../../../../../Downloads/Raleway-2/Raleway.ttf"; sourceTree = "<group>"; };
 		4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDisaplyingModeEnum.swift; sourceTree = "<group>"; };
 		4F58629C299E096300DB82FC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4F58629E299E099200DB82FC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 				3078184D299BD01B00FD916D /* NeedleFoundation in Frameworks */,
 				3078182D299BC99F00FD916D /* KeychainAccess in Frameworks */,
 				3078182A299BC95F00FD916D /* Alamofire in Frameworks */,
+				4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */,
 				30781849299BCE9000FD916D /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +242,7 @@
 		30781836299BCC0100FD916D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F4E7FF9299F576000DFE386 /* Fonts */,
 				4F5862A6299E0C4B00DB82FC /* StyleField */,
 				30781837299BCC1900FD916D /* Localizable */,
 			);
@@ -250,6 +260,7 @@
 		30781854299BD10700FD916D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4F0849D4299FC8310050439F /* RegistrationView */,
 				4F5862A0299E0AA000DB82FC /* AuthorizationView */,
 				4F586298299E092600DB82FC /* LoginView */,
 				30781855299BD10F00FD916D /* MainView */,
@@ -281,6 +292,40 @@
 				30781858299BD12500FD916D /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F0849D4299FC8310050439F /* RegistrationView */ = {
+			isa = PBXGroup;
+			children = (
+				4F0849D5299FC83A0050439F /* Component */,
+				4F0849D6299FC8460050439F /* ViewModel */,
+				4F0849D8299FC8600050439F /* RegistrationView.swift */,
+			);
+			path = RegistrationView;
+			sourceTree = "<group>";
+		};
+		4F0849D5299FC83A0050439F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4F0849DD299FC9820050439F /* RegistrationComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4F0849D6299FC8460050439F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F0849DA299FC8A20050439F /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F4E7FF9299F576000DFE386 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F4E7FFB299F586000DFE386 /* Raleway.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		4F586292299E07B400DB82FC /* Data */ = {
@@ -401,6 +446,7 @@
 				3078182C299BC99F00FD916D /* KeychainAccess */,
 				30781848299BCE9000FD916D /* RswiftLibrary */,
 				3078184C299BD01B00FD916D /* NeedleFoundation */,
+				4F0849E0299FCA400050439F /* SwiftyUserDefaults */,
 			);
 			productName = TimeFlow;
 			productReference = 30781817299BC88600FD916D /* TimeFlow.app */;
@@ -436,6 +482,7 @@
 				3078182B299BC99F00FD916D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				30781847299BCE9000FD916D /* XCRemoteSwiftPackageReference "R.swift" */,
 				3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */,
+				4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 			);
 			productRefGroup = 30781818299BC88600FD916D /* Products */;
 			projectDirPath = "";
@@ -505,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */,
+				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
 				303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				4F5862AB299E0E3B00DB82FC /* LoginTextFieldStyle.swift in Sources */,
@@ -513,11 +561,13 @@
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
+				4F0849DB299FC8A20050439F /* RegistrationViewModel.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
 				4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */,
 				303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
+				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
 				4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */,
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
@@ -784,6 +834,14 @@
 				minimumVersion = 0.22.0;
 			};
 		};
+		4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -810,6 +868,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		4F0849E0299FCA400050439F /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
