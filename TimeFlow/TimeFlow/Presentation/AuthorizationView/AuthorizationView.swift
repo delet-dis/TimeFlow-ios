@@ -14,6 +14,7 @@ struct AuthorizationView: View {
     }
 
     @EnvironmentObject private var viewModel: AuthorizationViewModel
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
 
     @FocusState private var focusedField: Field?
 
@@ -131,6 +132,7 @@ struct AuthorizationView: View {
                 }
             }
             .ignoresSafeArea(.keyboard)
+            .padding(.bottom, safeAreaInsets.bottom > 0 ? 0 : 10)
         }
         .background(
             VStack {
