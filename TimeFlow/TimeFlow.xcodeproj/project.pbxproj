@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */; };
 		303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8466299E815E003D8FC3 /* AuthRepository.swift */; };
 		303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E846E299E891F003D8FC3 /* UserCredentials.swift */; };
 		303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedTextField.swift; sourceTree = "<group>"; };
+		3016F99129A08E6A00B5EFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		303E8466299E815E003D8FC3 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		303E846E299E891F003D8FC3 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		30781819299BC88600FD916D /* TimeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				3016F99129A08E6A00B5EFED /* Info.plist */,
 				4F586292299E07B400DB82FC /* Data */,
 				303E8463299E8132003D8FC3 /* Domain */,
 				30781854299BD10700FD916D /* Presentation */,
@@ -306,6 +310,7 @@
 			children = (
 				4F5862A7299E0C6A00DB82FC /* ViewWithRoundedGradientBackground.swift */,
 				30E1D490299FF8B5001E1529 /* YellowPurpleGradient.swift */,
+				3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
 				303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
+				3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */,
 				4F5862AB299E0E3B00DB82FC /* ViewWithRoundedGradientBackground.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
@@ -744,11 +750,13 @@
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,11 +782,13 @@
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

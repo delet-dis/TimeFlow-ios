@@ -13,7 +13,7 @@ var yellowPurpleGradient: LinearGradient {
         Gradient(
             colors:
             [Color(R.color.gradientYellow() ?? .white),
-             Color(R.color.gradientLightYellow() ?? .white),
+             Color(R.color.lightYellow() ?? .white),
              Color(R.color.gradientPurple() ?? .white)]),
         startPoint: .bottomTrailing,
         endPoint: .topLeading)

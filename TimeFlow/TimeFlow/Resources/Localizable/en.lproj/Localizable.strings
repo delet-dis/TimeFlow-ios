@@ -12,8 +12,11 @@
 // MARK: Authorization
 "email" = "Email";
 "password" = "Password";
-"login" = "Log in";
+"login" = "Login";
 "register" = "Register";
+"hello" = "Hello 👋🏻";
+"pleaseLogin" = "Please login to view your schedule";
+"dontHaveAnAccount" = "Don't have an account?";
 
 // MARK: Toolbar items
 "ready" = "Ready";
