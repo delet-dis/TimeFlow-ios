@@ -44,6 +44,7 @@
 		4F0849DB299FC8A20050439F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DA299FC8A20050439F /* RegistrationViewModel.swift */; };
 		4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DD299FC9820050439F /* RegistrationComponent.swift */; };
 		4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0849E0299FCA400050439F /* SwiftyUserDefaults */; };
+		4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849E529A0BF710050439F /* CustomSecureField.swift */; };
 		4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */; };
 		4F58629D299E096300DB82FC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629C299E096300DB82FC /* LoginView.swift */; };
 		4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58629E299E099200DB82FC /* LoginViewModel.swift */; };
@@ -89,6 +90,7 @@
 		4F0849D8299FC8600050439F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4F0849DA299FC8A20050439F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F0849DD299FC9820050439F /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
+		4F0849E529A0BF710050439F /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDisaplyingModeEnum.swift; sourceTree = "<group>"; };
 		4F58629C299E096300DB82FC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4F58629E299E099200DB82FC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				30E1D490299FF8B5001E1529 /* YellowPurpleGradient.swift */,
 				3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */,
 				30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */,
+				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
 				30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
+				4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
