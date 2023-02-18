@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct AuthorizationView: View {
+struct AuthorizationView: View, KeyboardReadable {
     private enum Field: Hashable {
         case email, password
     }
@@ -20,16 +20,22 @@ struct AuthorizationView: View {
 
     @State private var motionManager = MotionManager()
 
+    @State private var isTopTextDisplaying = true
+
     var body: some View {
         ZStack {
             VStack(spacing: 15) {
                 TextField(R.string.localizable.email(), text: $viewModel.emailText)
+                    .textContentType(.oneTimeCode)
+                    .keyboardType(.emailAddress)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
                     .submitLabel(.next)
                     .focused($focusedField, equals: .email)
                     .onSubmit {
-                        focusedField = .password
+                        DispatchQueue.runAsyncOnMainWithDelay {
+                            focusedField = .password
+                        }
                     }
                     .modifier(ElevatedTextField())
 
@@ -68,9 +74,15 @@ struct AuthorizationView: View {
                         Spacer()
                     }
                 }
+                .opacity(isTopTextDisplaying ? 1 : 0)
                 .padding(.bottom, 450)
                 .padding(.horizontal, 24)
                 .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 10))
+                .onReceive(keyboardPublisher) { isKeyboardVisible in
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        isTopTextDisplaying = !isKeyboardVisible
+                    }
+                }
             }
             .overlay {
                 HStack {
