@@ -15,7 +15,7 @@ struct MainView: View {
     @State private var isSplashDisplaying = true
 
     var body: some View {
-        ZStack {}
+        viewModel.authorizationComponent?.authorizationView
     }
 }
 

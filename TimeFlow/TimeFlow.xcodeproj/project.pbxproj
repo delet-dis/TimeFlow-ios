@@ -32,6 +32,7 @@
 		3078185B299BD13900FD916D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185A299BD13900FD916D /* MainView.swift */; };
 		3078185D299BD16D00FD916D /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185C299BD16D00FD916D /* MainComponent.swift */; };
 		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
+		30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */; };
 		30E1D488299FF1DB001E1529 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */; };
 		30E1D489299FF1DB001E1529 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */; };
 		30E1D48A299FF1DB001E1529 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */; };
@@ -74,6 +75,7 @@
 		3078185A299BD13900FD916D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3078185C299BD16D00FD916D /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxMotionModifier.swift; sourceTree = "<group>"; };
 		30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				4F5862A7299E0C6A00DB82FC /* ViewWithRoundedGradientBackground.swift */,
 				30E1D490299FF8B5001E1529 /* YellowPurpleGradient.swift */,
 				3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */,
+				30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */,
 				4F5862AB299E0E3B00DB82FC /* ViewWithRoundedGradientBackground.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
+				30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
@@ -747,6 +751,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeFlow/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -779,6 +784,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeFlow/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;

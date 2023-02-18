@@ -17,6 +17,8 @@ struct AuthorizationView: View {
 
     @FocusState private var focusedField: Field?
 
+    @State private var motionManager = MotionManager()
+
     var body: some View {
         ZStack {
             VStack(spacing: 15) {
@@ -53,6 +55,7 @@ struct AuthorizationView: View {
                         Text(R.string.localizable.pleaseLogin())
                             .multilineTextAlignment(.leading)
                             .lineLimit(2)
+                            .fixedSize(horizontal: false, vertical: true)
                             .font(
                                 Font(
                                     R.font.ralewayMedium(size: 20) ??
@@ -66,6 +69,7 @@ struct AuthorizationView: View {
                 }
                 .padding(.bottom, 450)
                 .padding(.horizontal, 24)
+                .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 10))
             }
             .overlay {
                 HStack {
@@ -144,6 +148,7 @@ struct AuthorizationView: View {
                 Spacer()
             }
             .ignoresSafeArea()
+            .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
         )
         .toolbar {
             ToolbarItem(placement: .keyboard) {
