@@ -32,6 +32,11 @@ private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: Needle
 }
 
 #else
+extension RegistrationComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension AuthorizationComponent: Registration {
     public func registerItems() {
         keyPathToName[\AuthorizationComponentDependency.loginUseCase] = "loginUseCase-LoginUseCase"
@@ -59,6 +64,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
+    registerProviderFactory("^->RegistrationComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
 }

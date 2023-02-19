@@ -39,7 +39,6 @@ struct AuthorizationView: View, KeyboardReadable {
                     }
                     .modifier(ElevatedTextField())
 
-//                SecureField(R.string.localizable.password(), text: $viewModel.passwordText)
                 CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)

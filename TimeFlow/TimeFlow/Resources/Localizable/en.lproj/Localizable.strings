@@ -20,3 +20,20 @@
 
 // MARK: Toolbar items
 "ready" = "Ready";
+
+// MARK: Registration
+"helloRegister" = "Registration 🔐";
+"firstName" = "First name";
+"secondName" = "Second name";
+"middleName" = "Patronymic";
+"male" = "Male";
+"female" = "Female";
+"passwordConfirmation" = "Password confirmation";
+"chooseGroup" = "Choose a group";
+"iHaveAnAccount" = "I have an account";
+"registration" = "Registration";
+"contactNumber" = "Number phone";
+"chooseTypeOfUser" = "Choose the type of user 🧐";
+"student" = "Student";
+"externalUser" = "External User";
+"teacher" = "Teacher";
