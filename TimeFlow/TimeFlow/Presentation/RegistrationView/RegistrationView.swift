@@ -5,96 +5,101 @@
 //  Created by Семён Алимпиев on 17.02.2023.
 //
 
+import AxisSegmentedView
 import Foundation
 import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    @State private var isTopTextDisplaying = true
 
     var body: some View {
         VStack(spacing: 20) {
-            NavigationLink(destination: StudentRegistrationView(), label: {
-                Button {
-                    viewModel.setStudentRegistrationViewClousure?()
-                } label: {
-                    Text(R.string.localizable.student())
-                        .font(
-                            Font(
-                                R.font.ralewayBold(size: 15) ??
-                                    .systemFont(ofSize: 15, weight: .medium)
-                            )
-                        )
-                        .foregroundColor(.white)
-                }
-                .padding()
-                .cornerRadius(16)
-                .frame(minWidth: 0,
-                       maxWidth: .infinity)
-                .background {
-                    RoundedRectangle(cornerRadius: 90)
-                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                        .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-                }
-            })
-
-            Button {
-                viewModel.setTeacherRegistrationViewClousure?()
-            } label: {
-                Text(R.string.localizable.teacher())
+            HStack {
+                Text(R.string.localizable.helloRegister())
                     .font(
-                        Font(
-                            R.font.ralewayBold(size: 15) ??
-                                .systemFont(ofSize: 15, weight: .medium)
-                        )
+                        Font(R.font.ralewayBold(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
                     )
-                    .foregroundColor(.white)
-            }
-            .padding()
-            .cornerRadius(16)
-            .frame(minWidth: 0,
-                   maxWidth: .infinity)
-            .background {
-                RoundedRectangle(cornerRadius: 90)
-                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-            }
-            Button {} label: {
-                Text(R.string.localizable.externalUser())
-                    .font(
-                        Font(
-                            R.font.ralewayBold(size: 15) ??
-                                .systemFont(ofSize: 15, weight: .medium)
-                        )
-                    )
-                    .foregroundColor(.white)
-            }
-            .padding()
-            .cornerRadius(16)
-            .frame(minWidth: 0,
-                   maxWidth: .infinity)
-            .background {
-                RoundedRectangle(cornerRadius: 90)
-                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-            }
-        }
-        .overlay {
-            VStack(spacing: 15) {
-                HStack {
-                    Text(R.string.localizable.helloRegister())
-                        .font(
-                            Font(R.font.ralewayBold(size: 45) ?? .systemFont(ofSize: 45, weight: .medium))
-                        )
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
 
-                    Spacer()
-                }
+                Spacer()
             }
-            .opacity(isTopTextDisplaying ? 1 : 0)
-            .padding(.bottom, 450)
+
+            AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
+                ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
+                    Text(role.savedValue)
+                        .itemTag(role.rawValue)
+                }
+            } style: {
+                ASCapsuleStyle(
+                    backgroundColor: .white,
+                    foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
+                    movementMode: .viscosity
+                )
+            }
+
+//            NavigationLink(destination: StudentRegistrationView(), label: {
+//                Button {
+//                    viewModel.setStudentRegistrationViewClousure?()
+//                } label: {
+//                    Text(R.string.localizable.student())
+//                        .font(
+//                            Font(
+//                                R.font.ralewayBold(size: 15) ??
+//                                    .systemFont(ofSize: 15, weight: .medium)
+//                            )
+//                        )
+//                        .foregroundColor(.white)
+//                }
+//                .padding()
+//                .cornerRadius(16)
+//                .frame(minWidth: 0,
+//                       maxWidth: .infinity)
+//                .background {
+//                    RoundedRectangle(cornerRadius: 90)
+//                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+//                        .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+//                }
+//            })
+//
+//            Button {
+//                viewModel.setTeacherRegistrationViewClousure?()
+//            } label: {
+//                Text(R.string.localizable.teacher())
+//                    .font(
+//                        Font(
+//                            R.font.ralewayBold(size: 15) ??
+//                                .systemFont(ofSize: 15, weight: .medium)
+//                        )
+//                    )
+//                    .foregroundColor(.white)
+//            }
+//            .padding()
+//            .cornerRadius(16)
+//            .frame(minWidth: 0,
+//                   maxWidth: .infinity)
+//            .background {
+//                RoundedRectangle(cornerRadius: 90)
+//                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+//                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+//            }
+//            Button {} label: {
+//                Text(R.string.localizable.externalUser())
+//                    .font(
+//                        Font(
+//                            R.font.ralewayBold(size: 15) ??
+//                                .systemFont(ofSize: 15, weight: .medium)
+//                        )
+//                    )
+//                    .foregroundColor(.white)
+//            }
+//            .padding()
+//            .cornerRadius(16)
+//            .frame(minWidth: 0,
+//                   maxWidth: .infinity)
+//            .background {
+//                RoundedRectangle(cornerRadius: 90)
+//                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+//                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+//            }
         }
     }
 }

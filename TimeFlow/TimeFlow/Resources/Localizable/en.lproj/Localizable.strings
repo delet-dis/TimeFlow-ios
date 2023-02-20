@@ -34,7 +34,8 @@
 "signIn" = "Sign in";
 "registration" = "Registration";
 "contactNumber" = "Number phone";
-"chooseTypeOfUser" = "Choose the type of user 🧐";
-"student" = "Student";
-"externalUser" = "External User";
-"teacher" = "Teacher";
+"chooseTypeOfUser" = "User type";
+"student" = "🧑🏻‍🎓";
+"externalUser" = "🦹🏻";
+"teacher" = "👨🏻‍🏫";
+"pick" = "Pick";

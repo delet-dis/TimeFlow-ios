@@ -67,15 +67,18 @@ struct ExternalUserRegistrationView: View {
                         Text(R.string.localizable.male())
                             .tag(GenderPickerEnum.MALE)
                     }
-
                     .pickerStyle(.segmented)
-
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-
                     .background {
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+                    }
+                    .onAppear {
+                        Self.enableCustomSegmentedControlStyle()
+                    }
+                    .onDisappear {
+                        Self.disableCustomSegmentedControlStyle()
                     }
 
                     TextField(R.string.localizable.email(), text: $viewModel.emailText)
@@ -127,9 +130,6 @@ struct ExternalUserRegistrationView: View {
                     .ignoresSafeArea()
                     .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
                 )
-                .onAppear {
-                    Self.confrimCustomPickerStyle()
-                }
                 .padding(.horizontal, 15)
             }
             VStack(spacing: 15) {

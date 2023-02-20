@@ -42,6 +42,8 @@
 		30E1D488299FF1DB001E1529 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */; };
 		30E1D489299FF1DB001E1529 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */; };
 		30E1D48A299FF1DB001E1529 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */; };
+		30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */; };
+		30FE8BCE29A39E84008AC4F2 /* AxisSegmentedView in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */; };
 		4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849D8299FC8600050439F /* RegistrationView.swift */; };
 		4F0849DB299FC8A20050439F /* StudentRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DA299FC8A20050439F /* StudentRegistrationViewModel.swift */; };
 		4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DD299FC9820050439F /* RegistrationComponent.swift */; };
@@ -103,6 +105,7 @@
 		30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		4F0849D8299FC8600050439F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4F0849DA299FC8A20050439F /* StudentRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F0849DD299FC9820050439F /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 				3078182A299BC95F00FD916D /* Alamofire in Frameworks */,
 				4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */,
 				30781849299BCE9000FD916D /* RswiftLibrary in Frameworks */,
+				30FE8BCE29A39E84008AC4F2 /* AxisSegmentedView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +438,7 @@
 			children = (
 				4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */,
 				30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */,
+				30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				30781848299BCE9000FD916D /* RswiftLibrary */,
 				3078184C299BD01B00FD916D /* NeedleFoundation */,
 				4F0849E0299FCA400050439F /* SwiftyUserDefaults */,
+				30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */,
 			);
 			productName = TimeFlow;
 			productReference = 30781817299BC88600FD916D /* TimeFlow.app */;
@@ -563,6 +569,7 @@
 				30781847299BCE9000FD916D /* XCRemoteSwiftPackageReference "R.swift" */,
 				3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */,
 				4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */,
 			);
 			productRefGroup = 30781818299BC88600FD916D /* Products */;
 			projectDirPath = "";
@@ -678,6 +685,7 @@
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,
 				303E8478299E8B4D003D8FC3 /* VoidResponse.swift in Sources */,
+				30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */,
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
 				303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */,
 				303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */,
@@ -946,6 +954,14 @@
 				minimumVersion = 0.22.0;
 			};
 		};
+		30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/AxisSegmentedView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.2;
+			};
+		};
 		4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
@@ -980,6 +996,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */;
+			productName = AxisSegmentedView;
 		};
 		4F0849E0299FCA400050439F /* SwiftyUserDefaults */ = {
 			isa = XCSwiftPackageProductDependency;

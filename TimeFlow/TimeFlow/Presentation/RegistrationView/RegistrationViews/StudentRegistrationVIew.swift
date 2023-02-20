@@ -74,15 +74,18 @@ struct StudentRegistrationView: View {
                             .foregroundColor(.clear)
                     }
                     .cornerRadius(80)
-
                     .pickerStyle(.segmented)
-
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-
                     .background {
                         RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+                    }
+                    .onAppear {
+                        Self.enableCustomSegmentedControlStyle()
+                    }
+                    .onDisappear {
+                        Self.disableCustomSegmentedControlStyle()
                     }
 
                     TextField(R.string.localizable.email(), text: $viewModel.emailText)
@@ -166,7 +169,7 @@ struct StudentRegistrationView: View {
                     .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
                 )
                 .onAppear {
-                    Self.confrimCustomPickerStyle()
+                    Self.enableCustomSegmentedControlStyle()
                 }
                 .padding(.horizontal, 15)
             }

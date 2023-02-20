@@ -29,9 +29,9 @@ extension KeyboardReadable {
 }
 
 extension View {
-    static func confrimCustomPickerStyle() {
+    static func enableCustomSegmentedControlStyle() {
         let defaultSize = CGSize(width: 20, height: 15)
-
+        
         let tintColorImage = UIImage(color: R.color.lightYellow() ?? .yellow, size: defaultSize)
         UISegmentedControl.appearance().setBackgroundImage(
             UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default
@@ -52,6 +52,20 @@ extension View {
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor: UIColor.white],
             for: .selected
+        )
+    }
+
+    static func disableCustomSegmentedControlStyle() {
+        UISegmentedControl.appearance().setBackgroundImage(
+            nil,
+            for: [.normal, .highlighted, .selected],
+            barMetrics: .default
+        )
+        UISegmentedControl.appearance().setDividerImage(
+            nil,
+            forLeftSegmentState: .normal,
+            rightSegmentState: .normal,
+            barMetrics: .default
         )
     }
 }
