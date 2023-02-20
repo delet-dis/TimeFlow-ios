@@ -14,11 +14,8 @@ struct AuthorizationView: View, KeyboardReadable {
     }
 
     @EnvironmentObject private var viewModel: AuthorizationViewModel
-    @Environment(\.safeAreaInsets) private var safeAreaInsets
 
     @FocusState private var focusedField: Field?
-
-    @State private var motionManager = MotionManager()
 
     @State private var isTopTextDisplaying = true
 
@@ -49,7 +46,6 @@ struct AuthorizationView: View, KeyboardReadable {
                 .focused($focusedField, equals: .password)
                 .modifier(ElevatedTextField())
             }
-            .padding(.horizontal, 24)
             .overlay {
                 VStack(spacing: 15) {
                     HStack {
@@ -80,7 +76,6 @@ struct AuthorizationView: View, KeyboardReadable {
                 .opacity(isTopTextDisplaying ? 1 : 0)
                 .padding(.bottom, 450)
                 .padding(.horizontal, 24)
-                .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 10))
                 .onReceive(keyboardPublisher) { isKeyboardVisible in
                     withAnimation(.easeInOut(duration: 0.2)) {
                         isTopTextDisplaying = !isKeyboardVisible
@@ -119,54 +114,8 @@ struct AuthorizationView: View, KeyboardReadable {
                     .shadow(color: Color(uiColor: R.color.lightYellow() ?? .yellow), radius: 20, x: 0, y: 0)
                 }
                 .padding(.top, 250)
-                .padding(.horizontal, 24)
             }
-
-            VStack(spacing: 15) {
-                // TODO: Добавить проверку на валидность полей и отобразить кнопку в другом состоянии
-                Spacer()
-
-                HStack(spacing: 3) {
-                    Text(R.string.localizable.dontHaveAnAccount())
-                        .font(
-                            Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium))
-                        )
-
-                    Button {
-                        viewModel.setRegisrationViewClousure?()
-                    } label: {
-                        Text(R.string.localizable.register())
-                            .font(
-                                Font(
-                                    R.font.ralewayBold(size: 15) ??
-                                        .systemFont(ofSize: 15, weight: .medium)
-                                )
-                            )
-                            .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                    }
-                }
-            }
-            .ignoresSafeArea(.keyboard)
-            .padding(.bottom, safeAreaInsets.bottom > 0 ? 0 : 10)
         }
-        .background(
-            VStack {
-                HStack {
-                    Spacer()
-
-                    Image(uiImage: R.image.appIconCopy() ?? .strokedCheckmark)
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(30)
-                        .blur(radius: 6)
-                        .rotationEffect(.degrees(-30))
-                }
-
-                Spacer()
-            }
-            .ignoresSafeArea()
-            .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
-        )
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {

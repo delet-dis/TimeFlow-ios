@@ -7,4 +7,26 @@
 
 import Foundation
 
-class LoginViewModel: ObservableObject {}
+class LoginViewModel: ObservableObject {
+    @Published private(set) var viewDisplayingMode = LoginViewDisplayingModeEnum.authorization
+
+    let authorizationComponent: AuthorizationComponent?
+    let registrationComponent: RegistrationComponent?
+
+    init(
+        authorizationComponent: AuthorizationComponent? = nil,
+        registrationComponent: RegistrationComponent? = nil
+    ) {
+        self.authorizationComponent = authorizationComponent
+        self.registrationComponent = registrationComponent
+    }
+
+    func changeDisplayingMode() {
+        switch viewDisplayingMode {
+        case .authorization:
+            viewDisplayingMode = .registration
+        case .registration:
+            viewDisplayingMode = .authorization
+        }
+    }
+}

@@ -154,7 +154,7 @@ struct ExternalUserRegistrationView: View {
                 }
 
                 Button {} label: {
-                    Text(R.string.localizable.iHaveAnAccount())
+                    Text(R.string.localizable.alreadyHaveAnAccount())
                         .font(
                             Font(
                                 R.font.ralewayBold(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)
@@ -170,10 +170,10 @@ struct ExternalUserRegistrationView: View {
 }
 
 struct ExternalUserRegistrationView_Preview: PreviewProvider {
-    private static let registrationComponent = RegistrationComponent()
+    private static let mainComponent = MainComponent()
 
     static var previews: some View {
         ExternalUserRegistrationView()
-            .environmentObject(registrationComponent.externalUserRegistrationViewModel)
+            .environmentObject(mainComponent.registrationComponent.externalUserRegistrationViewModel)
     }
 }

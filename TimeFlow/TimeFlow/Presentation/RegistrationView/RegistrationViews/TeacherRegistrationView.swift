@@ -162,7 +162,7 @@ struct TeacherRegistrationView: View {
                 }
 
                 Button {} label: {
-                    Text(R.string.localizable.iHaveAnAccount())
+                    Text(R.string.localizable.alreadyHaveAnAccount())
                         .font(
                             Font(
                                 R.font.ralewayBold(size: 15) ??
@@ -180,10 +180,10 @@ struct TeacherRegistrationView: View {
 }
 
 struct TeacherRegistrationView_Preview: PreviewProvider {
-    private static let registrationComponent = RegistrationComponent()
+    private static let mainComponent = MainComponent()
 
     static var previews: some View {
         TeacherRegistrationView()
-            .environmentObject(registrationComponent.teacherRegistrationViewModel)
+            .environmentObject(mainComponent.registrationComponent.teacherRegistrationViewModel)
     }
 }

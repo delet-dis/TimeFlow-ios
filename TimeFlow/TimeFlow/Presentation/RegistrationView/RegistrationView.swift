@@ -10,7 +10,6 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    @State private var motionManager = MotionManager()
     @State private var isTopTextDisplaying = true
 
     var body: some View {
@@ -83,10 +82,13 @@ struct RegistrationView: View {
         .overlay {
             VStack(spacing: 15) {
                 HStack {
-                    Text(R.string.localizable.chooseTypeOfUser())
+                    Text(R.string.localizable.helloRegister())
                         .font(
-                            Font(R.font.ralewayBold(size: 25) ?? .systemFont(ofSize: 25, weight: .medium))
+                            Font(R.font.ralewayBold(size: 45) ?? .systemFont(ofSize: 45, weight: .medium))
                         )
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
 
                     Spacer()
                 }
@@ -94,33 +96,14 @@ struct RegistrationView: View {
             .opacity(isTopTextDisplaying ? 1 : 0)
             .padding(.bottom, 450)
         }
-        .background(
-            VStack {
-                HStack {
-                    Spacer()
-
-                    Image(uiImage: R.image.appIconCopy() ?? .strokedCheckmark)
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(30)
-                        .blur(radius: 6)
-                        .rotationEffect(.degrees(-30))
-                }
-
-                Spacer()
-            }
-            .ignoresSafeArea()
-            .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
-        )
-        .padding(.horizontal, 20)
     }
 }
 
 struct RegistrationView_Preview: PreviewProvider {
-    private static let registrationComponent = RegistrationComponent()
+    private static let mainComponent = MainComponent()
 
     static var previews: some View {
         RegistrationView()
-            .environmentObject(registrationComponent.registrationViewModel)
+            .environmentObject(mainComponent.registrationComponent.registrationViewModel)
     }
 }

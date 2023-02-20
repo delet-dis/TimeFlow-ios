@@ -16,7 +16,10 @@ struct TimeFlowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainComponent().mainView
+            GeometryReader { proxy in
+                MainComponent().mainView
+                    .environment(\.mainWindowSize, proxy.size)
+            }
         }
     }
 }

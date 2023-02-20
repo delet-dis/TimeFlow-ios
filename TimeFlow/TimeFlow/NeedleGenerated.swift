@@ -17,6 +17,17 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: RegistrationComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->RegistrationComponent
+private func factorybf509de48c6e5261a880e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return RegistrationComponentDependency45ce06ac0365c929bb6bProvider()
+}
 private class AuthorizationComponentDependency01c300e9208281b9a593Provider: AuthorizationComponentDependency {
     var loginUseCase: LoginUseCase {
         return mainComponent.loginUseCase
@@ -29,6 +40,22 @@ private class AuthorizationComponentDependency01c300e9208281b9a593Provider: Auth
 /// ^->MainComponent->AuthorizationComponent
 private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return AuthorizationComponentDependency01c300e9208281b9a593Provider(mainComponent: parent1(component) as! MainComponent)
+}
+private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
+    var authorizationComponent: AuthorizationComponent {
+        return mainComponent.authorizationComponent
+    }
+    var registrationComponent: RegistrationComponent {
+        return mainComponent.registrationComponent
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->LoginComponent
+private func factory7d788d11c001389505f70ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return LoginComponentDependency09f1bea0f04d764af082Provider(mainComponent: parent1(component) as! MainComponent)
 }
 
 #else
@@ -48,6 +75,12 @@ extension MainComponent: Registration {
 
     }
 }
+extension LoginComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\LoginComponentDependency.authorizationComponent] = "authorizationComponent-AuthorizationComponent"
+        keyPathToName[\LoginComponentDependency.registrationComponent] = "registrationComponent-RegistrationComponent"
+    }
+}
 
 
 #endif
@@ -64,9 +97,10 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
-    registerProviderFactory("^->RegistrationComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a880e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
 }
 #endif
 

@@ -9,7 +9,9 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-final class RegistrationComponent: BootstrapComponent {
+protocol RegistrationComponentDependency: Dependency {}
+
+final class RegistrationComponent: Component<RegistrationComponentDependency> {
     var studentRegistrationViewModel: StudentRegistrationViewModel {
         shared {
             StudentRegistrationViewModel()

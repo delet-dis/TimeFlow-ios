@@ -30,7 +30,8 @@
 "female" = "Female";
 "passwordConfirmation" = "Password confirmation";
 "chooseGroup" = "Choose a group";
-"iHaveAnAccount" = "I have an account";
+"alreadyHaveAnAccount" = "Already have an account?";
+"signIn" = "Sign in";
 "registration" = "Registration";
 "contactNumber" = "Number phone";
 "chooseTypeOfUser" = "Choose the type of user 🧐";

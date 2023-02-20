@@ -52,10 +52,22 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var registrationComponent: RegistrationComponent {
+        shared {
+            RegistrationComponent(parent: self)
+        }
+    }
+
+    var loginComponent: LoginComponent {
+        shared {
+            LoginComponent(parent: self)
+        }
+    }
+
     var mainViewModel: MainViewModel {
         shared {
             MainViewModel(
-                authorizationComponent: authorizationComponent
+                loginComponent: loginComponent
             )
         }
     }

@@ -15,12 +15,15 @@ struct MainView: View {
     @State private var isSplashDisplaying = true
 
     var body: some View {
-        viewModel.authorizationComponent?.authorizationView
+        viewModel.loginComponent?.loginView
     }
 }
 
 struct MainView_Previews: PreviewProvider {
+    private static let mainComponent = MainComponent()
+
     static var previews: some View {
         MainView()
+            .environmentObject(mainComponent.mainViewModel)
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
-    private(set) var authorizationComponent: AuthorizationComponent?
+    private(set) var loginComponent: LoginComponent?
 
-    init(authorizationComponent: AuthorizationComponent? = nil) {
-        self.authorizationComponent = authorizationComponent
+    init(loginComponent: LoginComponent? = nil) {
+        self.loginComponent = loginComponent
     }
 }
