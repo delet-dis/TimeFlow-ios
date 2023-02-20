@@ -38,7 +38,7 @@ struct StudentRegistrationView: View {
                         .onSubmit {
                             focusedField = .firstName
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     TextField(R.string.localizable.firstName(), text: $viewModel.firstName)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -46,7 +46,7 @@ struct StudentRegistrationView: View {
                         .onSubmit {
                             focusedField = .patronymic
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     TextField(R.string.localizable.middleName(), text: $viewModel.middleName)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -54,7 +54,7 @@ struct StudentRegistrationView: View {
                         .onSubmit {
                             focusedField = .email
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     
                     Picker("",
                            selection: $viewModel.genderType) {
@@ -67,13 +67,18 @@ struct StudentRegistrationView: View {
                         Text(R.string.localizable.male())
                             .tag(GenderPickerEnum.male)
                     }
+                           .background{
+                               RoundedRectangle(cornerRadius: 80)
+                                   .foregroundColor(.clear)
+                           }
+                           .cornerRadius(80)
                            
                     .pickerStyle(.segmented)
                            
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
                            
                     .background {
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                     }
@@ -85,7 +90,7 @@ struct StudentRegistrationView: View {
                         .onSubmit {
                             focusedField = .password
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -93,9 +98,9 @@ struct StudentRegistrationView: View {
                         .onSubmit {
                             focusedField = .confrimPassword
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     CustomSecureTextField(R.string.localizable.passwordConfirmation(), text: $viewModel.confirmPasswordText)
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                         .textInputAutocapitalization(.never)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .confrimPassword)
@@ -129,7 +134,7 @@ struct StudentRegistrationView: View {
                     .frame(height: 50)
                     
                     .background {
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                     }
@@ -174,7 +179,7 @@ struct StudentRegistrationView: View {
                 .frame(minWidth: 0,
                        maxWidth: .infinity)
                 .background {
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 90)
                         .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                         .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                 }
@@ -187,7 +192,7 @@ struct StudentRegistrationView: View {
                                     .systemFont(ofSize: 15, weight: .medium)
                             )
                         )
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                 }
                 .backgroundStyle(.blue)
             }

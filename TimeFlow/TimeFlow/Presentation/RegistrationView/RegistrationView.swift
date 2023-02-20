@@ -9,37 +9,39 @@ import Foundation
 import SwiftUI
 
 struct RegistrationView: View {
-   
-
     @EnvironmentObject private var viewModel: RegistrationViewModel
     @State private var motionManager = MotionManager()
     @State private var isTopTextDisplaying = true
-    
+
     var body: some View {
-        
-        
-        VStack(spacing: 20){
-            Button {} label: {
-                Text(R.string.localizable.student())
-                    .font(
-                        Font(
-                            R.font.ralewayBold(size: 15) ??
-                                .systemFont(ofSize: 15, weight: .medium)
+        VStack(spacing: 20) {
+            NavigationLink(destination: StudentRegistrationView(), label: {
+                Button {
+                    viewModel.setStudentRegistrationViewClousure?()
+                } label: {
+                    Text(R.string.localizable.student())
+                        .font(
+                            Font(
+                                R.font.ralewayBold(size: 15) ??
+                                    .systemFont(ofSize: 15, weight: .medium)
+                            )
                         )
-                    )
-                    .foregroundColor(.black)
-            }
-            .padding()
-            .cornerRadius(16)
-            .frame(minWidth: 0,
-                   maxWidth: .infinity)
-            .background {
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(Color(uiColor: .white))
-                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-            }
-            
-            Button {} label: {
+                        .foregroundColor(.white)
+                }
+                .padding()
+                .cornerRadius(16)
+                .frame(minWidth: 0,
+                       maxWidth: .infinity)
+                .background {
+                    RoundedRectangle(cornerRadius: 90)
+                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+                        .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+                }
+            })
+
+            Button {
+                viewModel.setTeacherRegistrationViewClousure?()
+            } label: {
                 Text(R.string.localizable.teacher())
                     .font(
                         Font(
@@ -47,15 +49,15 @@ struct RegistrationView: View {
                                 .systemFont(ofSize: 15, weight: .medium)
                         )
                     )
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
             }
             .padding()
             .cornerRadius(16)
             .frame(minWidth: 0,
                    maxWidth: .infinity)
             .background {
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(Color(uiColor: .white))
+                RoundedRectangle(cornerRadius: 90)
+                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                     .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
             }
             Button {} label: {
@@ -66,28 +68,27 @@ struct RegistrationView: View {
                                 .systemFont(ofSize: 15, weight: .medium)
                         )
                     )
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
             }
             .padding()
             .cornerRadius(16)
             .frame(minWidth: 0,
                    maxWidth: .infinity)
             .background {
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(Color(uiColor: .white))
+                RoundedRectangle(cornerRadius: 90)
+                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                     .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
             }
         }
-        .overlay{
+        .overlay {
             VStack(spacing: 15) {
                 HStack {
                     Text(R.string.localizable.chooseTypeOfUser())
                         .font(
                             Font(R.font.ralewayBold(size: 25) ?? .systemFont(ofSize: 25, weight: .medium))
                         )
-                    
+
                     Spacer()
-                    
                 }
             }
             .opacity(isTopTextDisplaying ? 1 : 0)

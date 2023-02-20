@@ -61,6 +61,7 @@
 		4F85EB7729A2300300C09BEE /* StudentRegistrationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7629A2300300C09BEE /* StudentRegistrationVIew.swift */; };
 		4F85EB7929A2303400C09BEE /* ExternalUserRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7829A2303400C09BEE /* ExternalUserRegistrationView.swift */; };
 		4F85EB7C29A2305B00C09BEE /* TeacherRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7B29A2305B00C09BEE /* TeacherRegistrationView.swift */; };
+		4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		4F85EB7629A2300300C09BEE /* StudentRegistrationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistrationVIew.swift; sourceTree = "<group>"; };
 		4F85EB7829A2303400C09BEE /* ExternalUserRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegistrationView.swift; sourceTree = "<group>"; };
 		4F85EB7B29A2305B00C09BEE /* TeacherRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistrationView.swift; sourceTree = "<group>"; };
+		4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				303E848C299E9011003D8FC3 /* NetworkingHelper.swift */,
+				4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
+				4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
 				4F0849DB299FC8A20050439F /* StudentRegistrationViewModel.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
