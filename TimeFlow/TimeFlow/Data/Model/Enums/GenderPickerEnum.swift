@@ -8,7 +8,7 @@
 import Foundation
 
 enum GenderPickerEnum: Int, Codable {
-    case female = 0
-    case male = 1
+    case FEMALE = 0
+    case MALE = 1
     case none = -1
 }
