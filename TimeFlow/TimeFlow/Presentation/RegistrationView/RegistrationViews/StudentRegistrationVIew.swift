@@ -64,10 +64,10 @@ struct StudentRegistrationView: View {
                             .tag(GenderPickerEnum.none)
 
                         Text(R.string.localizable.female())
-                            .tag(GenderPickerEnum.female)
+                            .tag(GenderPickerEnum.FEMALE)
 
                         Text(R.string.localizable.male())
-                            .tag(GenderPickerEnum.male)
+                            .tag(GenderPickerEnum.MALE)
                     }
                     .background {
                         RoundedRectangle(cornerRadius: 80)
@@ -130,10 +130,10 @@ struct StudentRegistrationView: View {
                             .tag(GenderPickerEnum.none)
 
                         Text("Женщина")
-                            .tag(GenderPickerEnum.male)
+                            .tag(GenderPickerEnum.MALE)
 
                         Text("Мужчина")
-                            .tag(GenderPickerEnum.female)
+                            .tag(GenderPickerEnum.FEMALE)
                     }
                     .pickerStyle(.wheel)
 

@@ -62,10 +62,10 @@ struct TeacherRegistrationView: View {
                             .tag(GenderPickerEnum.none)
 
                         Text(R.string.localizable.female())
-                            .tag(GenderPickerEnum.female)
+                            .tag(GenderPickerEnum.FEMALE)
 
                         Text(R.string.localizable.male())
-                            .tag(GenderPickerEnum.male)
+                            .tag(GenderPickerEnum.MALE)
                     }
 
                     .pickerStyle(.segmented)
