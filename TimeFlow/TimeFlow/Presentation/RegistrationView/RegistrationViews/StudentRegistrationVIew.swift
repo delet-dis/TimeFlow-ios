@@ -14,10 +14,10 @@ struct StudentRegistrationView: View {
     }
 
     @FocusState private var focusedField: Field?
-    
+
     @EnvironmentObject private var viewModel: StudentRegistrationViewModel
     @State private var motionManager = MotionManager()
-    
+
     var body: some View {
         ScrollViewReader { _ in
             ScrollView(showsIndicators: false) {
@@ -27,10 +27,10 @@ struct StudentRegistrationView: View {
                             .font(
                                 Font(R.font.ralewayBold(size: 24) ?? .systemFont(ofSize: 24, weight: .medium))
                             )
-                        
+
                         Spacer()
                     }
-                    
+
                     TextField(R.string.localizable.secondName(), text: $viewModel.secondName)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -55,34 +55,36 @@ struct StudentRegistrationView: View {
                             focusedField = .email
                         }
                         .modifier(ElevatedTextField())
-                    
-                    Picker("",
-                           selection: $viewModel.genderType) {
+
+                    Picker(
+                        "",
+                        selection: $viewModel.genderType
+                    ) {
                         EmptyView()
                             .tag(GenderPickerEnum.none)
-                        
+
                         Text(R.string.localizable.female())
                             .tag(GenderPickerEnum.female)
-                        
+
                         Text(R.string.localizable.male())
                             .tag(GenderPickerEnum.male)
                     }
-                           .background{
-                               RoundedRectangle(cornerRadius: 80)
-                                   .foregroundColor(.clear)
-                           }
-                           .cornerRadius(80)
-                           
+                    .background {
+                        RoundedRectangle(cornerRadius: 80)
+                            .foregroundColor(.clear)
+                    }
+                    .cornerRadius(80)
+
                     .pickerStyle(.segmented)
-                           
+
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-                           
+
                     .background {
                         RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                     }
-                           
+
                     TextField(R.string.localizable.email(), text: $viewModel.emailText)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -91,6 +93,7 @@ struct StudentRegistrationView: View {
                             focusedField = .password
                         }
                         .modifier(ElevatedTextField())
+
                     CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -99,52 +102,56 @@ struct StudentRegistrationView: View {
                             focusedField = .confrimPassword
                         }
                         .modifier(ElevatedTextField())
-                    CustomSecureTextField(R.string.localizable.passwordConfirmation(), text: $viewModel.confirmPasswordText)
-                        .modifier(ElevatedTextField())
-                        .textInputAutocapitalization(.never)
-                        .submitLabel(.done)
-                        .focused($focusedField, equals: .confrimPassword)
-                        .onSubmit {
-                            focusedField = nil
-                        }
-                    
+
+                    CustomSecureTextField(
+                        R.string.localizable.passwordConfirmation(),
+                        text: $viewModel.confirmPasswordText
+                    )
+                    .modifier(ElevatedTextField())
+                    .textInputAutocapitalization(.never)
+                    .submitLabel(.done)
+                    .focused($focusedField, equals: .confrimPassword)
+                    .onSubmit {
+                        focusedField = nil
+                    }
+
                     HStack {
                         Text(R.string.localizable.chooseGroup())
                             .font(
                                 Font(R.font.ralewayBold(size: 20) ?? .systemFont(ofSize: 20, weight: .medium))
                             )
-                        
+
                         Spacer()
                     }
-                    
+
                     Picker("",
                            selection: $viewModel.genderType) {
                         EmptyView()
                             .tag(GenderPickerEnum.none)
-                        
+
                         Text("Женщина")
                             .tag(GenderPickerEnum.male)
-                        
+
                         Text("Мужчина")
                             .tag(GenderPickerEnum.female)
                     }
                     .pickerStyle(.wheel)
-                    
+
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
                     .frame(height: 50)
-                    
+
                     .background {
                         RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                     }
                 }
-                
+
                 .background(
                     VStack {
                         HStack {
                             Spacer()
-                            
+
                             Image(uiImage: R.image.appIconCopy() ?? .strokedCheckmark)
                                 .resizable()
                                 .frame(width: 200, height: 200)
@@ -183,7 +190,7 @@ struct StudentRegistrationView: View {
                         .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                         .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                 }
-                
+
                 Button {} label: {
                     Text(R.string.localizable.iHaveAnAccount())
                         .font(

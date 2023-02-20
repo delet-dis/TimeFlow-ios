@@ -6,62 +6,57 @@
 //
 
 import Foundation
-
-import Foundation
 import NeedleFoundation
 import SwiftUI
 
-
-
-final class RegistrationComponent: BootstrapComponent{
-    
-    var studentRegistrationViewModel: StudentRegistrationViewModel{
+final class RegistrationComponent: BootstrapComponent {
+    var studentRegistrationViewModel: StudentRegistrationViewModel {
         shared {
-           StudentRegistrationViewModel()
+            StudentRegistrationViewModel()
         }
     }
-    
-    var studentRegistrationView: some View{
-        shared{
+
+    var studentRegistrationView: some View {
+        shared {
             StudentRegistrationView()
                 .environmentObject(studentRegistrationViewModel)
         }
     }
-    
-    var teacherRegistrationViewModel: TeacherRegistrationViewModel{
+
+    var teacherRegistrationViewModel: TeacherRegistrationViewModel {
         shared {
-           TeacherRegistrationViewModel()
+            TeacherRegistrationViewModel()
         }
     }
-    
-    var teacherRegistrationView: some View{
-        shared{
+
+    var teacherRegistrationView: some View {
+        shared {
             TeacherRegistrationView()
                 .environmentObject(teacherRegistrationViewModel)
         }
     }
 
-    var externalUserRegistrationViewModel: ExternalUserRegistrationViewModel{
+    var externalUserRegistrationViewModel: ExternalUserRegistrationViewModel {
         shared {
-           ExternalUserRegistrationViewModel()
+            ExternalUserRegistrationViewModel()
         }
     }
 
-    var externalUserRegistrationView: some View{
-        shared{
+    var externalUserRegistrationView: some View {
+        shared {
             ExternalUserRegistrationView()
                 .environmentObject(externalUserRegistrationViewModel)
         }
     }
-    
-    var registrationViewModel: RegistrationViewModel{
-        shared{
+
+    var registrationViewModel: RegistrationViewModel {
+        shared {
             RegistrationViewModel()
         }
     }
-    
-    var registrationView: some View{
-        shared{
+
+    var registrationView: some View {
+        shared {
             RegistrationView()
                 .environmentObject(registrationViewModel)
         }

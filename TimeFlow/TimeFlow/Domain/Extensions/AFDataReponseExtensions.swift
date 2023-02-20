@@ -22,9 +22,9 @@ extension AFDataResponse {
 
         if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode {
             // TODO: Add passing user credentials
-//            logoutUseCase?.execute { _ in
-//                completion?(.failure(NetworkingErrorsEnum.wrongUserCredentials))
-//            }
+            //            logoutUseCase?.execute { _ in
+            //                completion?(.failure(NetworkingErrorsEnum.wrongUserCredentials))
+            //            }
 
             return
         }

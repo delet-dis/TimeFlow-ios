@@ -13,7 +13,7 @@ class MainComponent: BootstrapComponent {
     var jsonDecoder: JSONDecoder {
         shared {
             let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .iso8601
+            //            decoder.dateDecodingStrategy = .iso8601
 
             return decoder
         }
@@ -22,7 +22,7 @@ class MainComponent: BootstrapComponent {
     var jsonEncoder: JSONEncoder {
         shared {
             let encoder = JSONEncoder()
-//            encoder.dateEncodingStrategy = .iso8601
+            //            encoder.dateEncodingStrategy = .iso8601
 
             return encoder
         }

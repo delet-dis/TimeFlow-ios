@@ -39,12 +39,15 @@ struct AuthorizationView: View, KeyboardReadable {
                     }
                     .modifier(ElevatedTextField())
 
-                CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
-                    .disableAutocorrection(true)
-                    .textInputAutocapitalization(.never)
-                    .submitLabel(.done)
-                    .focused($focusedField, equals: .password)
-                    .modifier(ElevatedTextField())
+                CustomSecureTextField(
+                    R.string.localizable.password(),
+                    text: $viewModel.passwordText
+                )
+                .disableAutocorrection(true)
+                .textInputAutocapitalization(.never)
+                .submitLabel(.done)
+                .focused($focusedField, equals: .password)
+                .modifier(ElevatedTextField())
             }
             .padding(.horizontal, 24)
             .overlay {
@@ -168,7 +171,9 @@ struct AuthorizationView: View, KeyboardReadable {
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Button(R.string.localizable.ready()) {
-                        focusedField = nil
+                        withAnimation {
+                            focusedField = nil
+                        }
                     }
                     .foregroundColor(
                         Color(R.color.lightYellow() ?? .yellow)

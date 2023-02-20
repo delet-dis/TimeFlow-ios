@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class ExternalUserRegistrationViewModel: ObservableObject {
     @Published var secondName = ""
     @Published var firstName = ""

@@ -86,6 +86,7 @@ struct ExternalUserRegistrationView: View {
                             focusedField = .password
                         }
                         .modifier(ElevatedTextFieldRegistration())
+
                     CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -94,14 +95,18 @@ struct ExternalUserRegistrationView: View {
                             focusedField = .confrimPassword
                         }
                         .modifier(ElevatedTextFieldRegistration())
-                    CustomSecureTextField(R.string.localizable.passwordConfirmation(), text: $viewModel.confirmPasswordText)
-                        .modifier(ElevatedTextFieldRegistration())
-                        .textInputAutocapitalization(.never)
-                        .submitLabel(.done)
-                        .focused($focusedField, equals: .confrimPassword)
-                        .onSubmit {
-                            focusedField = nil
-                        }
+
+                    CustomSecureTextField(
+                        R.string.localizable.passwordConfirmation(),
+                        text: $viewModel.confirmPasswordText
+                    )
+                    .modifier(ElevatedTextFieldRegistration())
+                    .textInputAutocapitalization(.never)
+                    .submitLabel(.done)
+                    .focused($focusedField, equals: .confrimPassword)
+                    .onSubmit {
+                        focusedField = nil
+                    }
                 }
 
                 .background(
@@ -152,13 +157,11 @@ struct ExternalUserRegistrationView: View {
                     Text(R.string.localizable.iHaveAnAccount())
                         .font(
                             Font(
-                                R.font.ralewayBold(size: 15) ??
-                                    .systemFont(ofSize: 15, weight: .medium)
+                                R.font.ralewayBold(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)
                             )
                         )
                         .foregroundColor(.black)
                 }
-                
             }
             .padding(.horizontal, 16)
             .ignoresSafeArea(.keyboard)

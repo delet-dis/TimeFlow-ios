@@ -49,6 +49,9 @@ extension View {
             tintColorImage, for: [.highlighted, .selected], barMetrics: .default
         )
 
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [.foregroundColor: UIColor.white],
+            for: .selected
+        )
     }
 }

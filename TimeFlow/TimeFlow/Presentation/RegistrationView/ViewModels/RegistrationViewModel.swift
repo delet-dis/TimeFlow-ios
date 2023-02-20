@@ -12,23 +12,24 @@ class RegistrationViewModel: ObservableObject {
     private(set) var setStudentRegistrationViewClousure: (() -> Void)?
     private(set) var setTeacherRegistrationViewClousure: (() -> Void)?
     private(set) var setExternalUserRegistrationViewClousure: (() -> Void)?
-    
+
     init(
         registrationComponent: RegistrationComponent? = nil
-       
     ) {
         self.registrationComponent = registrationComponent
     }
-    
+
     func pressStudentRegistrationViewClousure(_ studentRegistrationViewClosure: (() -> Void)? = nil) {
         setStudentRegistrationViewClousure = studentRegistrationViewClosure
     }
-    
+
     func pressTeacherRegistrationViewClousure(_ teacherRegistrationViewClousure: (() -> Void)? = nil) {
         setTeacherRegistrationViewClousure = teacherRegistrationViewClousure
     }
-    
-    func pressExternalUserRegistrationViewClousure(_ externalUserRegistrationViewClousure: (() -> Void)? = nil) {
+
+    func pressExternalUserRegistrationViewClousure(
+        _ externalUserRegistrationViewClousure: (() -> Void)? = nil
+    ) {
         setExternalUserRegistrationViewClousure = externalUserRegistrationViewClousure
     }
 }

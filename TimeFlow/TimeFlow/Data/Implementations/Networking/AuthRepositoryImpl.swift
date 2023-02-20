@@ -27,10 +27,10 @@ class AuthRepositoryImpl: AuthRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+        }
     }
 
     func logout(userCredentials: UserCredentials, completion: ((Result<VoidResponse, Error>) -> Void)?) {
@@ -40,9 +40,9 @@ class AuthRepositoryImpl: AuthRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+        }
     }
 }

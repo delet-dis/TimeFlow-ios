@@ -23,6 +23,7 @@ class AuthorizationOrRegistrationDataHelper {
 
     private static var emailPredicate = NSPredicate(
         format: "SELF MATCHES %@",
+        // swiftlint:disable:next line_length
         "^(?!\\.)([A-Z0-9a-z_%+-]?[\\.]?[A-Z0-9a-z_%+-])+@[A-Za-z0-9-]{1,20}(\\.[A-Za-z0-9]{1,15}){0,10}\\.[A-Za-z]{2,20}$"
     )
 
