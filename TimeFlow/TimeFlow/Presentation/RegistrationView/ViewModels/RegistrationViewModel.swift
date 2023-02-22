@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class RegistrationViewModel: ObservableObject {
-    @Published private(set) var viewDisplayingMode: RegistrationViewDisplayingModeEnum?
+    @Published private(set) var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
     @Published var viewDisplayingModeIndex = 0
 
     let registrationComponent: RegistrationComponent?
@@ -49,4 +49,11 @@ class RegistrationViewModel: ObservableObject {
     ) {
         setExternalUserRegistrationViewClousure = externalUserRegistrationViewClousure
     }
+    
+    func changeRole(role: RegistrationViewDisplayingModeEnum ){
+        viewDisplayingMode = role
+    }
+    
 }
+
+

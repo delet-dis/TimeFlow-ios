@@ -11,104 +11,78 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-
+    @State private(set) var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
+    
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
                 Text(R.string.localizable.helloRegister())
                     .font(
                         Font(R.font.ralewayBold(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
-                    )
-
+                    ).padding(.horizontal, 20)
+                
                 Spacer()
             }
-
-            AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
-                ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
-                    Text(role.savedValue)
-                        .itemTag(role.rawValue)
+            ZStack {
+                AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
+                    ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
+                        Text(role.savedValue)
+                            .itemTag(role.rawValue)
+                    }
                 }
-            } style: {
-                ASCapsuleStyle(
-                    backgroundColor: .white,
-                    foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
-                    movementMode: .viscosity
-                )
+            style: {
+                    ASCapsuleStyle(
+                        backgroundColor: .white,
+                        foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
+                        movementMode: .normal
+                    )
+                }
+            onTapReceive: { selectionTap in
+                    print(selectionTap)
+                
+                    for role in RegistrationViewDisplayingModeEnum.allCases {
+                        if selectionTap == role.rawValue {
+                            viewModel.changeRole(role: role)
+                            print(viewModel.viewDisplayingMode)
+                        }
+                    }
+                   
+                }.background {
+                    RoundedRectangle(cornerRadius: 90).foregroundColor(.black)
+                }
             }
+            .padding(.bottom, 650)
+            .padding(.horizontal, 10)
+            ZStack {
+                viewModel.registrationComponent?.studentRegistrationView
+                Group {
+                    switch viewDisplayingMode {
+                    case .teacher:
+                        viewModel.registrationComponent?.teacherRegistrationView
 
-//            NavigationLink(destination: StudentRegistrationView(), label: {
-//                Button {
-//                    viewModel.setStudentRegistrationViewClousure?()
-//                } label: {
-//                    Text(R.string.localizable.student())
-//                        .font(
-//                            Font(
-//                                R.font.ralewayBold(size: 15) ??
-//                                    .systemFont(ofSize: 15, weight: .medium)
-//                            )
-//                        )
-//                        .foregroundColor(.white)
-//                }
-//                .padding()
-//                .cornerRadius(16)
-//                .frame(minWidth: 0,
-//                       maxWidth: .infinity)
-//                .background {
-//                    RoundedRectangle(cornerRadius: 90)
-//                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-//                        .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-//                }
-//            })
-//
-//            Button {
-//                viewModel.setTeacherRegistrationViewClousure?()
-//            } label: {
-//                Text(R.string.localizable.teacher())
-//                    .font(
-//                        Font(
-//                            R.font.ralewayBold(size: 15) ??
-//                                .systemFont(ofSize: 15, weight: .medium)
-//                        )
-//                    )
-//                    .foregroundColor(.white)
-//            }
-//            .padding()
-//            .cornerRadius(16)
-//            .frame(minWidth: 0,
-//                   maxWidth: .infinity)
-//            .background {
-//                RoundedRectangle(cornerRadius: 90)
-//                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-//                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-//            }
-//            Button {} label: {
-//                Text(R.string.localizable.externalUser())
-//                    .font(
-//                        Font(
-//                            R.font.ralewayBold(size: 15) ??
-//                                .systemFont(ofSize: 15, weight: .medium)
-//                        )
-//                    )
-//                    .foregroundColor(.white)
-//            }
-//            .padding()
-//            .cornerRadius(16)
-//            .frame(minWidth: 0,
-//                   maxWidth: .infinity)
-//            .background {
-//                RoundedRectangle(cornerRadius: 90)
-//                    .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-//                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-//            }
+                    case .student:
+                        viewModel.registrationComponent?.studentRegistrationView
+                    case .externalUser:
+                        viewModel.registrationComponent?.externalUserRegistrationView
+                    }
+                }
+            }
+            .padding(.horizontal, 24)
+        }.onChange(of: viewModel.viewDisplayingMode) { newValue in
+            withAnimation {
+                viewDisplayingMode = newValue
+            }
         }
     }
-}
-
-struct RegistrationView_Preview: PreviewProvider {
-    private static let mainComponent = MainComponent()
-
-    static var previews: some View {
-        RegistrationView()
-            .environmentObject(mainComponent.registrationComponent.registrationViewModel)
+    
+    struct RegistrationView_Preview: PreviewProvider {
+        private static let mainComponent = MainComponent()
+        
+        static var previews: some View {
+            RegistrationView()
+                .environmentObject(mainComponent.registrationComponent.registrationViewModel)
+        }
     }
 }

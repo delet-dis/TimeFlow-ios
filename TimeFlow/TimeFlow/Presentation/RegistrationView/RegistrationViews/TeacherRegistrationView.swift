@@ -38,7 +38,7 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = .firstName
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     TextField(R.string.localizable.firstName(), text: $viewModel.firstName)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -46,7 +46,7 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = .patronymic
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                     TextField(R.string.localizable.middleName(), text: $viewModel.middleName)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
@@ -54,7 +54,7 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = .email
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
 
                     Picker("",
                            selection: $viewModel.genderType) {
@@ -67,10 +67,15 @@ struct TeacherRegistrationView: View {
                         Text(R.string.localizable.male())
                             .tag(GenderPickerEnum.MALE)
                     }
+                    .background {
+                        RoundedRectangle(cornerRadius: 80)
+                            .foregroundColor(.clear)
+                    }
+                    .cornerRadius(80)
                     .pickerStyle(.segmented)
                     .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
                     .background {
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
                     }
@@ -88,7 +93,7 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = .password
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
 
                     CustomSecureTextField(R.string.localizable.password(), text: $viewModel.passwordText)
                         .textInputAutocapitalization(.never)
@@ -97,13 +102,13 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = .confrimPassword
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
 
                     CustomSecureTextField(
                         R.string.localizable.passwordConfirmation(),
                         text: $viewModel.confirmPasswordText
                     )
-                    .modifier(ElevatedTextFieldRegistration())
+                    .modifier(ElevatedTextField())
                     .textInputAutocapitalization(.never)
                     .submitLabel(.next)
                     .focused($focusedField, equals: .confrimPassword)
@@ -118,26 +123,8 @@ struct TeacherRegistrationView: View {
                         .onSubmit {
                             focusedField = nil
                         }
-                        .modifier(ElevatedTextFieldRegistration())
+                        .modifier(ElevatedTextField())
                 }
-                .background(
-                    VStack {
-                        HStack {
-                            Spacer()
-
-                            Image(uiImage: R.image.appIconCopy() ?? .strokedCheckmark)
-                                .resizable()
-                                .frame(width: 200, height: 200)
-                                .cornerRadius(30)
-                                .blur(radius: 6)
-                                .rotationEffect(.degrees(-30))
-                        }
-
-                        Spacer()
-                    }
-                    .ignoresSafeArea()
-                    .modifier(ParallaxMotionModifier(manager: motionManager, magnitude: 30))
-                )
                 .onAppear {
                     Self.enableCustomSegmentedControlStyle()
                 }
@@ -172,7 +159,7 @@ struct TeacherRegistrationView: View {
                                     .systemFont(ofSize: 15, weight: .medium)
                             )
                         )
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                 }
                 .backgroundStyle(.blue)
             }
