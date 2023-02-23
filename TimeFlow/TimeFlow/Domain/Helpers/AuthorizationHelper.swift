@@ -13,6 +13,20 @@ class AuthorizationOrRegistrationDataHelper {
         return !isEmptyAndBlank(firstName)
     }
 
+    static func checkPasswordField(_ password: String) -> Bool {
+        // пароль длинною от 8 до 32 символов, включая одну заглавную букву,
+        // один специальный символ и буквенно-цифровые символы
+        if password.range(
+            of:
+            #"^(?=\S*)(?=\S*)(?=\S*\d)(?=\S*([^\w\s]|[_]))\S{8,32}$"#) != nil
+        {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     static func checkSecondNameField(_ secondName: String) -> Bool {
         return !isEmptyAndBlank(secondName)
     }

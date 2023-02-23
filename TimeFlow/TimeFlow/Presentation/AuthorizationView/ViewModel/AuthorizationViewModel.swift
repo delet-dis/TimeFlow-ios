@@ -5,6 +5,7 @@
 //  Created by Семён Алимпиев on 16.02.2023.
 //
 
+import Combine
 import Foundation
 
 class AuthorizationViewModel: ObservableObject {
@@ -12,6 +13,8 @@ class AuthorizationViewModel: ObservableObject {
     @Published var passwordText = ""
 
     private let loginUseCase: LoginUseCase
+
+    private var subscribers: Set<AnyCancellable> = []
 
     private(set) var setRegisrationViewClousure: (() -> Void)?
 
@@ -24,9 +27,11 @@ class AuthorizationViewModel: ObservableObject {
 
     init(loginUseCase: LoginUseCase) {
         self.loginUseCase = loginUseCase
+        
+        initFieldsObserving()
     }
 
-    func resetValidation() {
+    private func resetValidation() {
         isEmailValid = true
         isPasswordValid = true
     }
@@ -38,8 +43,49 @@ class AuthorizationViewModel: ObservableObject {
         passwordText = ""
     }
 
-    private func checkValidFieldds() -> Bool {
-        // Validation Check
+    private func initFieldsObserving() {
+        print(emailText + " --email")
+        print(passwordText + " --password")
+        print("something")
+        initEmailTextObserving()
+        initPasswordTextObserving()
+    }
+
+    private func initEmailTextObserving() {
+        $emailText.sink { [self] _ in
+            self.isEmailValid = true
+
+            validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initPasswordTextObserving() {
+        $passwordText.sink { [self] _ in
+            self.isPasswordValid = true
+
+            validateFields()
+        }.store(in: &subscribers)
+    }
+
+    @discardableResult private func validateFields() -> Bool {
+//        resetValidation()
+
+        if !AuthorizationOrRegistrationDataHelper.isEmailValid(emailText) {
+            areFieldsValid = false
+
+            return false
+        }
+
+        if !AuthorizationOrRegistrationDataHelper
+            .checkPasswordField(passwordText)
+        {
+            areFieldsValid = false
+
+            return false
+        }
+
+        areFieldsValid = true
+
         return true
     }
 
@@ -48,7 +94,7 @@ class AuthorizationViewModel: ObservableObject {
     }
 
     func login() {
-        if checkValidFieldds() {
+        if validateFields() {
             loginUseCase.execute(
                 userCredentials: UserCredentials(
                     email: emailText,

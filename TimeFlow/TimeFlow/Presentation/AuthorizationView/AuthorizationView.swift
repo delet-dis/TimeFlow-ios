@@ -14,6 +14,7 @@ struct AuthorizationView: View, KeyboardReadable {
     }
 
     @EnvironmentObject private var viewModel: AuthorizationViewModel
+    @State private var areFieldsValid = false
 
     @FocusState private var focusedField: Field?
 
