@@ -56,37 +56,37 @@ struct StudentRegistrationView: View {
                         }
                         .modifier(ElevatedTextField())
 
-                    Picker(
-                        "",
-                        selection: $viewModel.genderType
-                    ) {
-                        EmptyView()
-                            .tag(GenderPickerEnum.none)
-
-                        Text(R.string.localizable.female())
-                            .tag(GenderPickerEnum.FEMALE)
-
-                        Text(R.string.localizable.male())
-                            .tag(GenderPickerEnum.MALE)
-                    }
-                    .background {
-                        RoundedRectangle(cornerRadius: 80)
-                            .foregroundColor(.clear)
-                    }
-                    .cornerRadius(80)
-                    .pickerStyle(.segmented)
-                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-                    .background {
-                        RoundedRectangle(cornerRadius: 90)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-                    }
-                    .onAppear {
-                        Self.enableCustomSegmentedControlStyle()
-                    }
-                    .onDisappear {
-                        Self.disableCustomSegmentedControlStyle()
-                    }
+//                    Picker(
+//                        "",
+//                        selection: $viewModel.genderType
+//                    ) {
+//                        EmptyView()
+//                            .tag(GenderEnum.none)
+//
+//                        Text(R.string.localizable.female())
+//                            .tag(GenderEnum.FEMALE)
+//
+//                        Text(R.string.localizable.male())
+//                            .tag(GenderEnum.MALE)
+//                    }
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 80)
+//                            .foregroundColor(.clear)
+//                    }
+//                    .cornerRadius(80)
+//                    .pickerStyle(.segmented)
+//                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 90)
+//                            .foregroundColor(.white)
+//                            .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+//                    }
+//                    .onAppear {
+//                        Self.enableCustomSegmentedControlStyle()
+//                    }
+//                    .onDisappear {
+//                        Self.disableCustomSegmentedControlStyle()
+//                    }
 
                     TextField(R.string.localizable.email(), text: $viewModel.emailText)
                         .textInputAutocapitalization(.never)
@@ -127,27 +127,27 @@ struct StudentRegistrationView: View {
                         Spacer()
                     }
 
-                    Picker("",
-                           selection: $viewModel.genderType) {
-                        EmptyView()
-                            .tag(GenderPickerEnum.none)
-
-                        Text("Женщина")
-                            .tag(GenderPickerEnum.MALE)
-
-                        Text("Мужчина")
-                            .tag(GenderPickerEnum.FEMALE)
-                    }
-                    .pickerStyle(.wheel)
-
-                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-                    .frame(height: 50)
-
-                    .background {
-                        RoundedRectangle(cornerRadius: 90)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
-                    }
+//                    Picker("",
+//                           selection: $viewModel.genderType) {
+//                        EmptyView()
+//                            .tag(GenderEnum.none)
+//
+//                        Text("Женщина")
+//                            .tag(GenderEnum.MALE)
+//
+//                        Text("Мужчина")
+//                            .tag(GenderEnum.FEMALE)
+//                    }
+//                    .pickerStyle(.wheel)
+//
+//                    .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
+//                    .frame(height: 50)
+//
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 90)
+//                            .foregroundColor(.white)
+//                            .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+//                    }
                 }
 
                 .background(

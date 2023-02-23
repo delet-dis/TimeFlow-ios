@@ -11,78 +11,71 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    @State private(set) var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
-    
-    @Environment(\.safeAreaInsets) private var safeAreaInsets
-    
+
+    @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
+
     var body: some View {
         VStack(spacing: 20) {
             HStack {
                 Text(R.string.localizable.helloRegister())
                     .font(
                         Font(R.font.ralewayBold(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
-                    ).padding(.horizontal, 20)
-                
+                    )
+
                 Spacer()
             }
-            ZStack {
+            .padding(.horizontal, 24)
+
+            VStack {
                 AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
                     ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
                         Text(role.savedValue)
                             .itemTag(role.rawValue)
+                            .font(.system(size: 20))
                     }
-                }
-            style: {
+                } style: {
                     ASCapsuleStyle(
                         backgroundColor: .white,
                         foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
                         movementMode: .normal
                     )
                 }
-            onTapReceive: { selectionTap in
-                    print(selectionTap)
-                
-                    for role in RegistrationViewDisplayingModeEnum.allCases {
-                        if selectionTap == role.rawValue {
-                            viewModel.changeRole(role: role)
-                            print(viewModel.viewDisplayingMode)
-                        }
-                    }
-                   
-                }.background {
-                    RoundedRectangle(cornerRadius: 90).foregroundColor(.black)
-                }
-            }
-            .padding(.bottom, 650)
-            .padding(.horizontal, 10)
-            ZStack {
-                viewModel.registrationComponent?.studentRegistrationView
-                Group {
-                    switch viewDisplayingMode {
-                    case .teacher:
-                        viewModel.registrationComponent?.teacherRegistrationView
-
-                    case .student:
-                        viewModel.registrationComponent?.studentRegistrationView
-                    case .externalUser:
-                        viewModel.registrationComponent?.externalUserRegistrationView
-                    }
-                }
+                .modifier(ElevatedViewModifier())
+                .frame(height: 60)
             }
             .padding(.horizontal, 24)
-        }.onChange(of: viewModel.viewDisplayingMode) { newValue in
+
+            ScrollView {
+                SharedRegistrationFormView(
+                    viewData: $viewModel.sharedRegistrationData,
+                    viewState: $viewModel.sharedRegistrationFieldsState
+                )
+                .padding(.top, 20)
+                .padding(.horizontal, 24)
+
+                switch viewDisplayingMode {
+                case .teacher:
+                    viewModel.registrationComponent?.teacherRegistrationView
+                case .student:
+                    viewModel.registrationComponent?.studentRegistrationView
+                case .externalUser:
+                    viewModel.registrationComponent?.externalUserRegistrationView
+                }
+            }
+        }
+        .onChange(of: viewModel.viewDisplayingMode) { newValue in
             withAnimation {
                 viewDisplayingMode = newValue
             }
         }
     }
-    
-    struct RegistrationView_Preview: PreviewProvider {
-        private static let mainComponent = MainComponent()
-        
-        static var previews: some View {
-            RegistrationView()
-                .environmentObject(mainComponent.registrationComponent.registrationViewModel)
-        }
+}
+
+struct RegistrationView_Preview: PreviewProvider {
+    private static let mainComponent = MainComponent()
+
+    static var previews: some View {
+        RegistrationView()
+            .environmentObject(mainComponent.registrationComponent.registrationViewModel)
     }
 }

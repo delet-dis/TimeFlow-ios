@@ -28,6 +28,7 @@
 "middleName" = "Patronymic";
 "male" = "Male";
 "female" = "Female";
+"unselected" = "Unselected";
 "passwordConfirmation" = "Password confirmation";
 "chooseGroup" = "Choose a group";
 "alreadyHaveAnAccount" = "Already have an account?";

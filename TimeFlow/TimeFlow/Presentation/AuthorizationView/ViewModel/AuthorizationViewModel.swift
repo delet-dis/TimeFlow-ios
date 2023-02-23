@@ -27,7 +27,7 @@ class AuthorizationViewModel: ObservableObject {
 
     init(loginUseCase: LoginUseCase) {
         self.loginUseCase = loginUseCase
-        
+
         initFieldsObserving()
     }
 
@@ -44,9 +44,6 @@ class AuthorizationViewModel: ObservableObject {
     }
 
     private func initFieldsObserving() {
-        print(emailText + " --email")
-        print(passwordText + " --password")
-        print("something")
         initEmailTextObserving()
         initPasswordTextObserving()
     }
@@ -67,8 +64,8 @@ class AuthorizationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
-    @discardableResult private func validateFields() -> Bool {
-//        resetValidation()
+    private func validateFields() -> Bool {
+        //        resetValidation()
 
         if !AuthorizationOrRegistrationDataHelper.isEmailValid(emailText) {
             areFieldsValid = false
@@ -76,9 +73,7 @@ class AuthorizationViewModel: ObservableObject {
             return false
         }
 
-        if !AuthorizationOrRegistrationDataHelper
-            .checkPasswordField(passwordText)
-        {
+        if !AuthorizationOrRegistrationDataHelper.isPasswordValid(passwordText) {
             areFieldsValid = false
 
             return false
@@ -87,10 +82,6 @@ class AuthorizationViewModel: ObservableObject {
         areFieldsValid = true
 
         return true
-    }
-
-    func setRegistrationViewClousure(_ registrationViewClosure: (() -> Void)? = nil) {
-        setRegisrationViewClousure = registrationViewClosure
     }
 
     func login() {

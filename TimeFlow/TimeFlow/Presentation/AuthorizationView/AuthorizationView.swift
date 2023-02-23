@@ -23,29 +23,29 @@ struct AuthorizationView: View, KeyboardReadable {
     var body: some View {
         ZStack {
             VStack(spacing: 15) {
-                TextField(R.string.localizable.email(), text: $viewModel.emailText)
-                    .textContentType(.oneTimeCode)
-                    .keyboardType(.emailAddress)
-                    .disableAutocorrection(true)
-                    .textInputAutocapitalization(.never)
-                    .submitLabel(.next)
-                    .focused($focusedField, equals: .email)
-                    .onSubmit {
-                        DispatchQueue.runAsyncOnMainWithDelay {
-                            focusedField = .password
+                Group {
+                    TextField(R.string.localizable.email(), text: $viewModel.emailText)
+                        .textContentType(.oneTimeCode)
+                        .keyboardType(.emailAddress)
+                        .submitLabel(.next)
+                        .focused($focusedField, equals: .email)
+                        .onSubmit {
+                            DispatchQueue.runAsyncOnMainWithDelay {
+                                focusedField = .password
+                            }
                         }
-                    }
-                    .modifier(ElevatedTextField())
+                        .modifier(ElevatedTextField())
 
-                CustomSecureTextField(
-                    R.string.localizable.password(),
-                    text: $viewModel.passwordText
-                )
+                    CustomSecureTextField(
+                        R.string.localizable.password(),
+                        text: $viewModel.passwordText
+                    )
+                    .submitLabel(.done)
+                    .focused($focusedField, equals: .password)
+                }
+                .modifier(ElevatedTextField())
                 .disableAutocorrection(true)
                 .textInputAutocapitalization(.never)
-                .submitLabel(.done)
-                .focused($focusedField, equals: .password)
-                .modifier(ElevatedTextField())
             }
             .overlay {
                 VStack(spacing: 15) {

@@ -13,5 +13,5 @@ struct StudentRegisterCredentials: Codable {
     let surname: String
     let patronymic: String
     let password: String
-    let sex: GenderPickerEnum
+    let sex: GenderEnum
 }

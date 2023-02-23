@@ -8,38 +8,33 @@
 import Foundation
 import SwiftUI
 
-class AuthorizationOrRegistrationDataHelper {
-    static func checkFirstNameField(_ firstName: String) -> Bool {
-        return !isEmptyAndBlank(firstName)
-    }
+final class AuthorizationOrRegistrationDataHelper {
+    private static let passwordPredicate = NSPredicate(
+        format: "SELF MATCHES %@",
+        #"^(?=\S*)(?=\S*)(?=\S*\d)(?=\S*([^\w\s]|[_]))\S{8,32}$"#
+    )
 
-    static func checkPasswordField(_ password: String) -> Bool {
-        // пароль длинною от 8 до 32 символов, включая одну заглавную букву,
-        // один специальный символ и буквенно-цифровые символы
-        if password.range(
-            of:
-            #"^(?=\S*)(?=\S*)(?=\S*\d)(?=\S*([^\w\s]|[_]))\S{8,32}$"#) != nil
-        {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-
-    static func checkSecondNameField(_ secondName: String) -> Bool {
-        return !isEmptyAndBlank(secondName)
-    }
-
-    static func checkMiddleNameField(_ middleName: String) -> Bool {
-        return !isEmptyAndBlank(middleName)
-    }
-
-    private static var emailPredicate = NSPredicate(
+    private static let emailPredicate = NSPredicate(
         format: "SELF MATCHES %@",
         // swiftlint:disable:next line_length
         "^(?!\\.)([A-Z0-9a-z_%+-]?[\\.]?[A-Z0-9a-z_%+-])+@[A-Za-z0-9-]{1,20}(\\.[A-Za-z0-9]{1,15}){0,10}\\.[A-Za-z]{2,20}$"
     )
+
+    static func isPasswordValid(_ password: String) -> Bool {
+        passwordPredicate.evaluate(with: password)
+    }
+
+    static func isSecondNameValid(_ secondName: String) -> Bool {
+        !secondName.isEmptyAndBlank
+    }
+
+    static func isMiddleNameValid(_ middleName: String) -> Bool {
+        !middleName.isEmptyAndBlank
+    }
+
+    static func isFirstNameValid(_ firstName: String) -> Bool {
+        !firstName.isEmptyAndBlank
+    }
 
     static func isEmailValid(_ email: String) -> Bool {
         emailPredicate.evaluate(with: email)
@@ -47,9 +42,5 @@ class AuthorizationOrRegistrationDataHelper {
 
     static func arePasswordsValid(firstPassword: String, passwordConfirmation: String) -> Bool {
         firstPassword == passwordConfirmation
-    }
-
-    private static func isEmptyAndBlank(_ string: String) -> Bool {
-        string.isEmpty && string.trimmingCharacters(in: .whitespaces).isEmpty
     }
 }

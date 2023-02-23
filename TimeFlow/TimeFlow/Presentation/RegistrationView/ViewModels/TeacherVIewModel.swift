@@ -10,7 +10,7 @@ class TeacherRegistrationViewModel: ObservableObject {
     @Published var secondName = ""
     @Published var firstName = ""
     @Published var middleName = ""
-    @Published var genderType: GenderPickerEnum = .none
+    @Published var genderType: GenderEnum = .none
     @Published var emailText = ""
     @Published var passwordText = ""
     @Published var confirmPasswordText = ""

@@ -12,6 +12,9 @@ class RegistrationViewModel: ObservableObject {
     @Published private(set) var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
     @Published var viewDisplayingModeIndex = 0
 
+    @Published var sharedRegistrationData = SharedRegistrationViewData()
+    @Published var sharedRegistrationFieldsState = SharedRegistrationViewState()
+
     let registrationComponent: RegistrationComponent?
     private(set) var setStudentRegistrationViewClousure: (() -> Void)?
     private(set) var setTeacherRegistrationViewClousure: (() -> Void)?
@@ -36,24 +39,7 @@ class RegistrationViewModel: ObservableObject {
         .store(in: &subscribers)
     }
 
-    func pressStudentRegistrationViewClousure(_ studentRegistrationViewClosure: (() -> Void)? = nil) {
-        setStudentRegistrationViewClousure = studentRegistrationViewClosure
-    }
-
-    func pressTeacherRegistrationViewClousure(_ teacherRegistrationViewClousure: (() -> Void)? = nil) {
-        setTeacherRegistrationViewClousure = teacherRegistrationViewClousure
-    }
-
-    func pressExternalUserRegistrationViewClousure(
-        _ externalUserRegistrationViewClousure: (() -> Void)? = nil
-    ) {
-        setExternalUserRegistrationViewClousure = externalUserRegistrationViewClousure
-    }
-    
-    func changeRole(role: RegistrationViewDisplayingModeEnum ){
+    func changeRole(role: RegistrationViewDisplayingModeEnum) {
         viewDisplayingMode = role
     }
-    
 }
-
-

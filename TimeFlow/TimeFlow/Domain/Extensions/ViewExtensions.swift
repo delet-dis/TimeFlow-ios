@@ -31,7 +31,7 @@ extension KeyboardReadable {
 extension View {
     static func enableCustomSegmentedControlStyle() {
         let defaultSize = CGSize(width: 20, height: 15)
-        
+
         let tintColorImage = UIImage(color: R.color.lightYellow() ?? .yellow, size: defaultSize)
         UISegmentedControl.appearance().setBackgroundImage(
             UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default

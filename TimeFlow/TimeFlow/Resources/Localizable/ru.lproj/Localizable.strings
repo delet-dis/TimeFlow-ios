@@ -28,6 +28,7 @@
 "middleName" = "Отчество";
 "male" = "Мужчина";
 "female" = "Женщина";
+"unselected" = "Не выбрано";
 "passwordConfirmation" = "Подтвердите пароль";
 "chooseGroup" = "Выбери группу";
 "alreadyHaveAnAccount" = "Уже есть аккаунт?";
