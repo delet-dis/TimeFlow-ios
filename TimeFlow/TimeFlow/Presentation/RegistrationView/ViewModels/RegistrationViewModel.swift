@@ -15,11 +15,13 @@ class RegistrationViewModel: ObservableObject {
     @Published var sharedRegistrationData = SharedRegistrationViewData()
     @Published var sharedRegistrationFieldsState = SharedRegistrationViewState()
 
-    let registrationComponent: RegistrationComponent?
-    private(set) var setStudentRegistrationViewClousure: (() -> Void)?
-    private(set) var setTeacherRegistrationViewClousure: (() -> Void)?
-    private(set) var setExternalUserRegistrationViewClousure: (() -> Void)?
+    @Published var sharedTeacherRegistrationData = SharedTeacherViewData()
+    @Published var sharedTeacherRegistrationState = SharedTeacherViewState()
 
+    @Published var sharedStudentRegistrationData = SharedStudentViewData()
+    @Published var sharedStudentRegistrationState = SharedStudentViewState()
+
+    let registrationComponent: RegistrationComponent?
     private var subscribers: Set<AnyCancellable> = []
 
     init(

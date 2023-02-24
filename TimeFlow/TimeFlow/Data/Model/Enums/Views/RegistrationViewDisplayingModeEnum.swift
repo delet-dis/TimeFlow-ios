@@ -17,9 +17,9 @@ enum RegistrationViewDisplayingModeEnum: Int, CaseIterable, Identifiable {
         case .teacher:
             return 0
         case .externalUser:
-            return 1
-        case .student:
             return 2
+        case .student:
+            return 1
         }
     }
 

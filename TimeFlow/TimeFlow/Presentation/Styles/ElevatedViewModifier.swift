@@ -13,7 +13,7 @@ struct ElevatedViewModifier: ViewModifier {
             .background {
                 RoundedRectangle(cornerRadius: 90)
                     .foregroundColor(.white)
-                    .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
+                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
             }
     }
 }

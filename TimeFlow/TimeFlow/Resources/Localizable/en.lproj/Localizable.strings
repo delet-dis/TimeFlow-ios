@@ -34,9 +34,13 @@
 "alreadyHaveAnAccount" = "Already have an account?";
 "signIn" = "Sign in";
 "registration" = "Registration";
-"contactNumber" = "Number phone";
+"contractNumber" = "Contract number";
 "chooseTypeOfUser" = "User type";
 "student" = "🧑🏻‍🎓";
 "externalUser" = "🦹🏻";
 "teacher" = "👨🏻‍🏫";
 "pick" = "Pick";
+"employeeContract" = "Employment contract 👨🏻‍🏫";
+"studentNumber" = "Card number";
+"studentCard" = "Student card 🎫";
+"groupNumber" = "Group number";

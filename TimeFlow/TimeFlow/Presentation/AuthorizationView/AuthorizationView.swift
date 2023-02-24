@@ -34,7 +34,6 @@ struct AuthorizationView: View, KeyboardReadable {
                                 focusedField = .password
                             }
                         }
-                        .modifier(ElevatedTextField())
 
                     CustomSecureTextField(
                         R.string.localizable.password(),

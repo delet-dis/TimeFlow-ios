@@ -66,11 +66,14 @@
 		4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */; };
 		4F7AE9D529A3818800D994C5 /* TeacherCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */; };
 		4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */; };
+		4F80610529A89C2C004DDA52 /* SharedTeacherFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610429A89C2C004DDA52 /* SharedTeacherFormView.swift */; };
+		4F80610829A8A00B004DDA52 /* SharedTeacherViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610729A8A00B004DDA52 /* SharedTeacherViewData.swift */; };
+		4F80610D29A8A04A004DDA52 /* SharedTeacherViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610C29A8A04A004DDA52 /* SharedTeacherViewState.swift */; };
+		4F80611029A8A83A004DDA52 /* SharedStudentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610F29A8A83A004DDA52 /* SharedStudentFormView.swift */; };
+		4F80611429A8A88E004DDA52 /* SharedStudentViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80611329A8A88E004DDA52 /* SharedStudentViewData.swift */; };
+		4F80611629A8A8B2004DDA52 /* SharedStudentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80611529A8A8B2004DDA52 /* SharedStudentViewState.swift */; };
 		4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */; };
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
-		4F85EB7729A2300300C09BEE /* StudentRegistrationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7629A2300300C09BEE /* StudentRegistrationVIew.swift */; };
-		4F85EB7929A2303400C09BEE /* ExternalUserRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7829A2303400C09BEE /* ExternalUserRegistrationView.swift */; };
-		4F85EB7C29A2305B00C09BEE /* TeacherRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB7B29A2305B00C09BEE /* TeacherRegistrationView.swift */; };
 		4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */; };
 		4FCEE92429A379EB00700581 /* StudentRegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCEE92329A379EB00700581 /* StudentRegisterCredentials.swift */; };
 /* End PBXBuildFile section */
@@ -132,11 +135,14 @@
 		4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCredentials.swift; sourceTree = "<group>"; };
 		4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegisterCredentials.swift; sourceTree = "<group>"; };
+		4F80610429A89C2C004DDA52 /* SharedTeacherFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTeacherFormView.swift; sourceTree = "<group>"; };
+		4F80610729A8A00B004DDA52 /* SharedTeacherViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTeacherViewData.swift; sourceTree = "<group>"; };
+		4F80610C29A8A04A004DDA52 /* SharedTeacherViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTeacherViewState.swift; sourceTree = "<group>"; };
+		4F80610F29A8A83A004DDA52 /* SharedStudentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStudentFormView.swift; sourceTree = "<group>"; };
+		4F80611329A8A88E004DDA52 /* SharedStudentViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStudentViewData.swift; sourceTree = "<group>"; };
+		4F80611529A8A8B2004DDA52 /* SharedStudentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStudentViewState.swift; sourceTree = "<group>"; };
 		4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderEnum.swift; sourceTree = "<group>"; };
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		4F85EB7629A2300300C09BEE /* StudentRegistrationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistrationVIew.swift; sourceTree = "<group>"; };
-		4F85EB7829A2303400C09BEE /* ExternalUserRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegistrationView.swift; sourceTree = "<group>"; };
-		4F85EB7B29A2305B00C09BEE /* TeacherRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistrationView.swift; sourceTree = "<group>"; };
 		4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationHelper.swift; sourceTree = "<group>"; };
 		4FCEE92329A379EB00700581 /* StudentRegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegisterCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				300E411429A7985100851BB8 /* SharedRegistrationFormView.swift */,
+				4F80610429A89C2C004DDA52 /* SharedTeacherFormView.swift */,
+				4F80610F29A8A83A004DDA52 /* SharedStudentFormView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -179,6 +187,8 @@
 			children = (
 				300E411C29A7997D00851BB8 /* SharedRegistrationViewData.swift */,
 				300E411F29A7998F00851BB8 /* SharedRegistrationViewState.swift */,
+				4F80611229A8A878004DDA52 /* Student */,
+				4F80610B29A8A031004DDA52 /* Teacher */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -414,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				300E411029A7980600851BB8 /* Subviews */,
-				4F85EB7329A22FE400C09BEE /* RegistrationViews */,
 				4F0849D5299FC83A0050439F /* Component */,
 				4F0849D6299FC8460050439F /* ViewModels */,
 				4F0849D8299FC8600050439F /* RegistrationView.swift */,
@@ -534,14 +543,22 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		4F85EB7329A22FE400C09BEE /* RegistrationViews */ = {
+		4F80610B29A8A031004DDA52 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				4F85EB7B29A2305B00C09BEE /* TeacherRegistrationView.swift */,
-				4F85EB7629A2300300C09BEE /* StudentRegistrationVIew.swift */,
-				4F85EB7829A2303400C09BEE /* ExternalUserRegistrationView.swift */,
+				4F80610729A8A00B004DDA52 /* SharedTeacherViewData.swift */,
+				4F80610C29A8A04A004DDA52 /* SharedTeacherViewState.swift */,
 			);
-			path = RegistrationViews;
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		4F80611229A8A878004DDA52 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				4F80611329A8A88E004DDA52 /* SharedStudentViewData.swift */,
+				4F80611529A8A8B2004DDA52 /* SharedStudentViewState.swift */,
+			);
+			path = Student;
 			sourceTree = "<group>";
 		};
 		4FCEE92229A379CE00700581 /* Registration */ = {
@@ -692,11 +709,9 @@
 				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */,
-				4F85EB7929A2303400C09BEE /* ExternalUserRegistrationView.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
-				4F85EB7729A2300300C09BEE /* StudentRegistrationVIew.swift in Sources */,
 				4F78167829A26718004662C2 /* ExternalUserViewModel.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
@@ -704,15 +719,18 @@
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
 				4F7AE9D529A3818800D994C5 /* TeacherCredentials.swift in Sources */,
 				4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */,
+				4F80610529A89C2C004DDA52 /* SharedTeacherFormView.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */,
 				300E411529A7985100851BB8 /* SharedRegistrationFormView.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
+				4F80610829A8A00B004DDA52 /* SharedTeacherViewData.swift in Sources */,
 				4F0849DB299FC8A20050439F /* StudentRegistrationViewModel.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
 				4F78167629A266CF004662C2 /* TeacherVIewModel.swift in Sources */,
+				4F80611429A8A88E004DDA52 /* SharedStudentViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,
 				4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */,
 				303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */,
@@ -724,8 +742,9 @@
 				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
 				4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */,
-				4F85EB7C29A2305B00C09BEE /* TeacherRegistrationView.swift in Sources */,
+				4F80611629A8A8B2004DDA52 /* SharedStudentViewState.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegisterCredentials.swift in Sources */,
+				4F80610D29A8A04A004DDA52 /* SharedTeacherViewState.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
@@ -739,6 +758,7 @@
 				30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */,
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
 				303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */,
+				4F80611029A8A83A004DDA52 /* SharedStudentFormView.swift in Sources */,
 				303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */,
 				4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */,
 				300E412029A7998F00851BB8 /* SharedRegistrationViewState.swift in Sources */,

@@ -11,9 +11,9 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-
+    
     @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
-
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -21,11 +21,11 @@ struct RegistrationView: View {
                     .font(
                         Font(R.font.ralewayBold(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
                     )
-
+                
                 Spacer()
             }
             .padding(.horizontal, 24)
-
+            
             VStack {
                 AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
                     ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
@@ -39,43 +39,60 @@ struct RegistrationView: View {
                         foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
                         movementMode: .normal
                     )
+                } onTapReceive: { tapRecive in
+                    viewModel.viewDisplayingModeIndex = tapRecive
+                    for role in RegistrationViewDisplayingModeEnum.allCases {
+                        if role.rawValue == tapRecive {
+                            viewModel.changeRole(role: role)
+                        }
+                    }
                 }
+                
                 .modifier(ElevatedViewModifier())
-                .frame(height: 60)
+                .frame(height: 50)
             }
-            .padding(.horizontal, 24)
-
+            .padding(.horizontal, 10)
+            
             ScrollView {
                 SharedRegistrationFormView(
                     viewData: $viewModel.sharedRegistrationData,
                     viewState: $viewModel.sharedRegistrationFieldsState
                 )
-                .padding(.top, 20)
-                .padding(.horizontal, 24)
-
-                switch viewDisplayingMode {
+                .padding(.horizontal, 20)
+                
+                Spacer()
+                Spacer()
+                
+                switch viewModel.viewDisplayingMode {
                 case .teacher:
-                    viewModel.registrationComponent?.teacherRegistrationView
+                    SharedTeacherFormView(
+                        viewData: $viewModel.sharedTeacherRegistrationData,
+                        viewTeacherState: $viewModel.sharedTeacherRegistrationState
+                    )
+                    
                 case .student:
-                    viewModel.registrationComponent?.studentRegistrationView
-                case .externalUser:
-                    viewModel.registrationComponent?.externalUserRegistrationView
+                    SharedStudentFormView(
+                        viewData: $viewModel.sharedStudentRegistrationData,
+                        viewStudentState: $viewModel.sharedStudentRegistrationState
+                    )
+                case .externalUser: ViewBuilder.buildBlock()
+                }
+            }
+            .padding(.top, 25)
+            .onChange(of: viewModel.viewDisplayingMode) { newValue in
+                withAnimation {
+                    viewDisplayingMode = newValue
                 }
             }
         }
-        .onChange(of: viewModel.viewDisplayingMode) { newValue in
-            withAnimation {
-                viewDisplayingMode = newValue
-            }
-        }
     }
-}
-
-struct RegistrationView_Preview: PreviewProvider {
-    private static let mainComponent = MainComponent()
-
-    static var previews: some View {
-        RegistrationView()
-            .environmentObject(mainComponent.registrationComponent.registrationViewModel)
+    
+    struct RegistrationView_Preview: PreviewProvider {
+        private static let mainComponent = MainComponent()
+        
+        static var previews: some View {
+            RegistrationView()
+                .environmentObject(mainComponent.registrationComponent.registrationViewModel)
+        }
     }
 }
