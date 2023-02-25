@@ -10,16 +10,16 @@ import Foundation
 
 class RegistrationViewModel: ObservableObject {
     @Published private(set) var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
-    @Published var viewDisplayingModeIndex = 0
+    @Published var viewDisplayingModeIndex = RegistrationViewDisplayingModeEnum.teacher.rawValue
 
     @Published var sharedRegistrationData = SharedRegistrationViewData()
     @Published var sharedRegistrationFieldsState = SharedRegistrationViewState()
 
-    @Published var sharedTeacherRegistrationData = SharedTeacherViewData()
-    @Published var sharedTeacherRegistrationState = SharedTeacherViewState()
+    @Published var sharedTeacherRegistrationData = TeacherRegistationViewData()
+    @Published var sharedTeacherRegistrationState = TeacherRegistationViewState()
 
-    @Published var sharedStudentRegistrationData = SharedStudentViewData()
-    @Published var sharedStudentRegistrationState = SharedStudentViewState()
+    @Published var sharedStudentRegistrationData = StudentRegistrationViewData()
+    @Published var sharedStudentRegistrationState = StudentRegistationViewState()
 
     let registrationComponent: RegistrationComponent?
     private var subscribers: Set<AnyCancellable> = []

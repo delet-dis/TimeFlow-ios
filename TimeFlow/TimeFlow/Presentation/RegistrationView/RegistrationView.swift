@@ -11,9 +11,12 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    
+
     @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
-    
+
+    @State private(set) var teacherRegistrationFormView: TeacherRegistrationFormView?
+    @State private(set) var studentRegistrationFormView: StudentRegistrationFormView?
+
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -21,11 +24,11 @@ struct RegistrationView: View {
                     .font(
                         Font(R.font.ralewayBold(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
                     )
-                
+
                 Spacer()
             }
             .padding(.horizontal, 24)
-            
+
             VStack {
                 AxisSegmentedView(selection: $viewModel.viewDisplayingModeIndex) {
                     ForEach(RegistrationViewDisplayingModeEnum.allCases) { role in
@@ -39,57 +42,67 @@ struct RegistrationView: View {
                         foregroundColor: .init(uiColor: R.color.lightYellow() ?? .yellow),
                         movementMode: .normal
                     )
-                } onTapReceive: { tapRecive in
-                    viewModel.viewDisplayingModeIndex = tapRecive
-                    for role in RegistrationViewDisplayingModeEnum.allCases {
-                        if role.rawValue == tapRecive {
-                            viewModel.changeRole(role: role)
-                        }
-                    }
                 }
-                
                 .modifier(ElevatedViewModifier())
                 .frame(height: 50)
             }
             .padding(.horizontal, 10)
-            
+
             ScrollView {
-                SharedRegistrationFormView(
-                    viewData: $viewModel.sharedRegistrationData,
-                    viewState: $viewModel.sharedRegistrationFieldsState
-                )
-                .padding(.horizontal, 20)
-                
-                Spacer()
-                Spacer()
-                
-                switch viewModel.viewDisplayingMode {
-                case .teacher:
-                    SharedTeacherFormView(
-                        viewData: $viewModel.sharedTeacherRegistrationData,
-                        viewTeacherState: $viewModel.sharedTeacherRegistrationState
+                VStack(spacing: 10) {
+                    SharedRegistrationFormView(
+                        viewData: $viewModel.sharedRegistrationData,
+                        viewState: $viewModel.sharedRegistrationFieldsState,
+                        lastTextFieldUnselectedClosure: {
+                            switch viewDisplayingMode {
+                            case .teacher:
+                                teacherRegistrationFormView?
+                                    .selectFirstField()
+                            case .student:
+                                studentRegistrationFormView?
+                                    .selectFirstField()
+                            case .externalUser:
+                                ()
+                            }
+                        }
                     )
-                    
-                case .student:
-                    SharedStudentFormView(
-                        viewData: $viewModel.sharedStudentRegistrationData,
-                        viewStudentState: $viewModel.sharedStudentRegistrationState
-                    )
-                case .externalUser: ViewBuilder.buildBlock()
+                    .padding(.horizontal, 24)
+                    .padding(.top, 25)
+
+                    Spacer()
+
+                    switch viewDisplayingMode {
+                    case .teacher:
+                        teacherRegistrationFormView
+                    case .student:
+                        studentRegistrationFormView
+                    case .externalUser:
+                        EmptyView()
+                    }
                 }
             }
-            .padding(.top, 25)
             .onChange(of: viewModel.viewDisplayingMode) { newValue in
                 withAnimation {
                     viewDisplayingMode = newValue
                 }
             }
         }
+        .onAppear {
+            teacherRegistrationFormView = .init(
+                viewData: $viewModel.sharedTeacherRegistrationData,
+                viewState: $viewModel.sharedTeacherRegistrationState
+            )
+
+            studentRegistrationFormView = .init(
+                viewData: $viewModel.sharedStudentRegistrationData,
+                viewState: $viewModel.sharedStudentRegistrationState
+            )
+        }
     }
-    
+
     struct RegistrationView_Preview: PreviewProvider {
         private static let mainComponent = MainComponent()
-        
+
         static var previews: some View {
             RegistrationView()
                 .environmentObject(mainComponent.registrationComponent.registrationViewModel)

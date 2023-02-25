@@ -25,9 +25,9 @@ struct LoginView: View {
                     viewModel.registrationComponent?.registrationView
                 case .authorization:
                     viewModel.authorizationComponent?.authorizationView
+                        .padding(.horizontal, 24)
                 }
             }
-            .padding(.horizontal, 24)
 
             VStack {
                 Spacer()
@@ -67,6 +67,11 @@ struct LoginView: View {
                             )
                             .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                         }
+                    }
+                    .padding()
+                    .background{
+                        RoundedRectangle(cornerRadius: 90)
+                            .foregroundColor(.white)
                     }
                 }
                 .ignoresSafeArea(.keyboard)

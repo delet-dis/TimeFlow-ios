@@ -64,6 +64,7 @@ class AuthorizationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
+    @discardableResult
     private func validateFields() -> Bool {
         //        resetValidation()
 
