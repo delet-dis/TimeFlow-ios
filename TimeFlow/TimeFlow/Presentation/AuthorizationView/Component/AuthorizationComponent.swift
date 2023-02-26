@@ -23,8 +23,7 @@ final class AuthorizationComponent: Component<AuthorizationComponentDependency> 
 
     var authorizationView: some View {
         shared {
-            AuthorizationView()
-                .environmentObject(authorizationViewModel)
+            AuthorizationView(viewModel: authorizationViewModel)
         }
     }
 }

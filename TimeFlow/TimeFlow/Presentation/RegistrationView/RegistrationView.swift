@@ -10,12 +10,9 @@ import Foundation
 import SwiftUI
 
 struct RegistrationView: View {
-    @EnvironmentObject private var viewModel: RegistrationViewModel
+    @StateObject var viewModel: RegistrationViewModel
 
     @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
-
-    @State private(set) var teacherRegistrationFormView: TeacherRegistrationFormView?
-    @State private(set) var studentRegistrationFormView: StudentRegistrationFormView?
 
     var body: some View {
         VStack(spacing: 20) {
@@ -54,28 +51,34 @@ struct RegistrationView: View {
                         viewData: $viewModel.sharedRegistrationData,
                         viewState: $viewModel.sharedRegistrationFieldsState,
                         lastTextFieldUnselectedClosure: {
-                            switch viewDisplayingMode {
-                            case .teacher:
-                                teacherRegistrationFormView?
-                                    .selectFirstField()
-                            case .student:
-                                studentRegistrationFormView?
-                                    .selectFirstField()
-                            case .externalUser:
-                                ()
-                            }
+//                            switch viewDisplayingMode {
+//                            case .teacher:
+//                                teacherRegistrationFormView?
+//                                    .selectFirstField()
+//                            case .student:
+//                                studentRegistrationFormView?
+//                                    .selectFirstField()
+//                            case .externalUser:
+//                                ()
+//                            }
                         }
                     )
-                    .padding(.horizontal, 24)
-                    .padding(.top, 25)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 25)
 
                     Spacer()
 
                     switch viewDisplayingMode {
                     case .teacher:
-                        teacherRegistrationFormView
+                        TeacherRegistrationFormView(
+                            viewData: $viewModel.sharedTeacherRegistrationData,
+                            viewState: $viewModel.sharedTeacherRegistrationState
+                        )
                     case .student:
-                        studentRegistrationFormView
+                        StudentRegistrationFormView(
+                            viewData: $viewModel.sharedStudentRegistrationData,
+                            viewState: $viewModel.sharedStudentRegistrationState
+                        )
                     case .externalUser:
                         EmptyView()
                     }
@@ -87,25 +90,13 @@ struct RegistrationView: View {
                 }
             }
         }
-        .onAppear {
-            teacherRegistrationFormView = .init(
-                viewData: $viewModel.sharedTeacherRegistrationData,
-                viewState: $viewModel.sharedTeacherRegistrationState
-            )
-
-            studentRegistrationFormView = .init(
-                viewData: $viewModel.sharedStudentRegistrationData,
-                viewState: $viewModel.sharedStudentRegistrationState
-            )
-        }
     }
+}
 
-    struct RegistrationView_Preview: PreviewProvider {
-        private static let mainComponent = MainComponent()
+struct RegistrationView_Preview: PreviewProvider {
+    private static let mainComponent = MainComponent()
 
-        static var previews: some View {
-            RegistrationView()
-                .environmentObject(mainComponent.registrationComponent.registrationViewModel)
-        }
+    static var previews: some View {
+        RegistrationView(viewModel: mainComponent.registrationComponent.registrationViewModel)
     }
 }

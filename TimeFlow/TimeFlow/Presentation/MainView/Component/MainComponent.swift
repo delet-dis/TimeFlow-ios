@@ -74,8 +74,7 @@ class MainComponent: BootstrapComponent {
 
     var mainView: some View {
         shared {
-            MainView()
-                .environmentObject(mainViewModel)
+            MainView(viewModel: self.mainViewModel)
         }
     }
 }

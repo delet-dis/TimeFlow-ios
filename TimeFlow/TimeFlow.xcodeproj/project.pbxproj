@@ -12,7 +12,7 @@
 		300E412029A7998F00851BB8 /* SharedRegistrationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E411F29A7998F00851BB8 /* SharedRegistrationViewState.swift */; };
 		300E412429A79D0400851BB8 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */; };
 		300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */; };
-		3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */; };
+		3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */; };
 		303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8466299E815E003D8FC3 /* AuthRepository.swift */; };
 		303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E846E299E891F003D8FC3 /* UserCredentials.swift */; };
 		303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */; };
@@ -25,6 +25,7 @@
 		303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E848C299E9011003D8FC3 /* NetworkingHelper.swift */; };
 		303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8491299E91ED003D8FC3 /* LoginUseCase.swift */; };
 		303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8494299E921B003D8FC3 /* LogoutUseCase.swift */; };
+		3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */; };
 		3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078181A299BC88600FD916D /* TimeFlowApp.swift */; };
 		3078181F299BC88800FD916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3078181E299BC88800FD916D /* Assets.xcassets */; };
 		30781822299BC88800FD916D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30781821299BC88800FD916D /* Preview Assets.xcassets */; };
@@ -81,7 +82,7 @@
 		300E411F29A7998F00851BB8 /* SharedRegistrationViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRegistrationViewState.swift; sourceTree = "<group>"; };
 		300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
 		300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedViewModifier.swift; sourceTree = "<group>"; };
-		3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedTextField.swift; sourceTree = "<group>"; };
+		3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedTextFieldModifier.swift; sourceTree = "<group>"; };
 		3016F99129A08E6A00B5EFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		303E8466299E815E003D8FC3 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		303E846E299E891F003D8FC3 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		303E848C299E9011003D8FC3 /* NetworkingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 		303E8491299E91ED003D8FC3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		303E8494299E921B003D8FC3 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
+		3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithReadyKeyboardButtonModifier.swift; sourceTree = "<group>"; };
 		30781817299BC88600FD916D /* TimeFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3078181A299BC88600FD916D /* TimeFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlowApp.swift; sourceTree = "<group>"; };
 		3078181E299BC88800FD916D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */,
+				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 		303E8463299E8132003D8FC3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3041228629AB97AC004705C5 /* Protocols */,
 				303E848F299E91D0003D8FC3 /* UseCases */,
 				303E848B299E9004003D8FC3 /* Helpers */,
 				303E847D299E8C5F003D8FC3 /* Extensions */,
@@ -299,6 +303,13 @@
 			path = AuthRepository;
 			sourceTree = "<group>";
 		};
+		3041228629AB97AC004705C5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3078180E299BC88600FD916D = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				300E412129A79CF400851BB8 /* SharedViews */,
-				30E1D48C299FF485001E1529 /* Styles */,
+				30E1D48C299FF485001E1529 /* Modifiers */,
 				4F0849D4299FC8310050439F /* RegistrationView */,
 				4F5862A0299E0AA000DB82FC /* AuthorizationView */,
 				4F586298299E092600DB82FC /* LoginView */,
@@ -403,15 +414,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		30E1D48C299FF485001E1529 /* Styles */ = {
+		30E1D48C299FF485001E1529 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				3016F98E29A08B4300B5EFED /* ElevatedTextField.swift */,
+				3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */,
 				30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */,
-				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
 				300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */,
+				3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */,
 			);
-			path = Styles;
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		4F0849D4299FC8310050439F /* RegistrationView */ = {
@@ -701,7 +712,7 @@
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
-				3016F98F29A08B4300B5EFED /* ElevatedTextField.swift in Sources */,
+				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
@@ -738,6 +749,7 @@
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
 				4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */,
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
+				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
 				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,

@@ -26,8 +26,7 @@ final class LoginComponent: Component<LoginComponentDependency> {
 
     var loginView: some View {
         shared {
-            LoginView()
-                .environmentObject(loginViewModel)
+            LoginView(viewModel: self.loginViewModel)
         }
     }
 }

@@ -13,7 +13,7 @@ struct AuthorizationView: View, KeyboardReadable {
         case email, password
     }
 
-    @EnvironmentObject private var viewModel: AuthorizationViewModel
+    @ObservedObject var viewModel: AuthorizationViewModel
     @State private var areFieldsValid = false
 
     @FocusState private var focusedField: Field?
@@ -42,7 +42,7 @@ struct AuthorizationView: View, KeyboardReadable {
                     .submitLabel(.done)
                     .focused($focusedField, equals: .password)
                 }
-                .modifier(ElevatedTextField())
+                .modifier(ElevatedTextFieldModifier())
                 .disableAutocorrection(true)
                 .textInputAutocapitalization(.never)
             }
@@ -116,22 +116,7 @@ struct AuthorizationView: View, KeyboardReadable {
                 .padding(.top, 250)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .keyboard) {
-                HStack {
-                    Button(R.string.localizable.ready()) {
-                        withAnimation {
-                            focusedField = nil
-                        }
-                    }
-                    .foregroundColor(
-                        Color(R.color.lightYellow() ?? .yellow)
-                    )
-
-                    Spacer()
-                }
-            }
-        }
+        .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
         // Добавить Алерт
     }
 }
@@ -140,7 +125,6 @@ struct AuthorizationView_Previews: PreviewProvider {
     private static let mainComponent = MainComponent()
 
     static var previews: some View {
-        AuthorizationView()
-            .environmentObject(mainComponent.authorizationComponent.authorizationViewModel)
+        AuthorizationView(viewModel: mainComponent.authorizationComponent.authorizationViewModel)
     }
 }

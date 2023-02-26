@@ -12,7 +12,7 @@ struct LoginView: View {
     @State private var motionManager = MotionManager()
     @State private var isLogoTopLocated = true
 
-    @EnvironmentObject private var viewModel: LoginViewModel
+    @StateObject var viewModel: LoginViewModel
 
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.mainWindowSize) var mainWindowSize
@@ -69,7 +69,7 @@ struct LoginView: View {
                         }
                     }
                     .padding()
-                    .background{
+                    .background {
                         RoundedRectangle(cornerRadius: 90)
                             .foregroundColor(.white)
                     }
@@ -121,7 +121,6 @@ struct LoginView_Previews: PreviewProvider {
     private static let mainComponent = MainComponent()
 
     static var previews: some View {
-        LoginView()
-            .environmentObject(mainComponent.loginComponent.loginViewModel)
+        LoginView(viewModel: mainComponent.loginComponent.loginViewModel)
     }
 }

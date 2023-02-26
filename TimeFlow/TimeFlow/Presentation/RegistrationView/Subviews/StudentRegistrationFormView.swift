@@ -46,7 +46,7 @@ struct StudentRegistrationFormView: View {
                 .focused($focusedField, equals: .studentNumber)
                 .textInputAutocapitalization(.never)
                 .submitLabel(.next)
-                .modifier(ElevatedTextField())
+                .modifier(ElevatedTextFieldModifier())
 
                 TextField(
                     R.string.localizable.groupNumber(),
@@ -55,17 +55,14 @@ struct StudentRegistrationFormView: View {
                 .focused($focusedField, equals: .groupNumber)
                 .textInputAutocapitalization(.never)
                 .submitLabel(.done)
-                .modifier(ElevatedTextField())
+                .modifier(ElevatedTextFieldModifier())
                 .onSubmit {
                     lastTextFieldUnselectedClosure?()
                 }
             }
         }
         .padding(.horizontal, 20)
-    }
-
-    func selectFirstField() {
-        focusedField = .studentNumber
+        .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
     }
 }
 

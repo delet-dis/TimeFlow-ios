@@ -9,7 +9,7 @@ import NeedleFoundation
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject private var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
 
     @State private var displayMode = MainViewDisaplyingModeEnum.authorization
     @State private var isSplashDisplaying = true
@@ -23,7 +23,6 @@ struct MainView_Previews: PreviewProvider {
     private static let mainComponent = MainComponent()
 
     static var previews: some View {
-        MainView()
-            .environmentObject(mainComponent.mainViewModel)
+        MainView(viewModel: mainComponent.mainViewModel)
     }
 }

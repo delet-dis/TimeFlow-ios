@@ -60,7 +60,7 @@ struct SharedRegistrationFormView: View {
                         focusedField = .email
                     }
             }
-            .modifier(ElevatedTextField())
+            .modifier(ElevatedTextFieldModifier())
 
             Group {
                 TextField(R.string.localizable.email(), text: $viewData.emailText)
@@ -83,10 +83,10 @@ struct SharedRegistrationFormView: View {
                 )
                 .focused($focusedField, equals: .confrimPassword)
                 .onSubmit {
-                    lastTextFieldUnselectedClosure?()
+                    focusedField = nil
                 }
             }
-            .modifier(ElevatedTextField())
+            .modifier(ElevatedTextFieldModifier())
             .disableAutocorrection(true)
             .submitLabel(.next)
             .textInputAutocapitalization(.never)
@@ -112,6 +112,7 @@ struct SharedRegistrationFormView: View {
             }
             .modifier(ElevatedViewModifier())
         }
+        .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
     }
 }
 

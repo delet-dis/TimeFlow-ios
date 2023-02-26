@@ -45,16 +45,13 @@ struct TeacherRegistrationFormView: View {
             .focused($focusedField, equals: .contractNumber)
             .textInputAutocapitalization(.never)
             .submitLabel(.done)
-            .modifier(ElevatedTextField())
+            .modifier(ElevatedTextFieldModifier())
             .onSubmit {
                 lastTextFieldUnselectedClosure?()
             }
         }
         .padding(.horizontal, 20)
-    }
-
-    func selectFirstField() {
-        focusedField = .contractNumber
+        .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
     }
 }
 

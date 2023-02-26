@@ -20,8 +20,7 @@ final class RegistrationComponent: Component<RegistrationComponentDependency> {
 
     var registrationView: some View {
         shared {
-            RegistrationView()
-                .environmentObject(registrationViewModel)
+            RegistrationView(viewModel: self.registrationViewModel)
         }
     }
 }
