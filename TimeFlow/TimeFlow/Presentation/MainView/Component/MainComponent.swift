@@ -40,6 +40,12 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var registrationUseCase: RegisterUseCase {
+        shared {
+            RegisterUseCase(authRepository: authRepository)
+        }
+    }
+
     var logoutUseCase: LogoutUseCase {
         shared {
             LogoutUseCase(authRepository: authRepository)

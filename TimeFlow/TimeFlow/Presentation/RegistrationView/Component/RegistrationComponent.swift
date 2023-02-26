@@ -9,12 +9,14 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-protocol RegistrationComponentDependency: Dependency {}
+protocol RegistrationComponentDependency: Dependency {
+    var registrationUseCase: RegisterUseCase { get }
+}
 
 final class RegistrationComponent: Component<RegistrationComponentDependency> {
     var registrationViewModel: RegistrationViewModel {
         shared {
-            RegistrationViewModel()
+            RegistrationViewModel(registerUseCase: dependency.registrationUseCase)
         }
     }
 

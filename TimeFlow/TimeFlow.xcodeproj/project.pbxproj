@@ -61,6 +61,7 @@
 		4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */; };
 		4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */; };
 		4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */; };
+		4F60FBDA29AB9CD4007D8706 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */; };
 		4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */; };
 		4F7AE9D529A3818800D994C5 /* TeacherCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */; };
 		4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */; };
@@ -128,6 +129,7 @@
 		4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
 		4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
+		4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCredentials.swift; sourceTree = "<group>"; };
 		4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegisterCredentials.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			children = (
 				303E8491299E91ED003D8FC3 /* LoginUseCase.swift */,
 				303E8494299E921B003D8FC3 /* LogoutUseCase.swift */,
+				4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */,
 			);
 			path = AuthRepository;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
+				4F60FBDA29AB9CD4007D8706 /* RegisterUseCase.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
 				30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,

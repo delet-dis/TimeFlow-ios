@@ -12,7 +12,7 @@ struct TeacherCredentials: Encodable {
     let name: String
     let surname: String
     let patronymic: String
-    let sex: GenderEnum
+    let sex: Int
     let password: String
     let contractNumber: String
 }

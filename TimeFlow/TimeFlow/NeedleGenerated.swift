@@ -18,15 +18,17 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
 private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: RegistrationComponentDependency {
-
-
-    init() {
-
+    var registrationUseCase: RegisterUseCase {
+        return mainComponent.registrationUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->RegistrationComponent
-private func factorybf509de48c6e5261a880e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return RegistrationComponentDependency45ce06ac0365c929bb6bProvider()
+private func factorybf509de48c6e5261a8800ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return RegistrationComponentDependency45ce06ac0365c929bb6bProvider(mainComponent: parent1(component) as! MainComponent)
 }
 private class AuthorizationComponentDependency01c300e9208281b9a593Provider: AuthorizationComponentDependency {
     var loginUseCase: LoginUseCase {
@@ -61,7 +63,7 @@ private func factory7d788d11c001389505f70ae93e637f014511a119(_ component: Needle
 #else
 extension RegistrationComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\RegistrationComponentDependency.registrationUseCase] = "registrationUseCase-RegisterUseCase"
     }
 }
 extension AuthorizationComponent: Registration {
@@ -97,7 +99,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
-    registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a880e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a8800ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)

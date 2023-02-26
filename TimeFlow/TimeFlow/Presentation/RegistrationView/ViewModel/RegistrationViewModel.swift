@@ -21,14 +21,17 @@ class RegistrationViewModel: ObservableObject {
     @Published var sharedStudentRegistrationData = StudentRegistrationViewData()
     @Published var sharedStudentRegistrationState = StudentRegistationViewState()
 
+    private let registerUseCase: RegisterUseCase
+
     let registrationComponent: RegistrationComponent?
     private var subscribers: Set<AnyCancellable> = []
 
     init(
-        registrationComponent: RegistrationComponent? = nil
-    ) {
+        registrationComponent: RegistrationComponent? = nil,
+        registerUseCase: RegisterUseCase)
+    {
         self.registrationComponent = registrationComponent
-
+        self.registerUseCase = registerUseCase
         initViewDisplayingModeIndexObserver()
     }
 
@@ -43,5 +46,64 @@ class RegistrationViewModel: ObservableObject {
 
     func changeRole(role: RegistrationViewDisplayingModeEnum) {
         viewDisplayingMode = role
+    }
+
+    func register() {
+        switch viewDisplayingMode {
+        case .teacher:
+            registerUseCase.executeTeacher(request: TeacherCredentials(
+                email: sharedRegistrationData.emailText,
+                name: sharedRegistrationData.firstName,
+                surname: sharedRegistrationData.secondName,
+                patronymic: sharedRegistrationData.middleName,
+                sex: sharedRegistrationData.genderType,
+                password: sharedRegistrationData.passwordText,
+                contractNumber: sharedTeacherRegistrationData.contractNumber))
+            {
+                [weak self] result in
+                switch result {
+                case .success(let response):
+                    // Go in homeScreen
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+        case .student:
+            registerUseCase.executeStudent(request: StudentRegisterCredentials(
+                email: sharedRegistrationData.emailText,
+                name: sharedRegistrationData.firstName,
+                surname: sharedRegistrationData.secondName,
+                patronymic: sharedRegistrationData.middleName,
+                password: sharedRegistrationData.passwordText,
+                groupId: sharedStudentRegistrationData.groupNumber,
+                sex: sharedRegistrationData.genderType))
+            { [weak self] result in
+                switch result {
+                case .success(let response):
+                    // Go in homeScreen
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+        case .externalUser:
+            registerUseCase.executeExternalUser(request: ExternalUserCredentials(
+                email: sharedRegistrationData.emailText,
+                name: sharedRegistrationData.firstName,
+                surname: sharedRegistrationData.secondName,
+                patronymic: sharedRegistrationData.middleName,
+                password: sharedRegistrationData.passwordText,
+                sex: sharedRegistrationData.genderType))
+            { [weak self] result in
+                switch result {
+                case .success(let response):
+                    // Go in homeScreen
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+        }
     }
 }

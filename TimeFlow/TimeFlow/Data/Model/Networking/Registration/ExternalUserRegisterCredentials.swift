@@ -13,5 +13,5 @@ struct ExternalUserCredentials: Encodable {
     let surname: String
     let patronymic: String
     let password: String
-    let sex: GenderEnum
+    let sex: Int
 }
