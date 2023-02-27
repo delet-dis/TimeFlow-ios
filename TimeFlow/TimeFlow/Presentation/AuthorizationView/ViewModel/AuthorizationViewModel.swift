@@ -85,6 +85,17 @@ class AuthorizationViewModel: ObservableObject {
         return true
     }
 
+    private func handleSuccessRegistrationRequestReponse() {
+
+    }
+
+    private func processError(_ error: Error) {
+        alertText = error.localizedDescription
+        isAlertShowing = true
+
+        print(error)
+    }
+
     func login() {
         if validateFields() {
             loginUseCase.execute(
@@ -94,11 +105,10 @@ class AuthorizationViewModel: ObservableObject {
                 )
             ) { [weak self] result in
                 switch result {
-                case .success(let response):
-                    // Go in homeScreen
-                    break
+                case .success:
+                    self?.handleSuccessRegistrationRequestReponse()
                 case .failure(let error):
-                    break
+                    self?.processError(error)
                 }
             }
         }

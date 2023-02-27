@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SPAlert
 import SwiftUI
 
 struct AuthorizationView: View, KeyboardReadable {
@@ -117,7 +118,13 @@ struct AuthorizationView: View, KeyboardReadable {
             }
         }
         .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
-        // Добавить Алерт
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }
 

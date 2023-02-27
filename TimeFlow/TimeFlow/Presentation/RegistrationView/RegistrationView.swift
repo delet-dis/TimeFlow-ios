@@ -7,6 +7,7 @@
 
 import AxisSegmentedView
 import Foundation
+import SPAlert
 import SwiftUI
 
 struct RegistrationView: View {
@@ -49,19 +50,7 @@ struct RegistrationView: View {
                 VStack(spacing: 10) {
                     SharedRegistrationFormView(
                         viewData: $viewModel.sharedRegistrationData,
-                        viewState: $viewModel.sharedRegistrationFieldsState,
-                        lastTextFieldUnselectedClosure: {
-                            //                            switch viewDisplayingMode {
-                            //                            case .teacher:
-                            //                                teacherRegistrationFormView?
-                            //                                    .selectFirstField()
-                            //                            case .student:
-                            //                                studentRegistrationFormView?
-                            //                                    .selectFirstField()
-                            //                            case .externalUser:
-                            //                                ()
-                            //                            }
-                        }
+                        viewState: $viewModel.sharedRegistrationFieldsState
                     )
                     .padding(.horizontal, 24)
                     .padding(.top, 25)
@@ -82,6 +71,43 @@ struct RegistrationView: View {
                     case .externalUser:
                         EmptyView()
                     }
+
+                    HStack {
+                        Spacer()
+
+                        Button {
+                            viewModel.register()
+                        } label: {
+                            HStack {
+                                Text(R.string.localizable.register())
+                                    .font(
+                                        Font(
+                                            R.font.ralewayMedium(size: 15) ??
+                                                .systemFont(ofSize: 15, weight: .medium)
+                                        )
+                                    )
+
+                                Image(systemName: "person")
+                            }
+                            .padding()
+                            .padding(.horizontal, 20)
+                        }
+                        .foregroundColor(.white)
+                        .background {
+                            RoundedRectangle(cornerRadius: 30)
+                                .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+                        }
+                        .padding(.top, 5)
+                        .shadow(
+                            color: Color(uiColor: R.color.lightYellow() ?? .yellow),
+                            radius: 20,
+                            x: 0,
+                            y: 0
+                        )
+                    }
+                    .padding(.top, 20)
+                    .padding(.bottom, 80)
+                    .padding(.horizontal, 24)
                 }
             }
             .onChange(of: viewModel.viewDisplayingMode) { newValue in
@@ -90,6 +116,16 @@ struct RegistrationView: View {
                 }
             }
         }
+        .onDisappear{
+            viewModel.viewDidDisappear()
+        }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }
 

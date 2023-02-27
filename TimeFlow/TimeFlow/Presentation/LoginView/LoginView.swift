@@ -10,7 +10,6 @@ import SwiftUI
 struct LoginView: View {
     @State private(set) var viewDisplayingMode = LoginViewDisplayingModeEnum.authorization
     @State private var motionManager = MotionManager()
-    @State private var isRegisterButtonHidden = false
     @State private var isLogoTopLocated = true
 
     @StateObject var viewModel: LoginViewModel
@@ -32,72 +31,48 @@ struct LoginView: View {
 
             VStack {
                 Spacer()
-
-                VStack(spacing: 15) {
-                    Spacer()
-
-                    Button {} label: {
-                        HStack {
-                            Text(R.string.localizable.registration())
-                                .font(
-                                    Font(
-                                        R.font.ralewayMedium(size: 15) ??
-                                            .systemFont(ofSize: 15, weight: .medium)
-                                    )
-                                )
+                
+                HStack(spacing: 3) {
+                    Group {
+                        switch viewDisplayingMode {
+                        case .authorization:
+                            Text(R.string.localizable.dontHaveAnAccount())
+                        case .registration:
+                            Text(R.string.localizable.alreadyHaveAnAccount())
                         }
-                        .padding()
-                        .padding(.horizontal, 20)
                     }
-                    .foregroundColor(.white)
-                    .background {
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                    }
-                    .opacity(isRegisterButtonHidden ? 1 : 0)
+                    .font(
+                        Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium))
+                    )
 
-                    HStack(spacing: 3) {
+                    Button {
+                        viewModel.changeDisplayingMode()
+                    } label: {
                         Group {
                             switch viewDisplayingMode {
                             case .authorization:
-                                Text(R.string.localizable.dontHaveAnAccount())
+                                Text(R.string.localizable.register())
                             case .registration:
-                                Text(R.string.localizable.alreadyHaveAnAccount())
+                                Text(R.string.localizable.signIn())
                             }
                         }
                         .font(
-                            Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium))
-                        )
-
-                        Button {
-                            viewModel.changeDisplayingMode()
-                        } label: {
-                            Group {
-                                switch viewDisplayingMode {
-                                case .authorization:
-                                    Text(R.string.localizable.register())
-                                case .registration:
-                                    Text(R.string.localizable.signIn())
-                                }
-                            }
-                            .font(
-                                Font(
-                                    R.font.ralewayBold(size: 15) ??
-                                        .systemFont(ofSize: 15, weight: .medium)
-                                )
+                            Font(
+                                R.font.ralewayBold(size: 15) ??
+                                    .systemFont(ofSize: 15, weight: .medium)
                             )
-                            .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
-                        }
-                    }
-                    .padding()
-                    .background {
-                        RoundedRectangle(cornerRadius: 90)
-                            .foregroundColor(.white)
+                        )
+                        .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
                     }
                 }
-                .ignoresSafeArea(.keyboard)
-                .padding(.bottom, safeAreaInsets.bottom > 0 ? 0 : 10)
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 90)
+                        .foregroundColor(.white)
+                }
             }
+            .ignoresSafeArea(.keyboard)
+            .padding(.bottom, safeAreaInsets.bottom > 0 ? 0 : 10)
         }
         .background(
             VStack {
@@ -130,10 +105,8 @@ struct LoginView: View {
                 switch viewDisplayingMode {
                 case .authorization:
                     isLogoTopLocated = true
-                    isRegisterButtonHidden = false
                 case .registration:
                     isLogoTopLocated = false
-                    isRegisterButtonHidden = true
                 }
             }
         }

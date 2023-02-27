@@ -21,6 +21,9 @@ class RegistrationViewModel: ObservableObject {
     @Published var sharedStudentRegistrationData = StudentRegistrationViewData()
     @Published var sharedStudentRegistrationState = StudentRegistationViewState()
 
+    @Published var isAlertShowing = false
+    @Published private(set) var alertText = ""
+
     private let registerStudentUseCase: RegisterStudentUseCase
     private let registerTeacherUseCase: RegisterTeacherUseCase
     private let registerExternalUserUseCase: RegisterExternalUserUseCase
@@ -83,12 +86,13 @@ class RegistrationViewModel: ObservableObject {
         )
     }
 
-    private func handleSuccessRegistrationRequestReponse() {
-
-    }
+    private func handleSuccessRegistrationRequestReponse() {}
 
     private func processError(_ error: Error) {
-        
+        alertText = error.localizedDescription
+        isAlertShowing = true
+
+        print(error)
     }
 
     func register() {
@@ -129,5 +133,9 @@ class RegistrationViewModel: ObservableObject {
                 }
             }
         }
+    }
+
+    func viewDidDisappear() {
+        viewDisplayingModeIndex = RegistrationViewDisplayingModeEnum.teacher.rawValue
     }
 }

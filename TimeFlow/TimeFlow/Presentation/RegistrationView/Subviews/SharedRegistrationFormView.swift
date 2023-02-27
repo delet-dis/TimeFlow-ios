@@ -18,16 +18,12 @@ struct SharedRegistrationFormView: View {
     @Binding var viewData: SharedRegistrationViewData
     @Binding var viewState: SharedRegistrationViewState
 
-    let lastTextFieldUnselectedClosure: (() -> Void)?
-
     init(
         viewData: Binding<SharedRegistrationViewData>,
-        viewState: Binding<SharedRegistrationViewState>,
-        lastTextFieldUnselectedClosure: (() -> Void)? = nil
+        viewState: Binding<SharedRegistrationViewState>
     ) {
         self._viewData = viewData
         self._viewState = viewState
-        self.lastTextFieldUnselectedClosure = lastTextFieldUnselectedClosure
     }
 
     var body: some View {
@@ -95,6 +91,17 @@ struct SharedRegistrationFormView: View {
                 AxisSegmentedView(selection: $viewData.genderType) {
                     ForEach(GenderEnum.allCases) { gender in
                         Text(gender.savedValue)
+                            .font(
+                                Font(
+                                    R.font.ralewayMedium(size: 15) ??
+                                        .systemFont(ofSize: 15, weight: .medium)
+                                )
+                            )
+                            .foregroundColor(
+                                viewData.genderType == gender.rawValue ?
+                                    .white :
+                                    .black
+                            )
                             .itemTag(gender.rawValue)
                     }
                 } style: {

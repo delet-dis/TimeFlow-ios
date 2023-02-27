@@ -51,6 +51,7 @@
 		30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */; };
 		30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6929ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift */; };
 		30D4AE6C29ACE2A800D4BA10 /* RegisterTeacherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6B29ACE2A800D4BA10 /* RegisterTeacherUseCase.swift */; };
+		30D4AE7029ACE87A00D4BA10 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 30D4AE6F29ACE87A00D4BA10 /* SPAlert */; };
 		30E1D488299FF1DB001E1529 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */; };
 		30E1D489299FF1DB001E1529 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */; };
 		30E1D48A299FF1DB001E1529 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */; };
@@ -160,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D4AE7029ACE87A00D4BA10 /* SPAlert in Frameworks */,
 				3078184D299BD01B00FD916D /* NeedleFoundation in Frameworks */,
 				3078182D299BC99F00FD916D /* KeychainAccess in Frameworks */,
 				3078182A299BC95F00FD916D /* Alamofire in Frameworks */,
@@ -625,6 +627,7 @@
 				3078184C299BD01B00FD916D /* NeedleFoundation */,
 				4F0849E0299FCA400050439F /* SwiftyUserDefaults */,
 				30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */,
+				30D4AE6F29ACE87A00D4BA10 /* SPAlert */,
 			);
 			productName = TimeFlow;
 			productReference = 30781817299BC88600FD916D /* TimeFlow.app */;
@@ -662,6 +665,7 @@
 				3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */,
 				4F0849DF299FCA400050439F /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 				30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */,
+				30D4AE6E29ACE87A00D4BA10 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 30781818299BC88600FD916D /* Products */;
 			projectDirPath = "";
@@ -1058,6 +1062,14 @@
 				minimumVersion = 0.22.0;
 			};
 		};
+		30D4AE6E29ACE87A00D4BA10 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jasudev/AxisSegmentedView.git";
@@ -1100,6 +1112,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		30D4AE6F29ACE87A00D4BA10 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D4AE6E29ACE87A00D4BA10 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */ = {
 			isa = XCSwiftPackageProductDependency;
