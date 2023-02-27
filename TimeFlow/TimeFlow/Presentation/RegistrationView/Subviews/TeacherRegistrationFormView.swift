@@ -35,7 +35,7 @@ struct TeacherRegistrationFormView: View {
             Text(R.string.localizable.employeeContract)
                 .font(
                     Font(R.font.ralewayBold(size: 24) ??
-                        .systemFont(ofSize: 24, weight: .medium))
+                            .systemFont(ofSize: 24, weight: .medium))
                 )
 
             TextField(

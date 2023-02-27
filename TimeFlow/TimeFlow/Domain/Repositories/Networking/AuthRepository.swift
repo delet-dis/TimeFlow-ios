@@ -15,7 +15,7 @@ protocol AuthRepository {
         completion: ((Result<VoidResponse, Error>) -> Void)?
     )
     func teacherRegistration(
-        teacherRegisterCredentials: TeacherCredentials,
+        teacherRegisterCredentials: TeacherRegisterCredentials,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     )
     func externalUserRegistration(

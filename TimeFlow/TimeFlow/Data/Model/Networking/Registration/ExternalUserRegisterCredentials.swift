@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExternalUserCredentials: Encodable {
+struct ExternalUserCredentials: Codable {
     let email: String
     let name: String
     let surname: String

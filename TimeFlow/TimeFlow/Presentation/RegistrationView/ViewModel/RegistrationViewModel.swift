@@ -28,8 +28,7 @@ class RegistrationViewModel: ObservableObject {
 
     init(
         registrationComponent: RegistrationComponent? = nil,
-        registerUseCase: RegisterUseCase)
-    {
+        registerUseCase: RegisterUseCase) {
         self.registrationComponent = registrationComponent
         self.registerUseCase = registerUseCase
         initViewDisplayingModeIndexObserver()
@@ -51,15 +50,14 @@ class RegistrationViewModel: ObservableObject {
     func register() {
         switch viewDisplayingMode {
         case .teacher:
-            registerUseCase.executeTeacher(request: TeacherCredentials(
-                email: sharedRegistrationData.emailText,
-                name: sharedRegistrationData.firstName,
-                surname: sharedRegistrationData.secondName,
-                patronymic: sharedRegistrationData.middleName,
-                sex: sharedRegistrationData.genderType,
-                password: sharedRegistrationData.passwordText,
-                contractNumber: sharedTeacherRegistrationData.contractNumber))
-            {
+            registerUseCase.executeTeacher(request: TeacherRegisterCredentials(
+                                            email: sharedRegistrationData.emailText,
+                                            name: sharedRegistrationData.firstName,
+                                            surname: sharedRegistrationData.secondName,
+                                            patronymic: sharedRegistrationData.middleName,
+                                            sex: sharedRegistrationData.genderType,
+                                            password: sharedRegistrationData.passwordText,
+                                            contractNumber: sharedTeacherRegistrationData.contractNumber)) {
                 [weak self] result in
                 switch result {
                 case .success(let response):
@@ -71,14 +69,13 @@ class RegistrationViewModel: ObservableObject {
             }
         case .student:
             registerUseCase.executeStudent(request: StudentRegisterCredentials(
-                email: sharedRegistrationData.emailText,
-                name: sharedRegistrationData.firstName,
-                surname: sharedRegistrationData.secondName,
-                patronymic: sharedRegistrationData.middleName,
-                password: sharedRegistrationData.passwordText,
-                groupId: sharedStudentRegistrationData.groupNumber,
-                sex: sharedRegistrationData.genderType))
-            { [weak self] result in
+                                            email: sharedRegistrationData.emailText,
+                                            name: sharedRegistrationData.firstName,
+                                            surname: sharedRegistrationData.secondName,
+                                            patronymic: sharedRegistrationData.middleName,
+                                            password: sharedRegistrationData.passwordText,
+                                            groupId: sharedStudentRegistrationData.groupNumber,
+                                            sex: sharedRegistrationData.genderType)) { [weak self] result in
                 switch result {
                 case .success(let response):
                     // Go in homeScreen
@@ -89,13 +86,12 @@ class RegistrationViewModel: ObservableObject {
             }
         case .externalUser:
             registerUseCase.executeExternalUser(request: ExternalUserCredentials(
-                email: sharedRegistrationData.emailText,
-                name: sharedRegistrationData.firstName,
-                surname: sharedRegistrationData.secondName,
-                patronymic: sharedRegistrationData.middleName,
-                password: sharedRegistrationData.passwordText,
-                sex: sharedRegistrationData.genderType))
-            { [weak self] result in
+                                                    email: sharedRegistrationData.emailText,
+                                                    name: sharedRegistrationData.firstName,
+                                                    surname: sharedRegistrationData.secondName,
+                                                    patronymic: sharedRegistrationData.middleName,
+                                                    password: sharedRegistrationData.passwordText,
+                                                    sex: sharedRegistrationData.genderType)) { [weak self] result in
                 switch result {
                 case .success(let response):
                     // Go in homeScreen

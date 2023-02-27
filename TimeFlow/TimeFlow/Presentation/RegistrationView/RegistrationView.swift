@@ -51,20 +51,20 @@ struct RegistrationView: View {
                         viewData: $viewModel.sharedRegistrationData,
                         viewState: $viewModel.sharedRegistrationFieldsState,
                         lastTextFieldUnselectedClosure: {
-//                            switch viewDisplayingMode {
-//                            case .teacher:
-//                                teacherRegistrationFormView?
-//                                    .selectFirstField()
-//                            case .student:
-//                                studentRegistrationFormView?
-//                                    .selectFirstField()
-//                            case .externalUser:
-//                                ()
-//                            }
+                            //                            switch viewDisplayingMode {
+                            //                            case .teacher:
+                            //                                teacherRegistrationFormView?
+                            //                                    .selectFirstField()
+                            //                            case .student:
+                            //                                studentRegistrationFormView?
+                            //                                    .selectFirstField()
+                            //                            case .externalUser:
+                            //                                ()
+                            //                            }
                         }
                     )
-                        .padding(.horizontal, 24)
-                        .padding(.top, 25)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 25)
 
                     Spacer()
 

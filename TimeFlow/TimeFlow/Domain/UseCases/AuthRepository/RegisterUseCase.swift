@@ -27,7 +27,7 @@ class RegisterUseCase {
     }
 
     func executeTeacher(
-        request: TeacherCredentials,
+        request: TeacherRegisterCredentials,
         completion: ((Result<VoidResponse, Error>) -> Void)? = nil
     ) {
         authRepository.teacherRegistration(teacherRegisterCredentials: request, completion: completion)
