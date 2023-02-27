@@ -34,7 +34,7 @@ class RegisterUseCase {
     }
 
     func executeExternalUser(
-        request: ExternalUserCredenti17als,
+        request: ExternalUserCredentials,
         completion: ((Result<VoidResponse, Error>) -> Void)? = nil
     ) {
         authRepository.externalUserRegistration(
