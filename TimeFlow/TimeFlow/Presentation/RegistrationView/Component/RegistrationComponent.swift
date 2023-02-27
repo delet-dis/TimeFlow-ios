@@ -10,13 +10,19 @@ import NeedleFoundation
 import SwiftUI
 
 protocol RegistrationComponentDependency: Dependency {
-    var registrationUseCase: RegisterUseCase { get }
+    var registerStudentUseCase: RegisterStudentUseCase { get }
+    var registerTeacherUseCase: RegisterTeacherUseCase { get }
+    var registerExternalUserUseCase: RegisterExternalUserUseCase { get }
 }
 
 final class RegistrationComponent: Component<RegistrationComponentDependency> {
     var registrationViewModel: RegistrationViewModel {
         shared {
-            RegistrationViewModel(registerUseCase: dependency.registrationUseCase)
+            RegistrationViewModel(
+                registerStudentUseCase: dependency.registerStudentUseCase,
+                registerTeacherUseCase: dependency.registerTeacherUseCase,
+                registerExternalUserUseCase: dependency.registerExternalUserUseCase
+            )
         }
     }
 

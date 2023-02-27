@@ -1,3 +1,5 @@
+
+
 import Foundation
 import NeedleFoundation
 import SwiftUI
@@ -16,8 +18,14 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
 private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: RegistrationComponentDependency {
-    var registrationUseCase: RegisterUseCase {
-        return mainComponent.registrationUseCase
+    var registerStudentUseCase: RegisterStudentUseCase {
+        return mainComponent.registerStudentUseCase
+    }
+    var registerTeacherUseCase: RegisterTeacherUseCase {
+        return mainComponent.registerTeacherUseCase
+    }
+    var registerExternalUserUseCase: RegisterExternalUserUseCase {
+        return mainComponent.registerExternalUserUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -61,7 +69,9 @@ private func factory7d788d11c001389505f70ae93e637f014511a119(_ component: Needle
 #else
 extension RegistrationComponent: Registration {
     public func registerItems() {
-        keyPathToName[\RegistrationComponentDependency.registrationUseCase] = "registrationUseCase-RegisterUseCase"
+        keyPathToName[\RegistrationComponentDependency.registerStudentUseCase] = "registerStudentUseCase-RegisterStudentUseCase"
+        keyPathToName[\RegistrationComponentDependency.registerTeacherUseCase] = "registerTeacherUseCase-RegisterTeacherUseCase"
+        keyPathToName[\RegistrationComponentDependency.registerExternalUserUseCase] = "registerExternalUserUseCase-RegisterExternalUserUseCase"
     }
 }
 extension AuthorizationComponent: Registration {
@@ -72,6 +82,7 @@ extension AuthorizationComponent: Registration {
 extension MainComponent: Registration {
     public func registerItems() {
 
+
     }
 }
 extension LoginComponent: Registration {
@@ -80,6 +91,7 @@ extension LoginComponent: Registration {
         keyPathToName[\LoginComponentDependency.registrationComponent] = "registrationComponent-RegistrationComponent"
     }
 }
+
 
 #endif
 
@@ -103,7 +115,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #endif
 
 public func registerProviderFactories() {
-    #if !NEEDLE_DYNAMIC
+#if !NEEDLE_DYNAMIC
     register1()
-    #endif
+#endif
 }

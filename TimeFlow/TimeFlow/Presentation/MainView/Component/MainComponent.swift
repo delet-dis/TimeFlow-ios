@@ -28,11 +28,21 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    // MARK: Repositories
+
     var authRepository: AuthRepository {
         shared {
             AuthRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
         }
     }
+
+    var registrationRepository: RegistrationRepository {
+        shared {
+            RegistrationRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
+
+    // MARK: Auth use cases
 
     var loginUseCase: LoginUseCase {
         shared {
@@ -40,9 +50,23 @@ class MainComponent: BootstrapComponent {
         }
     }
 
-    var registrationUseCase: RegisterUseCase {
+    // MARK: Register use cases
+
+    var registerStudentUseCase: RegisterStudentUseCase {
         shared {
-            RegisterUseCase(authRepository: authRepository)
+            RegisterStudentUseCase(registrationRepository: registrationRepository)
+        }
+    }
+
+    var registerTeacherUseCase: RegisterTeacherUseCase {
+        shared {
+            RegisterTeacherUseCase(registrationRepository: registrationRepository)
+        }
+    }
+
+    var registerExternalUserUseCase: RegisterExternalUserUseCase {
+        shared {
+            RegisterExternalUserUseCase(registrationRepository: registrationRepository)
         }
     }
 
@@ -51,6 +75,8 @@ class MainComponent: BootstrapComponent {
             LogoutUseCase(authRepository: authRepository)
         }
     }
+
+    // MARK: Components
 
     var authorizationComponent: AuthorizationComponent {
         shared {
@@ -70,6 +96,7 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    // MARK: Main
     var mainViewModel: MainViewModel {
         shared {
             MainViewModel(
