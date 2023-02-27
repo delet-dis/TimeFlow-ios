@@ -45,6 +45,7 @@
 		30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2629A3793000108535 /* LoginComponent.swift */; };
 		30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */; };
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
+		30C956DE29ACD8FC00DAC1DD /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C956DD29ACD8FC00DAC1DD /* RegisterUseCase.swift */; };
 		30E1D488299FF1DB001E1529 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */; };
 		30E1D489299FF1DB001E1529 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */; };
 		30E1D48A299FF1DB001E1529 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */; };
@@ -61,7 +62,6 @@
 		4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */; };
 		4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */; };
 		4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */; };
-		4F60FBDA29AB9CD4007D8706 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */; };
 		4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */; };
 		4F7AE9D529A3818800D994C5 /* TeacherCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */; };
 		4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */; };
@@ -115,6 +115,7 @@
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
+		30C956DD29ACD8FC00DAC1DD /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		30E1D485299FF1DB001E1529 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		30E1D486299FF1DB001E1529 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		4F5862A3299E0AFF00DB82FC /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		4F5862A9299E0D1200DB82FC /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
 		4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
-		4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F7AE9D429A3818800D994C5 /* TeacherCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCredentials.swift; sourceTree = "<group>"; };
 		4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegisterCredentials.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 			children = (
 				303E8491299E91ED003D8FC3 /* LoginUseCase.swift */,
 				303E8494299E921B003D8FC3 /* LogoutUseCase.swift */,
-				4F60FBD929AB9CD4007D8706 /* RegisterUseCase.swift */,
+				30C956DD29ACD8FC00DAC1DD /* RegisterUseCase.swift */,
 			);
 			path = AuthRepository;
 			sourceTree = "<group>";
@@ -718,7 +718,6 @@
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
-				4F60FBDA29AB9CD4007D8706 /* RegisterUseCase.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
 				30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
@@ -741,6 +740,7 @@
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
+				30C956DE29ACD8FC00DAC1DD /* RegisterUseCase.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
