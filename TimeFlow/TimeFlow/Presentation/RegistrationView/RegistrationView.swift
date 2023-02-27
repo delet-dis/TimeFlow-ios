@@ -46,7 +46,7 @@ struct RegistrationView: View {
             }
             .padding(.horizontal, 10)
 
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 10) {
                     SharedRegistrationFormView(
                         viewData: $viewModel.sharedRegistrationData,
