@@ -14,6 +14,7 @@ struct RegistrationView: View {
     @StateObject var viewModel: RegistrationViewModel
 
     @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
+    @State private var areFieldsValid = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -110,13 +111,18 @@ struct RegistrationView: View {
                     .padding(.horizontal, 24)
                 }
             }
+            .onReceive(viewModel.$areFieldsValid) { value in
+                withAnimation {
+                    self.areFieldsValid = value
+                }
+            }
             .onChange(of: viewModel.viewDisplayingMode) { newValue in
                 withAnimation {
                     viewDisplayingMode = newValue
                 }
             }
         }
-        .onDisappear{
+        .onDisappear {
             viewModel.viewDidDisappear()
         }
         .SPAlert(

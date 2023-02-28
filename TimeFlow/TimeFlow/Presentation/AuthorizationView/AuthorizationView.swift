@@ -107,15 +107,24 @@ struct AuthorizationView: View, KeyboardReadable {
                         .padding(.horizontal, 20)
                     }
                     .foregroundColor(.white)
+                    .disabled(!areFieldsValid)
                     .background {
                         RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+                            .foregroundColor(areFieldsValid ? Color(uiColor: R.color.pickedColor() ?? .blue) : Color(uiColor: R.color.lightYellow() ?? .yellow))
                     }
                     .padding(.top, 5)
                     .shadow(color: Color(uiColor: R.color.lightYellow() ?? .yellow), radius: 20, x: 0, y: 0)
                 }
                 .padding(.top, 250)
             }
+        }
+        .onReceive(viewModel.$areFieldsValid) { value in
+            withAnimation {
+                self.areFieldsValid = value
+            }
+        }
+        .onDisappear {
+            viewModel.cleanFields()
         }
         .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
         .SPAlert(

@@ -66,28 +66,20 @@ class AuthorizationViewModel: ObservableObject {
 
     @discardableResult
     private func validateFields() -> Bool {
-        //        resetValidation()
-
         if !AuthorizationOrRegistrationDataHelper.isEmailValid(emailText) {
             areFieldsValid = false
-
             return false
         }
-
         if !AuthorizationOrRegistrationDataHelper.isPasswordValid(passwordText) {
             areFieldsValid = false
 
             return false
         }
-
         areFieldsValid = true
-
         return true
     }
 
-    private func handleSuccessRegistrationRequestReponse() {
-
-    }
+    private func handleSuccessRegistrationRequestReponse() {}
 
     private func processError(_ error: Error) {
         alertText = error.localizedDescription

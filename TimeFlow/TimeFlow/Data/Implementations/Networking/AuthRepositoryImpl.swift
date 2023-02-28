@@ -22,15 +22,15 @@ class AuthRepositoryImpl: AuthRepository {
 
     func login(userCredentials: UserCredentials, completion: ((Result<Bool, Error>) -> Void)?) {
         AF.request(
-            Self.url + "login",
+            Self.url + "sign-in",
             method: .post,
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-        .validate()
-        .response { [self] result in
-            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 
     func logout(userCredentials: UserCredentials, completion: ((Result<VoidResponse, Error>) -> Void)?) {
@@ -40,9 +40,9 @@ class AuthRepositoryImpl: AuthRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-        .validate()
-        .response { [self] result in
-            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 }

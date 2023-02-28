@@ -9,11 +9,6 @@ import Foundation
 import SwiftUI
 
 final class AuthorizationOrRegistrationDataHelper {
-    private static let passwordPredicate = NSPredicate(
-        format: "SELF MATCHES %@",
-        #"^(?=\S*)(?=\S*)(?=\S*\d)(?=\S*([^\w\s]|[_]))\S{8,32}$"#
-    )
-
     private static let emailPredicate = NSPredicate(
         format: "SELF MATCHES %@",
         // swiftlint:disable:next line_length
@@ -21,7 +16,7 @@ final class AuthorizationOrRegistrationDataHelper {
     )
 
     static func isPasswordValid(_ password: String) -> Bool {
-        passwordPredicate.evaluate(with: password)
+        !password.isEmptyAndBlank
     }
 
     static func isSecondNameValid(_ secondName: String) -> Bool {

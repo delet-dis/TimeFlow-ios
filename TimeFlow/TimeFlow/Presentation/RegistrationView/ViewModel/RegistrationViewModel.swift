@@ -23,6 +23,7 @@ class RegistrationViewModel: ObservableObject {
 
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
+    @Published private(set) var areFieldsValid = false
 
     private let registerStudentUseCase: RegisterStudentUseCase
     private let registerTeacherUseCase: RegisterTeacherUseCase
@@ -39,7 +40,13 @@ class RegistrationViewModel: ObservableObject {
         self.registerTeacherUseCase = registerTeacherUseCase
         self.registerExternalUserUseCase = registerExternalUserUseCase
 
+        initFieldsObserving()
+        print("something")
+    }
+
+    private func initFieldsObserving() {
         initViewDisplayingModeIndexObserver()
+        initFirstNameObserver()
     }
 
     private func initViewDisplayingModeIndexObserver() {
@@ -49,6 +56,24 @@ class RegistrationViewModel: ObservableObject {
             }
         }
         .store(in: &subscribers)
+    }
+
+    private func initFirstNameObserver() {
+        sharedRegistrationData.firstName.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isFirstNameValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    @discardableResult private func validateFields() -> Bool {
+        if !AuthorizationOrRegistrationDataHelper
+            .isFirstNameValid(sharedRegistrationData.firstName)
+        {
+            areFieldsValid = false
+            return false
+        }
+        areFieldsValid = true
+        return true
     }
 
     private func createTeacherRegistrationRequest() -> TeacherRegistrationRequest {

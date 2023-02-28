@@ -70,7 +70,7 @@
 		4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */; };
 		4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */; };
 		4F7AE9D529A3818800D994C5 /* TeacherRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D429A3818800D994C5 /* TeacherRegistrationRequest.swift */; };
-		4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */; };
+		4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AE9D729A3833000D994C5 /* ExternalUserRegistrationRequest.swift */; };
 		4F80610529A89C2C004DDA52 /* TeacherRegistrationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610429A89C2C004DDA52 /* TeacherRegistrationFormView.swift */; };
 		4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610729A8A00B004DDA52 /* TeacherRegistationViewData.swift */; };
 		4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80610C29A8A04A004DDA52 /* TeacherRegistationViewState.swift */; };
@@ -143,7 +143,7 @@
 		4F5862AD299E120C00DB82FC /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
 		4F78167A29A26ADA004662C2 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4F7AE9D429A3818800D994C5 /* TeacherRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistrationRequest.swift; sourceTree = "<group>"; };
-		4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegisterCredentials.swift; sourceTree = "<group>"; };
+		4F7AE9D729A3833000D994C5 /* ExternalUserRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUserRegistrationRequest.swift; sourceTree = "<group>"; };
 		4F80610429A89C2C004DDA52 /* TeacherRegistrationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistrationFormView.swift; sourceTree = "<group>"; };
 		4F80610729A8A00B004DDA52 /* TeacherRegistationViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistationViewData.swift; sourceTree = "<group>"; };
 		4F80610C29A8A04A004DDA52 /* TeacherRegistationViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegistationViewState.swift; sourceTree = "<group>"; };
@@ -596,7 +596,7 @@
 			children = (
 				4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */,
 				4F7AE9D429A3818800D994C5 /* TeacherRegistrationRequest.swift */,
-				4F7AE9D729A3833000D994C5 /* ExternalUserRegisterCredentials.swift */,
+				4F7AE9D729A3833000D994C5 /* ExternalUserRegistrationRequest.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -769,7 +769,7 @@
 				303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */,
 				300E412429A79D0400851BB8 /* StatefulPreviewWrapper.swift in Sources */,
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
-				4F7AE9D829A3833000D994C5 /* ExternalUserRegisterCredentials.swift in Sources */,
+				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
