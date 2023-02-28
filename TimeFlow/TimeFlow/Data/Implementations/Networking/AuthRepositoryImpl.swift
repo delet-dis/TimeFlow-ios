@@ -20,29 +20,46 @@ class AuthRepositoryImpl: AuthRepository {
         self.jsonEncoder = jsonEncoder
     }
 
-    func login(userCredentials: UserCredentials, completion: ((Result<Bool, Error>) -> Void)?) {
-        AF.request(
-            Self.url + "sign-in",
-            method: .post,
-            encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
-        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+    func login(
+        authorizationRequest: AuthorizationRequest,
+        completion: ((Result<Bool, Error>) -> Void)?
+    ) {
+        do {
+            let encodedParametrs = try jsonEncoder.encode(authorizationRequest)
+            let parametrs = try JSONSerialization.jsonObject(
+                with: encodedParametrs, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                Self.url,
+                method: .post,
+                parameters: parametrs,
+                encoding: JSONEncoding.default,
+                headers: NetworkingConstants.headers
+            ) { $0.timeoutInterval = NetworkingConstants.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 
-    func logout(userCredentials: UserCredentials, completion: ((Result<VoidResponse, Error>) -> Void)?) {
-        AF.request(
-            Self.url + "logout",
-            method: .post,
-            encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
-        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+    func logout(
+        authorizationRequest: AuthorizationRequest,
+        completion: ((Result<VoidResponse, Error>) -> Void)?
+    ) {
+        // TODO: Add logout
+//        AF.request(
+//            Self.url + "logout",
+//            method: .post,
+//            encoding: JSONEncoding.default,
+//            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
+//        ) { $0.timeoutInterval = NetworkingConstants.timeout }
+//            .validate()
+//            .response { [self] result in
+//                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+//            }
     }
 }

@@ -8,6 +8,12 @@
 import Foundation
 
 protocol AuthRepository {
-    func login(userCredentials: UserCredentials, completion: ((Result<Bool, Error>) -> Void)?)
-    func logout(userCredentials: UserCredentials, completion: ((Result<VoidResponse, Error>) -> Void)?)
+    func login(
+        authorizationRequest: AuthorizationRequest,
+        completion: ((Result<Bool, Error>) -> Void)?
+    )
+    func logout(
+        authorizationRequest: AuthorizationRequest,
+        completion: ((Result<VoidResponse, Error>) -> Void)?
+    )
 }

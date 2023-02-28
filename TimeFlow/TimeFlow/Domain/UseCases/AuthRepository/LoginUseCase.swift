@@ -19,7 +19,10 @@ class LoginUseCase {
         self.authRepository = authRepository
     }
 
-    func execute(userCredentials: UserCredentials, completion: ((Result<Bool, Error>) -> Void)? = nil) {
-        authRepository.login(userCredentials: userCredentials, completion: completion)
+    func execute(
+        authorizationRequest: AuthorizationRequest,
+        completion: ((Result<Bool, Error>) -> Void)? = nil
+    ) {
+        authRepository.login(authorizationRequest: authorizationRequest, completion: completion)
     }
 }

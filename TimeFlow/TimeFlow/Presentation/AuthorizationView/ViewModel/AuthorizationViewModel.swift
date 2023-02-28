@@ -72,7 +72,6 @@ class AuthorizationViewModel: ObservableObject {
         }
         if !AuthorizationOrRegistrationDataHelper.isPasswordValid(passwordText) {
             areFieldsValid = false
-
             return false
         }
         areFieldsValid = true
@@ -91,7 +90,7 @@ class AuthorizationViewModel: ObservableObject {
     func login() {
         if validateFields() {
             loginUseCase.execute(
-                userCredentials: UserCredentials(
+                authorizationRequest: AuthorizationRequest(
                     email: emailText,
                     password: passwordText
                 )

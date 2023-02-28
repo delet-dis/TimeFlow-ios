@@ -103,6 +103,9 @@ struct SharedRegistrationFormView: View {
                                     .black
                             )
                             .itemTag(gender.rawValue)
+                            .onTapGesture {
+                                viewData.genderType = gender.rawValue
+                            }
                     }
                 } style: {
                     ASCapsuleStyle(

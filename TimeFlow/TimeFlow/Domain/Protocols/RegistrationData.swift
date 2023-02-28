@@ -13,5 +13,5 @@ protocol RegistrationData {
     var surname: String { get set }
     var patronymic: String { get set }
     var password: String { get set }
-    var sex: Int { get set }
+    var sex: String { get set }
 }

@@ -22,7 +22,6 @@
 		303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */; };
 		303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8484299E8D62003D8FC3 /* NetworkingError.swift */; };
 		303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8486299E8DFC003D8FC3 /* NSErrorExtensions.swift */; };
-		303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E848C299E9011003D8FC3 /* NetworkingHelper.swift */; };
 		303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8491299E91ED003D8FC3 /* LoginUseCase.swift */; };
 		303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8494299E921B003D8FC3 /* LogoutUseCase.swift */; };
 		3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */; };
@@ -101,7 +100,6 @@
 		303E8483299E8D10003D8FC3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		303E8484299E8D62003D8FC3 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		303E8486299E8DFC003D8FC3 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
-		303E848C299E9011003D8FC3 /* NetworkingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 		303E8491299E91ED003D8FC3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		303E8494299E921B003D8FC3 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithReadyKeyboardButtonModifier.swift; sourceTree = "<group>"; };
@@ -244,8 +242,8 @@
 		303E8468299E81A3003D8FC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				30D4AE8829AE1D5900D4BA10 /* Authorization */,
 				4FCEE92229A379CE00700581 /* Registration */,
-				303E846E299E891F003D8FC3 /* UserCredentials.swift */,
 				303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */,
 				303E8477299E8B4D003D8FC3 /* VoidResponse.swift */,
 				303E8484299E8D62003D8FC3 /* NetworkingError.swift */,
@@ -287,6 +285,7 @@
 		303E8480299E8CE3003D8FC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				30D4AE8529AE1BAF00D4BA10 /* Registration */,
 				303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */,
 			);
 			path = Networking;
@@ -295,7 +294,6 @@
 		303E848B299E9004003D8FC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				303E848C299E9011003D8FC3 /* NetworkingHelper.swift */,
 				4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */,
 				30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */,
 			);
@@ -440,6 +438,21 @@
 				30D4AE6B29ACE2A800D4BA10 /* RegisterTeacherUseCase.swift */,
 			);
 			path = ResigtrationRepository;
+			sourceTree = "<group>";
+		};
+		30D4AE8529AE1BAF00D4BA10 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		30D4AE8829AE1D5900D4BA10 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				303E846E299E891F003D8FC3 /* UserCredentials.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		30E1D48C299FF485001E1529 /* Modifiers */ = {
@@ -741,7 +754,6 @@
 				4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */,
 				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
-				303E848D299E9011003D8FC3 /* NetworkingHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
@@ -955,8 +967,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -989,8 +1000,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (

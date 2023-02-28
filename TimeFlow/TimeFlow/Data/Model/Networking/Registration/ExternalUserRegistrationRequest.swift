@@ -13,5 +13,5 @@ struct ExternalUserRegistrationRequest: Codable, RegistrationData {
     var surname: String
     var patronymic: String
     var password: String
-    var sex: Int
+    var sex: String
 }

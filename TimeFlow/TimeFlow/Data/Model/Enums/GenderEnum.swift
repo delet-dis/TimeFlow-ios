@@ -35,4 +35,15 @@ enum GenderEnum: Int, CaseIterable, Identifiable, Codable {
     }
 
     var id: Int { return self.rawValue }
+
+    var networkingValue: String? {
+        switch self {
+        case .female:
+            return "FEMALE"
+        case .male:
+            return "MALE"
+        case .none:
+            return nil
+        }
+    }
 }

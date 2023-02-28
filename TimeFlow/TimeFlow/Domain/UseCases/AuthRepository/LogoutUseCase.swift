@@ -20,9 +20,9 @@ class LogoutUseCase {
     }
 
     func execute(
-        userCredentials: UserCredentials,
+        authorizationRequest: AuthorizationRequest,
         completion: ((Result<VoidResponse, Error>) -> Void)? = nil
     ) {
-        authRepository.logout(userCredentials: userCredentials, completion: completion)
+        authRepository.logout(authorizationRequest: authorizationRequest, completion: completion)
     }
 }
