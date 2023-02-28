@@ -110,7 +110,10 @@ struct AuthorizationView: View, KeyboardReadable {
                     .disabled(!areFieldsValid)
                     .background {
                         RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(areFieldsValid ? Color(uiColor: R.color.pickedColor() ?? .blue) : Color(uiColor: R.color.lightYellow() ?? .yellow))
+                            .foregroundColor(
+                                Color(uiColor: R.color.lightYellow() ?? .yellow)
+                                    .opacity(areFieldsValid ? 1 : 0.3)
+                            )
                     }
                     .padding(.top, 5)
                     .shadow(color: Color(uiColor: R.color.lightYellow() ?? .yellow), radius: 20, x: 0, y: 0)

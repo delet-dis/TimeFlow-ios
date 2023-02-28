@@ -96,7 +96,10 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                         .background {
                             RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(Color(uiColor: R.color.lightYellow() ?? .yellow))
+                                .foregroundColor(
+                                    Color(uiColor: R.color.lightYellow() ?? .yellow)
+                                        .opacity(areFieldsValid ? 1 : 0.3)
+                                )
                         }
                         .padding(.top, 5)
                         .shadow(

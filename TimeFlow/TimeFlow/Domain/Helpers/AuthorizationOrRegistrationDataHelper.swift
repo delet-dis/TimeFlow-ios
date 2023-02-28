@@ -1,5 +1,5 @@
 //
-//  AuthorizationHelper.swift
+//  AuthorizationOrRegistrationDataHelper.swift
 //  TimeFlow
 //
 //  Created by Семён Алимпиев on 20.02.2023.

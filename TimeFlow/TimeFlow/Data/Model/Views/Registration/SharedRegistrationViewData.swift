@@ -11,7 +11,7 @@ struct SharedRegistrationViewData {
     var secondName: String = ""
     var firstName: String = ""
     var middleName: String = ""
-    var genderType = GenderEnum.none
+    var genderType = GenderEnum.none.rawValue
     var emailText: String = ""
     var passwordText: String = ""
     var confirmPasswordText: String = ""

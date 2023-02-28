@@ -143,7 +143,7 @@ class RegistrationViewModel: ObservableObject {
     }
 
     private func initGenderObserver() {
-        sharedRegistrationData.genderType.savedValue.publisher.sink { [weak self] _ in
+        sharedRegistrationData.genderType.words.publisher.sink { [weak self] _ in
             self?.sharedRegistrationFieldsState.isGenderValid = true
             self?.validateFields()
         }.store(in: &subscribers)
@@ -151,52 +151,57 @@ class RegistrationViewModel: ObservableObject {
 
     @discardableResult private func validateFields() -> Bool {
         if !AuthorizationOrRegistrationDataHelper
-            .isFirstNameValid(sharedRegistrationData.firstName)
-        {
+            .isFirstNameValid(sharedRegistrationData.firstName) {
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isEmailValid(sharedRegistrationData.emailText)
-        {
+            .isEmailValid(sharedRegistrationData.emailText) {
             areFieldsValid = false
             return false
         }
-        if !AuthorizationOrRegistrationDataHelper.isGenderValid(sharedRegistrationData.genderType) {
+
+        if !AuthorizationOrRegistrationDataHelper.isGenderValid(
+            GenderEnum(rawValue: sharedRegistrationData.genderType)
+        ) {
             areFieldsValid = false
             return false
         }
+
         if !AuthorizationOrRegistrationDataHelper
-            .isSecondNameValid(sharedRegistrationData.secondName)
-        {
+            .isSecondNameValid(sharedRegistrationData.secondName) {
             areFieldsValid = false
             return false
         }
+
         if !AuthorizationOrRegistrationDataHelper
-            .isMiddleNameValid(sharedRegistrationData.middleName)
-        {
+            .isMiddleNameValid(sharedRegistrationData.middleName) {
             areFieldsValid = false
             return false
         }
+
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.passwordText)
-        {
+            .isPasswordValid(sharedRegistrationData.passwordText) {
             areFieldsValid = false
             return false
         }
+
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.confirmPasswordText)
-        {
+            .isPasswordValid(sharedRegistrationData.confirmPasswordText) {
             areFieldsValid = false
             return false
         }
+
         if !AuthorizationOrRegistrationDataHelper
-            .arePasswordsValid(firstPassword: sharedRegistrationData.passwordText, passwordConfirmation: sharedRegistrationData.confirmPasswordText)
-        {
+            .arePasswordsValid(
+                firstPassword: sharedRegistrationData.passwordText,
+                passwordConfirmation: sharedRegistrationData.confirmPasswordText
+            ) {
             areFieldsValid = false
             return false
         }
+
         areFieldsValid = true
         return true
     }
@@ -208,7 +213,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType.rawValue,
+            sex: sharedRegistrationData.genderType,
             contractNumber: sharedTeacherRegistrationData.contractNumber
         )
     }
@@ -220,7 +225,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType.rawValue
+            sex: sharedRegistrationData.genderType
         )
     }
 
@@ -231,7 +236,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType.rawValue,
+            sex: sharedRegistrationData.genderType,
             groupId: sharedStudentRegistrationData.groupNumber
         )
     }

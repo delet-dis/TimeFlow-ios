@@ -79,7 +79,7 @@
 		4F80611629A8A8B2004DDA52 /* StudentRegistationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80611529A8A8B2004DDA52 /* StudentRegistationViewState.swift */; };
 		4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */; };
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
-		4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */; };
+		4FCE601829A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */; };
 		4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,7 +152,7 @@
 		4F80611529A8A8B2004DDA52 /* StudentRegistationViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistationViewState.swift; sourceTree = "<group>"; };
 		4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderEnum.swift; sourceTree = "<group>"; };
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationHelper.swift; sourceTree = "<group>"; };
+		4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationOrRegistrationDataHelper.swift; sourceTree = "<group>"; };
 		4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistrationRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				303E848C299E9011003D8FC3 /* NetworkingHelper.swift */,
-				4FCE601729A372CD00D1784C /* AuthorizationHelper.swift */,
+				4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */,
 				30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */,
 			);
 			path = Helpers;
@@ -756,7 +756,7 @@
 				3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */,
-				4FCE601829A372CD00D1784C /* AuthorizationHelper.swift in Sources */,
+				4FCE601829A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift in Sources */,
 				300E411529A7985100851BB8 /* SharedRegistrationFormView.swift in Sources */,
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
 				4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */,
