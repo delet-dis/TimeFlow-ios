@@ -15,6 +15,14 @@ final class AuthorizationOrRegistrationDataHelper {
         "^(?!\\.)([A-Z0-9a-z_%+-]?[\\.]?[A-Z0-9a-z_%+-])+@[A-Za-z0-9-]{1,20}(\\.[A-Za-z0-9]{1,15}){0,10}\\.[A-Za-z]{2,20}$"
     )
 
+    static func isGenderValid(_ gender: GenderEnum?) -> Bool {
+        guard gender != nil else {
+            return false
+        }
+
+        return gender != GenderEnum.none
+    }
+
     static func isPasswordValid(_ password: String) -> Bool {
         !password.isEmptyAndBlank
     }

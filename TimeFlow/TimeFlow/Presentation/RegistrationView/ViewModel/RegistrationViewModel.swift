@@ -41,12 +41,33 @@ class RegistrationViewModel: ObservableObject {
         self.registerExternalUserUseCase = registerExternalUserUseCase
 
         initFieldsObserving()
-        print("something")
+    }
+
+    private func resetValidState() {
+        sharedRegistrationFieldsState.isEmailValid = true
+        sharedRegistrationFieldsState.isPasswordValid = true
+        sharedRegistrationFieldsState.isMiddleNameValid = true
+        sharedRegistrationFieldsState.isSecondNameValid = true
+        sharedRegistrationFieldsState.isPasswordConfirmationValid = true
+        sharedRegistrationFieldsState.isFirstNameValid = true
+        sharedRegistrationFieldsState.isGenderValid = true
+        sharedStudentRegistrationState.isGroupNumberValid = true
+        sharedStudentRegistrationState.isStudentNumberValid = true
+        sharedTeacherRegistrationState.isContractNumberValid = true
     }
 
     private func initFieldsObserving() {
+        initEmployeeNumberObserver()
         initViewDisplayingModeIndexObserver()
         initFirstNameObserver()
+        initSecondNameObserver()
+        initMiddleNameObserver()
+        initEmailObserver()
+        initPasswordObserver()
+        initGenderObserver()
+        initSecondPasswordObserver()
+        initStudentsGroupObserver()
+        initStudentsNumberObserver()
     }
 
     private func initViewDisplayingModeIndexObserver() {
@@ -58,6 +79,27 @@ class RegistrationViewModel: ObservableObject {
         .store(in: &subscribers)
     }
 
+    private func initEmployeeNumberObserver() {
+        sharedTeacherRegistrationData.contractNumber.publisher.sink { [weak self] _ in
+            self?.sharedTeacherRegistrationState.isContractNumberValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initStudentsGroupObserver() {
+        sharedStudentRegistrationData.groupNumber.publisher.sink { [weak self] _ in
+            self?.sharedStudentRegistrationState.isGroupNumberValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initStudentsNumberObserver() {
+        sharedStudentRegistrationData.studentNumber.publisher.sink { [weak self] _ in
+            self?.sharedStudentRegistrationState.isStudentNumberValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
     private func initFirstNameObserver() {
         sharedRegistrationData.firstName.publisher.sink { [weak self] _ in
             self?.sharedRegistrationFieldsState.isFirstNameValid = true
@@ -65,9 +107,92 @@ class RegistrationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
+    private func initSecondNameObserver() {
+        sharedRegistrationData.secondName.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isSecondNameValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initMiddleNameObserver() {
+        sharedRegistrationData.middleName.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isMiddleNameValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initEmailObserver() {
+        sharedRegistrationData.emailText.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isEmailValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initPasswordObserver() {
+        sharedRegistrationData.passwordText.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isPasswordValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initSecondPasswordObserver() {
+        sharedRegistrationData.confirmPasswordText.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isPasswordConfirmationValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
+    private func initGenderObserver() {
+        sharedRegistrationData.genderType.savedValue.publisher.sink { [weak self] _ in
+            self?.sharedRegistrationFieldsState.isGenderValid = true
+            self?.validateFields()
+        }.store(in: &subscribers)
+    }
+
     @discardableResult private func validateFields() -> Bool {
         if !AuthorizationOrRegistrationDataHelper
             .isFirstNameValid(sharedRegistrationData.firstName)
+        {
+            areFieldsValid = false
+            return false
+        }
+
+        if !AuthorizationOrRegistrationDataHelper
+            .isEmailValid(sharedRegistrationData.emailText)
+        {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper.isGenderValid(sharedRegistrationData.genderType) {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper
+            .isSecondNameValid(sharedRegistrationData.secondName)
+        {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper
+            .isMiddleNameValid(sharedRegistrationData.middleName)
+        {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper
+            .isPasswordValid(sharedRegistrationData.passwordText)
+        {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper
+            .isPasswordValid(sharedRegistrationData.confirmPasswordText)
+        {
+            areFieldsValid = false
+            return false
+        }
+        if !AuthorizationOrRegistrationDataHelper
+            .arePasswordsValid(firstPassword: sharedRegistrationData.passwordText, passwordConfirmation: sharedRegistrationData.confirmPasswordText)
         {
             areFieldsValid = false
             return false
@@ -83,7 +208,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType,
+            sex: sharedRegistrationData.genderType.rawValue,
             contractNumber: sharedTeacherRegistrationData.contractNumber
         )
     }
@@ -95,7 +220,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType
+            sex: sharedRegistrationData.genderType.rawValue
         )
     }
 
@@ -106,7 +231,7 @@ class RegistrationViewModel: ObservableObject {
             surname: sharedRegistrationData.secondName,
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
-            sex: sharedRegistrationData.genderType,
+            sex: sharedRegistrationData.genderType.rawValue,
             groupId: sharedStudentRegistrationData.groupNumber
         )
     }
