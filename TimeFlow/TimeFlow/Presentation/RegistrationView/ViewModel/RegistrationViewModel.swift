@@ -24,11 +24,11 @@ class RegistrationViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
     @Published private(set) var areFieldsValid = false
-    @Published var arrayStudentsGroups: [StudentsGroup] = []
+    @Published var studentGroups: [StudentGroup] = []
 
     private let registerStudentUseCase: RegisterStudentUseCase
     private let registerTeacherUseCase: RegisterTeacherUseCase
-    private let getStudentGroupUseCase: GroupStudentUseCase
+    private let getStudentGroupsUseCase: GetStudentGroupsUseCase
     private let registerExternalUserUseCase: RegisterExternalUserUseCase
 
     private var subscribers: Set<AnyCancellable> = []
@@ -37,12 +37,12 @@ class RegistrationViewModel: ObservableObject {
         registerStudentUseCase: RegisterStudentUseCase,
         registerTeacherUseCase: RegisterTeacherUseCase,
         registerExternalUserUseCase: RegisterExternalUserUseCase,
-        getStudentGroupUseCase: GroupStudentUseCase
+        getStudentGroupUseCase: GetStudentGroupsUseCase
     ) {
         self.registerStudentUseCase = registerStudentUseCase
         self.registerTeacherUseCase = registerTeacherUseCase
         self.registerExternalUserUseCase = registerExternalUserUseCase
-        self.getStudentGroupUseCase = getStudentGroupUseCase
+        self.getStudentGroupsUseCase = getStudentGroupUseCase
 
         initFieldsObserving()
     }
@@ -84,34 +84,31 @@ class RegistrationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
+    // swiftlint:disable:next function_body_length
     @discardableResult private func validateFields() -> Bool {
         if !AuthorizationOrRegistrationDataHelper
-            .isFirstNameValid(sharedRegistrationData.firstName)
-        {
+            .isFirstNameValid(sharedRegistrationData.firstName) {
             sharedRegistrationFieldsState.isFirstNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isSecondNameValid(sharedRegistrationData.secondName)
-        {
+            .isSecondNameValid(sharedRegistrationData.secondName) {
             sharedRegistrationFieldsState.isSecondNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isMiddleNameValid(sharedRegistrationData.middleName)
-        {
+            .isMiddleNameValid(sharedRegistrationData.middleName) {
             sharedRegistrationFieldsState.isMiddleNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isEmailValid(sharedRegistrationData.emailText)
-        {
+            .isEmailValid(sharedRegistrationData.emailText) {
             sharedRegistrationFieldsState.isEmailValid = false
             areFieldsValid = false
             return false
@@ -126,16 +123,14 @@ class RegistrationViewModel: ObservableObject {
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.passwordText)
-        {
+            .isPasswordValid(sharedRegistrationData.passwordText) {
             sharedRegistrationFieldsState.isPasswordValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.confirmPasswordText)
-        {
+            .isPasswordValid(sharedRegistrationData.confirmPasswordText) {
             sharedRegistrationFieldsState.isPasswordConfirmationValid = false
             areFieldsValid = false
             return false
@@ -145,8 +140,7 @@ class RegistrationViewModel: ObservableObject {
             .arePasswordsValid(
                 firstPassword: sharedRegistrationData.passwordText,
                 passwordConfirmation: sharedRegistrationData.confirmPasswordText
-            )
-        {
+            ) {
             sharedRegistrationFieldsState.arePasswordsEqual = false
             areFieldsValid = false
             return false
@@ -268,21 +262,21 @@ class RegistrationViewModel: ObservableObject {
 
     func viewDidDisappear() {
         viewDisplayingModeIndex = RegistrationViewDisplayingModeEnum.teacher.rawValue
-        arrayStudentsGroups = []
+        studentGroups = []
     }
 
-    func getStudentGroup() -> [StudentsGroup] {
-        getStudentGroupUseCase.execute { [weak self] result in
+    func viewDidAppear() {
+        getStudentGroups()
+    }
+
+    func getStudentGroups() {
+        getStudentGroupsUseCase.execute { [weak self] result in
             switch result {
             case .success(let groups):
-                groups.forEach { group in
-                    self?.arrayStudentsGroups.append(group)
-                }
-                print("Ok")
+                self?.studentGroups = groups
             case .failure(let error):
-                print(error)
+                self?.processError(error)
             }
         }
-        return arrayStudentsGroups
     }
 }

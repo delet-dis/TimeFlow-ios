@@ -31,7 +31,7 @@ struct LoginView: View {
 
             VStack {
                 Spacer()
-                
+
                 HStack(spacing: 3) {
                     Group {
                         switch viewDisplayingMode {

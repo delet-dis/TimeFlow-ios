@@ -13,7 +13,7 @@ protocol RegistrationComponentDependency: Dependency {
     var registerStudentUseCase: RegisterStudentUseCase { get }
     var registerTeacherUseCase: RegisterTeacherUseCase { get }
     var registerExternalUserUseCase: RegisterExternalUserUseCase { get }
-    var groupStudentUseCase: GroupStudentUseCase { get }
+    var getStudentGroupsUseCase: GetStudentGroupsUseCase { get }
 }
 
 final class RegistrationComponent: Component<RegistrationComponentDependency> {
@@ -22,7 +22,8 @@ final class RegistrationComponent: Component<RegistrationComponentDependency> {
             RegistrationViewModel(
                 registerStudentUseCase: dependency.registerStudentUseCase,
                 registerTeacherUseCase: dependency.registerTeacherUseCase,
-                registerExternalUserUseCase: dependency.registerExternalUserUseCase, getStudentGroupUseCase: dependency.groupStudentUseCase
+                registerExternalUserUseCase: dependency.registerExternalUserUseCase,
+                getStudentGroupUseCase: dependency.getStudentGroupsUseCase
             )
         }
     }

@@ -1,5 +1,5 @@
 //
-//  StudentsGroupRepositoryImpl.swift
+//  StudentGroupsRepositoryImpl.swift
 //  TimeFlow
 //
 //  Created by Семён Алимпиев on 01.03.2023.
@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-class StudentsGroupRepositoryImpl: StudentsGroupRepository {
+class StudentGroupsRepositoryImpl: StudentGroupsRepository {
     private static let url = "\(NetworkingConstants.baseUrl)"
 
     private let jsonDecoder: JSONDecoder
@@ -19,7 +19,7 @@ class StudentsGroupRepositoryImpl: StudentsGroupRepository {
         self.jsonEncoder = jsonEncoder
     }
 
-    func getStudentsGroup(completion: ((Result<[StudentsGroup], Error>) -> Void)?) {
+    func getStudentGroups(completion: ((Result<[StudentGroup], Error>) -> Void)?) {
         AF.request(
             Self.url + "group",
             method: .get,

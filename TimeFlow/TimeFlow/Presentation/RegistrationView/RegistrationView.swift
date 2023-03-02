@@ -15,7 +15,7 @@ struct RegistrationView: View {
 
     @State private var viewDisplayingMode = RegistrationViewDisplayingModeEnum.teacher
     @State private var areFieldsValid = false
-    @State private var arrayStudentGroup: [StudentsGroup] = []
+    @State private var arrayStudentGroup: [StudentGroup] = []
 
     var body: some View {
         VStack(spacing: 20) {
@@ -128,9 +128,7 @@ struct RegistrationView: View {
             }
         }
         .onAppear {
-            arrayStudentGroup = viewModel.getStudentGroup()
-            print("------------")
-            print(arrayStudentGroup)
+            viewModel.viewDidAppear()
         }
         .onDisappear {
             viewModel.viewDidDisappear()
