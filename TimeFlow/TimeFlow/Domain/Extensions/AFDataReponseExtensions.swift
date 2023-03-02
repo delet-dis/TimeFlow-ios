@@ -19,7 +19,7 @@ extension AFDataResponse {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
-                    .reduce("") { $0 + String($1 + ". \n") }
+                    .reduce("") { $0 + String($1 + "\n") }
 
                 return NSError.createErrorWithLocalizedDescription(errorMessage)
             } else {
