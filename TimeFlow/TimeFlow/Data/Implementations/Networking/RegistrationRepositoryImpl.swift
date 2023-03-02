@@ -26,7 +26,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
 
     func registerStudent(
         studentRegistrationRequest: StudentRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     ) {
         do {
             let encodedParametrs = try jsonEncoder.encode(studentRegistrationRequest)
@@ -52,7 +52,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
 
     func registerTeacher(
         teacherRegistrationRequest: TeacherRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     ) {
         do {
             let encodedParametrs = try jsonEncoder.encode(teacherRegistrationRequest)
@@ -78,7 +78,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
 
     func registerExternalUser(
         externalUserRegistrationRequest: ExternalUserRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     ) {
         do {
             let encodedParametrs = try jsonEncoder.encode(externalUserRegistrationRequest)

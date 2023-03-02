@@ -14,18 +14,32 @@ protocol RegisterExternalUserUseCaseDependency: Dependency {
 
 class RegisterExternalUserUseCase {
     private let registrationRepository: RegistrationRepository
+    private let saveTokensUseCase: SaveTokensUseCase
 
-    init(registrationRepository: RegistrationRepository) {
+    init(
+        registrationRepository: RegistrationRepository,
+        saveTokensUseCase: SaveTokensUseCase
+    ) {
         self.registrationRepository = registrationRepository
+        self.saveTokensUseCase = saveTokensUseCase
     }
 
     func execute(
         externalUserRegistrationRequest: ExternalUserRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)? = nil
+        completion: ((Result<LoginResponse, Error>) -> Void)? = nil
     ) {
         registrationRepository.registerExternalUser(
             externalUserRegistrationRequest: externalUserRegistrationRequest,
-            completion: completion
+            completion: { [weak self] result in
+                completion?(result)
+
+                if case .success(let loginResponse) = result {
+                    self?.saveTokensUseCase.execute(
+                        authToken: loginResponse.accessToken,
+                        refreshToken: loginResponse.refreshToken ?? ""
+                    )
+                }
+            }
         )
     }
 }

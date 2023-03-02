@@ -10,14 +10,14 @@ import Foundation
 protocol RegistrationRepository {
     func registerStudent(
         studentRegistrationRequest: StudentRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     )
     func registerTeacher(
         teacherRegistrationRequest: TeacherRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     )
     func registerExternalUser(
         externalUserRegistrationRequest: ExternalUserRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     )
 }

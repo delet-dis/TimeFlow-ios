@@ -206,57 +206,68 @@ class RegistrationViewModel: ObservableObject {
         print(error)
     }
 
+    private func processTeacherRegistrationRequest() {
+        guard let request = createTeacherRegistrationRequest() else {
+            return
+        }
+
+        registerTeacherUseCase.execute(
+            teacherRegistrationRequest: request
+        ) { [weak self] result in
+            switch result {
+            case .success:
+                self?.handleSuccessRegistrationRequestReponse()
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    private func processStudentRegistrationRequest() {
+        guard let request = createStudentResitrationRequest() else {
+            return
+        }
+
+        registerStudentUseCase.execute(
+            studentRegistrationRequest: request
+        ) { [weak self] result in
+            switch result {
+            case .success:
+                self?.handleSuccessRegistrationRequestReponse()
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    private func processExternalUserRegistrationRequest() {
+        guard let request = createExternalUserRegistrationRequest() else {
+            return
+        }
+
+        registerExternalUserUseCase.execute(
+            externalUserRegistrationRequest: request
+        ) { [weak self] result in
+            switch result {
+            case .success:
+                self?.handleSuccessRegistrationRequestReponse()
+            case .failure(let error):
+                self?.processError(error)
+                print(error)
+            }
+        }
+    }
+
     func register() {
         switch viewDisplayingMode {
         case .teacher:
-            guard let request = createTeacherRegistrationRequest() else {
-                return
-            }
-
-            registerTeacherUseCase.execute(
-                teacherRegistrationRequest: request
-            ) { [weak self] result in
-                switch result {
-                case .success:
-                    self?.handleSuccessRegistrationRequestReponse()
-                case .failure(let error):
-                    self?.processError(error)
-                }
-            }
+            processTeacherRegistrationRequest()
 
         case .student:
-            guard let request = createStudentResitrationRequest() else {
-                return
-            }
-
-            registerStudentUseCase.execute(
-                studentRegistrationRequest: request
-            ) { [weak self] result in
-                switch result {
-                case .success:
-                    self?.handleSuccessRegistrationRequestReponse()
-                case .failure(let error):
-                    self?.processError(error)
-                }
-            }
+            processStudentRegistrationRequest()
 
         case .externalUser:
-            guard let request = createExternalUserRegistrationRequest() else {
-                return
-            }
-            print("Yeee")
-            registerExternalUserUseCase.execute(
-                externalUserRegistrationRequest: request
-            ) { [weak self] result in
-                switch result {
-                case .success:
-                    print("Ok")
-                    self?.handleSuccessRegistrationRequestReponse()
-                case .failure(let error):
-                    self?.processError(error)
-                    print(error)
-                }
-            }
+            processExternalUserRegistrationRequest()
         }
     }
 

@@ -14,20 +14,32 @@ protocol RegisterStudentUseCaseDependency: Dependency {
 
 class RegisterStudentUseCase {
     private let registrationRepository: RegistrationRepository
+    private let saveTokensUseCase: SaveTokensUseCase
 
     init(
-        registrationRepository: RegistrationRepository
+        registrationRepository: RegistrationRepository,
+        saveTokensUseCase: SaveTokensUseCase
     ) {
         self.registrationRepository = registrationRepository
+        self.saveTokensUseCase = saveTokensUseCase
     }
 
     func execute(
         studentRegistrationRequest: StudentRegistrationRequest,
-        completion: ((Result<VoidResponse, Error>) -> Void)? = nil
+        completion: ((Result<LoginResponse, Error>) -> Void)? = nil
     ) {
         registrationRepository.registerStudent(
             studentRegistrationRequest: studentRegistrationRequest,
-            completion: completion
+            completion: { [weak self] result in
+                completion?(result)
+
+                if case .success(let loginResponse) = result {
+                    self?.saveTokensUseCase.execute(
+                        authToken: loginResponse.accessToken,
+                        refreshToken: loginResponse.refreshToken ?? ""
+                    )
+                }
+            }
         )
     }
 }

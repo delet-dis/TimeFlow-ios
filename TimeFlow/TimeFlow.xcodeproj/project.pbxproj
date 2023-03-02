@@ -42,6 +42,10 @@
 		30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */; };
 		30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */; };
 		30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8B29A0BBF000A85B32 /* ViewExtensions.swift */; };
+		309BAB9529B042BC009E59AC /* KeychainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9429B042BC009E59AC /* KeychainRepository.swift */; };
+		309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9729B042D5009E59AC /* KeychainRepositoryImpl.swift */; };
+		309BAB9B29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */; };
+		309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */; };
 		30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2629A3793000108535 /* LoginComponent.swift */; };
 		30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */; };
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
@@ -122,6 +126,10 @@
 		30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
 		30984B8B29A0BBF000A85B32 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		309BAB9429B042BC009E59AC /* KeychainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepository.swift; sourceTree = "<group>"; };
+		309BAB9729B042D5009E59AC /* KeychainRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryImpl.swift; sourceTree = "<group>"; };
+		309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
+		309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTokensUseCase.swift; sourceTree = "<group>"; };
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
@@ -236,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				303E8465299E8143003D8FC3 /* Networking */,
+				309BAB9429B042BC009E59AC /* KeychainRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				303E847A299E8BD0003D8FC3 /* Networking */,
+				309BAB9729B042D5009E59AC /* KeychainRepositoryImpl.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -297,7 +307,6 @@
 		303E8480299E8CE3003D8FC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				30D4AE8529AE1BAF00D4BA10 /* Registration */,
 				303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */,
 			);
 			path = Networking;
@@ -315,6 +324,7 @@
 		303E848F299E91D0003D8FC3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				309BAB9C29B04707009E59AC /* KeychainRepository */,
 				30D4AE6529ACE16F00D4BA10 /* ResigtrationRepository */,
 				303E8490299E91DC003D8FC3 /* AuthRepository */,
 			);
@@ -434,6 +444,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		309BAB9929B04328009E59AC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				303E8480299E8CE3003D8FC3 /* Networking */,
+				309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		309BAB9C29B04707009E59AC /* KeychainRepository */ = {
+			isa = PBXGroup;
+			children = (
+				309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */,
+			);
+			path = KeychainRepository;
+			sourceTree = "<group>";
+		};
 		30ABBB2429A3792000108535 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,13 +478,6 @@
 				4FC10EB129AF44C500711113 /* GetStudentGroupsUseCase.swift */,
 			);
 			path = ResigtrationRepository;
-			sourceTree = "<group>";
-		};
-		30D4AE8529AE1BAF00D4BA10 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Registration;
 			sourceTree = "<group>";
 		};
 		30D4AE8829AE1D5900D4BA10 /* Authorization */ = {
@@ -540,7 +560,7 @@
 		4F586294299E07C800DB82FC /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				303E8480299E8CE3003D8FC3 /* Networking */,
+				309BAB9929B04328009E59AC /* Repositories */,
 				4F586295299E07D400DB82FC /* Views */,
 				4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */,
 			);
@@ -771,6 +791,7 @@
 				4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
+				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
@@ -780,6 +801,7 @@
 				4F7AE9D529A3818800D994C5 /* TeacherRegistrationRequest.swift in Sources */,
 				4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */,
 				4F80610529A89C2C004DDA52 /* TeacherRegistrationFormView.swift in Sources */,
+				309BAB9B29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
 				3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
@@ -789,6 +811,7 @@
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
 				4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
+				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
@@ -802,6 +825,7 @@
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
+				309BAB9529B042BC009E59AC /* KeychainRepository.swift in Sources */,
 				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
 				30D4AE6C29ACE2A800D4BA10 /* RegisterTeacherUseCase.swift in Sources */,

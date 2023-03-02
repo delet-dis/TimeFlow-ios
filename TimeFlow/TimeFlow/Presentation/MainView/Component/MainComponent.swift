@@ -48,6 +48,12 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var keychainRepository: KeychainRepository {
+        shared {
+            KeychainRepositoryImpl()
+        }
+    }
+
     // MARK: Auth use cases
 
     var loginUseCase: LoginUseCase {
@@ -60,7 +66,10 @@ class MainComponent: BootstrapComponent {
 
     var registerStudentUseCase: RegisterStudentUseCase {
         shared {
-            RegisterStudentUseCase(registrationRepository: registrationRepository)
+            RegisterStudentUseCase(
+                registrationRepository: registrationRepository,
+                saveTokensUseCase: saveTokensUseCase
+            )
         }
     }
 
@@ -72,19 +81,33 @@ class MainComponent: BootstrapComponent {
 
     var registerTeacherUseCase: RegisterTeacherUseCase {
         shared {
-            RegisterTeacherUseCase(registrationRepository: registrationRepository)
+            RegisterTeacherUseCase(
+                registrationRepository: registrationRepository,
+                saveTokensUseCase: saveTokensUseCase
+            )
         }
     }
 
     var registerExternalUserUseCase: RegisterExternalUserUseCase {
         shared {
-            RegisterExternalUserUseCase(registrationRepository: registrationRepository)
+            RegisterExternalUserUseCase(
+                registrationRepository: registrationRepository,
+                saveTokensUseCase: saveTokensUseCase
+            )
         }
     }
 
     var logoutUseCase: LogoutUseCase {
         shared {
             LogoutUseCase(authRepository: authRepository)
+        }
+    }
+
+    // MARK: Keychain use cases
+
+    var saveTokensUseCase: SaveTokensUseCase {
+        shared {
+            SaveTokensUseCase(keychainRepository: keychainRepository)
         }
     }
 
