@@ -148,13 +148,20 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var homeComponent: HomeComponent {
+        shared {
+            HomeComponent(parent: self)
+        }
+    }
+
     // MARK: Main
 
     var mainViewModel: MainViewModel {
         shared {
             MainViewModel(
                 getAuthStatusUseCase: getAuthStatusUseCase,
-                loginComponent: loginComponent
+                loginComponent: loginComponent,
+                homeComponent: homeComponent
             )
         }
     }

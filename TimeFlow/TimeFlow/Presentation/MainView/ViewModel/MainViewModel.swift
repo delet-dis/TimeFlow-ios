@@ -11,7 +11,8 @@ import SwiftyUserDefaults
 class MainViewModel: ObservableObject {
     @Published private(set) var mainViewDispalyingMode: MainViewDisaplyingModeEnum = .authorization
 
-    private(set) var loginComponent: LoginComponent?
+    let loginComponent: LoginComponent?
+    let homeComponent: HomeComponent?
 
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
@@ -21,10 +22,12 @@ class MainViewModel: ObservableObject {
 
     init(
         getAuthStatusUseCase: GetAuthStatusUseCase,
-        loginComponent: LoginComponent? = nil
+        loginComponent: LoginComponent? = nil,
+        homeComponent: HomeComponent? = nil
     ) {
         self.getAuthStatusUseCase = getAuthStatusUseCase
         self.loginComponent = loginComponent
+        self.homeComponent = homeComponent
 
         getAuthStatus()
 

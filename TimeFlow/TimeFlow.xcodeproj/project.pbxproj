@@ -50,6 +50,9 @@
 		309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABA729B04CEA009E59AC /* SaveAuthStatusUseCase.swift */; };
 		309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */; };
 		309BABAC29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABAB29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift */; };
+		309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABB429B060B3009E59AC /* HomeViewModel.swift */; };
+		309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABB629B060BA009E59AC /* HomeComponent.swift */; };
+		309BABB929B06143009E59AC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABB829B06143009E59AC /* HomeView.swift */; };
 		30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2629A3793000108535 /* LoginComponent.swift */; };
 		30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */; };
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
@@ -138,6 +141,9 @@
 		309BABA729B04CEA009E59AC /* SaveAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAuthStatusUseCase.swift; sourceTree = "<group>"; };
 		309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStatusUseCase.swift; sourceTree = "<group>"; };
 		309BABAB29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
+		309BABB429B060B3009E59AC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		309BABB629B060BA009E59AC /* HomeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
+		309BABB829B06143009E59AC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
@@ -420,6 +426,7 @@
 			children = (
 				300E412129A79CF400851BB8 /* SharedViews */,
 				30E1D48C299FF485001E1529 /* Modifiers */,
+				309BABAD29B06079009E59AC /* HomeView */,
 				4F0849D4299FC8310050439F /* RegistrationView */,
 				4F5862A0299E0AA000DB82FC /* AuthorizationView */,
 				4F586298299E092600DB82FC /* LoginView */,
@@ -479,6 +486,32 @@
 				309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		309BABAD29B06079009E59AC /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				309BABB329B060A9009E59AC /* Comonent */,
+				309BABB229B060A2009E59AC /* ViewModel */,
+				309BABB829B06143009E59AC /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		309BABB229B060A2009E59AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				309BABB429B060B3009E59AC /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		309BABB329B060A9009E59AC /* Comonent */ = {
+			isa = PBXGroup;
+			children = (
+				309BABB629B060BA009E59AC /* HomeComponent.swift */,
+			);
+			path = Comonent;
 			sourceTree = "<group>";
 		};
 		30ABBB2429A3792000108535 /* Component */ = {
@@ -832,7 +865,9 @@
 				4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
+				309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
+				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
@@ -840,6 +875,7 @@
 				4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */,
 				303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */,
 				300E412429A79D0400851BB8 /* StatefulPreviewWrapper.swift in Sources */,
+				309BABB929B06143009E59AC /* HomeView.swift in Sources */,
 				4FC10EB029AF420A00711113 /* StudentGroupsRepositoryImpl.swift in Sources */,
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,

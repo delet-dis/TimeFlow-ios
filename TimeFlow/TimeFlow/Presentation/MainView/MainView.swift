@@ -11,11 +11,23 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
 
-    @State private var displayMode = MainViewDisaplyingModeEnum.authorization
+    @State private var displayingMode = MainViewDisaplyingModeEnum.authorization
     @State private var isSplashDisplaying = true
 
     var body: some View {
-        viewModel.loginComponent?.loginView
+        ZStack{
+            switch displayingMode {
+            case .authorization:
+                viewModel.loginComponent?.loginView
+            case .homeScreen:
+                viewModel.homeComponent?.homeView
+            }
+        }
+        .onReceive(viewModel.$mainViewDispalyingMode) { value in
+            withAnimation {
+                self.displayingMode = value
+            }
+        }
     }
 }
 
