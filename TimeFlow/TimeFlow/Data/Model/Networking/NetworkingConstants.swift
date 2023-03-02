@@ -12,7 +12,8 @@ class NetworkingConstants {
     static let baseUrl = "http://94.103.87.164:8081/api/v1/"
 
     static let headers: HTTPHeaders = [
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "accept": "*/*"
     ]
 
     static let unauthorizedStatusCode = 401

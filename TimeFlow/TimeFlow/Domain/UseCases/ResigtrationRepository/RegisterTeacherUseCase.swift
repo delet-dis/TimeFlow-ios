@@ -15,13 +15,16 @@ protocol RegisterTeacherUseCaseDependency: Dependency {
 class RegisterTeacherUseCase {
     private let registrationRepository: RegistrationRepository
     private let saveTokensUseCase: SaveTokensUseCase
+    private let saveAuthStatusUseCase: SaveAuthStatusUseCase
 
     init(
         registrationRepository: RegistrationRepository,
-        saveTokensUseCase: SaveTokensUseCase
+        saveTokensUseCase: SaveTokensUseCase,
+        saveAuthStatusUseCase: SaveAuthStatusUseCase
     ) {
         self.registrationRepository = registrationRepository
         self.saveTokensUseCase = saveTokensUseCase
+        self.saveAuthStatusUseCase = saveAuthStatusUseCase
     }
 
     func execute(
@@ -36,7 +39,12 @@ class RegisterTeacherUseCase {
                 if case .success(let loginResponse) = result {
                     self?.saveTokensUseCase.execute(
                         authToken: loginResponse.accessToken,
-                        refreshToken: loginResponse.refreshToken ?? ""
+                        refreshToken: loginResponse.refreshToken ?? "",
+                        completion: { [weak self] result in
+                            if case .success = result {
+                                self?.saveAuthStatusUseCase.execute(isAuthorized: true)
+                            }
+                        }
                     )
                 }
             }

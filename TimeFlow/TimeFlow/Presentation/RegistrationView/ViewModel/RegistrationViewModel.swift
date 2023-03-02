@@ -77,6 +77,8 @@ class RegistrationViewModel: ObservableObject {
 
     private func initRegistrationDataObserver() {
         $sharedRegistrationData.sink { [weak self] _ in
+            self?.isAlertShowing = false
+
             DispatchQueue.runAsyncOnMainWithDelay(delay: .short) {
                 self?.resetValidState()
                 self?.validateFields()

@@ -68,7 +68,8 @@ class MainComponent: BootstrapComponent {
         shared {
             RegisterStudentUseCase(
                 registrationRepository: registrationRepository,
-                saveTokensUseCase: saveTokensUseCase
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase
             )
         }
     }
@@ -83,7 +84,8 @@ class MainComponent: BootstrapComponent {
         shared {
             RegisterTeacherUseCase(
                 registrationRepository: registrationRepository,
-                saveTokensUseCase: saveTokensUseCase
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase
             )
         }
     }
@@ -92,7 +94,8 @@ class MainComponent: BootstrapComponent {
         shared {
             RegisterExternalUserUseCase(
                 registrationRepository: registrationRepository,
-                saveTokensUseCase: saveTokensUseCase
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase
             )
         }
     }
@@ -108,6 +111,20 @@ class MainComponent: BootstrapComponent {
     var saveTokensUseCase: SaveTokensUseCase {
         shared {
             SaveTokensUseCase(keychainRepository: keychainRepository)
+        }
+    }
+
+    // MARK: UserDefaults use cases
+
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase {
+        shared {
+            SaveAuthStatusUseCase()
+        }
+    }
+
+    var getAuthStatusUseCase: GetAuthStatusUseCase {
+        shared {
+            GetAuthStatusUseCase()
         }
     }
 
@@ -136,6 +153,7 @@ class MainComponent: BootstrapComponent {
     var mainViewModel: MainViewModel {
         shared {
             MainViewModel(
+                getAuthStatusUseCase: getAuthStatusUseCase,
                 loginComponent: loginComponent
             )
         }

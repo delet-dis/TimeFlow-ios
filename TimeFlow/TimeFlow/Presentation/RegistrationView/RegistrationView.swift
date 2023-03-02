@@ -136,7 +136,8 @@ struct RegistrationView: View {
         .SPAlert(
             isPresent: $viewModel.isAlertShowing,
             message: viewModel.alertText,
-            dismissOnTap: false,
+            duration: 8,
+            dismissOnTap: true,
             preset: .error,
             haptic: .error
         )

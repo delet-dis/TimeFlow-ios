@@ -27,7 +27,7 @@ class SaveTokensUseCase {
         refreshToken: String,
         completion: ((Result<Void, Error>) -> Void)? = nil
     ) {
-        keychainRepository.saveValueByKey(Self.authTokenKey, value: authToken, completion: completion)
+        keychainRepository.saveValueByKey(Self.authTokenKey, value: authToken, completion: nil)
         keychainRepository.saveValueByKey(Self.refreshTokenKey, value: refreshToken, completion: completion)
     }
 }

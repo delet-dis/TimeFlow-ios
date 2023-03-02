@@ -46,6 +46,10 @@
 		309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9729B042D5009E59AC /* KeychainRepositoryImpl.swift */; };
 		309BAB9B29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */; };
 		309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */; };
+		309BABA229B04C78009E59AC /* DefaultsKeysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */; };
+		309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABA729B04CEA009E59AC /* SaveAuthStatusUseCase.swift */; };
+		309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */; };
+		309BABAC29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BABAB29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift */; };
 		30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2629A3793000108535 /* LoginComponent.swift */; };
 		30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */; };
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
@@ -130,6 +134,10 @@
 		309BAB9729B042D5009E59AC /* KeychainRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryImpl.swift; sourceTree = "<group>"; };
 		309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
 		309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTokensUseCase.swift; sourceTree = "<group>"; };
+		309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtensions.swift; sourceTree = "<group>"; };
+		309BABA729B04CEA009E59AC /* SaveAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAuthStatusUseCase.swift; sourceTree = "<group>"; };
+		309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStatusUseCase.swift; sourceTree = "<group>"; };
+		309BABAB29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
@@ -300,6 +308,7 @@
 				30984B8B29A0BBF000A85B32 /* ViewExtensions.swift */,
 				4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */,
 				30FE8BD529A794A9008AC4F2 /* StringExtensions.swift */,
+				309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +333,7 @@
 		303E848F299E91D0003D8FC3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				309BABA629B04CC4009E59AC /* UserDefaults */,
 				309BAB9C29B04707009E59AC /* KeychainRepository */,
 				30D4AE6529ACE16F00D4BA10 /* ResigtrationRepository */,
 				303E8490299E91DC003D8FC3 /* AuthRepository */,
@@ -449,6 +459,7 @@
 			children = (
 				303E8480299E8CE3003D8FC3 /* Networking */,
 				309BAB9A29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift */,
+				309BABAB29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -459,6 +470,15 @@
 				309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */,
 			);
 			path = KeychainRepository;
+			sourceTree = "<group>";
+		};
+		309BABA629B04CC4009E59AC /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				309BABA729B04CEA009E59AC /* SaveAuthStatusUseCase.swift */,
+				309BABA929B04D03009E59AC /* GetAuthStatusUseCase.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		30ABBB2429A3792000108535 /* Component */ = {
@@ -813,6 +833,7 @@
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
+				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,
@@ -839,9 +860,12 @@
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
 				4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */,
+				309BABAC29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift in Sources */,
+				309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */,
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
+				309BABA229B04C78009E59AC /* DefaultsKeysExtensions.swift in Sources */,
 				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
 				30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,

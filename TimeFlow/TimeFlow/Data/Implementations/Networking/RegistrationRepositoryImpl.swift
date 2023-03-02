@@ -12,9 +12,9 @@ class RegistrationRepositoryImpl: RegistrationRepository {
     private static let url = "\(NetworkingConstants.baseUrl)"
 
     private static let signUpSegment = "sign-up"
-    private static let studentRegistrationSegment = "student/\(signUpSegment)"
-    private static let teacherRegistrationSegment = "employee/\(signUpSegment)"
-    private static let externalUserRegistrationSegment = "user/\(signUpSegment)"
+    private static let studentRegistrationSegment = "\(signUpSegment)/student"
+    private static let teacherRegistrationSegment = "\(signUpSegment)/employee"
+    private static let externalUserRegistrationSegment = "\(signUpSegment)/user"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
