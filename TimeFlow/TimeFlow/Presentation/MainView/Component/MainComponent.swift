@@ -35,6 +35,12 @@ class MainComponent: BootstrapComponent {
             AuthRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
         }
     }
+    
+    var studentsGroupRepository: StudentsGroupRepository{
+        shared{
+            StudentsGroupRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
 
     var registrationRepository: RegistrationRepository {
         shared {
@@ -55,6 +61,12 @@ class MainComponent: BootstrapComponent {
     var registerStudentUseCase: RegisterStudentUseCase {
         shared {
             RegisterStudentUseCase(registrationRepository: registrationRepository)
+        }
+    }
+    
+    var groupStudentUseCase: GroupStudentUseCase{
+        shared{
+            GroupStudentUseCase(studentGroupRepository: studentsGroupRepository)
         }
     }
 

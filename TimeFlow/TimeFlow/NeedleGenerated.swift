@@ -27,6 +27,9 @@ private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: Regis
     var registerExternalUserUseCase: RegisterExternalUserUseCase {
         return mainComponent.registerExternalUserUseCase
     }
+    var groupStudentUseCase: GroupStudentUseCase {
+        return mainComponent.groupStudentUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -72,6 +75,7 @@ extension RegistrationComponent: Registration {
         keyPathToName[\RegistrationComponentDependency.registerStudentUseCase] = "registerStudentUseCase-RegisterStudentUseCase"
         keyPathToName[\RegistrationComponentDependency.registerTeacherUseCase] = "registerTeacherUseCase-RegisterTeacherUseCase"
         keyPathToName[\RegistrationComponentDependency.registerExternalUserUseCase] = "registerExternalUserUseCase-RegisterExternalUserUseCase"
+        keyPathToName[\RegistrationComponentDependency.groupStudentUseCase] = "groupStudentUseCase-GroupStudentUseCase"
     }
 }
 extension AuthorizationComponent: Registration {

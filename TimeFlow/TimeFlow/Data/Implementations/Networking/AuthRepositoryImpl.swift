@@ -22,7 +22,7 @@ class AuthRepositoryImpl: AuthRepository {
 
     func login(
         authorizationRequest: AuthorizationRequest,
-        completion: ((Result<Bool, Error>) -> Void)?
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     ) {
         do {
             let encodedParametrs = try jsonEncoder.encode(authorizationRequest)
@@ -31,7 +31,7 @@ class AuthRepositoryImpl: AuthRepository {
             ) as? [String: Any]
 
             AF.request(
-                Self.url,
+                Self.url + "sign-in",
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,

@@ -21,7 +21,7 @@ class LoginUseCase {
 
     func execute(
         authorizationRequest: AuthorizationRequest,
-        completion: ((Result<Bool, Error>) -> Void)? = nil
+        completion: ((Result<LoginResponse, Error>) -> Void)? = nil
     ) {
         authRepository.login(authorizationRequest: authorizationRequest, completion: completion)
     }

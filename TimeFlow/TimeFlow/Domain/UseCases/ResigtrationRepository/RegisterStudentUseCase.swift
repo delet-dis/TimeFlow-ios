@@ -15,7 +15,9 @@ protocol RegisterStudentUseCaseDependency: Dependency {
 class RegisterStudentUseCase {
     private let registrationRepository: RegistrationRepository
 
-    init(registrationRepository: RegistrationRepository) {
+    init(
+        registrationRepository: RegistrationRepository
+    ) {
         self.registrationRepository = registrationRepository
     }
 

@@ -96,10 +96,13 @@ class AuthorizationViewModel: ObservableObject {
                 )
             ) { [weak self] result in
                 switch result {
-                case .success:
+                case .success(let response):
+                    print(response)
+                    print("OK")
                     self?.handleSuccessRegistrationRequestReponse()
                 case .failure(let error):
                     self?.processError(error)
+                    print("error")
                 }
             }
         }
