@@ -22,11 +22,22 @@ struct MainView: View {
             case .homeScreen:
                 viewModel.homeComponent?.homeView
             }
+
+            SplashView()
+                .opacity(isSplashDisplaying ? 1 : 0)
         }
         .onReceive(viewModel.$mainViewDispalyingMode) { value in
             withAnimation {
                 self.displayingMode = value
             }
+        }
+        .onReceive(viewModel.$isSplashDisplaying) { value in
+            withAnimation {
+                self.isSplashDisplaying = value
+            }
+        }
+        .onAppear {
+            viewModel.viewDidAppear()
         }
     }
 }

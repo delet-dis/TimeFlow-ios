@@ -17,6 +17,8 @@ class MainViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    @Published private(set) var isSplashDisplaying = true
+
     private var authStatusObserver: DefaultsDisposable?
     private let getAuthStatusUseCase: GetAuthStatusUseCase
 
@@ -32,6 +34,16 @@ class MainViewModel: ObservableObject {
         getAuthStatus()
 
         observeAuthStatus()
+    }
+
+    func viewDidAppear() {
+        startSplashCountdown()
+    }
+
+    private func startSplashCountdown() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.isSplashDisplaying = false
+        }
     }
 
     private func processError(_ error: Error) {

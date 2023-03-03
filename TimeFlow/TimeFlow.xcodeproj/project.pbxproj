@@ -58,6 +58,9 @@
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
 		30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014E329B1DF620029612F /* SwiftLoader.swift */; };
 		30C014E729B1E0860029612F /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014E629B1E0860029612F /* LoaderView.swift */; };
+		30C014EB29B1E6D00029612F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 30C014EA29B1E6D00029612F /* Lottie */; };
+		30C014EF29B1E7350029612F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014EE29B1E7350029612F /* SplashView.swift */; };
+		30C014F129B1E91D0029612F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014F029B1E91D0029612F /* LottieView.swift */; };
 		30D4AE6129ACDDDF00D4BA10 /* RegistrationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */; };
 		30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */; };
 		30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */; };
@@ -153,6 +156,8 @@
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
 		30C014E329B1DF620029612F /* SwiftLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
 		30C014E629B1E0860029612F /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		30C014EE29B1E7350029612F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		30C014F029B1E91D0029612F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepository.swift; sourceTree = "<group>"; };
 		30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepositoryImpl.swift; sourceTree = "<group>"; };
 		30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStudentUseCase.swift; sourceTree = "<group>"; };
@@ -200,6 +205,7 @@
 			files = (
 				30D4AE7029ACE87A00D4BA10 /* SPAlert in Frameworks */,
 				4FD7C2D329B1D054006EB2AF /* ElegantCalendar in Frameworks */,
+				30C014EB29B1E6D00029612F /* Lottie in Frameworks */,
 				3078184D299BD01B00FD916D /* NeedleFoundation in Frameworks */,
 				3078182D299BC99F00FD916D /* KeychainAccess in Frameworks */,
 				3078182A299BC95F00FD916D /* Alamofire in Frameworks */,
@@ -248,6 +254,7 @@
 				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
 				30C014E329B1DF620029612F /* SwiftLoader.swift */,
 				30C014E629B1E0860029612F /* LoaderView.swift */,
+				30C014F029B1E91D0029612F /* LottieView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -449,6 +456,7 @@
 		30781855299BD10F00FD916D /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				30C014ED29B1E7270029612F /* Subviews */,
 				30781856299BD11500FD916D /* Component */,
 				30781857299BD11B00FD916D /* ViewModel */,
 				3078185A299BD13900FD916D /* MainView.swift */,
@@ -531,6 +539,14 @@
 				30ABBB2629A3793000108535 /* LoginComponent.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		30C014ED29B1E7270029612F /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				30C014EE29B1E7350029612F /* SplashView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		30D4AE6529ACE16F00D4BA10 /* ResigtrationRepository */ = {
@@ -741,6 +757,7 @@
 				30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */,
 				30D4AE6F29ACE87A00D4BA10 /* SPAlert */,
 				4FD7C2D229B1D054006EB2AF /* ElegantCalendar */,
+				30C014EA29B1E6D00029612F /* Lottie */,
 			);
 			productName = TimeFlow;
 			productReference = 30781817299BC88600FD916D /* TimeFlow.app */;
@@ -780,6 +797,7 @@
 				30FE8BCC29A39E84008AC4F2 /* XCRemoteSwiftPackageReference "AxisSegmentedView" */,
 				30D4AE6E29ACE87A00D4BA10 /* XCRemoteSwiftPackageReference "SPAlert" */,
 				4FD7C2D129B1D054006EB2AF /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+				30C014E929B1E6D00029612F /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 30781818299BC88600FD916D /* Products */;
 			projectDirPath = "";
@@ -859,6 +877,7 @@
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
+				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
@@ -913,6 +932,7 @@
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
 				4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */,
 				309BABAC29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift in Sources */,
+				30C014EF29B1E7350029612F /* SplashView.swift in Sources */,
 				309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */,
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
@@ -1192,6 +1212,14 @@
 				minimumVersion = 0.22.0;
 			};
 		};
+		30C014E929B1E6D00029612F /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.3;
+			};
+		};
 		30D4AE6E29ACE87A00D4BA10 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
@@ -1250,6 +1278,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3078184B299BD01B00FD916D /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundation;
+		};
+		30C014EA29B1E6D00029612F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30C014E929B1E6D00029612F /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 		30D4AE6F29ACE87A00D4BA10 /* SPAlert */ = {
 			isa = XCSwiftPackageProductDependency;
