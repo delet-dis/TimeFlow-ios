@@ -98,7 +98,7 @@ class AuthorizationViewModel: ObservableObject {
                 )
             ) { [weak self] result in
                 LoaderView.endLoading()
-                
+
                 switch result {
                 case .success(let response):
                     self?.handleSuccessRegistrationRequestReponse()
