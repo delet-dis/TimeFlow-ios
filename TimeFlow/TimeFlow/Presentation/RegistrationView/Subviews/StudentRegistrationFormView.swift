@@ -15,23 +15,23 @@ struct StudentRegistrationFormView: View {
     }
 
     @FocusState private var focusedField: Field?
-    @StateObject private var viewModel: RegistrationViewModel
 
     @Binding var viewData: StudentRegistrationViewData
     @Binding var viewState: StudentRegistationViewState
+    @State private var displayingGroups: [StudentGroup]
 
     let lastTextFieldUnselectedClosure: (() -> Void)?
 
     init(
         viewData: Binding<StudentRegistrationViewData>,
         viewState: Binding<StudentRegistationViewState>,
-        viewModel: RegistrationViewModel,
+        displayingGroups: [StudentGroup],
         lastTextFieldUnselectedClosure: (() -> Void)? = nil
     ) {
         self._viewData = viewData
         self._viewState = viewState
         self.lastTextFieldUnselectedClosure = lastTextFieldUnselectedClosure
-        self._viewModel = StateObject(wrappedValue: viewModel)
+        self.displayingGroups = displayingGroups
     }
 
     var body: some View {
@@ -52,45 +52,54 @@ struct StudentRegistrationFormView: View {
                 .submitLabel(.next)
                 .modifier(ElevatedTextFieldModifier())
 
-                TextField(
-                    R.string.localizable.groupNumber(),
-                    text: $viewData.groupNumber
-                )
-                .focused($focusedField, equals: .groupNumber)
-                .textInputAutocapitalization(.never)
-                .submitLabel(.done)
-                .modifier(ElevatedTextFieldModifier())
-                .onSubmit {
-                    lastTextFieldUnselectedClosure?()
-                }
-//                AxisSegmentedView(selection: viewModel.getStudentGroup()){ group in
-//                    Text()
-//                        .font(
-//                            Font(
-//                                R.font.ralewayMedium(size: 15) ??
-//                                    .systemFont(ofSize: 15, weight: .medium)
-//                            )
-//                        )
-//                }
-            }
-            .padding(.horizontal, 20)
-            .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
-        }
-    }
+                HStack {
+                    Text(R.string.localizable.groupNumber)
+                        .padding(.horizontal, 20)
+                        .font(
+                            Font(
+                                R.font.ralewayMedium(size: 15) ??
+                                    .systemFont(ofSize: 15, weight: .medium)
+                            )
+                        ).foregroundColor(Color(UIColor.lightGray))
 
-    struct SharedStudentFormView_Previews: PreviewProvider {
-        private static let mainComponent = MainComponent()
-        static var previews: some View {
-            StatefulPreviewWrapper(
-                StudentRegistrationViewData(studentNumber: "")
-            ) { binding in
-                StudentRegistrationFormView(
-                    viewData: binding,
-                    viewState: .constant(
-                        StudentRegistationViewState(isStudentNumberValid: true, isGroupNumberValid: true)
-                    ), viewModel: mainComponent.registrationComponent.registrationViewModel
-                )
+                    Spacer()
+
+                    Picker("", selection: $viewData.groupId) {
+                        ForEach(displayingGroups) { group in
+                            if let groupNumber = group.number {
+                                Text(String(groupNumber))
+                                    .font(
+                                        Font(
+                                            R.font.ralewayMedium(size: 15) ??
+                                                .systemFont(ofSize: 15, weight: .medium)
+                                        )
+                                    )
+                            }
+                        }
+
+                    }.frame(minHeight: 49)
+                        .tint(Color(R.color.lightYellow))
+                }
+                .modifier(ElevatedViewModifier())
             }
+        }
+        .padding(.horizontal, 20)
+        .modifier(ViewWithReadyKeyboardButtonModifier(focus: $focusedField))
+    }
+}
+
+struct SharedStudentFormView_Previews: PreviewProvider {
+    private static let mainComponent = MainComponent()
+    static var previews: some View {
+        StatefulPreviewWrapper(
+            StudentRegistrationViewData(studentNumber: "")
+        ) { binding in
+            StudentRegistrationFormView(
+                viewData: binding,
+                viewState: .constant(
+                    StudentRegistationViewState(isStudentNumberValid: true, isGroupNumberValid: true)
+                ), displayingGroups: [StudentGroup(id: UUID().uuidString, number: 123)]
+            )
         }
     }
 }

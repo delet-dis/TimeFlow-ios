@@ -39,6 +39,14 @@ final class AuthorizationOrRegistrationDataHelper {
         !firstName.isEmptyAndBlank
     }
 
+    static func isStudentNumberValid(_ studentNubmer: String) -> Bool {
+        !studentNubmer.isEmptyAndBlank
+    }
+
+    static func isTeacherNumberValid(_ teacherNumber: String) -> Bool {
+        !teacherNumber.isEmptyAndBlank
+    }
+
     static func isEmailValid(_ email: String) -> Bool {
         emailPredicate.evaluate(with: email)
     }

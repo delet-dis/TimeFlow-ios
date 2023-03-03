@@ -55,21 +55,33 @@ class RegistrationViewModel: ObservableObject {
         sharedRegistrationFieldsState.isPasswordConfirmationValid = true
         sharedRegistrationFieldsState.isFirstNameValid = true
         sharedRegistrationFieldsState.isGenderValid = true
-        sharedStudentRegistrationState.isGroupNumberValid = true
-        sharedStudentRegistrationState.isStudentNumberValid = true
-        sharedTeacherRegistrationState.isContractNumberValid = true
+
+        switch viewDisplayingMode {
+        case .teacher:
+            sharedTeacherRegistrationState.isContractNumberValid = true
+        case .student:
+            sharedStudentRegistrationState.isStudentNumberValid = true
+        case .externalUser:
+            ()
+        }
     }
 
     private func initFieldsObserving() {
         initViewDisplayingModeIndexObserver()
-
         initRegistrationDataObserver()
+        initTeacherRegistrationDataObserver()
+        initStudentRegistrationDataObserver()
     }
 
     private func initViewDisplayingModeIndexObserver() {
         $viewDisplayingModeIndex.sink { [weak self] value in
-            if let enumValue = RegistrationViewDisplayingModeEnum(rawValue: value) {
-                self?.viewDisplayingMode = enumValue
+            DispatchQueue.runAsyncOnMainWithDelay(delay: .short) {
+                if let enumValue = RegistrationViewDisplayingModeEnum(rawValue: value) {
+                    self?.viewDisplayingMode = enumValue
+
+                    self?.resetValidState()
+                    self?.validateFields()
+                }
             }
         }
         .store(in: &subscribers)
@@ -86,31 +98,72 @@ class RegistrationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
+    private func initStudentRegistrationDataObserver() {
+        $sharedStudentRegistrationData.sink { [weak self] _ in
+            self?.isAlertShowing = false
+
+            DispatchQueue.runAsyncOnMainWithDelay(delay: .short) {
+                self?.resetValidState()
+                self?.validateFields()
+            }
+
+        }.store(in: &subscribers)
+    }
+
+    func cleareFields() {
+        sharedRegistrationData.secondName = ""
+        sharedRegistrationData.firstName = ""
+        sharedRegistrationData.middleName = ""
+        sharedRegistrationData.genderType = GenderEnum.none.rawValue
+        sharedRegistrationData.emailText = ""
+        sharedRegistrationData.passwordText = ""
+        sharedRegistrationData.confirmPasswordText = ""
+        sharedTeacherRegistrationData.contractNumber = ""
+        sharedStudentRegistrationData.studentNumber = ""
+        sharedStudentRegistrationData.groupId = ""
+    }
+
+    private func initTeacherRegistrationDataObserver() {
+        $sharedTeacherRegistrationData.sink { [weak self] _ in
+            self?.isAlertShowing = false
+
+            DispatchQueue.runAsyncOnMainWithDelay(delay: .short) {
+                self?.resetValidState()
+                self?.validateFields()
+            }
+
+        }.store(in: &subscribers)
+    }
+
     // swiftlint:disable:next function_body_length
     @discardableResult private func validateFields() -> Bool {
         if !AuthorizationOrRegistrationDataHelper
-            .isFirstNameValid(sharedRegistrationData.firstName) {
+            .isFirstNameValid(sharedRegistrationData.firstName)
+        {
             sharedRegistrationFieldsState.isFirstNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isSecondNameValid(sharedRegistrationData.secondName) {
+            .isSecondNameValid(sharedRegistrationData.secondName)
+        {
             sharedRegistrationFieldsState.isSecondNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isMiddleNameValid(sharedRegistrationData.middleName) {
+            .isMiddleNameValid(sharedRegistrationData.middleName)
+        {
             sharedRegistrationFieldsState.isMiddleNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isEmailValid(sharedRegistrationData.emailText) {
+            .isEmailValid(sharedRegistrationData.emailText)
+        {
             sharedRegistrationFieldsState.isEmailValid = false
             areFieldsValid = false
             return false
@@ -125,14 +178,16 @@ class RegistrationViewModel: ObservableObject {
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.passwordText) {
+            .isPasswordValid(sharedRegistrationData.passwordText)
+        {
             sharedRegistrationFieldsState.isPasswordValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.confirmPasswordText) {
+            .isPasswordValid(sharedRegistrationData.confirmPasswordText)
+        {
             sharedRegistrationFieldsState.isPasswordConfirmationValid = false
             areFieldsValid = false
             return false
@@ -142,10 +197,32 @@ class RegistrationViewModel: ObservableObject {
             .arePasswordsValid(
                 firstPassword: sharedRegistrationData.passwordText,
                 passwordConfirmation: sharedRegistrationData.confirmPasswordText
-            ) {
+            )
+        {
             sharedRegistrationFieldsState.arePasswordsEqual = false
             areFieldsValid = false
             return false
+        }
+
+        switch viewDisplayingMode {
+        case .teacher:
+            if !AuthorizationOrRegistrationDataHelper
+                .isTeacherNumberValid(sharedTeacherRegistrationData
+                    .contractNumber) {
+                sharedTeacherRegistrationState.isContractNumberValid = false
+                areFieldsValid = false
+                return false
+            }
+        case .student:
+            if !AuthorizationOrRegistrationDataHelper
+                .isStudentNumberValid(sharedStudentRegistrationData
+                    .studentNumber) {
+                sharedStudentRegistrationState.isStudentNumberValid = false
+                areFieldsValid = false
+                return false
+            }
+        case .externalUser:
+            ()
         }
 
         areFieldsValid = true
@@ -195,7 +272,7 @@ class RegistrationViewModel: ObservableObject {
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
             sex: sex,
-            groupId: sharedStudentRegistrationData.groupNumber
+            groupId: sharedStudentRegistrationData.groupId
         )
     }
 
@@ -286,7 +363,7 @@ class RegistrationViewModel: ObservableObject {
         getStudentGroupsUseCase.execute { [weak self] result in
             switch result {
             case .success(let groups):
-                self?.studentGroups = groups
+                self?.studentGroups = groups.sorted(by: { $0.number ?? 0 < $1.number ?? 0 })
             case .failure(let error):
                 self?.processError(error)
             }

@@ -69,7 +69,7 @@ struct RegistrationView: View {
                         StudentRegistrationFormView(
                             viewData: $viewModel.sharedStudentRegistrationData,
                             viewState: $viewModel.sharedStudentRegistrationState,
-                            viewModel: viewModel
+                            displayingGroups: viewModel.studentGroups
                         )
                     case .externalUser:
                         EmptyView()
@@ -131,6 +131,7 @@ struct RegistrationView: View {
             viewModel.viewDidAppear()
         }
         .onDisappear {
+            viewModel.cleareFields()
             viewModel.viewDidDisappear()
         }
         .SPAlert(

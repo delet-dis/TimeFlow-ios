@@ -9,5 +9,5 @@ import Foundation
 
 struct StudentRegistrationViewData {
     var studentNumber: String = ""
-    var groupNumber: String = ""
+    var groupId: String = ""
 }
