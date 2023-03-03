@@ -15,7 +15,7 @@ struct MainView: View {
     @State private var isSplashDisplaying = true
 
     var body: some View {
-        ZStack{
+        ZStack {
             switch displayingMode {
             case .authorization:
                 viewModel.loginComponent?.loginView

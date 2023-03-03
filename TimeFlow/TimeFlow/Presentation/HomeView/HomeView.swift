@@ -27,6 +27,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(viewModel: mainComponent.homeComponent.homeViewModel)
     }
 }
-
-
-

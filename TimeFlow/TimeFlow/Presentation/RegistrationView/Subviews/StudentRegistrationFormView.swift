@@ -76,9 +76,14 @@ struct StudentRegistrationFormView: View {
                                     )
                             }
                         }
-
-                    }.frame(minHeight: 49)
-                        .tint(Color(R.color.lightYellow))
+                    }
+                    .frame(minHeight: 49)
+                    .tint(Color(R.color.lightYellow))
+                    .onAppear {
+                        if let firstDispalyingFroup = displayingGroups.first {
+                            viewData.groupId = firstDispalyingFroup.id
+                        }
+                    }
                 }
                 .modifier(ElevatedViewModifier())
             }

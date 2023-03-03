@@ -135,35 +135,31 @@ class RegistrationViewModel: ObservableObject {
         }.store(in: &subscribers)
     }
 
-    // swiftlint:disable:next function_body_length
+    // swiftlint:disable:next function_body_length cyclomatic_complexity
     @discardableResult private func validateFields() -> Bool {
         if !AuthorizationOrRegistrationDataHelper
-            .isFirstNameValid(sharedRegistrationData.firstName)
-        {
+            .isFirstNameValid(sharedRegistrationData.firstName) {
             sharedRegistrationFieldsState.isFirstNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isSecondNameValid(sharedRegistrationData.secondName)
-        {
+            .isSecondNameValid(sharedRegistrationData.secondName) {
             sharedRegistrationFieldsState.isSecondNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isMiddleNameValid(sharedRegistrationData.middleName)
-        {
+            .isMiddleNameValid(sharedRegistrationData.middleName) {
             sharedRegistrationFieldsState.isMiddleNameValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isEmailValid(sharedRegistrationData.emailText)
-        {
+            .isEmailValid(sharedRegistrationData.emailText) {
             sharedRegistrationFieldsState.isEmailValid = false
             areFieldsValid = false
             return false
@@ -178,16 +174,14 @@ class RegistrationViewModel: ObservableObject {
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.passwordText)
-        {
+            .isPasswordValid(sharedRegistrationData.passwordText) {
             sharedRegistrationFieldsState.isPasswordValid = false
             areFieldsValid = false
             return false
         }
 
         if !AuthorizationOrRegistrationDataHelper
-            .isPasswordValid(sharedRegistrationData.confirmPasswordText)
-        {
+            .isPasswordValid(sharedRegistrationData.confirmPasswordText) {
             sharedRegistrationFieldsState.isPasswordConfirmationValid = false
             areFieldsValid = false
             return false
@@ -197,8 +191,7 @@ class RegistrationViewModel: ObservableObject {
             .arePasswordsValid(
                 firstPassword: sharedRegistrationData.passwordText,
                 passwordConfirmation: sharedRegistrationData.confirmPasswordText
-            )
-        {
+            ) {
             sharedRegistrationFieldsState.arePasswordsEqual = false
             areFieldsValid = false
             return false
