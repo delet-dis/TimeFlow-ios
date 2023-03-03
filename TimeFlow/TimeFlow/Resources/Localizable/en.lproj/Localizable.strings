@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  TimeFlow
+
+  Created by Igor Efimov on 14.02.2023.
+  
+*/
+// MARK: NetworkingErrorsEnum
+"unableToGetData" = "Unable to get data";
+"wrongUserCredentials" = "Wrong user credentials";
+
+// MARK: Authorization
+"email" = "Email";
+"password" = "Password";
+"login" = "Login";
+"register" = "Register";
+"hello" = "Hello 👋🏻";
+"pleaseLogin" = "Please login to view your schedule";
+"dontHaveAnAccount" = "Don't have an account?";
+
+// MARK: Toolbar items
+"ready" = "Ready";
+
+// MARK: Registration
+"helloRegister" = "Registration 🔐";
+"firstName" = "First name";
+"secondName" = "Second name";
+"middleName" = "Patronymic";
+"male" = "Male";
+"female" = "Female";
+"unselected" = "Unselected";
+"passwordConfirmation" = "Password confirmation";
+"chooseGroup" = "Choose a group";
+"alreadyHaveAnAccount" = "Already have an account?";
+"signIn" = "Sign in";
+"registration" = "Registration";
+"contractNumber" = "Contract number";
+"chooseTypeOfUser" = "User type";
+"student" = "🧑🏻‍🎓";
+"externalUser" = "🦹🏻";
+"teacher" = "👨🏻‍🏫";
+"pick" = "Pick";
+"employeeContract" = "Employment contract 👨🏻‍🏫";
+"studentNumber" = "Card number";
+"studentCard" = "Student card 🎫";
+"groupNumber" = "Group number";
+"register" = "Register";
+
+// MARK: Keychain errors
+"unableToGetSavedValue" = "Unable to get saved value";
+"unableToSaveValue" = "Unable to save value";
+
+// MARK: Shared
+"loading" = "Loading";

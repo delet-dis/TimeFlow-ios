@@ -1,0 +1,113 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
+        "version" : "5.6.4"
+      }
+    },
+    {
+      "identity" : "axissegmentedview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jasudev/AxisSegmentedView.git",
+      "state" : {
+        "revision" : "4a9a9c6c5b32b51e5d2fd4c30e8c475658853131",
+        "version" : "0.5.2"
+      }
+    },
+    {
+      "identity" : "elegantcalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ThasianX/ElegantCalendar",
+      "state" : {
+        "revision" : "d446234f27e60f5bef15f91c35d384f388ff2c7d",
+        "version" : "4.3.2"
+      }
+    },
+    {
+      "identity" : "elegantpages",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ThasianX/ElegantPages",
+      "state" : {
+        "revision" : "d598ce4824c40296decc84eae5b3c042d3dff842",
+        "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "state" : {
+        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
+        "version" : "4.2.2"
+      }
+    },
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "c3852816c622ad35a03ed39c187c1644ece2382b",
+        "version" : "4.1.3"
+      }
+    },
+    {
+      "identity" : "needle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/uber/needle.git",
+      "state" : {
+        "revision" : "d3eaf696ad2e4c3e25618cfa3643402fdd237f7a",
+        "version" : "0.22.0"
+      }
+    },
+    {
+      "identity" : "r.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mac-cain13/R.swift.git",
+      "state" : {
+        "revision" : "cffbe4aa55ab5f012590b38ad114079c407e6937",
+        "version" : "7.2.4"
+      }
+    },
+    {
+      "identity" : "spalert",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPAlert",
+      "state" : {
+        "revision" : "5fd3e2923d26f0f0b40f0e6c10fca458a61a73c4",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser",
+      "state" : {
+        "revision" : "fee6933f37fde9a5e12a1e4aeaa93fe60116ff2a",
+        "version" : "1.2.2"
+      }
+    },
+    {
+      "identity" : "swiftyuserdefaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sunshinejr/SwiftyUserDefaults.git",
+      "state" : {
+        "revision" : "f66bcd04088582c8fbb5cb8554d577e303bae396",
+        "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "xcodeedit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tomlokhorst/XcodeEdit",
+      "state" : {
+        "revision" : "cd466d6e8c5ffd2f2b61165d37b0646f09068e1e",
+        "version" : "2.9.0"
+      }
+    }
+  ],
+  "version" : 2
+}
