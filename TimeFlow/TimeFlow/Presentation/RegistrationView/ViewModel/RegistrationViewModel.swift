@@ -272,6 +272,7 @@ class RegistrationViewModel: ObservableObject {
             patronymic: sharedRegistrationData.middleName,
             password: sharedRegistrationData.passwordText,
             sex: sex,
+            groupNumber: sharedStudentRegistrationData.studentNumber,
             groupId: sharedStudentRegistrationData.groupId
         )
     }
