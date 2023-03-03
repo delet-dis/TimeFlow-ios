@@ -49,3 +49,6 @@
 // MARK: Keychain errors
 "unableToGetSavedValue" = "Ошибка получения сохраненного значения";
 "unableToSaveValue" = "Ошибка сохранения значения";
+
+// MARK: Shared
+"loading" = "Загрузка";

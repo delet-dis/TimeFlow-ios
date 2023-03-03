@@ -58,7 +58,11 @@ class MainComponent: BootstrapComponent {
 
     var loginUseCase: LoginUseCase {
         shared {
-            LoginUseCase(authRepository: authRepository)
+            LoginUseCase(
+                authRepository: authRepository,
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase
+            )
         }
     }
 

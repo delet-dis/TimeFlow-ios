@@ -56,6 +56,8 @@
 		30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2629A3793000108535 /* LoginComponent.swift */; };
 		30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */; };
 		30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */; };
+		30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014E329B1DF620029612F /* SwiftLoader.swift */; };
+		30C014E729B1E0860029612F /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014E629B1E0860029612F /* LoaderView.swift */; };
 		30D4AE6129ACDDDF00D4BA10 /* RegistrationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */; };
 		30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */; };
 		30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */; };
@@ -149,6 +151,8 @@
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
+		30C014E329B1DF620029612F /* SwiftLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
+		30C014E629B1E0860029612F /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepository.swift; sourceTree = "<group>"; };
 		30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepositoryImpl.swift; sourceTree = "<group>"; };
 		30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStudentUseCase.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 			children = (
 				300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */,
 				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
+				30C014E329B1DF620029612F /* SwiftLoader.swift */,
+				30C014E629B1E0860029612F /* LoaderView.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -875,6 +881,7 @@
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
+				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
@@ -899,6 +906,7 @@
 				4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
+				30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */,
 				4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,

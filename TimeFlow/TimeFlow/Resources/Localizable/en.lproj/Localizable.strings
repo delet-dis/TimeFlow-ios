@@ -46,7 +46,9 @@
 "groupNumber" = "Group number";
 "register" = "Register";
 
-
 // MARK: Keychain errors
 "unableToGetSavedValue" = "Unable to get saved value";
 "unableToSaveValue" = "Unable to save value";
+
+// MARK: Shared
+"loading" = "Loading";

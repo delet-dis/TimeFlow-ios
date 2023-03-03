@@ -89,12 +89,16 @@ class AuthorizationViewModel: ObservableObject {
 
     func login() {
         if validateFields() {
+            LoaderView.startLoading()
+
             loginUseCase.execute(
                 authorizationRequest: AuthorizationRequest(
                     email: emailText,
                     password: passwordText
                 )
             ) { [weak self] result in
+                LoaderView.endLoading()
+                
                 switch result {
                 case .success(let response):
                     self?.handleSuccessRegistrationRequestReponse()
