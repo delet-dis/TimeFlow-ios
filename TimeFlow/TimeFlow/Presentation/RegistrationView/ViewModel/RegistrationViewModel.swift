@@ -283,10 +283,12 @@ class RegistrationViewModel: ObservableObject {
         guard let request = createTeacherRegistrationRequest() else {
             return
         }
+        LoaderView.startLoading()
 
         registerTeacherUseCase.execute(
             teacherRegistrationRequest: request
         ) { [weak self] result in
+            LoaderView.endLoading()
             switch result {
             case .success:
                 self?.handleSuccessRegistrationRequestReponse()
@@ -300,10 +302,12 @@ class RegistrationViewModel: ObservableObject {
         guard let request = createStudentResitrationRequest() else {
             return
         }
+        LoaderView.startLoading()
 
         registerStudentUseCase.execute(
             studentRegistrationRequest: request
         ) { [weak self] result in
+            LoaderView.endLoading()
             switch result {
             case .success:
                 self?.handleSuccessRegistrationRequestReponse()
@@ -317,10 +321,12 @@ class RegistrationViewModel: ObservableObject {
         guard let request = createExternalUserRegistrationRequest() else {
             return
         }
+        LoaderView.startLoading()
 
         registerExternalUserUseCase.execute(
             externalUserRegistrationRequest: request
         ) { [weak self] result in
+            LoaderView.endLoading()
             switch result {
             case .success:
                 self?.handleSuccessRegistrationRequestReponse()
