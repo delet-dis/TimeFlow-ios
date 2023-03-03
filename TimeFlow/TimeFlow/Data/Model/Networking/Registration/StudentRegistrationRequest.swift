@@ -14,6 +14,6 @@ struct StudentRegistrationRequest: Codable, RegistrationData {
     var patronymic: String
     var password: String
     var sex: String
-    var groupNumber: String
+    var studentNumber: String
     let groupId: String
 }
