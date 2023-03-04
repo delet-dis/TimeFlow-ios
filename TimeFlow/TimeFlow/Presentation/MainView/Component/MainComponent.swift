@@ -10,6 +10,8 @@ import NeedleFoundation
 import SwiftUI
 
 class MainComponent: BootstrapComponent {
+    private var mainViewModelCopy: MainViewModel?
+
     var jsonDecoder: JSONDecoder {
         shared {
             let decoder = JSONDecoder()

@@ -10,14 +10,18 @@ import SwiftUI
 
 @main
 struct TimeFlowApp: App {
+    private let mainComponent: MainComponent
+
     init() {
         registerProviderFactories()
+
+        self.mainComponent = .init()
     }
 
     var body: some Scene {
         WindowGroup {
             GeometryReader { proxy in
-                MainComponent().mainView
+                mainComponent.mainView
                     .environment(\.mainWindowSize, proxy.size)
             }
         }
