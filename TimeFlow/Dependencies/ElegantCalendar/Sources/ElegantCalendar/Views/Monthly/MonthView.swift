@@ -28,7 +28,9 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
             monthYearHeader
                 .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
                 .onTapGesture { self.communicator?.showYearlyView() }
+
             weeksViewWithDaysOfWeekHeader
+
             if selectedDate != nil {
                 calenderAccessoryView
                     .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
@@ -56,15 +58,14 @@ private extension MonthView {
 
     var monthText: some View {
         Text(month.fullMonth.uppercased())
-            .font(.system(size: 26))
-            .bold()
+            .font(.custom("Raleway-Bold", size: 26))
             .tracking(7)
             .foregroundColor(isWithinSameMonthAndYearAsToday ? theme.titleColor : .primary)
     }
 
     var yearText: some View {
         Text(month.year)
-            .font(.system(size: 12))
+            .font(.custom("Raleway-Medium", size: 15))
             .tracking(2)
             .foregroundColor(isWithinSameMonthAndYearAsToday ? theme.titleColor : .gray)
             .opacity(0.95)
@@ -85,7 +86,7 @@ private extension MonthView {
         HStack(spacing: CalendarConstants.Monthly.gridSpacing) {
             ForEach(calendar.shortWeekdaySymbols, id: \.self) { dayOfWeek in
                 Text(dayOfWeek.prefix(1))
-                    .font(.caption)
+                    .font(.custom("Raleway-Medium", size: 15))
                     .frame(width: CalendarConstants.Monthly.dayWidth)
                     .foregroundColor(.gray)
             }

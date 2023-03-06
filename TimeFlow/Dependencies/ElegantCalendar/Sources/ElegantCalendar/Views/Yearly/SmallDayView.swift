@@ -23,7 +23,7 @@ struct SmallDayView: View, YearlyCalendarManagerDirectAccess {
 
     var body: some View {
         Text(numericDay)
-            .font(.system(size: 8))
+            .font(.custom("Raleway-Light", size: 9))
             .foregroundColor(isDayToday ? .systemBackground : .primary)
             .frame(width: CalendarConstants.Yearly.dayWidth, height: CalendarConstants.Yearly.dayWidth)
             .background(isDayToday ? Circle().fill(Color.primary) : nil)

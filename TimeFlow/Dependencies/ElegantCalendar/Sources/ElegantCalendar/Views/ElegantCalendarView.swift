@@ -15,7 +15,7 @@ public struct ElegantCalendarView: View {
     }
 
     public var body: some View {
-        Text("test")
+        content
     }
     
     private var content: some View {

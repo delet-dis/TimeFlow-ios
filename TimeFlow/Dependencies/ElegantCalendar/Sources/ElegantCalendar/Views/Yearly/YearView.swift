@@ -26,7 +26,7 @@ struct YearView: View, YearlyCalendarManagerDirectAccess {
 
     private var yearText: some View {
         Text(year.year)
-            .font(.system(size: 38, weight: .thin, design: .rounded))
+            .font(.custom("Raleway-Light", size: 38))
             .foregroundColor(isYearSameAsTodayYear ? theme.primary : .primary)
     }
 

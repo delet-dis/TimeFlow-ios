@@ -44,8 +44,7 @@ struct SmallMonthView: View, YearlyCalendarManagerDirectAccess {
 
     private var monthText: some View {
         Text(month.abbreviatedMonth.uppercased())
-            .font(.subheadline)
-            .bold()
+            .font(.custom("Raleway-Bold", size: 15))
             .foregroundColor(isWithinSameMonthAndYearAsToday ? theme.primary : .primary)
     }
 

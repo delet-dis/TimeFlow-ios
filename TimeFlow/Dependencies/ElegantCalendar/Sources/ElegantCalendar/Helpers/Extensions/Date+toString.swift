@@ -30,19 +30,19 @@ extension DateFormatter {
 
     static var abbreviatedMonth: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM"
+        formatter.dateFormat = "LLLL"
         return formatter
     }
 
     static var dayOfWeekWithMonthAndDay: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE MMMM d"
+        formatter.dateFormat = "EEEE LLLL d"
         return formatter
     }
 
     static var fullMonth: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM"
+        formatter.dateFormat = "LLLL"
         return formatter
     }
 
