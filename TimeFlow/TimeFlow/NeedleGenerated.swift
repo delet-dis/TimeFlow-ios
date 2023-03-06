@@ -1,3 +1,5 @@
+
+
 import Foundation
 import NeedleFoundation
 import SwiftUI
@@ -102,6 +104,7 @@ extension HomeComponent: Registration {
 extension MainComponent: Registration {
     public func registerItems() {
 
+
     }
 }
 extension LoginComponent: Registration {
@@ -110,6 +113,7 @@ extension LoginComponent: Registration {
         keyPathToName[\LoginComponentDependency.registrationComponent] = "registrationComponent-RegistrationComponent"
     }
 }
+
 
 #endif
 
@@ -134,7 +138,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #endif
 
 public func registerProviderFactories() {
-    #if !NEEDLE_DYNAMIC
+#if !NEEDLE_DYNAMIC
     register1()
-    #endif
+#endif
 }
