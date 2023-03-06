@@ -103,6 +103,14 @@
 		4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */; };
 		4FD7C2D329B1D054006EB2AF /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD7C2D229B1D054006EB2AF /* ElegantCalendar */; };
 		4FD7C2DC29B1DA9A006EB2AF /* ElegantCalendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C2DB29B1DA9A006EB2AF /* ElegantCalendar.xcassets */; };
+		4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2E029B5E64D006EB2AF /* ProfileRepository.swift */; };
+		4FD7C2E529B5E781006EB2AF /* ExternalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2E429B5E781006EB2AF /* ExternalUser.swift */; };
+		4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2E929B5EC6F006EB2AF /* StudentUser.swift */; };
+		4FD7C2EC29B5F01B006EB2AF /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2EB29B5F01B006EB2AF /* PostData.swift */; };
+		4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2ED29B5F0AC006EB2AF /* EmployeeUser.swift */; };
+		4FD7C2F029B5F182006EB2AF /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2EF29B5F182006EB2AF /* Role.swift */; };
+		4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */; };
+		4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2F329B5F474006EB2AF /* NetworkHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +204,14 @@
 		4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationOrRegistrationDataHelper.swift; sourceTree = "<group>"; };
 		4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegistrationRequest.swift; sourceTree = "<group>"; };
 		4FD7C2DB29B1DA9A006EB2AF /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ElegantCalendar.xcassets; sourceTree = "<group>"; };
+		4FD7C2E029B5E64D006EB2AF /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		4FD7C2E429B5E781006EB2AF /* ExternalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalUser.swift; sourceTree = "<group>"; };
+		4FD7C2E929B5EC6F006EB2AF /* StudentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUser.swift; sourceTree = "<group>"; };
+		4FD7C2EB29B5F01B006EB2AF /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		4FD7C2ED29B5F0AC006EB2AF /* EmployeeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeUser.swift; sourceTree = "<group>"; };
+		4FD7C2EF29B5F182006EB2AF /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
+		4FD7C2F329B5F474006EB2AF /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +302,7 @@
 				303E8466299E815E003D8FC3 /* AuthRepository.swift */,
 				30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */,
 				4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */,
+				4FD7C2E029B5E64D006EB2AF /* ProfileRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -293,6 +310,7 @@
 		303E8468299E81A3003D8FC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C2E329B5E74A006EB2AF /* Profile */,
 				30D4AE8829AE1D5900D4BA10 /* Authorization */,
 				4FCEE92229A379CE00700581 /* Registration */,
 				303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */,
@@ -317,6 +335,7 @@
 				303E847B299E8BFD003D8FC3 /* AuthRepositoryImpl.swift */,
 				30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */,
 				4FC10EAF29AF420A00711113 /* StudentGroupsRepositoryImpl.swift */,
+				4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -349,6 +368,7 @@
 			children = (
 				4FCE601729A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift */,
 				30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */,
+				4FD7C2F329B5F474006EB2AF /* NetworkHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -729,6 +749,18 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		4FD7C2E329B5E74A006EB2AF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C2E429B5E781006EB2AF /* ExternalUser.swift */,
+				4FD7C2E929B5EC6F006EB2AF /* StudentUser.swift */,
+				4FD7C2EB29B5F01B006EB2AF /* PostData.swift */,
+				4FD7C2ED29B5F0AC006EB2AF /* EmployeeUser.swift */,
+				4FD7C2EF29B5F182006EB2AF /* Role.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -877,8 +909,11 @@
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
+				4FD7C2E529B5E781006EB2AF /* ExternalUser.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
+				4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
+				4FD7C2EC29B5F01B006EB2AF /* PostData.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
@@ -903,6 +938,7 @@
 				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
+				4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,
@@ -914,6 +950,7 @@
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
+				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				309BAB9529B042BC009E59AC /* KeychainRepository.swift in Sources */,
@@ -935,7 +972,9 @@
 				30C014EF29B1E7350029612F /* SplashView.swift in Sources */,
 				309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */,
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
+				4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
+				4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
 				309BABA229B04C78009E59AC /* DefaultsKeysExtensions.swift in Sources */,
 				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
@@ -946,6 +985,7 @@
 				30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */,
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
 				303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */,
+				4FD7C2F029B5F182006EB2AF /* Role.swift in Sources */,
 				4F80611029A8A83A004DDA52 /* StudentRegistrationFormView.swift in Sources */,
 				303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */,
 				4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */,

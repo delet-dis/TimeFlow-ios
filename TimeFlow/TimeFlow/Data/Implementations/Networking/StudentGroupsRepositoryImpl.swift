@@ -21,7 +21,7 @@ class StudentGroupsRepositoryImpl: StudentGroupsRepository {
 
     func getStudentGroups(completion: ((Result<[StudentGroup], Error>) -> Void)?) {
         AF.request(
-            Self.url + "group",
+            Self.url + "groups",
             method: .get,
             encoding: JSONEncoding.default,
             headers: NetworkingConstants.headers
