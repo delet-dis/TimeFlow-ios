@@ -37,10 +37,10 @@ class AuthRepositoryImpl: AuthRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }
@@ -51,15 +51,15 @@ class AuthRepositoryImpl: AuthRepository {
         completion: ((Result<VoidResponse, Error>) -> Void)?
     ) {
         // TODO: Add logout
-//        AF.request(
-//            Self.url + "logout",
-//            method: .post,
-//            encoding: JSONEncoding.default,
-//            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
-//        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-//            .validate()
-//            .response { [self] result in
-//                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-//            }
+        //        AF.request(
+        //            Self.url + "logout",
+        //            method: .post,
+        //            encoding: JSONEncoding.default,
+        //            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
+        //        ) { $0.timeoutInterval = NetworkingConstants.timeout }
+        //            .validate()
+        //            .response { [self] result in
+        //                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+        //            }
     }
 }

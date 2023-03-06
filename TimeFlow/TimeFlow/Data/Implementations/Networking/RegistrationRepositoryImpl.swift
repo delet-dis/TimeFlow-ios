@@ -41,10 +41,10 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }
@@ -67,10 +67,10 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }
@@ -93,10 +93,10 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }

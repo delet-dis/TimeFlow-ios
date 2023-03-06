@@ -24,21 +24,23 @@ class ProfileRepositoryImpl: ProfileRepository {
         self.jsonEncoder = jsonEncoder
     }
 
-    func getExternalUserInfo(token: String,
-                    completion: ((Result<ExternalUser, Error>) -> Void)?) {
+    func getExternalUserInfo(
+        token: String,
+        completion: ((Result<ExternalUser, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url + Self.externalUserAccountSegment,
             method: .get,
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
     }
 
     func getStudentInfo(token: String,
@@ -49,13 +51,13 @@ class ProfileRepositoryImpl: ProfileRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
     }
 
     func getEmployeeInfo(token: String,
@@ -66,13 +68,13 @@ class ProfileRepositoryImpl: ProfileRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
     }
 
     func getRole(token: String, completion: ((Result<Role, Error>) -> Void)?) {
@@ -82,13 +84,13 @@ class ProfileRepositoryImpl: ProfileRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
     }
 
     func changePassword(token: String, password: String,
@@ -105,11 +107,11 @@ class ProfileRepositoryImpl: ProfileRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingHelper.getHeadersWithBearer(token: token)
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder,
-                                         completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder,
+                                     completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }
@@ -129,11 +131,11 @@ class ProfileRepositoryImpl: ProfileRepository {
                 encoding: JSONEncoding.default,
                 headers: NetworkingHelper.getHeadersWithBearer(token: token)
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder,
-                                         completion: completion)
-                }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder,
+                                     completion: completion)
+            }
         } catch {
             completion?(.failure(error))
         }

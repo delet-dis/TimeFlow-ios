@@ -13,9 +13,9 @@ extension AFDataResponse {
         do {
             if let data = data,
                let responseAsDictionary =
-               try JSONSerialization.jsonObject(
-                   with: data, options: .allowFragments
-               ) as? [String: String] {
+                try JSONSerialization.jsonObject(
+                    with: data, options: .allowFragments
+                ) as? [String: String] {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
