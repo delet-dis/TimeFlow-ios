@@ -41,7 +41,7 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode,
+        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode,
            let response = data,
            let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response) {
             if let errorMessage = decodedError.message {
@@ -52,12 +52,6 @@ extension AFDataResponse {
         }
 
         if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode {
-            completion?(.failure(processError()))
-
-            return
-        }
-
-        if case .failure = result {
             completion?(.failure(processError()))
 
             return
