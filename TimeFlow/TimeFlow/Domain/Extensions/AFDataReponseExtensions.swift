@@ -13,13 +13,13 @@ extension AFDataResponse {
         do {
             if let data = data,
                let responseAsDictionary =
-                try JSONSerialization.jsonObject(
-                    with: data, options: .allowFragments
-                ) as? [String: String] {
+               try JSONSerialization.jsonObject(
+                   with: data, options: .allowFragments
+               ) as? [String: [String]] {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
-                    .reduce("") { $0 + String($1 + "\n") }
+                    .reduce("") { $0 + String($1.joined(separator: "\n") + "\n") }
 
                 return NSError.createErrorWithLocalizedDescription(errorMessage)
             } else {
