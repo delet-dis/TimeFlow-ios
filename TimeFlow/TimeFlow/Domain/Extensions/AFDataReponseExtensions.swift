@@ -41,11 +41,12 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode {
-            // TODO: Add passing user credentials
-            //            logoutUseCase?.execute { _ in
-            //                completion?(.failure(NetworkingErrorsEnum.wrongUserCredentials))
-            //            }
+        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode,
+           let response = data,
+           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response) {
+            if let errorMessage = decodedError.message {
+                completion?(.failure(NSError.createErrorWithLocalizedDescription(errorMessage)))
+            }
 
             return
         }

@@ -17,7 +17,7 @@ class NetworkingConstants {
     ]
 
     static let unauthorizedStatusCode = 401
-    static let wrongDataStatusCode = 409
+    static let wrongDataStatusCode = 401
     static let userAlreadyExistsStatusCode = 400
     static let successStatusCode = 200
 
