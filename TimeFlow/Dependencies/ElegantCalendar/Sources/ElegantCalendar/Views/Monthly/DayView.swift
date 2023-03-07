@@ -68,7 +68,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
                 theme.primary
                     .opacity(datasource?.calendar(backgroundColorOpacityForDate: day) ?? 1)
             } else {
-                Color.clear
+                Color.red
             }
         }
     }

@@ -25,6 +25,9 @@
 		303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8491299E91ED003D8FC3 /* LoginUseCase.swift */; };
 		303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8494299E921B003D8FC3 /* LogoutUseCase.swift */; };
 		3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */; };
+		30499AB729B778CE0025689A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499AB629B778CE0025689A /* DateExtensions.swift */; };
+		30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */; };
+		30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABE29B77B360025689A /* DisplayingWeeksData.swift */; };
 		3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3076498229ACDCB300B3AEF5 /* RegistrationData.swift */; };
 		3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078181A299BC88600FD916D /* TimeFlowApp.swift */; };
 		3078181F299BC88800FD916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3078181E299BC88800FD916D /* Assets.xcassets */; };
@@ -135,6 +138,9 @@
 		303E8491299E91ED003D8FC3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		303E8494299E921B003D8FC3 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithReadyKeyboardButtonModifier.swift; sourceTree = "<group>"; };
+		30499AB629B778CE0025689A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeekEnum.swift; sourceTree = "<group>"; };
+		30499ABE29B77B360025689A /* DisplayingWeeksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeeksData.swift; sourceTree = "<group>"; };
 		3076498229ACDCB300B3AEF5 /* RegistrationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationData.swift; sourceTree = "<group>"; };
 		30781817299BC88600FD916D /* TimeFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3078181A299BC88600FD916D /* TimeFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlowApp.swift; sourceTree = "<group>"; };
@@ -249,12 +255,13 @@
 		300E411929A7996300851BB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				300E411A29A7996700851BB8 /* Registration */,
+				30499ABD29B77B1C0025689A /* HomeView */,
+				300E411A29A7996700851BB8 /* RegistrationView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		300E411A29A7996700851BB8 /* Registration */ = {
+		300E411A29A7996700851BB8 /* RegistrationView */ = {
 			isa = PBXGroup;
 			children = (
 				300E411C29A7997D00851BB8 /* SharedRegistrationViewData.swift */,
@@ -262,7 +269,7 @@
 				4F80611229A8A878004DDA52 /* Student */,
 				4F80610B29A8A031004DDA52 /* Teacher */,
 			);
-			path = Registration;
+			path = RegistrationView;
 			sourceTree = "<group>";
 		};
 		300E412129A79CF400851BB8 /* SharedViews */ = {
@@ -361,6 +368,7 @@
 				4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */,
 				30FE8BD529A794A9008AC4F2 /* StringExtensions.swift */,
 				309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */,
+				30499AB629B778CE0025689A /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +417,22 @@
 				3076498229ACDCB300B3AEF5 /* RegistrationData.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		30499AB929B77AE40025689A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		30499ABD29B77B1C0025689A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				30499ABE29B77B360025689A /* DisplayingWeeksData.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		3078180E299BC88600FD916D = {
@@ -681,6 +705,7 @@
 		4F586295299E07D400DB82FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30499AB929B77AE40025689A /* HomeView */,
 				4F586296299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift */,
 				30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */,
 				30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */,
@@ -917,6 +942,7 @@
 				30D4AE6129ACDDDF00D4BA10 /* RegistrationRepository.swift in Sources */,
 				4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */,
 				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
+				30499AB729B778CE0025689A /* DateExtensions.swift in Sources */,
 				4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
@@ -993,9 +1019,11 @@
 				30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,
+				30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */,
 				303E8478299E8B4D003D8FC3 /* VoidResponse.swift in Sources */,
 				30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */,
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
+				30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */,
 				303E846F299E891F003D8FC3 /* UserCredentials.swift in Sources */,
 				4FD7C2F029B5F182006EB2AF /* Role.swift in Sources */,
 				4F80611029A8A83A004DDA52 /* StudentRegistrationFormView.swift in Sources */,

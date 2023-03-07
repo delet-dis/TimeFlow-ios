@@ -2,11 +2,16 @@
 
 import SwiftUI
 
-struct WeekView: View, MonthlyCalendarManagerDirectAccess {
+public struct WeekView: View, MonthlyCalendarManagerDirectAccess {
 
     let calendarManager: MonthlyCalendarManager
 
     let week: Date
+
+    public init(calendarManager: MonthlyCalendarManager, week: Date) {
+        self.calendarManager = calendarManager
+        self.week = week
+    }
 
     private var days: [Date] {
         guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: week) else {
@@ -17,7 +22,7 @@ struct WeekView: View, MonthlyCalendarManagerDirectAccess {
             matching: .everyDay)
     }
 
-    var body: some View {
+    public var body: some View {
         HStack(spacing: CalendarConstants.Monthly.gridSpacing) {
             ForEach(days, id: \.self) { day in
                 DayView(calendarManager: self.calendarManager, week: self.week, day: day)
