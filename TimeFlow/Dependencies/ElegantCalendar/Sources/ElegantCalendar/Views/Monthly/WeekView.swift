@@ -8,9 +8,19 @@ public struct WeekView: View, MonthlyCalendarManagerDirectAccess {
 
     let week: Date
 
-    public init(calendarManager: MonthlyCalendarManager, week: Date) {
+    private let isDisplayingMonthsDifferences: Bool
+    private let isDragRecentlyHappend: Bool
+
+    public init(
+        calendarManager: MonthlyCalendarManager,
+        week: Date,
+        isDisplayingMonthsDifferences: Bool = true,
+        isDragReccentlyHappend: Bool = false
+    ) {
         self.calendarManager = calendarManager
         self.week = week
+        self.isDisplayingMonthsDifferences = isDisplayingMonthsDifferences
+        self.isDragRecentlyHappend = isDragReccentlyHappend
     }
 
     private var days: [Date] {
@@ -25,7 +35,13 @@ public struct WeekView: View, MonthlyCalendarManagerDirectAccess {
     public var body: some View {
         HStack(spacing: CalendarConstants.Monthly.gridSpacing) {
             ForEach(days, id: \.self) { day in
-                DayView(calendarManager: self.calendarManager, week: self.week, day: day)
+                DayView(
+                    calendarManager: self.calendarManager,
+                    week: self.week,
+                    day: day,
+                    isDisplayingMonthsDifferences: isDisplayingMonthsDifferences,
+                    isDragRecentlyHappend: isDragRecentlyHappend
+                )
             }
         }
     }

@@ -41,6 +41,8 @@
 		3078185B299BD13900FD916D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185A299BD13900FD916D /* MainView.swift */; };
 		3078185D299BD16D00FD916D /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078185C299BD16D00FD916D /* MainComponent.swift */; };
 		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
+		308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8B929B8B8A9000E3117 /* WeekSwitcherViewModel.swift */; };
+		308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8BB29B8B8C3000E3117 /* WeekSwitcherView.swift */; };
 		30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */; };
 		30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */; };
 		30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */; };
@@ -151,6 +153,8 @@
 		3078185A299BD13900FD916D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3078185C299BD16D00FD916D /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		308BB8B929B8B8A9000E3117 /* WeekSwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSwitcherViewModel.swift; sourceTree = "<group>"; };
+		308BB8BB29B8B8C3000E3117 /* WeekSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSwitcherView.swift; sourceTree = "<group>"; };
 		30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxMotionModifier.swift; sourceTree = "<group>"; };
 		30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
@@ -169,7 +173,7 @@
 		30ABBB2629A3793000108535 /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		30ABBB2829A37C1F00108535 /* LoginViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30ABBB2B29A386EB00108535 /* MainWindowSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeHelper.swift; sourceTree = "<group>"; };
-		30B0406B29B623BB003A6614 /* ElegantCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ElegantCalendar; path = ../../Dependencies/ElegantCalendar; sourceTree = "<group>"; };
+		30B0406B29B623BB003A6614 /* ElegantCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ElegantCalendar; sourceTree = "<group>"; };
 		30C014E329B1DF620029612F /* SwiftLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
 		30C014E629B1E0860029612F /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		30C014EE29B1E7350029612F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -289,7 +293,8 @@
 			children = (
 				30B0406B29B623BB003A6614 /* ElegantCalendar */,
 			);
-			path = Dependencies;
+			name = Dependencies;
+			path = ../Dependencies;
 			sourceTree = "<group>";
 		};
 		303E8463299E8132003D8FC3 /* Domain */ = {
@@ -535,6 +540,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		308BB8B329B8B848000E3117 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				308BB8B729B8B868000E3117 /* WeekSwitcherView */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		308BB8B729B8B868000E3117 /* WeekSwitcherView */ = {
+			isa = PBXGroup;
+			children = (
+				308BB8B829B8B89D000E3117 /* ViewModel */,
+				308BB8BB29B8B8C3000E3117 /* WeekSwitcherView.swift */,
+			);
+			path = WeekSwitcherView;
+			sourceTree = "<group>";
+		};
+		308BB8B829B8B89D000E3117 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				308BB8B929B8B8A9000E3117 /* WeekSwitcherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		309BAB9929B04328009E59AC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +595,7 @@
 		309BABAD29B06079009E59AC /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				308BB8B329B8B848000E3117 /* Subviews */,
 				309BABB329B060A9009E59AC /* Comonent */,
 				309BABB229B060A2009E59AC /* ViewModel */,
 				309BABB829B06143009E59AC /* HomeView.swift */,
@@ -975,6 +1006,7 @@
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
 				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
+				308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
@@ -1000,6 +1032,7 @@
 				4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
+				308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */,
 				30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */,
 				4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,

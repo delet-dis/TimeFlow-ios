@@ -3,13 +3,29 @@
 import SwiftUI
 
 struct DayView: View, MonthlyCalendarManagerDirectAccess {
-
     @Environment(\.calendarTheme) var theme: CalendarTheme
 
     @ObservedObject var calendarManager: MonthlyCalendarManager
 
     let week: Date
     let day: Date
+
+    private let isDisplayingMonthsDifferences: Bool
+    private let isDragRecentlyHappend: Bool
+
+    init(
+        calendarManager: MonthlyCalendarManager,
+        week: Date,
+        day: Date,
+        isDisplayingMonthsDifferences: Bool = true,
+        isDragRecentlyHappend: Bool = false
+    ) {
+        self.calendarManager = calendarManager
+        self.week = week
+        self.day = day
+        self.isDisplayingMonthsDifferences = isDisplayingMonthsDifferences
+        self.isDragRecentlyHappend = isDragRecentlyHappend
+    }
 
     private var isDayWithinDateRange: Bool {
         day >= calendar.startOfDay(for: startDate) && day <= endDate
@@ -36,6 +52,8 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
         return calendar.isDate(selectedDate, equalTo: day, toGranularities: [.day, .month, .year])
     }
 
+    @State private var isUnselectAniamtionDisplaying = false
+
     var body: some View {
         Text(numericDay)
             .font(.custom("Raleway-Medium", size: 15))
@@ -44,8 +62,22 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
             .background(backgroundColor)
             .clipShape(Circle())
             .opacity(opacity)
-            .overlay(isSelected ? CircularSelectionView() : nil)
+            .overlay(isSelected ?
+                CircularSelectionView(isDragRecentyHappend: isDragRecentlyHappend).erased :
+                CircularUnselectionView()
+                .opacity(isUnselectAniamtionDisplaying ? 1 : 0)
+                .erased
+            )
             .onTapGesture(perform: notifyManager)
+            .onChange(of: isSelected) { newValue in
+                if !newValue {
+                    isUnselectAniamtionDisplaying = true
+
+                    withAnimation {
+                        isUnselectAniamtionDisplaying = false
+                    }
+                }
+            }
     }
 
     private var numericDay: String {
@@ -64,32 +96,34 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
         Group {
             if isDayToday {
                 theme.todayBackgroundColor
-            } else if isDaySelectableAndInRange {
+            } else if isDaySelectableAndInRange || !isDisplayingMonthsDifferences {
                 theme.primary
                     .opacity(datasource?.calendar(backgroundColorOpacityForDate: day) ?? 1)
             } else {
-                Color.red
+                Color.clear
             }
         }
     }
 
     private var opacity: Double {
-        guard !isDayToday else { return 1 }
-        return isDaySelectableAndInRange ? 1 : 0.15
+        if isDisplayingMonthsDifferences {
+            guard !isDayToday else { return 1 }
+            return isDaySelectableAndInRange ? 1 : 0.15
+        } else {
+            return 1
+        }
     }
 
     private func notifyManager() {
         guard isDayWithinDateRange && canSelectDay else { return }
 
-        if isDayToday || isDayWithinWeekMonthAndYear {
+        if isDayToday || isDayWithinWeekMonthAndYear || !isDisplayingMonthsDifferences {
             calendarManager.dayTapped(day: day, withHaptic: true)
         }
     }
-
 }
 
-private struct CircularSelectionView: View {
-
+private struct CircularUnselectionView: View {
     @State private var startBounce = false
 
     var body: some View {
@@ -102,13 +136,37 @@ private struct CircularSelectionView: View {
     }
 
     private var radius: CGFloat {
+        startBounce ? CalendarConstants.Monthly.dayWidth + 25 : CalendarConstants.Monthly.dayWidth + 4
+    }
+
+    private func startBounceAnimation() {
+        startBounce = true
+    }
+}
+
+private struct CircularSelectionView: View {
+    @State private var startBounce = false
+
+    var isDragRecentyHappend = false
+
+    var body: some View {
+        Circle()
+            .stroke(Color.primary, lineWidth: 2)
+            .frame(width: radius, height: radius)
+            .opacity(startBounce ? 1 : 0)
+            .if(!isDragRecentyHappend) { view in
+                view.animation(.interpolatingSpring(stiffness: 150, damping: 10))
+            }
+            .onAppear(perform: startBounceAnimation)
+    }
+
+    private var radius: CGFloat {
         startBounce ? CalendarConstants.Monthly.dayWidth + 6 : CalendarConstants.Monthly.dayWidth + 25
     }
 
     private func startBounceAnimation() {
         startBounce = true
     }
-
 }
 
 struct DayView_Previews: PreviewProvider {

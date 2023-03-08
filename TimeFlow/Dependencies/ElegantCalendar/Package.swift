@@ -1,11 +1,11 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.7
 
 import PackageDescription
 
 let package = Package(
     name: "ElegantCalendar",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v16)
     ],
     products: [
         .library(
