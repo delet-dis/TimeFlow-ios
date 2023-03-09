@@ -9,12 +9,14 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-protocol HomeComponentDependency: Dependency {}
+protocol HomeComponentDependency: Dependency {
+    var getTokenUseCase: GetTokenUseCase {get}
+}
 
-final class HomeComponent: Component<AuthorizationComponentDependency> {
+final class HomeComponent: Component<HomeComponentDependency> {
     var homeViewModel: HomeViewModel {
         shared {
-            HomeViewModel()
+            HomeViewModel(getTokenUseCase: dependency.getTokenUseCase)
         }
     }
 

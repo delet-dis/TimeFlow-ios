@@ -82,6 +82,11 @@
 		30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */; };
 		30FE8BCE29A39E84008AC4F2 /* AxisSegmentedView in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE8BCD29A39E84008AC4F2 /* AxisSegmentedView */; };
 		30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE8BD529A794A9008AC4F2 /* StringExtensions.swift */; };
+		4F00AAA329B98DB100C737FA /* SharedProfileViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00AAA229B98DB100C737FA /* SharedProfileViewData.swift */; };
+		4F00AAA929B98F5900C737FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00AAA829B98F5900C737FA /* ProfileView.swift */; };
+		4F00AAAB29B991A900C737FA /* SharedProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00AAAA29B991A900C737FA /* SharedProfileState.swift */; };
+		4F00AAB029B9995E00C737FA /* GenderProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00AAAF29B9995E00C737FA /* GenderProfileEnum.swift */; };
+		4F00AAB229BA23EC00C737FA /* GetTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F00AAB129BA23EC00C737FA /* GetTokenUseCase.swift */; };
 		4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849D8299FC8600050439F /* RegistrationView.swift */; };
 		4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DD299FC9820050439F /* RegistrationComponent.swift */; };
 		4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0849E0299FCA400050439F /* SwiftyUserDefaults */; };
@@ -120,6 +125,9 @@
 		4FD7C2F029B5F182006EB2AF /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2EF29B5F182006EB2AF /* Role.swift */; };
 		4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */; };
 		4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2F329B5F474006EB2AF /* NetworkHelper.swift */; };
+		4FD7C2FC29B976D5006EB2AF /* SharedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2FB29B976D5006EB2AF /* SharedProfileView.swift */; };
+		4FD7C2FF29B97833006EB2AF /* ProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C2FE29B97833006EB2AF /* ProfileComponent.swift */; };
+		4FD7C30229B97851006EB2AF /* ProfileVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C30129B97851006EB2AF /* ProfileVIewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +202,11 @@
 		30E1D487299FF1DB001E1529 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		30FE8BC929A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewDisplayingModeEnum.swift; sourceTree = "<group>"; };
 		30FE8BD529A794A9008AC4F2 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		4F00AAA229B98DB100C737FA /* SharedProfileViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileViewData.swift; sourceTree = "<group>"; };
+		4F00AAA829B98F5900C737FA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4F00AAAA29B991A900C737FA /* SharedProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileState.swift; sourceTree = "<group>"; };
+		4F00AAAF29B9995E00C737FA /* GenderProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderProfileEnum.swift; sourceTree = "<group>"; };
+		4F00AAB129BA23EC00C737FA /* GetTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenUseCase.swift; sourceTree = "<group>"; };
 		4F0849D8299FC8600050439F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4F0849DD299FC9820050439F /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
 		4F0849E529A0BF710050439F /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
@@ -230,6 +243,9 @@
 		4FD7C2EF29B5F182006EB2AF /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
 		4FD7C2F329B5F474006EB2AF /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		4FD7C2FB29B976D5006EB2AF /* SharedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProfileView.swift; sourceTree = "<group>"; };
+		4FD7C2FE29B97833006EB2AF /* ProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponent.swift; sourceTree = "<group>"; };
+		4FD7C30129B97851006EB2AF /* ProfileVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +283,8 @@
 			children = (
 				30499ABD29B77B1C0025689A /* HomeView */,
 				300E411A29A7996700851BB8 /* RegistrationView */,
+				4F00AAA129B98D9700C737FA /* Profile */,
+				300E411A29A7996700851BB8 /* Registration */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,6 +530,7 @@
 			children = (
 				300E412129A79CF400851BB8 /* SharedViews */,
 				30E1D48C299FF485001E1529 /* Modifiers */,
+				4FD7C2F829B9769B006EB2AF /* ProfileView */,
 				309BABAD29B06079009E59AC /* HomeView */,
 				4F0849D4299FC8310050439F /* RegistrationView */,
 				4F5862A0299E0AA000DB82FC /* AuthorizationView */,
@@ -597,6 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				309BAB9E29B04763009E59AC /* SaveTokensUseCase.swift */,
+				4F00AAB129BA23EC00C737FA /* GetTokenUseCase.swift */,
 			);
 			path = KeychainRepository;
 			sourceTree = "<group>";
@@ -684,6 +704,32 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		4F00AAA129B98D9700C737FA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4F00AAA229B98DB100C737FA /* SharedProfileViewData.swift */,
+				4F00AAAA29B991A900C737FA /* SharedProfileState.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4F00AAA529B98E5400C737FA /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C2FB29B976D5006EB2AF /* SharedProfileView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		4F00AAAD29B9993E00C737FA /* GenderGroups */ = {
+			isa = PBXGroup;
+			children = (
+				4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */,
+				4F00AAAF29B9995E00C737FA /* GenderProfileEnum.swift */,
+			);
+			path = GenderGroups;
+			sourceTree = "<group>";
+		};
 		4F0849D4299FC8310050439F /* RegistrationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,9 +789,9 @@
 		4F586294299E07C800DB82FC /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4F00AAAD29B9993E00C737FA /* GenderGroups */,
 				309BAB9929B04328009E59AC /* Repositories */,
 				4F586295299E07D400DB82FC /* Views */,
-				4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -843,6 +889,33 @@
 				4FD7C2EF29B5F182006EB2AF /* Role.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		4FD7C2F829B9769B006EB2AF /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				4F00AAA529B98E5400C737FA /* Subviews */,
+				4FD7C2FA29B976C0006EB2AF /* Component */,
+				4FD7C2F929B976B6006EB2AF /* ViewModel */,
+				4F00AAA829B98F5900C737FA /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		4FD7C2F929B976B6006EB2AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C30129B97851006EB2AF /* ProfileVIewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FD7C2FA29B976C0006EB2AF /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C2FE29B97833006EB2AF /* ProfileComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1005,11 +1078,13 @@
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
 				30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */,
 				3078185B299BD13900FD916D /* MainView.swift in Sources */,
+				4F00AAB029B9995E00C737FA /* GenderProfileEnum.swift in Sources */,
 				4F7AE9D529A3818800D994C5 /* TeacherRegistrationRequest.swift in Sources */,
 				4F0849E629A0BF710050439F /* CustomSecureField.swift in Sources */,
 				4F80610529A89C2C004DDA52 /* TeacherRegistrationFormView.swift in Sources */,
 				309BAB9B29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
+				4FD7C2FC29B976D5006EB2AF /* SharedProfileView.swift in Sources */,
 				3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */,
@@ -1039,6 +1114,7 @@
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
 				308BB8C229BA0CDE000E3117 /* ScheduleViewModel.swift in Sources */,
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
+				4F00AAA929B98F5900C737FA /* ProfileView.swift in Sources */,
 				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
@@ -1046,9 +1122,11 @@
 				4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */,
 				30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */,
 				30D4AE6C29ACE2A800D4BA10 /* RegisterTeacherUseCase.swift in Sources */,
+				4F00AAB229BA23EC00C737FA /* GetTokenUseCase.swift in Sources */,
 				4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */,
 				4F80611629A8A8B2004DDA52 /* StudentRegistationViewState.swift in Sources */,
 				4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */,
+				4FD7C2FF29B97833006EB2AF /* ProfileComponent.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
 				308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */,
@@ -1057,6 +1135,7 @@
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
+				4F00AAA329B98DB100C737FA /* SharedProfileViewData.swift in Sources */,
 				4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */,
 				309BABAC29B04D9B009E59AC /* DefaultsRepositoryErrorsEnum.swift in Sources */,
 				30C014EF29B1E7350029612F /* SplashView.swift in Sources */,
@@ -1069,6 +1148,7 @@
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
 				309BABA229B04C78009E59AC /* DefaultsKeysExtensions.swift in Sources */,
 				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
+				4F00AAAB29B991A900C737FA /* SharedProfileState.swift in Sources */,
 				30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,
@@ -1083,6 +1163,7 @@
 				303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */,
 				4F78167B29A26ADA004662C2 /* RegistrationViewModel.swift in Sources */,
 				300E412029A7998F00851BB8 /* SharedRegistrationViewState.swift in Sources */,
+				4FD7C30229B97851006EB2AF /* ProfileVIewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

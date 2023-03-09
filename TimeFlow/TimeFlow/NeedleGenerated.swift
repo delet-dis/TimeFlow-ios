@@ -52,9 +52,20 @@ private class AuthorizationComponentDependency01c300e9208281b9a593Provider: Auth
 private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return AuthorizationComponentDependency01c300e9208281b9a593Provider(mainComponent: parent1(component) as! MainComponent)
 }
-private class AuthorizationComponentDependency887e91671f4424758155Provider: AuthorizationComponentDependency {
-    var loginUseCase: LoginUseCase {
-        return mainComponent.loginUseCase
+private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->ProfileComponent
+private func factory85f38151f9d92062292ce3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ProfileComponentDependency919001f509df49c9c523Provider()
+}
+private class HomeComponentDependency887e91671f4424758155Provider: HomeComponentDependency {
+    var getTokenUseCase: GetTokenUseCase {
+        return mainComponent.getTokenUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -62,8 +73,8 @@ private class AuthorizationComponentDependency887e91671f4424758155Provider: Auth
     }
 }
 /// ^->MainComponent->HomeComponent
-private func factoryea7ad110c5e1734793070ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return AuthorizationComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
+private func factory9bc7b43729f663f093120ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return HomeComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
     var authorizationComponent: AuthorizationComponent {
@@ -96,9 +107,14 @@ extension AuthorizationComponent: Registration {
         keyPathToName[\AuthorizationComponentDependency.loginUseCase] = "loginUseCase-LoginUseCase"
     }
 }
+extension ProfileComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension HomeComponent: Registration {
     public func registerItems() {
-        keyPathToName[\AuthorizationComponentDependency.loginUseCase] = "loginUseCase-LoginUseCase"
+        keyPathToName[\HomeComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
     }
 }
 extension MainComponent: Registration {
@@ -131,7 +147,8 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 @inline(never) private func register1() {
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a8800ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->HomeComponent", factoryea7ad110c5e1734793070ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292ce3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
 }

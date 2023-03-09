@@ -52,3 +52,10 @@
 
 // MARK: Shared
 "loading" = "Загрузка";
+
+
+// MARK: Profile
+"FIO" = "ФИО";
+"role" = "Роль";
+"statusUser" = "Статус";
+
