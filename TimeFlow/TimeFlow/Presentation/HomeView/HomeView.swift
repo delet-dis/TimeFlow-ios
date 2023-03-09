@@ -10,13 +10,19 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
-
-    @ObservedObject var calendarManager = ElegantCalendarManager(
-        configuration: CalendarConfiguration(startDate: Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (-30 * 36))),
-                                             endDate: Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (30 * 36)))))
+    private static let mainComponent = MainComponent()
 
     var body: some View {
-        ElegantCalendarView(calendarManager: calendarManager)
+        VStack {
+            NavigationView {
+                NavigationLink(destination: ProfileView(viewModel: HomeView.mainComponent.profileComponent.profileViewModel), label: {
+                    Image(systemName: "person.crop.circle")
+                        .font(.system(size: 50))
+                        .foregroundColor(.gray)
+                })
+                .padding()
+            }
+        }
     }
 }
 

@@ -7,4 +7,16 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {}
+class HomeViewModel: ObservableObject {
+    
+    
+    private let getTokenUseCase: GetTokenUseCase
+    
+    init(
+        getTokenUseCase: GetTokenUseCase
+    
+    ) {
+        self.getTokenUseCase = getTokenUseCase
+    }
+    
+}

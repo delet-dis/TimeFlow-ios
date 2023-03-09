@@ -133,6 +133,12 @@ class MainComponent: BootstrapComponent {
             GetAuthStatusUseCase()
         }
     }
+    
+    var getTokenUseCase: GetTokenUseCase{
+        shared{
+            GetTokenUseCase(keychainRepository: keychainRepository)
+        }
+    }
 
     // MARK: Components
 
@@ -157,6 +163,12 @@ class MainComponent: BootstrapComponent {
     var homeComponent: HomeComponent {
         shared {
             HomeComponent(parent: self)
+        }
+    }
+    
+    var profileComponent: ProfileComponent{
+        shared{
+            ProfileComponent(parent: self)
         }
     }
 
