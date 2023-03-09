@@ -17,7 +17,7 @@ struct SplashView: View {
 
             Spacer()
         }
-        .background(.white)
+        .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
     }
 }
 

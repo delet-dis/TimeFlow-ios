@@ -26,12 +26,12 @@ class StudentGroupsRepositoryImpl: StudentGroupsRepository {
             encoding: JSONEncoding.default,
             headers: NetworkingConstants.headers
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
     }
 }

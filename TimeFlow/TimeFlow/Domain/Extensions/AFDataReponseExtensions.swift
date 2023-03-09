@@ -15,11 +15,11 @@ extension AFDataResponse {
                let responseAsDictionary =
                try JSONSerialization.jsonObject(
                    with: data, options: .allowFragments
-               ) as? [String: String] {
+               ) as? [String: [String]] {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
-                    .reduce("") { $0 + String($1 + "\n") }
+                    .reduce("") { $0 + String($1.joined(separator: "\n") + "\n") }
 
                 return NSError.createErrorWithLocalizedDescription(errorMessage)
             } else {
@@ -41,22 +41,17 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode {
-            // TODO: Add passing user credentials
-            //            logoutUseCase?.execute { _ in
-            //                completion?(.failure(NetworkingErrorsEnum.wrongUserCredentials))
-            //            }
+        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode,
+           let response = data,
+           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response) {
+            if let errorMessage = decodedError.message {
+                completion?(.failure(NSError.createErrorWithLocalizedDescription(errorMessage)))
+            }
 
             return
         }
 
         if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode {
-            completion?(.failure(processError()))
-
-            return
-        }
-
-        if case .failure = result {
             completion?(.failure(processError()))
 
             return

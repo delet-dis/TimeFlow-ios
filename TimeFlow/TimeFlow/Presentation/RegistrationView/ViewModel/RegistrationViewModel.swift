@@ -201,7 +201,7 @@ class RegistrationViewModel: ObservableObject {
         case .teacher:
             if !AuthorizationOrRegistrationDataHelper
                 .isTeacherNumberValid(sharedTeacherRegistrationData
-                    .contractNumber) {
+                                        .contractNumber) {
                 sharedTeacherRegistrationState.isContractNumberValid = false
                 areFieldsValid = false
                 return false
@@ -209,7 +209,7 @@ class RegistrationViewModel: ObservableObject {
         case .student:
             if !AuthorizationOrRegistrationDataHelper
                 .isStudentNumberValid(sharedStudentRegistrationData
-                    .studentNumber) {
+                                        .studentNumber) {
                 sharedStudentRegistrationState.isStudentNumberValid = false
                 areFieldsValid = false
                 return false

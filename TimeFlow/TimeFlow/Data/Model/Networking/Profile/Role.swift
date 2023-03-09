@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Role: Codable{
+struct Role: Codable {
     let role: String
 }

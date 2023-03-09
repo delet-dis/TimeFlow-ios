@@ -21,8 +21,12 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                 })
                 .padding()
+                
+                ScheduleView(viewModel: viewModel.scheduleViewModel)
             }
         }
+        .padding(.horizontal, 24)
+        .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
     }
 }
 
