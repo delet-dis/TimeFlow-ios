@@ -56,15 +56,14 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
 
     var body: some View {
         Text(numericDay)
-            .font(.custom("Raleway-Medium", size: 15))
+            .font(.custom("Raleway-Bold", size: 18))
             .foregroundColor(foregroundColor)
             .frame(width: CalendarConstants.Monthly.dayWidth, height: CalendarConstants.Monthly.dayWidth)
-            .background(backgroundColor)
-            .clipShape(Circle())
+            .clipShape(RoundedRectangle(cornerRadius: 12))
             .opacity(opacity)
-            .overlay(isSelected ?
-                CircularSelectionView(isDragRecentyHappend: isDragRecentlyHappend).erased :
-                CircularUnselectionView()
+            .background(isSelected ?
+                DaySelectionView(isDragRecentyHappend: isDragRecentlyHappend).erased :
+                            DayUnselectionView()
                 .opacity(isUnselectAniamtionDisplaying ? 1 : 0)
                 .erased
             )
@@ -73,7 +72,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
                 if !newValue {
                     isUnselectAniamtionDisplaying = true
 
-                    withAnimation {
+                    withAnimation(.easeIn(duration: 0.7)) {
                         isUnselectAniamtionDisplaying = false
                     }
                 }
@@ -86,9 +85,9 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
 
     private var foregroundColor: Color {
         if isDayToday {
-            return theme.todayTextColor
+            return Color("LightenRed")
         } else {
-            return theme.textColor
+            return Color("Gray")
         }
     }
 
@@ -123,12 +122,15 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
     }
 }
 
-private struct CircularUnselectionView: View {
+private struct DayUnselectionView: View {
     @State private var startBounce = false
 
     var body: some View {
-        Circle()
-            .stroke(Color.primary, lineWidth: 2)
+        RoundedRectangle(cornerRadius: 12)
+            .fill(
+                Material.thin
+            )
+            .shadow(color: .black.opacity(0.3), radius: 6.8, x: 0, y: 10)
             .frame(width: radius, height: radius)
             .opacity(startBounce ? 1 : 0)
             .animation(.interpolatingSpring(stiffness: 150, damping: 10))
@@ -136,7 +138,7 @@ private struct CircularUnselectionView: View {
     }
 
     private var radius: CGFloat {
-        startBounce ? CalendarConstants.Monthly.dayWidth + 25 : CalendarConstants.Monthly.dayWidth + 4
+        startBounce ? CalendarConstants.Monthly.dayWidth + 15 : CalendarConstants.Monthly.dayWidth + 6
     }
 
     private func startBounceAnimation() {
@@ -144,14 +146,17 @@ private struct CircularUnselectionView: View {
     }
 }
 
-private struct CircularSelectionView: View {
+private struct DaySelectionView: View {
     @State private var startBounce = false
 
     var isDragRecentyHappend = false
 
     var body: some View {
-        Circle()
-            .stroke(Color.primary, lineWidth: 2)
+        RoundedRectangle(cornerRadius: 12)
+            .fill(
+                Material.thin
+            )
+            .shadow(color: .black.opacity(0.3), radius: 6.8, x: 0, y: 10)
             .frame(width: radius, height: radius)
             .opacity(startBounce ? 1 : 0)
             .if(!isDragRecentyHappend) { view in

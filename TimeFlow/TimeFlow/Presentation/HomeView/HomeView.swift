@@ -13,14 +13,10 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-
-            WeekSwitcherView(viewModel: viewModel.weekSwitcherViewModel)
-
-            Spacer()
+            ScheduleView(viewModel: viewModel.scheduleViewModel)
         }
         .padding(.horizontal, 24)
-        .background(Color(uiColor: R.color.mainBackgroundColor() ?? .white))
+        .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
     }
 }
 

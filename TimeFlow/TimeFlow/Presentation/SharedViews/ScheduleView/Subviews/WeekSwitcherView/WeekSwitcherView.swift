@@ -12,16 +12,7 @@ struct WeekSwitcherView: View {
     @ObservedObject var viewModel: WeekSwitcherViewModel
 
     var body: some View {
-        HStack {
-            Button {
-                withAnimation {
-                    viewModel.displayingWeekEnum = .left
-                }
-            } label: {
-                Image(systemName: "chevron.left")
-                    .scaleEffect(1.3)
-            }
-
+        VStack {
             TabView(selection: $viewModel.displayingWeekEnum) {
                 WeekView(
                     calendarManager: viewModel.calendarManager,
@@ -56,7 +47,6 @@ struct WeekSwitcherView: View {
                     viewModel.displayingWeekChanged()
                 }
             }
-            .frame(height: 50)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .overlay {
                 if !viewModel.isAbleToChangePage {
@@ -65,48 +55,60 @@ struct WeekSwitcherView: View {
                 }
             }
             .overlay {
-                HStack {
-                    Rectangle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    .init(uiColor: R.color.mainBackgroundColor() ?? .white),
-                                    .clear
-                                ]),
-                                startPoint: .leading,
-                                endPoint: .trailing
+                HStack(spacing: 31) {
+                    ForEach(
+                        viewModel.getWeekdaySymbols(),
+                        id: \.self
+                    ) { weekday in
+                        Text(weekday)
+                            .font(
+                                Font(
+                                    R.font.ralewayBold(size: 15) ??
+                                        .systemFont(ofSize: 15, weight: .bold)
+                                )
                             )
-                        )
-                        .frame(width: 6)
-                        .allowsHitTesting(false)
+                            .foregroundColor(viewModel.isWeekdayIsCurrentDay(weekday) ?
+                                Color(uiColor: R.color.lightenRed() ?? .red) :
+                                Color(uiColor: R.color.lightenBlack() ?? .black)
+                            )
+                    }
+                }
+                .padding(.bottom, 75)
+            }
+            .overlay {
+                HStack {
+                    Button {
+                        withAnimation {
+                            viewModel.displayingWeekEnum = .left
+                        }
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .scaleEffect(1.3)
+                            .bold()
+                    }
+                    .tint(Color(uiColor: R.color.lightenBlack() ?? .black))
 
                     Spacer()
 
-                    Rectangle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    .clear,
-                                    .init(uiColor: R.color.mainBackgroundColor() ?? .white)
-                                ]),
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .frame(width: 6)
-                        .allowsHitTesting(false)
+                    Button {
+                        withAnimation {
+                            viewModel.displayingWeekEnum = .right
+                        }
+                    } label: {
+                        Image(systemName: "chevron.right")
+                            .scaleEffect(1.3)
+                            .bold()
+                    }
+                    .tint(Color(uiColor: R.color.lightenBlack() ?? .black))
                 }
+                .contentShape(Rectangle())
+                .padding(.horizontal, -12)
             }
+            .padding(.horizontal, 10)
 
-            Button {
-                withAnimation {
-                    viewModel.displayingWeekEnum = .right
-                }
-            } label: {
-                Image(systemName: "chevron.right")
-                    .scaleEffect(1.3)
-            }
+            Spacer()
         }
+        .frame(height: 130)
     }
 }
 

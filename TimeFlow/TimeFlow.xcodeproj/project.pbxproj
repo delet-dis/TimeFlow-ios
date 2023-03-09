@@ -43,6 +43,9 @@
 		30781861299BD22500FD916D /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30781860299BD22500FD916D /* NeedleGenerated.swift */; };
 		308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8B929B8B8A9000E3117 /* WeekSwitcherViewModel.swift */; };
 		308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8BB29B8B8C3000E3117 /* WeekSwitcherView.swift */; };
+		308BB8C229BA0CDE000E3117 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8C129BA0CDE000E3117 /* ScheduleViewModel.swift */; };
+		308BB8C429BA0CF6000E3117 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8C329BA0CF6000E3117 /* ScheduleView.swift */; };
+		308BB8C629BA1F40000E3117 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BB8C529BA1F40000E3117 /* ArrayExtensions.swift */; };
 		30984B8229A094E200A85B32 /* ParallaxMotionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */; };
 		30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */; };
 		30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */; };
@@ -155,6 +158,9 @@
 		30781860299BD22500FD916D /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		308BB8B929B8B8A9000E3117 /* WeekSwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSwitcherViewModel.swift; sourceTree = "<group>"; };
 		308BB8BB29B8B8C3000E3117 /* WeekSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSwitcherView.swift; sourceTree = "<group>"; };
+		308BB8C129BA0CDE000E3117 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		308BB8C329BA0CF6000E3117 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		308BB8C529BA1F40000E3117 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxMotionModifier.swift; sourceTree = "<group>"; };
 		30984B8529A0B6CC00A85B32 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		30984B8829A0B9E500A85B32 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 		300E412129A79CF400851BB8 /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				308BB8BE29BA0CA6000E3117 /* ScheduleView */,
 				300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */,
 				4F0849E529A0BF710050439F /* CustomSecureField.swift */,
 				30C014E329B1DF620029612F /* SwiftLoader.swift */,
@@ -374,6 +381,7 @@
 				30FE8BD529A794A9008AC4F2 /* StringExtensions.swift */,
 				309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */,
 				30499AB629B778CE0025689A /* DateExtensions.swift */,
+				308BB8C529BA1F40000E3117 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -565,6 +573,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		308BB8BE29BA0CA6000E3117 /* ScheduleView */ = {
+			isa = PBXGroup;
+			children = (
+				308BB8B329B8B848000E3117 /* Subviews */,
+				308BB8C129BA0CDE000E3117 /* ScheduleViewModel.swift */,
+				308BB8C329BA0CF6000E3117 /* ScheduleView.swift */,
+			);
+			path = ScheduleView;
+			sourceTree = "<group>";
+		};
 		309BAB9929B04328009E59AC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,7 +613,6 @@
 		309BABAD29B06079009E59AC /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				308BB8B329B8B848000E3117 /* Subviews */,
 				309BABB329B060A9009E59AC /* Comonent */,
 				309BABB229B060A2009E59AC /* ViewModel */,
 				309BABB829B06143009E59AC /* HomeView.swift */,
@@ -1001,6 +1018,7 @@
 				3078185D299BD16D00FD916D /* MainComponent.swift in Sources */,
 				4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
+				308BB8C629BA1F40000E3117 /* ArrayExtensions.swift in Sources */,
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
@@ -1019,6 +1037,7 @@
 				4FC10EB029AF420A00711113 /* StudentGroupsRepositoryImpl.swift in Sources */,
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
+				308BB8C229BA0CDE000E3117 /* ScheduleViewModel.swift in Sources */,
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
 				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
@@ -1044,6 +1063,7 @@
 				309BABA829B04CEA009E59AC /* SaveAuthStatusUseCase.swift in Sources */,
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */,
+				308BB8C429BA0CF6000E3117 /* ScheduleView.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,

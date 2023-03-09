@@ -22,7 +22,7 @@ class WeekSwitcherViewModel: ObservableObject {
 
     @Published var isDragRecentlyHappend = false
 
-    private var dayPickedClosure: ((Date) -> Void)? = nil
+    private var dayPickedClosure: ((Date) -> Void)?
 
     private var subscribers: Set<AnyCancellable> = []
 
@@ -52,6 +52,19 @@ class WeekSwitcherViewModel: ObservableObject {
         displayingWeekEnum = .center
 
         isAbleToChangePage = true
+    }
+
+    func getWeekdaySymbols() -> [String] {
+        calendarManager.configuration.calendar.shortWeekdaySymbols.shift(withDistance:
+            calendarManager.configuration.calendar.firstWeekday - 1
+        )
+    }
+
+    func isWeekdayIsCurrentDay(_ weekday: String) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+
+        return weekday == formatter.string(from: .now)
     }
 
     private func initDisplayingWeekObserving() {
