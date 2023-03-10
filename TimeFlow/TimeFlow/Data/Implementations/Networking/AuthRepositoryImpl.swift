@@ -36,7 +36,8 @@ class AuthRepositoryImpl: AuthRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingConstants.headers,
+                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in

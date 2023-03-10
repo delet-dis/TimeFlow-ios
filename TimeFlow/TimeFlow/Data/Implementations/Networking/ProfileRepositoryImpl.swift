@@ -35,7 +35,8 @@ class ProfileRepositoryImpl: ProfileRepository {
             Self.url + Self.externalUserAccountSegment,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token),
+            interceptor: RequestInterceptorHelper.self as? RequestInterceptor
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in

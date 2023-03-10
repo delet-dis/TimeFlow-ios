@@ -12,6 +12,7 @@ import SwiftUI
 class RequestInterceptorHelper: RequestInterceptor {
     private var saveTokenUseCase: SaveTokensUseCase
     private var refreshTokenUseCase: RefreshTokenUseCase
+    private var newToken = ""
     
     init(saveTokenUseCase: SaveTokensUseCase,
          refreshTokenUseCase: RefreshTokenUseCase)
@@ -23,6 +24,11 @@ class RequestInterceptorHelper: RequestInterceptor {
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         NetworkingKeysEnum.allCases.forEach { entry in
             if entry.rawValue == urlRequest.url?.absoluteString {
+                var adaptedRequest = urlRequest
+                adaptedRequest.setValue("Bearer \(newToken)", forHTTPHeaderField: entry.rawValue)
+                completion(.success(adaptedRequest))
+            }
+            else {
                 completion(.success(urlRequest))
             }
         }
@@ -38,11 +44,13 @@ class RequestInterceptorHelper: RequestInterceptor {
             refreshTokenUseCase.execute { [weak self] result in
                 switch result {
                 case .success(let result):
+                    self?.newToken = result.accessToken
                     self?.saveTokenUseCase.execute(authToken: result.accessToken,
                                                    refreshToken: result.refreshToken) { [weak self] result in
                         switch result {
                         case .success:
                             completion(.retry)
+                           
                         case .failure(let error):
                             print(error)
                         }
