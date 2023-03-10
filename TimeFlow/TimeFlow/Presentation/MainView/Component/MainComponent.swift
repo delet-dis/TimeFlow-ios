@@ -55,6 +55,12 @@ class MainComponent: BootstrapComponent {
             KeychainRepositoryImpl()
         }
     }
+    
+    var profileRepository: ProfileRepository {
+        shared {
+            ProfileRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
 
     // MARK: Auth use cases
 
@@ -109,6 +115,12 @@ class MainComponent: BootstrapComponent {
     var logoutUseCase: LogoutUseCase {
         shared {
             LogoutUseCase(authRepository: authRepository)
+        }
+    }
+    
+    var getProfileUseCase: GetProfileUseCase {
+        shared{
+            GetProfileUseCase(profileRepository: profileRepository)
         }
     }
 

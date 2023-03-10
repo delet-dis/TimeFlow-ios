@@ -8,7 +8,7 @@
 import Foundation
 
 struct StudentUser: Codable {
-    let userInfo: ExternalUser
+    let userInfo: User
     let studentNumber: String
     let group: StudentGroup
 }

@@ -10,7 +10,7 @@ import Foundation
 protocol ProfileRepository {
     func getExternalUserInfo(
         token: String,
-        completion: ((Result<ExternalUser, Error>) -> Void)?
+        completion: ((Result<User, Error>) -> Void)?
     )
 
     func getStudentInfo(
@@ -31,12 +31,12 @@ protocol ProfileRepository {
     func changePassword(
         token: String,
         password: String,
-        completion: ((Result<ExternalUser, Error>) -> Void)?
+        completion: ((Result<User, Error>) -> Void)?
     )
 
     func changeEmail(
         token: String,
         email: String,
-        completion: ((Result<ExternalUser, Error>) -> Void)?
+        completion: ((Result<User, Error>) -> Void)?
     )
 }
