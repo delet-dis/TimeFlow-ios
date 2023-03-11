@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-class RefreshTokenImpl: RefreshTokenRepository {
+class RefreshTokenRepositoryImpl: RefreshTokenRepository {
     private static let url = "\(NetworkingConstants.baseUrl)"
 
     private let jsonDecoder: JSONDecoder

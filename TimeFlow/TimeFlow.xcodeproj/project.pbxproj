@@ -120,15 +120,17 @@
 		4FA0A66F29BAE30E00AB3A66 /* GetProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */; };
 		4FA0A67229BAFA1300AB3A66 /* RefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67129BAFA1300AB3A66 /* RefreshTokenUseCase.swift */; };
 		4FA0A67829BB009F00AB3A66 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67729BB009F00AB3A66 /* RefreshTokenResponse.swift */; };
-		4FA0A67B29BB058C00AB3A66 /* RefreshTokenImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */; };
+		4FA0A67B29BB058C00AB3A66 /* RefreshTokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67A29BB058C00AB3A66 /* RefreshTokenRepositoryImpl.swift */; };
 		4FA0A67E29BB05B100AB3A66 /* KeyChainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */; };
 		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */; };
-		4FA0A68229BB236500AB3A66 /* NetworkingKeysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */; };
+		4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */; };
 		4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */; };
 		4FA0A69A29BB882200AB3A66 /* ClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */; };
 		4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */; };
-		4FA0A69F29BC442400AB3A66 /* CalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */; };
-		4FA0A6A129BC539700AB3A66 /* CalendarRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */; };
+		4FA0A69F29BC442400AB3A66 /* LessonsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69E29BC442400AB3A66 /* LessonsRepository.swift */; };
+		4FA0A6A129BC539700AB3A66 /* LessonsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A6A029BC539700AB3A66 /* LessonsRepositoryImpl.swift */; };
+		4FA0A6A329BC6BE600AB3A66 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A6A229BC6BE600AB3A66 /* RoleEnum.swift */; };
+		4FA0A6A629BC6CF200AB3A66 /* RoleEnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A6A529BC6CF200AB3A66 /* RoleEnumExtensions.swift */; };
 		4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EA729AF39FB00711113 /* LoginResponse.swift */; };
 		4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */; };
 		4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EAD29AF414900711113 /* StudentGroup.swift */; };
@@ -261,15 +263,17 @@
 		4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileUseCase.swift; sourceTree = "<group>"; };
 		4FA0A67129BAFA1300AB3A66 /* RefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		4FA0A67729BB009F00AB3A66 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
-		4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenImpl.swift; sourceTree = "<group>"; };
+		4FA0A67A29BB058C00AB3A66 /* RefreshTokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRepositoryImpl.swift; sourceTree = "<group>"; };
 		4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepository.swift; sourceTree = "<group>"; };
 		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorHelper.swift; sourceTree = "<group>"; };
-		4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingKeysEnum.swift; sourceTree = "<group>"; };
+		4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthenticationUrlsEnum.swift; sourceTree = "<group>"; };
 		4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherResponse.swift; sourceTree = "<group>"; };
 		4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomResponse.swift; sourceTree = "<group>"; };
 		4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
-		4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRepository.swift; sourceTree = "<group>"; };
-		4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRepositoryImpl.swift; sourceTree = "<group>"; };
+		4FA0A69E29BC442400AB3A66 /* LessonsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsRepository.swift; sourceTree = "<group>"; };
+		4FA0A6A029BC539700AB3A66 /* LessonsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsRepositoryImpl.swift; sourceTree = "<group>"; };
+		4FA0A6A229BC6BE600AB3A66 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
+		4FA0A6A529BC6CF200AB3A66 /* RoleEnumExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnumExtensions.swift; sourceTree = "<group>"; };
 		4FC10EA729AF39FB00711113 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroupsRepository.swift; sourceTree = "<group>"; };
 		4FC10EAD29AF414900711113 /* StudentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroup.swift; sourceTree = "<group>"; };
@@ -394,7 +398,7 @@
 				4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */,
 				4FD7C2E029B5E64D006EB2AF /* ProfileRepository.swift */,
 				4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */,
-				4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */,
+				4FA0A69E29BC442400AB3A66 /* LessonsRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -428,8 +432,8 @@
 				30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */,
 				4FC10EAF29AF420A00711113 /* StudentGroupsRepositoryImpl.swift */,
 				4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */,
-				4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */,
-				4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */,
+				4FA0A67A29BB058C00AB3A66 /* RefreshTokenRepositoryImpl.swift */,
+				4FA0A6A029BC539700AB3A66 /* LessonsRepositoryImpl.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -450,6 +454,7 @@
 				30D0287B29BB25E600C5D698 /* LessonTypeEnumExtensions.swift */,
 				30D0288929BB2A5800C5D698 /* LessonResponseExtensions.swift */,
 				4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */,
+				4FA0A6A529BC6CF200AB3A66 /* RoleEnumExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,7 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */,
-				4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */,
+				4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -891,6 +896,7 @@
 		4F586294299E07C800DB82FC /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4FA0A6A229BC6BE600AB3A66 /* RoleEnum.swift */,
 				4F00AAAD29B9993E00C737FA /* GenderGroups */,
 				309BAB9929B04328009E59AC /* Repositories */,
 				4F586295299E07D400DB82FC /* Views */,
@@ -1186,9 +1192,10 @@
 				4FD7C2E529B5E781006EB2AF /* User.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
 				4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */,
-				4FA0A67B29BB058C00AB3A66 /* RefreshTokenImpl.swift in Sources */,
+				4FA0A67B29BB058C00AB3A66 /* RefreshTokenRepositoryImpl.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
 				4FD7C2EC29B5F01B006EB2AF /* PostData.swift in Sources */,
+				4FA0A6A329BC6BE600AB3A66 /* RoleEnum.swift in Sources */,
 				300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */,
 				3078181B299BC88600FD916D /* TimeFlowApp.swift in Sources */,
 				30984B8629A0B6CC00A85B32 /* UIApplicationExtensions.swift in Sources */,
@@ -1205,6 +1212,7 @@
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				4FA0A67829BB009F00AB3A66 /* RefreshTokenResponse.swift in Sources */,
 				4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */,
+				4FA0A6A629BC6CF200AB3A66 /* RoleEnumExtensions.swift in Sources */,
 				4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */,
 				30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */,
 				4FCE601829A372CD00D1784C /* AuthorizationOrRegistrationDataHelper.swift in Sources */,
@@ -1219,7 +1227,7 @@
 				30D0288029BB27DA00C5D698 /* LessonResponse.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
 				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
-				4FA0A69F29BC442400AB3A66 /* CalendarRepository.swift in Sources */,
+				4FA0A69F29BC442400AB3A66 /* LessonsRepository.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */,
 				30D0288C29BC32B700C5D698 /* CornerRadiusShape.swift in Sources */,
@@ -1241,7 +1249,7 @@
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
 				4F00AAA929B98F5900C737FA /* ProfileView.swift in Sources */,
 				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
-				4FA0A6A129BC539700AB3A66 /* CalendarRepositoryImpl.swift in Sources */,
+				4FA0A6A129BC539700AB3A66 /* LessonsRepositoryImpl.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				309BAB9529B042BC009E59AC /* KeychainRepository.swift in Sources */,
@@ -1256,7 +1264,7 @@
 				30D0287C29BB25E600C5D698 /* LessonTypeEnumExtensions.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
-				4FA0A68229BB236500AB3A66 /* NetworkingKeysEnum.swift in Sources */,
+				4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */,
 				308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */,
 				30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */,
 				30D0288429BB286400C5D698 /* Teacher.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CalendarRepository {
+protocol LessonsRepository {
     func getTeacherLessons(teacherId: String,
                            startDate: String,
                            endDate: String,
