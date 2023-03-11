@@ -15,8 +15,7 @@ extension AFDataResponse {
                let responseAsDictionary =
                try JSONSerialization.jsonObject(
                    with: data, options: .allowFragments
-               ) as? [String: [String]]
-            {
+               ) as? [String: [String]] {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
@@ -43,11 +42,8 @@ extension AFDataResponse {
         }
         if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode,
            let response = data,
-           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response)
-        {
-           
-            if let errorMessage = decodedError.messages{
-
+           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response) {
+            if let errorMessage = decodedError.messages {
                 completion?(.failure(NSError.createErrorWithLocalizedDescription(errorMessage)))
             }
 
@@ -64,12 +60,9 @@ extension AFDataResponse {
 //            return
 //        }
 
-
-
         guard let response = data else {
             if self.response?.statusCode == NetworkingConstants.successStatusCode,
-               T.self == VoidResponse.self
-            {
+               T.self == VoidResponse.self {
                 // swiftlint:disable force_cast
                 completion?(.success(VoidResponse() as! T))
             } else {

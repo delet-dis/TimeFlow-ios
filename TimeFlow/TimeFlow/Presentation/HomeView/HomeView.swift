@@ -24,6 +24,9 @@ struct HomeView: View {
 
                 ScheduleView(viewModel: viewModel.scheduleViewModel)
             }
+            .overlay{
+                LessonView(displayingLesson: nil)
+            }
             .padding(.horizontal, 24)
             .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
         }

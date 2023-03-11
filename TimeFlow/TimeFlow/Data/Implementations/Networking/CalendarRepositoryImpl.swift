@@ -19,7 +19,12 @@ class CalendarRepositoryImpl: CalendarRepository {
         self.jsonEncoder = jsonEncoder
     }
 
-    func getTeacherLessons(teacherId: String, startDate: String, endDate: String, completion: ((Result<TeacherResponse, Error>) -> Void)?) {
+    func getTeacherLessons(
+        teacherId: String,
+        startDate: String,
+        endDate: String,
+        completion: ((Result<TeacherResponse, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url +
                 "\(NetworkingConstants.lessons)/\(NetworkingConstants.teacher)" +

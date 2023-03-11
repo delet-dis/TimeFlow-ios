@@ -2,7 +2,7 @@
 //  Classroom.swift
 //  TimeFlow
 //
-//  Created by Семён Алимпиев on 10.03.2023.
+//  Created by Igor Efimov on 10.03.2023.
 //
 
 import Foundation

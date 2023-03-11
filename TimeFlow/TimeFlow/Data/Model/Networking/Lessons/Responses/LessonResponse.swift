@@ -1,19 +1,19 @@
 //
-//  SubjectInfo.swift
+//  LessonResponse.swift
 //  TimeFlow
 //
-//  Created by Семён Алимпиев on 10.03.2023.
+//  Created by Igor Efimov on 10.03.2023.
 //
 
 import Foundation
 
-struct SubjectResponse: Codable {
+struct LessonResponse: Codable {
     let id: String
     let studentGroup: StudentGroup
     let subject: Subject
     let teacher: Teacher
     let classroom: Classroom
-    let timeslot: TimeSlot
-    let data: String
+    let timeslot: Timeslot
+    let date: String
     let lessonType: String
 }
