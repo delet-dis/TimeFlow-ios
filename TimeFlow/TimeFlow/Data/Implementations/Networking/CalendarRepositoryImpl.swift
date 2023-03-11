@@ -42,7 +42,12 @@ class CalendarRepositoryImpl: CalendarRepository {
             }
     }
 
-    func getStudentGroupLessons(groupId: String, startDate: String, endDate: String, completion: ((Result<GroupResponse, Error>) -> Void)?) {
+    func getStudentGroupLessons(
+        groupId: String,
+        startDate: String,
+        endDate: String,
+        completion: ((Result<GroupResponse, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url +
                 "\(NetworkingConstants.lessons)/\(NetworkingConstants.group)" +
@@ -60,7 +65,12 @@ class CalendarRepositoryImpl: CalendarRepository {
             }
     }
 
-    func getClassroomLessons(classRoomId: String, startDate: String, endDate: String, completion: ((Result<ClassroomResponse, Error>) -> Void)?) {
+    func getClassroomLessons(
+        classRoomId: String,
+        startDate: String,
+        endDate: String,
+        completion: ((Result<ClassroomResponse, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url +
                 "\(NetworkingConstants.lessons)/\(NetworkingConstants.classroom)" +

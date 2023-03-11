@@ -12,16 +12,14 @@ protocol GetProfileUseCaseProvider: Dependency {
     var getProfileUseCaseProvider: GetProfileUseCase { get }
 }
 
-class GetProfileUseCase{
+class GetProfileUseCase {
     private let profileRepository: ProfileRepository
-    
-    init(profileRepository: ProfileRepository){
+
+    init(profileRepository: ProfileRepository) {
         self.profileRepository = profileRepository
     }
-    
-    func execute(token: String, completion:
-                 ((Result<User, Error>) -> Void)? = nil){
-        profileRepository.getExternalUserInfo(token: token,
-                                              completion: completion)
+
+    func execute(token: String, completion: ((Result<User, Error>) -> Void)? = nil) {
+        profileRepository.getExternalUserInfo(token: token, completion: completion)
     }
 }

@@ -69,15 +69,17 @@ private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: Needle
     return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class HomeComponentDependency887e91671f4424758155Provider: HomeComponentDependency {
-
-
-    init() {
-
+    var profileComponent: ProfileComponent {
+        return mainComponent.profileComponent
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->HomeComponent
-private func factory9bc7b43729f663f09312e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return HomeComponentDependency887e91671f4424758155Provider()
+private func factory9bc7b43729f663f093120ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return HomeComponentDependency887e91671f4424758155Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
     var authorizationComponent: AuthorizationComponent {
@@ -118,7 +120,7 @@ extension ProfileComponent: Registration {
 }
 extension HomeComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\HomeComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }
 extension MainComponent: Registration {
@@ -152,7 +154,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a8800ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f09312e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f093120ae93e637f014511a119)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
 }

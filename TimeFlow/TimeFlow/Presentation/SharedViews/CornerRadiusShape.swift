@@ -18,7 +18,7 @@ struct CornerRadiusShape: Shape {
             byRoundingCorners: corners,
             cornerRadii: CGSize(width: radius, height: radius)
         )
-        
+
         return Path(path.cgPath)
     }
 }

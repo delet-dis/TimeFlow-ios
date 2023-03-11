@@ -34,7 +34,6 @@ class NetworkingConstants {
         "accept": "*/*"
     ]
 
-    static let unauthorizedStatusCode = 401
     static let wrongDataStatusCode = 401
     static let wrongAccessToken = 450
     static let wrongRefreshToken = 451

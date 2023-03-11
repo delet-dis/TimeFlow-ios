@@ -20,7 +20,6 @@
 		303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E847B299E8BFD003D8FC3 /* AuthRepositoryImpl.swift */; };
 		303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E847E299E8C6D003D8FC3 /* AFDataReponseExtensions.swift */; };
 		303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */; };
-		303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8484299E8D62003D8FC3 /* NetworkingError.swift */; };
 		303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8486299E8DFC003D8FC3 /* NSErrorExtensions.swift */; };
 		303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8491299E91ED003D8FC3 /* LoginUseCase.swift */; };
 		303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8494299E921B003D8FC3 /* LogoutUseCase.swift */; };
@@ -168,7 +167,6 @@
 		303E847E299E8C6D003D8FC3 /* AFDataReponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFDataReponseExtensions.swift; sourceTree = "<group>"; };
 		303E8481299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorsEnum.swift; sourceTree = "<group>"; };
 		303E8483299E8D10003D8FC3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		303E8484299E8D62003D8FC3 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		303E8486299E8DFC003D8FC3 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
 		303E8491299E91ED003D8FC3 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		303E8494299E921B003D8FC3 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				4FCEE92229A379CE00700581 /* Registration */,
 				303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */,
 				303E8477299E8B4D003D8FC3 /* VoidResponse.swift */,
-				303E8484299E8D62003D8FC3 /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1265,7 +1262,6 @@
 				30D0288429BB286400C5D698 /* Teacher.swift in Sources */,
 				4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
-				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
 				4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */,
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
 				4F00AAA329B98DB100C737FA /* SharedProfileViewData.swift in Sources */,
