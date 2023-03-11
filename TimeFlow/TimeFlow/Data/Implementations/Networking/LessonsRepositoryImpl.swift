@@ -26,7 +26,8 @@ class LessonsRepositoryImpl: LessonsRepository {
         completion: ((Result<TeacherResponse, Error>) -> Void)?
     ) {
         let parametrs: Parameters = [
-            "startDate": "\(startDate)&endDate=\(endDate)"
+            "startDate": startDate,
+            "endDate": endDate
         ]
 
         AF.request(
@@ -54,8 +55,10 @@ class LessonsRepositoryImpl: LessonsRepository {
         completion: ((Result<GroupResponse, Error>) -> Void)?
     ) {
         let parametrs: Parameters = [
-            "startDate": "\(startDate)&endDate=\(endDate)"
+            "startDate": startDate,
+            "endDate": endDate
         ]
+
         AF.request(
             Self.url +
                 "\(NetworkingConstants.lessons)/\(NetworkingConstants.group)" +
@@ -75,18 +78,20 @@ class LessonsRepositoryImpl: LessonsRepository {
     }
 
     func getClassroomLessons(
-        classRoomId: String,
+        classroomId: String,
         startDate: String,
         endDate: String,
         completion: ((Result<ClassroomResponse, Error>) -> Void)?
     ) {
         let parametrs: Parameters = [
-            "startDate": "\(startDate)&endDate=\(endDate)"
+            "startDate": startDate,
+            "endDate": endDate
         ]
+
         AF.request(
             Self.url +
                 "\(NetworkingConstants.lessons)/\(NetworkingConstants.classroom)" +
-                "/\(classRoomId)",
+                "/\(classroomId)",
             method: .get,
             parameters: parametrs,
             encoding: JSONEncoding.default,

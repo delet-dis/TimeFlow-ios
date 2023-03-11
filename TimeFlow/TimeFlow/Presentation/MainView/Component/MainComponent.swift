@@ -146,9 +146,9 @@ class MainComponent: BootstrapComponent {
         }
     }
 
-    var getTokenUseCase: GetTokenUseCase {
+    var getTokensUseCase: GetTokensUseCase {
         shared {
-            GetTokenUseCase(keychainRepository: keychainRepository)
+            GetTokensUseCase(keychainRepository: keychainRepository)
         }
     }
 

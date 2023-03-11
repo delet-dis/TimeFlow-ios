@@ -13,14 +13,14 @@ class ProfileViewModel: ObservableObject {
     @Published var isSuccessAlertShowing = false
     @Published private(set) var alertText = ""
 
-    private let getTokenUseCase: GetTokenUseCase
+    private let getTokensUseCase: GetTokensUseCase
     private let getProfileUseCase: GetProfileUseCase
 
     init(
-        getTokenUseCase: GetTokenUseCase,
+        getTokensUseCase: GetTokensUseCase,
         getProfileUseCase: GetProfileUseCase
     ) {
-        self.getTokenUseCase = getTokenUseCase
+        self.getTokensUseCase = getTokensUseCase
         self.getProfileUseCase = getProfileUseCase
     }
 
@@ -32,7 +32,7 @@ class ProfileViewModel: ObservableObject {
     }
 
     func updateExternalUserProfileData() {
-        getTokenUseCase.execute { [self] result in
+        getTokensUseCase.execute(tokenType: .auth) { [self] result in
             switch result {
             case .success(let token):
                 getProfileUseCase.execute(token: token) { [self] result in

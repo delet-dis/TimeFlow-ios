@@ -10,15 +10,17 @@ import NeedleFoundation
 import SwiftUI
 
 protocol ProfileComponentDependency: Dependency {
-    var getTokenUseCase: GetTokenUseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
     var getProfileUseCase: GetProfileUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
     var profileViewModel: ProfileViewModel {
         shared {
-            ProfileViewModel(getTokenUseCase: dependency.getTokenUseCase,
-                             getProfileUseCase: dependency.getProfileUseCase)
+            ProfileViewModel(
+                getTokensUseCase: dependency.getTokensUseCase,
+                getProfileUseCase: dependency.getProfileUseCase
+            )
         }
     }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RoleEnum{
+enum RoleEnum {
     case user
     case employee
     case student

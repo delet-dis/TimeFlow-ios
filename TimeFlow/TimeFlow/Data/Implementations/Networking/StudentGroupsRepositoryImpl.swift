@@ -9,7 +9,8 @@ import Alamofire
 import Foundation
 
 class StudentGroupsRepositoryImpl: StudentGroupsRepository {
-    private static let url = "\(NetworkingConstants.baseUrl)"
+    private static let url = NetworkingConstants.baseUrl
+    private static let groups = NetworkingConstants.groups
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -21,7 +22,7 @@ class StudentGroupsRepositoryImpl: StudentGroupsRepository {
 
     func getStudentGroups(completion: ((Result<[StudentGroup], Error>) -> Void)?) {
         AF.request(
-            Self.url + NetworkingConstants.groups,
+            Self.url + Self.groups,
             method: .get,
             encoding: JSONEncoding.default,
             headers: NetworkingConstants.headers

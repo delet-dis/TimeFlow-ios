@@ -9,7 +9,7 @@ import Foundation
 
 extension RoleEnum {
     static func getValueByRequest(_ requestValue: String) -> Self? {
-        switch requestValue{
+        switch requestValue {
         case "ROLE_USER":
             return .user
         case "ROLE_STUDENT":

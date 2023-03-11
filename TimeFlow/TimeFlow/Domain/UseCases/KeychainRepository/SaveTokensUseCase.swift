@@ -13,9 +13,6 @@ protocol SaveTokensUseCaseDependency: Dependency {
 }
 
 class SaveTokensUseCase {
-    private static let authTokenKey = "AUTH_TOKEN"
-    private static let refreshTokenKey = "REFRESH_TOKEN"
-
     private let keychainRepository: KeychainRepository
 
     init(keychainRepository: KeychainRepository) {
@@ -23,11 +20,24 @@ class SaveTokensUseCase {
     }
 
     func execute(
-        authToken: String,
-        refreshToken: String,
+        authToken: String?,
+        refreshToken: String?,
         completion: ((Result<Void, Error>) -> Void)? = nil
     ) {
-        keychainRepository.saveValueByKey(Self.authTokenKey, value: authToken, completion: nil)
-        keychainRepository.saveValueByKey(Self.refreshTokenKey, value: refreshToken, completion: completion)
+        if let authToken = authToken {
+            keychainRepository.saveValueByKey(
+                TokenTypeEnum.auth.rawValue,
+                value: authToken,
+                completion: refreshToken != nil ? nil : completion
+            )
+        }
+
+        if let refreshToken = refreshToken {
+            keychainRepository.saveValueByKey(
+                TokenTypeEnum.refresh.rawValue,
+                value: refreshToken,
+                completion: completion
+            )
+        }
     }
 }

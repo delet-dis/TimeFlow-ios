@@ -12,12 +12,9 @@ class ProfileRepositoryImpl: ProfileRepository {
     private static let url = "\(NetworkingConstants.baseUrl)"
 
     private static let accountSegment = NetworkingConstants.accountSegment
-    private static let studentAccountSegment
-        = "\(accountSegment)/\(NetworkingConstants.student)"
-    private static let employeeAccountSegment
-        = "\(accountSegment)/\(NetworkingConstants.employee)"
-    private static let externalUserAccountSegment
-        = "\(accountSegment)/\(NetworkingConstants.user)"
+    private static let studentAccountSegment = "\(accountSegment)/\(NetworkingConstants.student)"
+    private static let employeeAccountSegment = "\(accountSegment)/\(NetworkingConstants.employee)"
+    private static let externalUserAccountSegment = "\(accountSegment)/\(NetworkingConstants.user)"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder

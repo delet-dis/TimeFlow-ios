@@ -10,22 +10,19 @@ import Foundation
 import SwiftUI
 
 class RequestInterceptorHelper: RequestInterceptor {
-    private var saveTokenUseCase: SaveTokensUseCase
-    private var refreshTokenUseCase: RefreshTokenUseCase
+    private var saveTokensUseCase: SaveTokensUseCase
     private var logoutUseCase: LogoutUseCase
-    private var getTokenUseCase: GetTokenUseCase
+    private var getTokensUseCase: GetTokensUseCase
     private var newToken = ""
 
     init(
-        saveTokenUseCase: SaveTokensUseCase,
-        refreshTokenUseCase: RefreshTokenUseCase,
-        logoutUseCase: LogoutUseCase,
-        getTokenUseCase: GetTokenUseCase
+        saveTokensUseCase: SaveTokensUseCase,
+        getTokensUseCase: GetTokensUseCase,
+        logoutUseCase: LogoutUseCase
     ) {
-        self.saveTokenUseCase = saveTokenUseCase
-        self.refreshTokenUseCase = refreshTokenUseCase
+        self.saveTokensUseCase = saveTokensUseCase
+        self.getTokensUseCase = getTokensUseCase
         self.logoutUseCase = logoutUseCase
-        self.getTokenUseCase = getTokenUseCase
     }
 
     func adapt(
@@ -33,53 +30,59 @@ class RequestInterceptorHelper: RequestInterceptor {
         for session: Session,
         completion: @escaping (Result<URLRequest, Error>) -> Void
     ) {
-        NetworkingKeysEnum.allCases.forEach { entry in
-            if entry.rawValue == urlRequest.url?.absoluteString {
-                var adaptedRequest = urlRequest
-                adaptedRequest.setValue("Bearer \(newToken)", forHTTPHeaderField: entry.rawValue)
-                completion(.success(adaptedRequest))
-            }
-            else {
-                completion(.success(urlRequest))
-            }
+        guard let urlAsString = urlRequest.url?.absoluteString else {
+            completion(.success(urlRequest))
+
+            return
+        }
+
+        if NetworkingKeysEnum.allCases.contains(where: { $0.rawValue.contains(urlAsString) }) {
+            var adaptedRequest = urlRequest
+            adaptedRequest.setValue("Bearer \(newToken)", forHTTPHeaderField: "Authorization")
+            completion(.success(adaptedRequest))
+        } else {
+            completion(.success(urlRequest))
         }
     }
 
     func retry(
-        _ request: Request, for session: Session,
+        _ request: Request,
+        for session: Session,
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        getTokenUseCase.execute { [self] result in
-            switch result {
-            case .success(let token):
-                if let response = request.task?.response as? HTTPURLResponse,
-                   response.statusCode == NetworkingConstants.wrongAccessToken {
-                    refreshTokenUseCase.execute { [weak self] result in
-                        switch result {
-                        case .success(let result):
-                            self?.newToken = result.accessToken
-                            self?.saveTokenUseCase.execute(
-                                authToken: result.accessToken,
-                                refreshToken: result.refreshToken
-                            ) { [weak self] result in
-                                switch result {
-                                case .success:
-                                    completion(.retry)
-                                case .failure(let error):
-                                    print(error)
-                                }
-                            }
-                        case .failure(let error):
-                            //TODO: LogOut
-                            print(error)
-                        }
-                    }
-                }
-            case .failure(let error):
-                // TODO: LogOut
-                print(error)
-            }
-        }
+        if request.response?.statusCode == NetworkingConstants.wrongAccessToken {}
+
+//        GetTokensUseCase.execute { [self] result in
+//            switch result {
+//            case .success(let token):
+//                if let response = request.task?.response as? HTTPURLResponse,
+//                   response.statusCode == NetworkingConstants.wrongAccessToken {
+//                    refreshTokenUseCase.execute { [weak self] result in
+//                        switch result {
+//                        case .success(let result):
+//                            self?.newToken = result.accessToken
+//                            self?.saveTokenUseCase.execute(
+//                                authToken: result.accessToken,
+//                                refreshToken: result.refreshToken
+//                            ) { [weak self] result in
+//                                switch result {
+//                                case .success:
+//                                    completion(.retry)
+//                                case .failure(let error):
+//                                    print(error)
+//                                }
+//                            }
+//                        case .failure(let error):
+//                            //TODO: LogOut
+//                            print(error)
+//                        }
+//                    }
+//                }
+//            case .failure(let error):
+//                // TODO: LogOut
+//                print(error)
+//            }
+//        }
     }
 }

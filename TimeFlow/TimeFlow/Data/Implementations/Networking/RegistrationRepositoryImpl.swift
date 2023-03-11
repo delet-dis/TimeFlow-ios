@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class RegistrationRepositoryImpl: RegistrationRepository {
-    private static let url = "\(NetworkingConstants.baseUrl)"
+    private static let url = NetworkingConstants.baseUrl
 
     private static let studentRegistrationSegment =
         "\(NetworkingConstants.signUpSegment)/\(NetworkingConstants.student)"

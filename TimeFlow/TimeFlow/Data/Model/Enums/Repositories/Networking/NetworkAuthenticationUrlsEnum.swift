@@ -7,7 +7,6 @@
 
 import Foundation
 
-    
 enum NetworkingKeysEnum: String, CaseIterable, Identifiable, Codable {
     case password
     case email

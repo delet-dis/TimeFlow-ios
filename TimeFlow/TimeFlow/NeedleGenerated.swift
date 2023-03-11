@@ -53,8 +53,8 @@ private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: Needle
     return AuthorizationComponentDependency01c300e9208281b9a593Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileComponentDependency {
-    var getTokenUseCase: GetTokenUseCase {
-        return mainComponent.getTokenUseCase
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
     }
     var getProfileUseCase: GetProfileUseCase {
         return mainComponent.getProfileUseCase
@@ -114,7 +114,7 @@ extension AuthorizationComponent: Registration {
 }
 extension ProfileComponent: Registration {
     public func registerItems() {
-        keyPathToName[\ProfileComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
+        keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
         keyPathToName[\ProfileComponentDependency.getProfileUseCase] = "getProfileUseCase-GetProfileUseCase"
     }
 }

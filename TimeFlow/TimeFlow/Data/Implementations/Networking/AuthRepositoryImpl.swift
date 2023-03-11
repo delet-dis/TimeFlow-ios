@@ -10,8 +10,8 @@ import Foundation
 
 class AuthRepositoryImpl: AuthRepository {
     // TODO: Add auth URL
-    private static let url = "\(NetworkingConstants.baseUrl)"
-    private static let signIn = "\(url)/\(NetworkingConstants.signIn)"
+    private static let url = NetworkingConstants.baseUrl
+    private static let signIn = NetworkingConstants.signIn
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -63,5 +63,32 @@ class AuthRepositoryImpl: AuthRepository {
         //            .response { [self] result in
         //                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
         //            }
+    }
+
+    func refreshToken(
+        refreshTokenRequest: RefreshTokenRequest,
+        completion: ((Result<LoginResponse, Error>) -> Void)?
+    ) {
+        do {
+            let encodedParametrs = try jsonEncoder.encode(refreshTokenRequest)
+            let parametrs = try JSONSerialization.jsonObject(
+                with: encodedParametrs, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                Self.url + NetworkingConstants.refreshToken,
+                method: .post,
+                parameters: parametrs,
+                encoding: JSONEncoding.default,
+                headers: NetworkingConstants.headers
+            ) { $0.timeoutInterval = NetworkingConstants.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+
+        } catch {
+            completion?(.failure(error))
+        }
     }
 }

@@ -20,7 +20,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     private static let mainComponent = MainComponent()
-    
+
     static var previews: some View {
         ProfileView(viewModel: mainComponent.profileComponent.profileViewModel)
     }
