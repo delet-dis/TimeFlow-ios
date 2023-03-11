@@ -56,10 +56,10 @@ struct LessonView: View {
                 }
 
                 HStack {
-                    Text("Какая-то лекция")
+                    Text(displayingLesson?.subject.name ?? "")
                         .font(Font(R.font.ralewayBold(size: 18) ?? .systemFont(ofSize: 18, weight: .bold)))
                         .frame(minHeight: 50)
-                        .foregroundColor(.black)
+                        .foregroundColor(textColor)
                         .padding()
                         .padding(.top, -20)
 
@@ -68,7 +68,7 @@ struct LessonView: View {
             }
             .padding(.vertical, 5)
             .padding(.bottom, 10)
-            .background(Color(uiColor: R.color.columbiaBlue() ?? .blue).brightness(0.1))
+            .background(backgroundColor.brightness(0.1))
             .modifier(CornerRadiusViewModifier(
                 radius: Self.contentCornerRadius,
                 corners: [.topLeft, .topRight]
@@ -78,7 +78,7 @@ struct LessonView: View {
                     Spacer()
 
                     Rectangle()
-                        .fill(Color(uiColor: R.color.columbiaBlue() ?? .blue))
+                        .fill(backgroundColor)
                         .frame(height: 30)
                         .modifier(CornerRadiusViewModifier(
                             radius: Self.contentCornerRadius,
@@ -91,36 +91,57 @@ struct LessonView: View {
                 Group {
                     getLessonParameter(
                         systemImageName: "rectangle.inset.filled.and.person.filled",
-                        text: "Иванов Иван Иванович"
+                        text: displayingLesson?.teacher.name ?? ""
                     )
                     .padding(.horizontal, 10)
 
                     getLessonParameter(
                         systemImageName: "building.2",
-                        text: "Где-то где-то"
+                        text: displayingLesson?.classroom.number ?? ""
                     )
                     .padding(.horizontal, 10)
-                    .background{
-                        Color(uiColor: R.color.columbiaBlue() ?? .blue).brightness(-0.05)
+                    .background {
+                        backgroundColor.brightness(-0.03)
                     }
 
                     getLessonParameter(
                         systemImageName: "person.2",
-                        text: "972101"
+                        text: String(displayingLesson?.studentGroup.number ?? 0)
                     )
                     .padding(.horizontal, 10)
-                    .background{
+                    .background {
+                        backgroundColor.brightness(-0.05)
+                    }
+
+                    HStack{
+                        getLessonParameter(
+                            systemImageName: "clock",
+                            // siwftlint:disable:next line_length
+                            text: "\(displayingLesson?.timeslot.beginTime) - \(displayingLesson?.timeslot.endTime)"
+                        )
+
+                        Divider()
+                            .frame(height: 50)
+
+                        getLessonParameter(
+                            systemImageName: "list.bullet.rectangle.portrait",
+                            text: String(displayingLesson?.timeslot.sequenceNumber + 1 ?? 0)
+                        )
+                        .padding(.leading, 5)
+                    }
+                    .padding(.horizontal, 10)
+                    .background {
                         Rectangle()
-                            .fill(Color(uiColor: R.color.columbiaBlue() ?? .blue))
-                            .brightness(-0.1)
+                            .fill(backgroundColor)
+                            .brightness(-0.08)
                             .padding(.bottom, 15)
-                            .overlay{
-                                VStack{
+                            .overlay {
+                                VStack {
                                     Spacer()
 
                                     Rectangle()
-                                        .fill(Color(uiColor: R.color.columbiaBlue() ?? .blue))
-                                        .brightness(-0.1)
+                                        .fill(backgroundColor)
+                                        .brightness(-0.08)
                                         .frame(height: 30)
                                         .modifier(CornerRadiusViewModifier(
                                             radius: Self.contentCornerRadius,
@@ -136,7 +157,7 @@ struct LessonView: View {
         .frame(minHeight: 200)
         .background {
             RoundedRectangle(cornerRadius: Self.contentCornerRadius)
-                .fill(Color(uiColor: R.color.columbiaBlue() ?? .blue))
+                .fill(backgroundColor)
                 .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
         }
     }
