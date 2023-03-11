@@ -8,7 +8,6 @@
 import Foundation
 
 enum NetworkingKeysEnum: String, CaseIterable, Identifiable, Codable {
-    
     case password
     case email
     case user
@@ -16,32 +15,32 @@ enum NetworkingKeysEnum: String, CaseIterable, Identifiable, Codable {
     case role
     case employee
     case signOut
-    
+
     var rawValue: String {
-        switch self{
+        switch self {
         case .password:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.password)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.password)"
         case .email:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.email)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.email)"
         case .user:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.user)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.user)"
         case .student:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.student)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.student)"
         case .role:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.role)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.role)"
         case .employee:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.employee)"
+                "\(NetworkingConstants.accountSegment)/\(NetworkingConstants.employee)"
         case .signOut:
             return NetworkingConstants.baseUrl +
-            "\(NetworkingConstants.signOut)"
+                "\(NetworkingConstants.signOut)"
         }
     }
-    
+
     var id: String { return self.rawValue }
 }

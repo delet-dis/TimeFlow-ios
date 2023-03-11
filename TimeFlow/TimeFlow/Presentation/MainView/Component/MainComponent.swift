@@ -55,7 +55,7 @@ class MainComponent: BootstrapComponent {
             KeychainRepositoryImpl()
         }
     }
-    
+
     var profileRepository: ProfileRepository {
         shared {
             ProfileRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
@@ -117,9 +117,9 @@ class MainComponent: BootstrapComponent {
             LogoutUseCase(authRepository: authRepository)
         }
     }
-    
+
     var getProfileUseCase: GetProfileUseCase {
-        shared{
+        shared {
             GetProfileUseCase(profileRepository: profileRepository)
         }
     }
@@ -145,9 +145,9 @@ class MainComponent: BootstrapComponent {
             GetAuthStatusUseCase()
         }
     }
-    
-    var getTokenUseCase: GetTokenUseCase{
-        shared{
+
+    var getTokenUseCase: GetTokenUseCase {
+        shared {
             GetTokenUseCase(keychainRepository: keychainRepository)
         }
     }
@@ -177,9 +177,9 @@ class MainComponent: BootstrapComponent {
             HomeComponent(parent: self)
         }
     }
-    
-    var profileComponent: ProfileComponent{
-        shared{
+
+    var profileComponent: ProfileComponent {
+        shared {
             ProfileComponent(parent: self)
         }
     }

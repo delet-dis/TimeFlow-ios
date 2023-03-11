@@ -13,11 +13,11 @@ class ProfileRepositoryImpl: ProfileRepository {
 
     private static let accountSegment = NetworkingConstants.accountSegment
     private static let studentAccountSegment
-    = "\(accountSegment)/\(NetworkingConstants.student)"
+        = "\(accountSegment)/\(NetworkingConstants.student)"
     private static let employeeAccountSegment
-    = "\(accountSegment)/\(NetworkingConstants.employee)"
+        = "\(accountSegment)/\(NetworkingConstants.employee)"
     private static let externalUserAccountSegment
-    = "\(accountSegment)/\(NetworkingConstants.user)"
+        = "\(accountSegment)/\(NetworkingConstants.user)"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -47,9 +47,10 @@ class ProfileRepositoryImpl: ProfileRepository {
             }
     }
 
-    func getStudentInfo(token: String,
-                        completion: ((Result<StudentUser, Error>) -> Void)?)
-    {
+    func getStudentInfo(
+        token: String,
+        completion: ((Result<StudentUser, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url + Self.studentAccountSegment,
             method: .get,
@@ -65,9 +66,10 @@ class ProfileRepositoryImpl: ProfileRepository {
             }
     }
 
-    func getEmployeeInfo(token: String,
-                         completion: ((Result<EmployeeUser, Error>) -> Void)?)
-    {
+    func getEmployeeInfo(
+        token: String,
+        completion: ((Result<EmployeeUser, Error>) -> Void)?
+    ) {
         AF.request(
             Self.url + Self.employeeAccountSegment,
             method: .get,
@@ -99,9 +101,10 @@ class ProfileRepositoryImpl: ProfileRepository {
             }
     }
 
-    func changePassword(token: String, password: String,
-                        completion: ((Result<User, Error>) -> Void)?)
-    {
+    func changePassword(
+        token: String, password: String,
+        completion: ((Result<User, Error>) -> Void)?
+    ) {
         do {
             let encodedParam = try jsonEncoder.encode(password)
             let parameters = try JSONSerialization.jsonObject(
@@ -124,9 +127,10 @@ class ProfileRepositoryImpl: ProfileRepository {
         }
     }
 
-    func changeEmail(token: String, email: String,
-                     completion: ((Result<User, Error>) -> Void)?)
-    {
+    func changeEmail(
+        token: String, email: String,
+        completion: ((Result<User, Error>) -> Void)?
+    ) {
         do {
             let encodedParam = try jsonEncoder.encode(email)
             let parameters = try JSONSerialization.jsonObject(

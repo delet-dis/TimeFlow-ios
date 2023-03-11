@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
+
     var body: some View {
         Text("Профиль")
-            .onAppear{
+            .onAppear {
                 viewModel.updateExternalUserProfileData()
             }
     }
-        
 }
 
 struct ProfileView_Previews: PreviewProvider {
     private static let mainComponent = MainComponent()
+    
     static var previews: some View {
         ProfileView(viewModel: mainComponent.profileComponent.profileViewModel)
     }

@@ -116,7 +116,7 @@ struct LessonView: View {
                     HStack {
                         getLessonParameter(
                             systemImageName: "clock",
-                            // siwftlint:disable:next line_length
+                            // swiftlint:disable:next line_length
                             text: "\(displayingLesson?.timeslot.beginTime ?? "") - \(displayingLesson?.timeslot.endTime ?? "")"
                         )
 

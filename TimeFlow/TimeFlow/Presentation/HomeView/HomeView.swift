@@ -10,21 +10,22 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
-    private static let mainComponent = MainComponent()
 
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ProfileView(viewModel: HomeView.mainComponent.profileComponent.profileViewModel), label: {
+                NavigationLink {
+                    viewModel.profileComponent.profileView
+                } label: {
                     Image(systemName: "person.crop.circle")
                         .font(.system(size: 50))
                         .foregroundColor(.gray)
-                })
+                }
                 .padding()
 
                 ScheduleView(viewModel: viewModel.scheduleViewModel)
             }
-            .overlay{
+            .overlay {
                 LessonView(displayingLesson: nil)
             }
             .padding(.horizontal, 24)

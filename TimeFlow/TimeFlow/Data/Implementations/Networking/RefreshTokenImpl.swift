@@ -19,9 +19,10 @@ class RefreshTokenImpl: RefreshTokenRepository {
         self.jsonEncoder = jsonEncoder
     }
 
-    func changeValueByKey(_ key: String,
-                          completion: ((Result<RefreshTokenResponse, Error>) -> Void)?)
-    {
+    func changeValueByKey(
+        _ key: String,
+        completion: ((Result<RefreshTokenResponse, Error>) -> Void)?
+    ) {
         do {
             let encodedParametrs = try jsonEncoder.encode(key)
             let parametrs = try JSONSerialization.jsonObject(
@@ -34,8 +35,7 @@ class RefreshTokenImpl: RefreshTokenRepository {
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
                 headers: NetworkingConstants.headers
-            )
-                { $0.timeoutInterval = NetworkingConstants.timeout }
+            ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
                     result.processResult(jsonDecoder: jsonDecoder, completion: completion)

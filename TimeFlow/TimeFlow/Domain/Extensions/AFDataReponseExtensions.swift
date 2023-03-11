@@ -40,25 +40,12 @@ extension AFDataResponse {
 
             return
         }
-        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode,
-           let response = data,
-           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response) {
-            if let errorMessage = decodedError.messages {
-                completion?(.failure(NSError.createErrorWithLocalizedDescription(errorMessage)))
-            }
+
+        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode {
+           completion?(.failure(processError()))
 
             return
         }
-//        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode,
-//           let response = data,
-//           let decodedError = try? jsonDecoder.decode(NetworkingError.self, from: response)
-//        {
-//            if let errorMessage = decodedError.messages {
-//                completion?(.failure(NSError.createErrorWithLocalizedDescription(errorMessage)))
-//            }
-//
-//            return
-//        }
 
         guard let response = data else {
             if self.response?.statusCode == NetworkingConstants.successStatusCode,
