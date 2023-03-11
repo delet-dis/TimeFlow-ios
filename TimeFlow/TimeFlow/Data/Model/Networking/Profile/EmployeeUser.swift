@@ -8,7 +8,7 @@
 import Foundation
 
 struct EmployeeUser: Codable {
-    let userInfo: ExternalUser
+    let userInfo: User
     let contractNumber: String
     let posts: [PostData]
 }

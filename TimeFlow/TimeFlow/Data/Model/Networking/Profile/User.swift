@@ -1,5 +1,5 @@
 //
-//  ExternalUser.swift
+//  User.swift
 //  TimeFlow
 //
 //  Created by Семён Алимпиев on 06.03.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExternalUser: Codable {
+struct User: Codable {
     let id: String
     let email: String
     let role: String

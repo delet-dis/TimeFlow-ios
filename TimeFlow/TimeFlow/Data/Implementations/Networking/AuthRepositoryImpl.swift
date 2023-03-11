@@ -11,6 +11,7 @@ import Foundation
 class AuthRepositoryImpl: AuthRepository {
     // TODO: Add auth URL
     private static let url = "\(NetworkingConstants.baseUrl)"
+    private static let signIn = "\(url)/\(NetworkingConstants.signIn)"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -31,11 +32,12 @@ class AuthRepositoryImpl: AuthRepository {
             ) as? [String: Any]
 
             AF.request(
-                Self.url + "sign-in",
+                Self.url + NetworkingConstants.signIn,
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingConstants.headers,
+                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in

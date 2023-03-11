@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct NetworkingError: Codable {
-    let message: String?
+struct NetworkingError: Decodable {
+    let messages: String?
 }

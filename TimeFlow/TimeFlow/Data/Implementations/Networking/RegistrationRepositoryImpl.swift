@@ -11,10 +11,13 @@ import Foundation
 class RegistrationRepositoryImpl: RegistrationRepository {
     private static let url = "\(NetworkingConstants.baseUrl)"
 
-    private static let signUpSegment = "sign-up"
-    private static let studentRegistrationSegment = "\(signUpSegment)/student"
-    private static let teacherRegistrationSegment = "\(signUpSegment)/employee"
-    private static let externalUserRegistrationSegment = "\(signUpSegment)/user"
+    
+    private static let studentRegistrationSegment =
+    "\(NetworkingConstants.signUpSegment)/\(NetworkingConstants.student)"
+    private static let teacherRegistrationSegment =
+    "\(NetworkingConstants.signUpSegment)/\(NetworkingConstants.employee)"
+    private static let externalUserRegistrationSegment =
+    "\(NetworkingConstants.signUpSegment)/\(NetworkingConstants.user)"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -39,7 +42,8 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingConstants.headers,
+                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -65,7 +69,8 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingConstants.headers,
+                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -91,7 +96,8 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingConstants.headers,
+                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in

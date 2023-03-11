@@ -11,7 +11,11 @@ struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     var body: some View {
         Text("Профиль")
+            .onAppear{
+                viewModel.updateExternalUserProfileData()
+            }
     }
+        
 }
 
 struct ProfileView_Previews: PreviewProvider {
