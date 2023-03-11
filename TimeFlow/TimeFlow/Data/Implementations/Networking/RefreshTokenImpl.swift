@@ -20,7 +20,7 @@ class RefreshTokenImpl: RefreshTokenRepository {
     }
 
     func changeValueByKey(_ key: String,
-                          completion: ((Result<RefreshTokenData, Error>) -> Void)?)
+                          completion: ((Result<RefreshTokenResponse, Error>) -> Void)?)
     {
         do {
             let encodedParametrs = try jsonEncoder.encode(key)

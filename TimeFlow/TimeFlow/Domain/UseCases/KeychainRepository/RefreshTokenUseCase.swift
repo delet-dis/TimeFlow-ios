@@ -21,7 +21,7 @@ class RefreshTokenUseCase {
         self.keychainRepository = keychainRepository
     }
 
-    func execute(completion: ((Result<RefreshTokenData, Error>) -> Void)? = nil) {
+    func execute(completion: ((Result<RefreshTokenResponse, Error>) -> Void)? = nil) {
         keychainRepository.changeValueByKey(Self.tokenKey, completion: completion)
     }
 }

@@ -98,7 +98,7 @@ class AuthorizationViewModel: ObservableObject {
                 )
             ) { [weak self] result in
                 LoaderView.endLoading()
-               
+
                 if case .failure(let error) = result {
                     self?.processError(error)
                 }

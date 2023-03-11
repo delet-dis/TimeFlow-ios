@@ -8,6 +8,6 @@
 import Foundation
 
 struct ClassroomResponse: Codable {
-    let classroom: [Classroom]
-    let lessons: [SubjectResponse]
+    let classroom: Classroom
+    let lessons: [LessonResponse]
 }

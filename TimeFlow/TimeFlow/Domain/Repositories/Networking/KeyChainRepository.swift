@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RefreshTokenRepository {
-    func changeValueByKey(_ key: String,completion: ((Result<RefreshTokenData, Error>) -> Void)?)
+    func changeValueByKey(_ key: String,completion: ((Result<RefreshTokenResponse, Error>) -> Void)?)
 }

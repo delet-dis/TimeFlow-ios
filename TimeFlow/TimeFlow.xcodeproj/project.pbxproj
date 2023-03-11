@@ -120,16 +120,11 @@
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
 		4FA0A66F29BAE30E00AB3A66 /* GetProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */; };
 		4FA0A67229BAFA1300AB3A66 /* RefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67129BAFA1300AB3A66 /* RefreshTokenUseCase.swift */; };
-		4FA0A67829BB009F00AB3A66 /* RefreshTokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67729BB009F00AB3A66 /* RefreshTokenData.swift */; };
+		4FA0A67829BB009F00AB3A66 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67729BB009F00AB3A66 /* RefreshTokenResponse.swift */; };
 		4FA0A67B29BB058C00AB3A66 /* RefreshTokenImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */; };
 		4FA0A67E29BB05B100AB3A66 /* KeyChainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */; };
 		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */; };
 		4FA0A68229BB236500AB3A66 /* NetworkingKeysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */; };
-		4FA0A68C29BB85C400AB3A66 /* SubjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */; };
-		4FA0A68E29BB864000AB3A66 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68D29BB864000AB3A66 /* Subject.swift */; };
-		4FA0A69029BB868200AB3A66 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68F29BB868200AB3A66 /* Teacher.swift */; };
-		4FA0A69229BB86C000AB3A66 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69129BB86C000AB3A66 /* Classroom.swift */; };
-		4FA0A69429BB870000AB3A66 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69329BB870000AB3A66 /* Timeslot.swift */; };
 		4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */; };
 		4FA0A69A29BB882200AB3A66 /* ClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */; };
 		4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */; };
@@ -267,16 +262,11 @@
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileUseCase.swift; sourceTree = "<group>"; };
 		4FA0A67129BAFA1300AB3A66 /* RefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenUseCase.swift; sourceTree = "<group>"; };
-		4FA0A67729BB009F00AB3A66 /* RefreshTokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenData.swift; sourceTree = "<group>"; };
+		4FA0A67729BB009F00AB3A66 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
 		4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenImpl.swift; sourceTree = "<group>"; };
 		4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepository.swift; sourceTree = "<group>"; };
 		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorHelper.swift; sourceTree = "<group>"; };
 		4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingKeysEnum.swift; sourceTree = "<group>"; };
-		4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectResponse.swift; sourceTree = "<group>"; };
-		4FA0A68D29BB864000AB3A66 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
-		4FA0A68F29BB868200AB3A66 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
-		4FA0A69129BB86C000AB3A66 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
-		4FA0A69329BB870000AB3A66 /* Timeslot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
 		4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherResponse.swift; sourceTree = "<group>"; };
 		4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomResponse.swift; sourceTree = "<group>"; };
 		4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
@@ -415,8 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				30D0287D29BB270D00C5D698 /* Lessons */,
-				4FA0A68929BB84C600AB3A66 /* Calendar */,
-				4FA0A67429BB005800AB3A66 /* KeyChain */,
 				4FD7C2E329B5E74A006EB2AF /* Profile */,
 				30D4AE8829AE1D5900D4BA10 /* Authorization */,
 				4FCEE92229A379CE00700581 /* Registration */,
@@ -760,13 +748,32 @@
 		30D0287D29BB270D00C5D698 /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
+				30D0289329BC6C7300C5D698 /* LessonParameters */,
+				30D0289229BC6BFE00C5D698 /* Responses */,
+			);
+			path = Lessons;
+			sourceTree = "<group>";
+		};
+		30D0289229BC6BFE00C5D698 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */,
+				4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */,
+				4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */,
 				30D0287F29BB27DA00C5D698 /* LessonResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		30D0289329BC6C7300C5D698 /* LessonParameters */ = {
+			isa = PBXGroup;
+			children = (
 				30D0288129BB282A00C5D698 /* Subject.swift */,
 				30D0288329BB286400C5D698 /* Teacher.swift */,
 				30D0288529BB28AC00C5D698 /* Classroom.swift */,
 				30D0288729BB28F700C5D698 /* Timeslot.swift */,
 			);
-			path = Lessons;
+			path = LessonParameters;
 			sourceTree = "<group>";
 		};
 		30D4AE6529ACE16F00D4BA10 /* ResigtrationRepository */ = {
@@ -785,7 +792,7 @@
 			children = (
 				303E846E299E891F003D8FC3 /* UserCredentials.swift */,
 				4FC10EA729AF39FB00711113 /* LoginResponse.swift */,
-				4FC10EAD29AF414900711113 /* StudentGroup.swift */,
+				4FA0A67729BB009F00AB3A66 /* RefreshTokenResponse.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -976,48 +983,10 @@
 			path = ProfileRepository;
 			sourceTree = "<group>";
 		};
-		4FA0A67429BB005800AB3A66 /* KeyChain */ = {
-			isa = PBXGroup;
-			children = (
-				4FA0A67729BB009F00AB3A66 /* RefreshTokenData.swift */,
-			);
-			path = KeyChain;
-			sourceTree = "<group>";
-		};
-		4FA0A68929BB84C600AB3A66 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				4FA0A69629BB87B500AB3A66 /* ResponseData */,
-				4FA0A69529BB877200AB3A66 /* LessonData */,
-				4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		4FA0A69529BB877200AB3A66 /* LessonData */ = {
-			isa = PBXGroup;
-			children = (
-				4FA0A68D29BB864000AB3A66 /* Subject.swift */,
-				4FA0A68F29BB868200AB3A66 /* Teacher.swift */,
-				4FA0A69129BB86C000AB3A66 /* Classroom.swift */,
-				4FA0A69329BB870000AB3A66 /* Timeslot.swift */,
-			);
-			path = LessonData;
-			sourceTree = "<group>";
-		};
-		4FA0A69629BB87B500AB3A66 /* ResponseData */ = {
-			isa = PBXGroup;
-			children = (
-				4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */,
-				4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */,
-				4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */,
-			);
-			path = ResponseData;
-			sourceTree = "<group>";
-		};
 		4FCEE92229A379CE00700581 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				4FC10EAD29AF414900711113 /* StudentGroup.swift */,
 				4FCEE92329A379EB00700581 /* StudentRegistrationRequest.swift */,
 				4F7AE9D429A3818800D994C5 /* TeacherRegistrationRequest.swift */,
 				4F7AE9D729A3833000D994C5 /* ExternalUserRegistrationRequest.swift */,
@@ -1213,13 +1182,11 @@
 				4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
 				30D0288F29BC32E000C5D698 /* CornerRadiusViewModifier.swift in Sources */,
-				4FA0A69029BB868200AB3A66 /* Teacher.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				30D0288229BB282A00C5D698 /* Subject.swift in Sources */,
 				30D0287729BB243400C5D698 /* LessonView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
 				4FD7C2E529B5E781006EB2AF /* User.swift in Sources */,
-				4FA0A69229BB86C000AB3A66 /* Classroom.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
 				4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */,
 				4FA0A67B29BB058C00AB3A66 /* RefreshTokenImpl.swift in Sources */,
@@ -1239,7 +1206,7 @@
 				4FD7C2FC29B976D5006EB2AF /* SharedProfileView.swift in Sources */,
 				3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
-				4FA0A67829BB009F00AB3A66 /* RefreshTokenData.swift in Sources */,
+				4FA0A67829BB009F00AB3A66 /* RefreshTokenResponse.swift in Sources */,
 				4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */,
 				4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */,
 				30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */,
@@ -1269,7 +1236,6 @@
 				303E8487299E8DFC003D8FC3 /* NSErrorExtensions.swift in Sources */,
 				300E412429A79D0400851BB8 /* StatefulPreviewWrapper.swift in Sources */,
 				309BABB929B06143009E59AC /* HomeView.swift in Sources */,
-				4FA0A68E29BB864000AB3A66 /* Subject.swift in Sources */,
 				4FC10EB029AF420A00711113 /* StudentGroupsRepositoryImpl.swift in Sources */,
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
@@ -1310,14 +1276,12 @@
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */,
 				308BB8C429BA0CF6000E3117 /* ScheduleView.swift in Sources */,
-				4FA0A68C29BB85C400AB3A66 /* SubjectResponse.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
 				309BABA229B04C78009E59AC /* DefaultsKeysExtensions.swift in Sources */,
 				4F5862AA299E0D1200DB82FC /* AuthorizationViewModel.swift in Sources */,
 				4F00AAAB29B991A900C737FA /* SharedProfileState.swift in Sources */,
-				4FA0A69429BB870000AB3A66 /* Timeslot.swift in Sources */,
 				30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,

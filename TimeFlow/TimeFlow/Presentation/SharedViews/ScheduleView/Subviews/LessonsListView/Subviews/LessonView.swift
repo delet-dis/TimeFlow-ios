@@ -113,11 +113,11 @@ struct LessonView: View {
                         backgroundColor.brightness(-0.05)
                     }
 
-                    HStack{
+                    HStack {
                         getLessonParameter(
                             systemImageName: "clock",
                             // siwftlint:disable:next line_length
-                            text: "\(displayingLesson?.timeslot.beginTime) - \(displayingLesson?.timeslot.endTime)"
+                            text: "\(displayingLesson?.timeslot.beginTime ?? "") - \(displayingLesson?.timeslot.endTime ?? "")"
                         )
 
                         Divider()
@@ -125,7 +125,7 @@ struct LessonView: View {
 
                         getLessonParameter(
                             systemImageName: "list.bullet.rectangle.portrait",
-                            text: String(displayingLesson?.timeslot.sequenceNumber + 1 ?? 0)
+                            text: String((displayingLesson?.timeslot.sequenceNumber ?? 0) + 1)
                         )
                         .padding(.leading, 5)
                     }

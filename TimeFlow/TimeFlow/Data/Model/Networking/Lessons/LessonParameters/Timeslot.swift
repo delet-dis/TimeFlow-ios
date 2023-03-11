@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Timeslot {
+struct Timeslot: Codable {
     let id: String
     let sequenceNumber: Int
     let beginTime: String

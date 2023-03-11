@@ -8,6 +8,6 @@
 import Foundation
 
 struct TeacherResponse: Codable {
-    let teacher: [Teacher]
-    let lessons: [SubjectResponse]
+    let teacher: Teacher
+    let lessons: [LessonResponse]
 }
