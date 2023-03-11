@@ -69,6 +69,17 @@
 		30C014EB29B1E6D00029612F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 30C014EA29B1E6D00029612F /* Lottie */; };
 		30C014EF29B1E7350029612F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014EE29B1E7350029612F /* SplashView.swift */; };
 		30C014F129B1E91D0029612F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C014F029B1E91D0029612F /* LottieView.swift */; };
+		30D0287729BB243400C5D698 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0287629BB243400C5D698 /* LessonView.swift */; };
+		30D0287929BB258400C5D698 /* LessonTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0287829BB258400C5D698 /* LessonTypeEnum.swift */; };
+		30D0287C29BB25E600C5D698 /* LessonTypeEnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0287B29BB25E600C5D698 /* LessonTypeEnumExtensions.swift */; };
+		30D0288029BB27DA00C5D698 /* LessonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0287F29BB27DA00C5D698 /* LessonResponse.swift */; };
+		30D0288229BB282A00C5D698 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288129BB282A00C5D698 /* Subject.swift */; };
+		30D0288429BB286400C5D698 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288329BB286400C5D698 /* Teacher.swift */; };
+		30D0288629BB28AC00C5D698 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288529BB28AC00C5D698 /* Classroom.swift */; };
+		30D0288829BB28F700C5D698 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288729BB28F700C5D698 /* Timeslot.swift */; };
+		30D0288A29BB2A5800C5D698 /* LessonResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288929BB2A5800C5D698 /* LessonResponseExtensions.swift */; };
+		30D0288C29BC32B700C5D698 /* CornerRadiusShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288B29BC32B700C5D698 /* CornerRadiusShape.swift */; };
+		30D0288F29BC32E000C5D698 /* CornerRadiusViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D0288E29BC32E000C5D698 /* CornerRadiusViewModifier.swift */; };
 		30D4AE6129ACDDDF00D4BA10 /* RegistrationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */; };
 		30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */; };
 		30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */; };
@@ -191,6 +202,17 @@
 		30C014EE29B1E7350029612F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		30C014F029B1E91D0029612F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		30D0286829BA2F8000C5D698 /* ElegantCalendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ElegantCalendar; sourceTree = "<group>"; };
+		30D0287629BB243400C5D698 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		30D0287829BB258400C5D698 /* LessonTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTypeEnum.swift; sourceTree = "<group>"; };
+		30D0287B29BB25E600C5D698 /* LessonTypeEnumExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTypeEnumExtensions.swift; sourceTree = "<group>"; };
+		30D0287F29BB27DA00C5D698 /* LessonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonResponse.swift; sourceTree = "<group>"; };
+		30D0288129BB282A00C5D698 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		30D0288329BB286400C5D698 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		30D0288529BB28AC00C5D698 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		30D0288729BB28F700C5D698 /* Timeslot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
+		30D0288929BB2A5800C5D698 /* LessonResponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonResponseExtensions.swift; sourceTree = "<group>"; };
+		30D0288B29BC32B700C5D698 /* CornerRadiusShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusShape.swift; sourceTree = "<group>"; };
+		30D0288E29BC32E000C5D698 /* CornerRadiusViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewModifier.swift; sourceTree = "<group>"; };
 		30D4AE6029ACDDDF00D4BA10 /* RegistrationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepository.swift; sourceTree = "<group>"; };
 		30D4AE6329ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRepositoryImpl.swift; sourceTree = "<group>"; };
 		30D4AE6729ACE18600D4BA10 /* RegisterStudentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStudentUseCase.swift; sourceTree = "<group>"; };
@@ -307,6 +329,7 @@
 				30C014E329B1DF620029612F /* SwiftLoader.swift */,
 				30C014E629B1E0860029612F /* LoaderView.swift */,
 				30C014F029B1E91D0029612F /* LottieView.swift */,
+				30D0288B29BC32B700C5D698 /* CornerRadiusShape.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -355,6 +378,7 @@
 		303E8468299E81A3003D8FC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				30D0287D29BB270D00C5D698 /* Lessons */,
 				4FD7C2E329B5E74A006EB2AF /* Profile */,
 				30D4AE8829AE1D5900D4BA10 /* Authorization */,
 				4FCEE92229A379CE00700581 /* Registration */,
@@ -398,6 +422,8 @@
 				309BABA129B04C78009E59AC /* DefaultsKeysExtensions.swift */,
 				30499AB629B778CE0025689A /* DateExtensions.swift */,
 				308BB8C529BA1F40000E3117 /* ArrayExtensions.swift */,
+				30D0287B29BB25E600C5D698 /* LessonTypeEnumExtensions.swift */,
+				30D0288929BB2A5800C5D698 /* LessonResponseExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,6 +594,7 @@
 		308BB8B329B8B848000E3117 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				30D0287129BB238400C5D698 /* LessonsListView */,
 				308BB8B729B8B868000E3117 /* WeekSwitcherView */,
 			);
 			path = Subviews;
@@ -670,6 +697,34 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		30D0287129BB238400C5D698 /* LessonsListView */ = {
+			isa = PBXGroup;
+			children = (
+				30D0287529BB240600C5D698 /* Subviews */,
+			);
+			path = LessonsListView;
+			sourceTree = "<group>";
+		};
+		30D0287529BB240600C5D698 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				30D0287629BB243400C5D698 /* LessonView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		30D0287D29BB270D00C5D698 /* Lessons */ = {
+			isa = PBXGroup;
+			children = (
+				30D0287F29BB27DA00C5D698 /* LessonResponse.swift */,
+				30D0288129BB282A00C5D698 /* Subject.swift */,
+				30D0288329BB286400C5D698 /* Teacher.swift */,
+				30D0288529BB28AC00C5D698 /* Classroom.swift */,
+				30D0288729BB28F700C5D698 /* Timeslot.swift */,
+			);
+			path = Lessons;
+			sourceTree = "<group>";
+		};
 		30D4AE6529ACE16F00D4BA10 /* ResigtrationRepository */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,6 +753,7 @@
 				30984B8129A094E200A85B32 /* ParallaxMotionModifier.swift */,
 				300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */,
 				3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */,
+				30D0288E29BC32E000C5D698 /* CornerRadiusViewModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -790,6 +846,7 @@
 				4F00AAAD29B9993E00C737FA /* GenderGroups */,
 				309BAB9929B04328009E59AC /* Repositories */,
 				4F586295299E07D400DB82FC /* Views */,
+				30D0287829BB258400C5D698 /* LessonTypeEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -1061,9 +1118,13 @@
 				4F586297299E080A00DB82FC /* MainViewDisaplyingModeEnum.swift in Sources */,
 				4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */,
 				30499AB729B778CE0025689A /* DateExtensions.swift in Sources */,
+				30D0287929BB258400C5D698 /* LessonTypeEnum.swift in Sources */,
 				4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
+				30D0288F29BC32E000C5D698 /* CornerRadiusViewModifier.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
+				30D0288229BB282A00C5D698 /* Subject.swift in Sources */,
+				30D0287729BB243400C5D698 /* LessonView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
 				4FD7C2E529B5E781006EB2AF /* ExternalUser.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
@@ -1093,13 +1154,16 @@
 				308BB8C629BA1F40000E3117 /* ArrayExtensions.swift in Sources */,
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */,
+				30D0288029BB27DA00C5D698 /* LessonResponse.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
 				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */,
+				30D0288C29BC32B700C5D698 /* CornerRadiusShape.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
+				30D0288629BB28AC00C5D698 /* Classroom.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,
 				4F5862AE299E120C00DB82FC /* AuthorizationComponent.swift in Sources */,
@@ -1110,6 +1174,7 @@
 				30ABBB2729A3793000108535 /* LoginComponent.swift in Sources */,
 				4F7AE9D829A3833000D994C5 /* ExternalUserRegistrationRequest.swift in Sources */,
 				308BB8C229BA0CDE000E3117 /* ScheduleViewModel.swift in Sources */,
+				30D0288829BB28F700C5D698 /* Timeslot.swift in Sources */,
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
 				4F00AAA929B98F5900C737FA /* ProfileView.swift in Sources */,
 				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
@@ -1124,10 +1189,12 @@
 				4F80611629A8A8B2004DDA52 /* StudentRegistationViewState.swift in Sources */,
 				4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */,
 				4FD7C2FF29B97833006EB2AF /* ProfileComponent.swift in Sources */,
+				30D0287C29BB25E600C5D698 /* LessonTypeEnumExtensions.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
 				308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */,
 				30C014E429B1DF620029612F /* SwiftLoader.swift in Sources */,
+				30D0288429BB286400C5D698 /* Teacher.swift in Sources */,
 				4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
 				303E8485299E8D62003D8FC3 /* NetworkingError.swift in Sources */,
@@ -1150,6 +1217,7 @@
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,
 				30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */,
+				30D0288A29BB2A5800C5D698 /* LessonResponseExtensions.swift in Sources */,
 				303E8478299E8B4D003D8FC3 /* VoidResponse.swift in Sources */,
 				30FE8BCA29A39283008AC4F2 /* RegistrationViewDisplayingModeEnum.swift in Sources */,
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
