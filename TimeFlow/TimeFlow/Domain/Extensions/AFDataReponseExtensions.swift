@@ -41,8 +41,9 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode {
-           completion?(.failure(processError()))
+        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode ||
+            self.response?.statusCode == NetworkingConstants.userAlreadyExistsStatusCode {
+            completion?(.failure(processError()))
 
             return
         }
