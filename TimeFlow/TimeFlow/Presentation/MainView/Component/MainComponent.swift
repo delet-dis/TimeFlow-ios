@@ -15,7 +15,7 @@ class MainComponent: BootstrapComponent {
     var jsonDecoder: JSONDecoder {
         shared {
             let decoder = JSONDecoder()
-            //            decoder.dateDecodingStrategy = .iso8601
+            decoder.dateDecodingStrategy = .iso8601
 
             return decoder
         }
@@ -24,7 +24,7 @@ class MainComponent: BootstrapComponent {
     var jsonEncoder: JSONEncoder {
         shared {
             let encoder = JSONEncoder()
-            //            encoder.dateEncodingStrategy = .iso8601
+            encoder.dateEncodingStrategy = .iso8601
 
             return encoder
         }
@@ -58,7 +58,11 @@ class MainComponent: BootstrapComponent {
 
     var profileRepository: ProfileRepository {
         shared {
-            ProfileRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+            ProfileRepositoryImpl(
+                jsonDecoder: jsonDecoder,
+                jsonEncoder: jsonEncoder,
+                requestInterceptor: requestInterceptor
+            )
         }
     }
 
@@ -71,6 +75,22 @@ class MainComponent: BootstrapComponent {
                 saveTokensUseCase: saveTokensUseCase,
                 saveAuthStatusUseCase: saveAuthStatusUseCase
             )
+        }
+    }
+
+    var logoutUseCase: LogoutUseCase {
+        shared {
+            LogoutUseCase(
+                authRepository: authRepository,
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase
+            )
+        }
+    }
+
+    var refreshTokenUseCase: RefreshTokenUseCase {
+        shared {
+            RefreshTokenUseCase(authRepository: authRepository)
         }
     }
 
@@ -112,15 +132,24 @@ class MainComponent: BootstrapComponent {
         }
     }
 
-    var logoutUseCase: LogoutUseCase {
-        shared {
-            LogoutUseCase(authRepository: authRepository)
-        }
-    }
+    // MARK: Profile use cases
 
     var getProfileUseCase: GetProfileUseCase {
         shared {
             GetProfileUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    // MARK: Request interceptor
+
+    var requestInterceptor: RequestInterceptor {
+        shared {
+            RequestInterceptor(
+                saveTokensUseCase: saveTokensUseCase,
+                getTokensUseCase: getTokensUseCase,
+                refreshTokenUseCase: refreshTokenUseCase,
+                logoutUseCase: logoutUseCase
+            )
         }
     }
 
@@ -129,6 +158,12 @@ class MainComponent: BootstrapComponent {
     var saveTokensUseCase: SaveTokensUseCase {
         shared {
             SaveTokensUseCase(keychainRepository: keychainRepository)
+        }
+    }
+
+    var getTokensUseCase: GetTokensUseCase {
+        shared {
+            GetTokensUseCase(keychainRepository: keychainRepository)
         }
     }
 
@@ -143,12 +178,6 @@ class MainComponent: BootstrapComponent {
     var getAuthStatusUseCase: GetAuthStatusUseCase {
         shared {
             GetAuthStatusUseCase()
-        }
-    }
-
-    var getTokensUseCase: GetTokensUseCase {
-        shared {
-            GetTokensUseCase(keychainRepository: keychainRepository)
         }
     }
 

@@ -11,7 +11,9 @@ import Foundation
 class AuthRepositoryImpl: AuthRepository {
     // TODO: Add auth URL
     private static let url = NetworkingConstants.baseUrl
-    private static let signIn = NetworkingConstants.signIn
+
+    private static let signIn = "/\(NetworkingConstants.signIn)"
+    private static let signOut = "/\(NetworkingConstants.signOut)"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -36,33 +38,29 @@ class AuthRepositoryImpl: AuthRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers,
-                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
+                headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
         } catch {
             completion?(.failure(error))
         }
     }
 
     func logout(
-        authorizationRequest: AuthorizationRequest,
+        token: String,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     ) {
-        // TODO: Add logout
-        //        AF.request(
-        //            Self.url + "logout",
-        //            method: .post,
-        //            encoding: JSONEncoding.default,
-        //            headers: NetworkingHelper.getHeadersWithAuth(userCredentials)
-        //        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-        //            .validate()
-        //            .response { [self] result in
-        //                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        //            }
+        AF.request(
+            Self.url + Self.signOut,
+            method: .post,
+            encoding: JSONEncoding.default,
+            headers: NetworkingHelper.getHeadersWithBearer(token: token)
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
+
+        completion?(.success(VoidResponse()))
     }
 
     func refreshToken(

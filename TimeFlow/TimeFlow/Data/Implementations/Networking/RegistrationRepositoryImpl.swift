@@ -21,7 +21,10 @@ class RegistrationRepositoryImpl: RegistrationRepository {
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
 
-    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
+    init(
+        jsonDecoder: JSONDecoder,
+        jsonEncoder: JSONEncoder
+    ) {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
     }
@@ -41,8 +44,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers,
-                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
+                headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
@@ -68,8 +70,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers,
-                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
+                headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
@@ -95,8 +96,7 @@ class RegistrationRepositoryImpl: RegistrationRepository {
                 method: .post,
                 parameters: parametrs,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers,
-                interceptor: RequestInterceptorHelper.self as? RequestInterceptor
+                headers: NetworkingConstants.headers
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in

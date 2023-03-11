@@ -26,6 +26,7 @@
 		3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */; };
 		304585C929BC984F0050537B /* TokenTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585C829BC984F0050537B /* TokenTypeEnum.swift */; };
 		304585CD29BC9AEE0050537B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585CC29BC9AEE0050537B /* RefreshTokenRequest.swift */; };
+		304585CF29BC9D820050537B /* RefreshTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585CE29BC9D820050537B /* RefreshTokenUseCase.swift */; };
 		30499AB729B778CE0025689A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499AB629B778CE0025689A /* DateExtensions.swift */; };
 		30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */; };
 		30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABE29B77B360025689A /* DisplayingWeeksData.swift */; };
@@ -120,7 +121,7 @@
 		4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */; };
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
 		4FA0A66F29BAE30E00AB3A66 /* GetProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */; };
-		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */; };
+		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */; };
 		4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */; };
 		4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */; };
 		4FA0A69A29BB882200AB3A66 /* ClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */; };
@@ -173,6 +174,7 @@
 		3041228E29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithReadyKeyboardButtonModifier.swift; sourceTree = "<group>"; };
 		304585C829BC984F0050537B /* TokenTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTypeEnum.swift; sourceTree = "<group>"; };
 		304585CC29BC9AEE0050537B /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
+		304585CE29BC9D820050537B /* RefreshTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenUseCase.swift; sourceTree = "<group>"; };
 		30499AB629B778CE0025689A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeekEnum.swift; sourceTree = "<group>"; };
 		30499ABE29B77B360025689A /* DisplayingWeeksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeeksData.swift; sourceTree = "<group>"; };
@@ -261,7 +263,7 @@
 		4F85EB6A29A211EB00C09BEE /* GenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderEnum.swift; sourceTree = "<group>"; };
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4FA0A66E29BAE30E00AB3A66 /* GetProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileUseCase.swift; sourceTree = "<group>"; };
-		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorHelper.swift; sourceTree = "<group>"; };
+		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthenticationUrlsEnum.swift; sourceTree = "<group>"; };
 		4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherResponse.swift; sourceTree = "<group>"; };
 		4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomResponse.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		303E8463299E8132003D8FC3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				304585D129BC9E7D0050537B /* Interceptors */,
 				3041228629AB97AC004705C5 /* Protocols */,
 				303E848F299E91D0003D8FC3 /* UseCases */,
 				303E848B299E9004003D8FC3 /* Helpers */,
@@ -447,7 +450,6 @@
 				308BB8C529BA1F40000E3117 /* ArrayExtensions.swift */,
 				30D0287B29BB25E600C5D698 /* LessonTypeEnumExtensions.swift */,
 				30D0288929BB2A5800C5D698 /* LessonResponseExtensions.swift */,
-				4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */,
 				4FA0A6A529BC6CF200AB3A66 /* RoleEnumExtensions.swift */,
 			);
 			path = Extensions;
@@ -489,6 +491,7 @@
 			children = (
 				303E8491299E91ED003D8FC3 /* LoginUseCase.swift */,
 				303E8494299E921B003D8FC3 /* LogoutUseCase.swift */,
+				304585CE29BC9D820050537B /* RefreshTokenUseCase.swift */,
 			);
 			path = AuthRepository;
 			sourceTree = "<group>";
@@ -507,6 +510,14 @@
 				304585C829BC984F0050537B /* TokenTypeEnum.swift */,
 			);
 			path = KeychainRepository;
+			sourceTree = "<group>";
+		};
+		304585D129BC9E7D0050537B /* Interceptors */ = {
+			isa = PBXGroup;
+			children = (
+				4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */,
+			);
+			path = Interceptors;
 			sourceTree = "<group>";
 		};
 		30499AB929B77AE40025689A /* HomeView */ = {
@@ -1186,6 +1197,7 @@
 				30D0287929BB258400C5D698 /* LessonTypeEnum.swift in Sources */,
 				4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */,
 				30ABBB2C29A386EB00108535 /* MainWindowSizeHelper.swift in Sources */,
+				304585CF29BC9D820050537B /* RefreshTokenUseCase.swift in Sources */,
 				30D0288F29BC32E000C5D698 /* CornerRadiusViewModifier.swift in Sources */,
 				4F58629D299E096300DB82FC /* LoginView.swift in Sources */,
 				30D0288229BB282A00C5D698 /* Subject.swift in Sources */,
@@ -1272,7 +1284,7 @@
 				30D0288429BB286400C5D698 /* Teacher.swift in Sources */,
 				4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */,
 				30984B8C29A0BBF000A85B32 /* ViewExtensions.swift in Sources */,
-				4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */,
+				4FA0A68029BB0E9F00AB3A66 /* RequestInterceptor.swift in Sources */,
 				303E8495299E921B003D8FC3 /* LogoutUseCase.swift in Sources */,
 				4F00AAA329B98DB100C737FA /* SharedProfileViewData.swift in Sources */,
 				4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */,

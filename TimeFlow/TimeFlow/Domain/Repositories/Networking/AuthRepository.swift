@@ -14,7 +14,7 @@ protocol AuthRepository {
     )
 
     func logout(
-        authorizationRequest: AuthorizationRequest,
+        token: String,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     )
 

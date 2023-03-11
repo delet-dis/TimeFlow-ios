@@ -13,7 +13,7 @@ struct SplashView: View {
         VStack {
             Spacer()
 
-            LottieView(name: "LoadingAnimation")
+            LottieView(name: R.data.loadingAnimation.name)
 
             Spacer()
         }

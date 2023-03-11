@@ -16,12 +16,18 @@ class ProfileRepositoryImpl: ProfileRepository {
     private static let employeeAccountSegment = "\(accountSegment)/\(NetworkingConstants.employee)"
     private static let externalUserAccountSegment = "\(accountSegment)/\(NetworkingConstants.user)"
 
+    private static let role = "/\(NetworkingConstants.role)"
+    private static let password = "/\(NetworkingConstants.password)"
+    private static let email = "/\(NetworkingConstants.email)"
+
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
+    private let requestInterceptor: RequestInterceptor
 
-    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
+    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder, requestInterceptor: RequestInterceptor) {
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
+        self.requestInterceptor = requestInterceptor
     }
 
     func getExternalUserInfo(
@@ -33,7 +39,7 @@ class ProfileRepositoryImpl: ProfileRepository {
             method: .get,
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token),
-            interceptor: RequestInterceptorHelper.self as? RequestInterceptor
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -84,7 +90,7 @@ class ProfileRepositoryImpl: ProfileRepository {
 
     func getRole(token: String, completion: ((Result<Role, Error>) -> Void)?) {
         AF.request(
-            Self.url + Self.accountSegment + NetworkingConstants.role,
+            Self.url + Self.accountSegment + Self.role,
             method: .get,
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
@@ -99,7 +105,8 @@ class ProfileRepositoryImpl: ProfileRepository {
     }
 
     func changePassword(
-        token: String, password: String,
+        token: String,
+        password: String,
         completion: ((Result<User, Error>) -> Void)?
     ) {
         do {
@@ -107,8 +114,9 @@ class ProfileRepositoryImpl: ProfileRepository {
             let parameters = try JSONSerialization.jsonObject(
                 with: encodedParam, options: .allowFragments
             ) as? [String: Any]
+
             AF.request(
-                Self.url + Self.accountSegment + NetworkingConstants.password,
+                Self.url + Self.accountSegment + Self.password,
                 method: .put,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
@@ -116,8 +124,10 @@ class ProfileRepositoryImpl: ProfileRepository {
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder,
-                                         completion: completion)
+                    result.processResult(
+                        jsonDecoder: jsonDecoder,
+                        completion: completion
+                    )
                 }
         } catch {
             completion?(.failure(error))
@@ -125,7 +135,8 @@ class ProfileRepositoryImpl: ProfileRepository {
     }
 
     func changeEmail(
-        token: String, email: String,
+        token: String,
+        email: String,
         completion: ((Result<User, Error>) -> Void)?
     ) {
         do {
@@ -133,8 +144,9 @@ class ProfileRepositoryImpl: ProfileRepository {
             let parameters = try JSONSerialization.jsonObject(
                 with: encodedParam, options: .allowFragments
             ) as? [String: Any]
+
             AF.request(
-                Self.url + Self.accountSegment + NetworkingConstants.email,
+                Self.url + Self.accountSegment + Self.email,
                 method: .put,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
@@ -142,8 +154,10 @@ class ProfileRepositoryImpl: ProfileRepository {
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder,
-                                         completion: completion)
+                    result.processResult(
+                        jsonDecoder: jsonDecoder,
+                        completion: completion
+                    )
                 }
         } catch {
             completion?(.failure(error))
