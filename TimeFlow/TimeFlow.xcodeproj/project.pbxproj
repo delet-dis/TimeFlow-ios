@@ -114,7 +114,7 @@
 		4FA0A67E29BB05B100AB3A66 /* KeyChainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */; };
 		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */; };
 		4FA0A68229BB236500AB3A66 /* NetworkingKeysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */; };
-		4FA0A68C29BB85C400AB3A66 /* SubjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68B29BB85C400AB3A66 /* SubjectInfo.swift */; };
+		4FA0A68C29BB85C400AB3A66 /* SubjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */; };
 		4FA0A68E29BB864000AB3A66 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68D29BB864000AB3A66 /* Subject.swift */; };
 		4FA0A69029BB868200AB3A66 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68F29BB868200AB3A66 /* Teacher.swift */; };
 		4FA0A69229BB86C000AB3A66 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69129BB86C000AB3A66 /* Classroom.swift */; };
@@ -122,6 +122,8 @@
 		4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */; };
 		4FA0A69A29BB882200AB3A66 /* ClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */; };
 		4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */; };
+		4FA0A69F29BC442400AB3A66 /* CalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */; };
+		4FA0A6A129BC539700AB3A66 /* CalendarRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */; };
 		4FC10EA829AF39FB00711113 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EA729AF39FB00711113 /* LoginResponse.swift */; };
 		4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */; };
 		4FC10EAE29AF414900711113 /* StudentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC10EAD29AF414900711113 /* StudentGroup.swift */; };
@@ -248,7 +250,7 @@
 		4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainRepository.swift; sourceTree = "<group>"; };
 		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorHelper.swift; sourceTree = "<group>"; };
 		4FA0A68129BB236500AB3A66 /* NetworkingKeysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingKeysEnum.swift; sourceTree = "<group>"; };
-		4FA0A68B29BB85C400AB3A66 /* SubjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfo.swift; sourceTree = "<group>"; };
+		4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectResponse.swift; sourceTree = "<group>"; };
 		4FA0A68D29BB864000AB3A66 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		4FA0A68F29BB868200AB3A66 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		4FA0A69129BB86C000AB3A66 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
@@ -256,6 +258,8 @@
 		4FA0A69729BB87C800AB3A66 /* TeacherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherResponse.swift; sourceTree = "<group>"; };
 		4FA0A69929BB882200AB3A66 /* ClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomResponse.swift; sourceTree = "<group>"; };
 		4FA0A69B29BB887C00AB3A66 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
+		4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRepository.swift; sourceTree = "<group>"; };
+		4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRepositoryImpl.swift; sourceTree = "<group>"; };
 		4FC10EA729AF39FB00711113 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroupsRepository.swift; sourceTree = "<group>"; };
 		4FC10EAD29AF414900711113 /* StudentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroup.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				4FC10EAA29AF40F900711113 /* StudentGroupsRepository.swift */,
 				4FD7C2E029B5E64D006EB2AF /* ProfileRepository.swift */,
 				4FA0A67D29BB05B100AB3A66 /* KeyChainRepository.swift */,
+				4FA0A69E29BC442400AB3A66 /* CalendarRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				4FC10EAF29AF420A00711113 /* StudentGroupsRepositoryImpl.swift */,
 				4FD7C2F129B5F263006EB2AF /* ProfileRepositoryImpl.swift */,
 				4FA0A67A29BB058C00AB3A66 /* RefreshTokenImpl.swift */,
+				4FA0A6A029BC539700AB3A66 /* CalendarRepositoryImpl.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -926,7 +932,7 @@
 			children = (
 				4FA0A69629BB87B500AB3A66 /* ResponseData */,
 				4FA0A69529BB877200AB3A66 /* LessonData */,
-				4FA0A68B29BB85C400AB3A66 /* SubjectInfo.swift */,
+				4FA0A68B29BB85C400AB3A66 /* SubjectResponse.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -1187,6 +1193,7 @@
 				309BABB529B060B3009E59AC /* HomeViewModel.swift in Sources */,
 				30D4AE6829ACE18600D4BA10 /* RegisterStudentUseCase.swift in Sources */,
 				30C014E729B1E0860029612F /* LoaderView.swift in Sources */,
+				4FA0A69F29BC442400AB3A66 /* CalendarRepository.swift in Sources */,
 				309BABB729B060BA009E59AC /* HomeComponent.swift in Sources */,
 				308BB8BA29B8B8A9000E3117 /* WeekSwitcherViewModel.swift in Sources */,
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
@@ -1206,6 +1213,7 @@
 				4FC10EB229AF44C500711113 /* GetStudentGroupsUseCase.swift in Sources */,
 				4F00AAA929B98F5900C737FA /* ProfileView.swift in Sources */,
 				4FD7C2F429B5F474006EB2AF /* NetworkHelper.swift in Sources */,
+				4FA0A6A129BC539700AB3A66 /* CalendarRepositoryImpl.swift in Sources */,
 				303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */,
 				30781859299BD12500FD916D /* MainViewModel.swift in Sources */,
 				309BAB9529B042BC009E59AC /* KeychainRepository.swift in Sources */,
@@ -1235,7 +1243,7 @@
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */,
 				308BB8C429BA0CF6000E3117 /* ScheduleView.swift in Sources */,
-				4FA0A68C29BB85C400AB3A66 /* SubjectInfo.swift in Sources */,
+				4FA0A68C29BB85C400AB3A66 /* SubjectResponse.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,

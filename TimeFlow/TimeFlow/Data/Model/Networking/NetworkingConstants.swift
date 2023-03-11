@@ -21,7 +21,13 @@ class NetworkingConstants {
     static let password = "password"
     static let email = "email"
     static let signOut = "sign-out"
+    static let lessons = "lessons"
+    static let teacher = "teacher"
+    static let startDate = "startDate"
+    static let endDate = "endDate"
     static let refreshToken = "refresh-tokens"
+    static let classroom = "classroom"
+    static let group = "group"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",

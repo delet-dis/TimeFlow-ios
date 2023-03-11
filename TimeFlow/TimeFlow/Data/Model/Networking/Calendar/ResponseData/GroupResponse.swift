@@ -9,5 +9,5 @@ import Foundation
 
 struct GroupResponse: Codable {
     let studentGroup: [StudentGroup]
-    let lessons: [SubjectInfo]
+    let lessons: [SubjectResponse]
 }

@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct SubjectInfo: Codable {
+struct SubjectResponse: Codable {
     let id: String
-    let studentGroup: [StudentGroup]
-    let subject: [Subject]
-    let teacher: [Teacher]
-    let classroom: [Classroom]
-    let timeslot: [TimeSlot]
+    let studentGroup: StudentGroup
+    let subject: Subject
+    let teacher: Teacher
+    let classroom: Classroom
+    let timeslot: TimeSlot
     let data: String
     let lessonType: String
 }
