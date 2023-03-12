@@ -65,7 +65,7 @@ class LessonsRepositoryImpl: LessonsRepository {
                 "/\(groupId)",
             method: .get,
             parameters: parametrs,
-            encoding: JSONEncoding.default,
+            encoding: URLEncoding.queryString,
             headers: NetworkingConstants.headers
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()

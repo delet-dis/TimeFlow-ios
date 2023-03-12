@@ -26,7 +26,6 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
         }
     }
 
-
     var profileView: some View {
         shared {
             ProfileView(viewModel: profileViewModel)

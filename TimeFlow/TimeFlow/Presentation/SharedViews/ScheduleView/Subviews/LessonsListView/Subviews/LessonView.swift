@@ -18,7 +18,7 @@ struct LessonView: View {
             case .seminar:
                 return .init(uiColor: R.color.coral() ?? .red)
             case .practicalLesson:
-                return .init(uiColor: R.color.lightGreen() ?? .green)
+                return .init(uiColor: R.color.darkSpringGreen() ?? .green)
             case .laboratoryLesson:
                 return .init(uiColor: R.color.flax() ?? .yellow)
             case .exam:
@@ -91,7 +91,8 @@ struct LessonView: View {
                 Group {
                     getLessonParameter(
                         systemImageName: "rectangle.inset.filled.and.person.filled",
-                        text: displayingLesson?.teacher.name ?? ""
+                        // swiftlint:disable:next line_length
+                        text: "\(displayingLesson?.teacher.name ?? "") \(displayingLesson?.teacher.surname ?? "")"
                     )
                     .padding(.horizontal, 10)
 
@@ -125,7 +126,7 @@ struct LessonView: View {
 
                         getLessonParameter(
                             systemImageName: "list.bullet.rectangle.portrait",
-                            text: String((displayingLesson?.timeslot.sequenceNumber ?? 0) + 1)
+                            text: String(displayingLesson?.timeslot.sequenceNumber ?? 0)
                         )
                         .padding(.leading, 5)
                     }
@@ -160,6 +161,7 @@ struct LessonView: View {
                 .fill(backgroundColor)
                 .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
         }
+        .padding(.horizontal, 24)
     }
 
     private func getLessonParameter(systemImageName: String, text: String) -> some View {
@@ -169,7 +171,7 @@ struct LessonView: View {
                 .overlay {
                     Image(systemName: systemImageName)
                         .font(.title3)
-                        .foregroundColor(.black)
+                        .foregroundColor(textColor)
                 }
 
             Spacer()
@@ -177,7 +179,7 @@ struct LessonView: View {
 
             Text(text)
                 .font(Font(R.font.ralewayMedium(size: 15) ?? .systemFont(ofSize: 15, weight: .medium)))
-                .foregroundColor(.black)
+                .foregroundColor(textColor)
 
             Spacer()
         }

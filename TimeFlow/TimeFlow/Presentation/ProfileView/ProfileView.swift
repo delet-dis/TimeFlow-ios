@@ -12,7 +12,6 @@ struct ProfileView: View {
 //    @State private var userRole = RoleEnum.student
 
     var body: some View {
-
         switch viewModel.userRole {
         case .user:
             Text("Внешний пользователь")
@@ -20,10 +19,10 @@ struct ProfileView: View {
             Text("Сотрудник")
         case .student:
             Text("Студент")
-        case.none:
+        case .none:
             Text("Problems")
         }
-        
+
         Text("Test")
             .onAppear {
                 viewModel.viewDidAppear()

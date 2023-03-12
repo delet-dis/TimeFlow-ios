@@ -90,6 +90,15 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
     var getTokensUseCase: GetTokensUseCase {
         return mainComponent.getTokensUseCase
     }
+    var getTeacherLessonsUseCase: GetTeacherLessonsUseCase {
+        return mainComponent.getTeacherLessonsUseCase
+    }
+    var getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase {
+        return mainComponent.getStudentGroupLessonsUseCase
+    }
+    var getClassroomLessonsUseCase: GetClassroomLessonsUseCase {
+        return mainComponent.getClassroomLessonsUseCase
+    }
     var profileComponent: ProfileComponent {
         return mainComponent.profileComponent
     }
@@ -148,6 +157,9 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getProfileStudentUseCase] = "getProfileStudentUseCase-GetProfileStudentUseCase"
         keyPathToName[\HomeComponentDependency.getProfileEmployeeUseCase] = "getProfileEmployeeUseCase-GetProfileEmployeeUseCaseCase"
         keyPathToName[\HomeComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
+        keyPathToName[\HomeComponentDependency.getTeacherLessonsUseCase] = "getTeacherLessonsUseCase-GetTeacherLessonsUseCase"
+        keyPathToName[\HomeComponentDependency.getStudentGroupLessonsUseCase] = "getStudentGroupLessonsUseCase-GetStudentGroupLessonsUseCase"
+        keyPathToName[\HomeComponentDependency.getClassroomLessonsUseCase] = "getClassroomLessonsUseCase-GetClassroomLessonsUseCase"
         keyPathToName[\HomeComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }

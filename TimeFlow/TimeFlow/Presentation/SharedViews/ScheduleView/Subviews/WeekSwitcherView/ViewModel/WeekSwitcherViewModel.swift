@@ -34,7 +34,6 @@ class WeekSwitcherViewModel: ObservableObject {
         }
 
         calendarManager.selectedDate = .now
-        dayPickedClosure?(.now)
     }
 
     func setDayPickedClosure(_ closure: @escaping ((Date) -> Void)) {

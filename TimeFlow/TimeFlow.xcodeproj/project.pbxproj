@@ -14,6 +14,12 @@
 		300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */; };
 		3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */; };
 		30245C4A29BDB4D20065E9ED /* GetUserRoleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C4929BDB4D20065E9ED /* GetUserRoleUseCase.swift */; };
+		30245C4D29BDB77B0065E9ED /* DisplayingDayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C4C29BDB77B0065E9ED /* DisplayingDayEnum.swift */; };
+		30245C5029BDB7930065E9ED /* DisplayingDaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C4F29BDB7930065E9ED /* DisplayingDaysData.swift */; };
+		30245C5229BDB8BB0065E9ED /* LessonsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C5129BDB8BB0065E9ED /* LessonsListView.swift */; };
+		30245C5629BDBB2B0065E9ED /* GetTeacherLessonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C5529BDBB2B0065E9ED /* GetTeacherLessonsUseCase.swift */; };
+		30245C5929BDBBA00065E9ED /* GetStudentGroupLessonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C5829BDBBA00065E9ED /* GetStudentGroupLessonsUseCase.swift */; };
+		30245C5B29BDBBDE0065E9ED /* GetClassroomLessonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C5A29BDBBDE0065E9ED /* GetClassroomLessonsUseCase.swift */; };
 		303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8466299E815E003D8FC3 /* AuthRepository.swift */; };
 		303E846F299E891F003D8FC3 /* AuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E846E299E891F003D8FC3 /* AuthorizationRequest.swift */; };
 		303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */; };
@@ -167,6 +173,12 @@
 		3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedTextFieldModifier.swift; sourceTree = "<group>"; };
 		3016F99129A08E6A00B5EFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		30245C4929BDB4D20065E9ED /* GetUserRoleUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserRoleUseCase.swift; sourceTree = "<group>"; };
+		30245C4C29BDB77B0065E9ED /* DisplayingDayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingDayEnum.swift; sourceTree = "<group>"; };
+		30245C4F29BDB7930065E9ED /* DisplayingDaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingDaysData.swift; sourceTree = "<group>"; };
+		30245C5129BDB8BB0065E9ED /* LessonsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsListView.swift; sourceTree = "<group>"; };
+		30245C5529BDBB2B0065E9ED /* GetTeacherLessonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeacherLessonsUseCase.swift; sourceTree = "<group>"; };
+		30245C5829BDBBA00065E9ED /* GetStudentGroupLessonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStudentGroupLessonsUseCase.swift; sourceTree = "<group>"; };
+		30245C5A29BDBBDE0065E9ED /* GetClassroomLessonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClassroomLessonsUseCase.swift; sourceTree = "<group>"; };
 		303E8466299E815E003D8FC3 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		303E846E299E891F003D8FC3 /* AuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRequest.swift; sourceTree = "<group>"; };
 		303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
@@ -380,6 +392,16 @@
 			path = ../Dependencies;
 			sourceTree = "<group>";
 		};
+		30245C5429BDBB140065E9ED /* LessonsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				30245C5529BDBB2B0065E9ED /* GetTeacherLessonsUseCase.swift */,
+				30245C5829BDBBA00065E9ED /* GetStudentGroupLessonsUseCase.swift */,
+				30245C5A29BDBBDE0065E9ED /* GetClassroomLessonsUseCase.swift */,
+			);
+			path = LessonsRepository;
+			sourceTree = "<group>";
+		};
 		303E8463299E8132003D8FC3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +512,7 @@
 		303E848F299E91D0003D8FC3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				30245C5429BDBB140065E9ED /* LessonsRepository */,
 				4FA0A66D29BAE2FB00AB3A66 /* ProfileRepository */,
 				309BABA629B04CC4009E59AC /* UserDefaults */,
 				309BAB9C29B04707009E59AC /* KeychainRepository */,
@@ -564,6 +587,7 @@
 			children = (
 				30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */,
 				304585D529BD89290050537B /* DisplayingScheduleType.swift */,
+				30245C4C29BDB77B0065E9ED /* DisplayingDayEnum.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -573,6 +597,7 @@
 			children = (
 				30499ABE29B77B360025689A /* DisplayingWeeksData.swift */,
 				304585D229BD89040050537B /* DisplayingSchedule.swift */,
+				30245C4F29BDB7930065E9ED /* DisplayingDaysData.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -790,6 +815,7 @@
 			isa = PBXGroup;
 			children = (
 				30D0287529BB240600C5D698 /* Subviews */,
+				30245C5129BDB8BB0065E9ED /* LessonsListView.swift */,
 			);
 			path = LessonsListView;
 			sourceTree = "<group>";
@@ -1267,6 +1293,7 @@
 				4F80610529A89C2C004DDA52 /* TeacherRegistrationFormView.swift in Sources */,
 				309BAB9B29B0433B009E59AC /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				303E847F299E8C6D003D8FC3 /* AFDataReponseExtensions.swift in Sources */,
+				30245C5029BDB7930065E9ED /* DisplayingDaysData.swift in Sources */,
 				4FD7C2FC29B976D5006EB2AF /* SharedProfileView.swift in Sources */,
 				3076498329ACDCB300B3AEF5 /* RegistrationData.swift in Sources */,
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
@@ -1281,6 +1308,7 @@
 				4F80610829A8A00B004DDA52 /* TeacherRegistationViewData.swift in Sources */,
 				303E847C299E8BFD003D8FC3 /* AuthRepositoryImpl.swift in Sources */,
 				308BB8C629BA1F40000E3117 /* ArrayExtensions.swift in Sources */,
+				30245C4D29BDB77B0065E9ED /* DisplayingDayEnum.swift in Sources */,
 				309BAB9829B042D5009E59AC /* KeychainRepositoryImpl.swift in Sources */,
 				304585CD29BC9AEE0050537B /* RefreshTokenRequest.swift in Sources */,
 				4FA0A66F29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift in Sources */,
@@ -1323,9 +1351,11 @@
 				4F5862A4299E0AFF00DB82FC /* AuthorizationView.swift in Sources */,
 				4F80611629A8A8B2004DDA52 /* StudentRegistationViewState.swift in Sources */,
 				4FC10EAB29AF40F900711113 /* StudentGroupsRepository.swift in Sources */,
+				30245C5B29BDBBDE0065E9ED /* GetClassroomLessonsUseCase.swift in Sources */,
 				4FD7C2FF29B97833006EB2AF /* ProfileComponent.swift in Sources */,
 				30D0287C29BB25E600C5D698 /* LessonTypeEnumExtensions.swift in Sources */,
 				4FCEE92429A379EB00700581 /* StudentRegistrationRequest.swift in Sources */,
+				30245C5929BDBBA00065E9ED /* GetStudentGroupLessonsUseCase.swift in Sources */,
 				4F80610D29A8A04A004DDA52 /* TeacherRegistationViewState.swift in Sources */,
 				4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */,
 				308BB8BC29B8B8C3000E3117 /* WeekSwitcherView.swift in Sources */,
@@ -1343,6 +1373,7 @@
 				4F85EB6B29A211EB00C09BEE /* GenderEnum.swift in Sources */,
 				4FD7C2F229B5F263006EB2AF /* ProfileRepositoryImpl.swift in Sources */,
 				308BB8C429BA0CF6000E3117 /* ScheduleView.swift in Sources */,
+				30245C5629BDBB2B0065E9ED /* GetTeacherLessonsUseCase.swift in Sources */,
 				3041228F29AB9D12004705C5 /* ViewWithReadyKeyboardButtonModifier.swift in Sources */,
 				4FD7C2EA29B5EC6F006EB2AF /* StudentUser.swift in Sources */,
 				300E411D29A7997D00851BB8 /* SharedRegistrationViewData.swift in Sources */,
@@ -1359,6 +1390,7 @@
 				30984B8929A0B9E500A85B32 /* DispatchQueueExtensions.swift in Sources */,
 				30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */,
 				303E846F299E891F003D8FC3 /* AuthorizationRequest.swift in Sources */,
+				30245C5229BDB8BB0065E9ED /* LessonsListView.swift in Sources */,
 				4F80611029A8A83A004DDA52 /* StudentRegistrationFormView.swift in Sources */,
 				4F8A06AC29BD97230014947E /* GetProfileStudentUseCase.swift in Sources */,
 				303E8482299E8CF4003D8FC3 /* NetworkingErrorsEnum.swift in Sources */,

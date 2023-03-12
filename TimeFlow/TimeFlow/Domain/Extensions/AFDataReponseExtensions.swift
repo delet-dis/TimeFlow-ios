@@ -32,14 +32,16 @@ extension AFDataResponse {
 
     func processResult<T: Codable>(
         jsonDecoder: JSONDecoder,
-        completion: ((Result<T, Error>) -> Void)?,
-        logoutUseCase: LogoutUseCase? = nil
+        completion: ((Result<T, Error>) -> Void)?
     ) {
         if let underlyingError = error?.asAFError?.underlyingError {
             completion?(.failure(underlyingError))
 
             return
         }
+
+        print(response)
+        print(String(data: self.data ?? Data(), encoding: .utf8))
 
         if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode ||
             self.response?.statusCode == NetworkingConstants.userAlreadyExistsStatusCode {

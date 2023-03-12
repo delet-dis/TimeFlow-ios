@@ -33,8 +33,8 @@ struct HomeView: View {
                     }
                 }
                 .opacity(isScheduleDisplaying ? 1 : 0)
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .padding(.horizontal, 24)
             .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
             .onReceive(viewModel.$isScheduleDisplaying) { value in
                 withAnimation {

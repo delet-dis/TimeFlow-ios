@@ -27,6 +27,10 @@ class HomeViewModel: ObservableObject {
     private let getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase
     private let getTokensUseCase: GetTokensUseCase
 
+    private let getTeacherLessonsUseCase: GetTeacherLessonsUseCase
+    private let getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase
+    private let getClassroomLessonsUseCase: GetClassroomLessonsUseCase
+
     init(
         getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase,
         saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase,
@@ -34,6 +38,11 @@ class HomeViewModel: ObservableObject {
         getProfileStudentUseCase: GetProfileStudentUseCase,
         getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase,
         getTokensUseCase: GetTokensUseCase,
+
+        getTeacherLessonsUseCase: GetTeacherLessonsUseCase,
+        getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase,
+        getClassroomLessonsUseCase: GetClassroomLessonsUseCase,
+
         profileComponent: ProfileComponent? = nil
     ) {
         self.getDisplayingScheduleUseCase = getDisplayingScheduleUseCase
@@ -42,6 +51,10 @@ class HomeViewModel: ObservableObject {
         self.getProfileStudentUseCase = getProfileStudentUseCase
         self.getProfileEmployeeUseCase = getProfileEmployeeUseCase
         self.getTokensUseCase = getTokensUseCase
+
+        self.getTeacherLessonsUseCase = getTeacherLessonsUseCase
+        self.getStudentGroupLessonsUseCase = getStudentGroupLessonsUseCase
+        self.getClassroomLessonsUseCase = getClassroomLessonsUseCase
 
         self.profileComponent = profileComponent
 
@@ -59,6 +72,7 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+
     private func getDisplayingSchedule() {
         LoaderView.startLoading()
 
@@ -82,7 +96,7 @@ class HomeViewModel: ObservableObject {
     private func loadScheduleToDisplay() {
         LoaderView.startLoading()
 
-        let showUnableToLoadScheduleMessage = {[weak self] in
+        let showUnableToLoadScheduleMessage = { [weak self] in
             self?.processError(
                 NSError.createErrorWithLocalizedDescription(
                     R.string.localizable.pleaseSpecifyPreferredScheduleInProfile()
@@ -148,7 +162,12 @@ class HomeViewModel: ObservableObject {
 
     private func processDisplayingSchedule(_ displayingSchedule: DisplayingSchedule?) {
         if let displayingSchedule = displayingSchedule {
-            scheduleViewModel = .init(displayingSchedule: displayingSchedule)
+            scheduleViewModel = .init(
+                displayingSchedule: displayingSchedule,
+                getTeacherLessonsUseCase: getTeacherLessonsUseCase,
+                getStudentGroupLessonsUseCase: getStudentGroupLessonsUseCase,
+                getClassroomLessonsUseCase: getClassroomLessonsUseCase
+            )
 
             isScheduleDisplaying = true
         } else {

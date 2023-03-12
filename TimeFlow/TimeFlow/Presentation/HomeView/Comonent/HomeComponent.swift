@@ -16,6 +16,11 @@ protocol HomeComponentDependency: Dependency {
     var getProfileStudentUseCase: GetProfileStudentUseCase { get }
     var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase { get }
     var getTokensUseCase: GetTokensUseCase { get }
+
+    var getTeacherLessonsUseCase: GetTeacherLessonsUseCase { get }
+    var getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase { get }
+    var getClassroomLessonsUseCase: GetClassroomLessonsUseCase { get }
+
     var profileComponent: ProfileComponent { get }
 }
 
@@ -29,6 +34,11 @@ final class HomeComponent: Component<HomeComponentDependency> {
                 getProfileStudentUseCase: dependency.getProfileStudentUseCase,
                 getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase,
                 getTokensUseCase: dependency.getTokensUseCase,
+
+                getTeacherLessonsUseCase: dependency.getTeacherLessonsUseCase,
+                getStudentGroupLessonsUseCase: dependency.getStudentGroupLessonsUseCase,
+                getClassroomLessonsUseCase: dependency.getClassroomLessonsUseCase,
+
                 profileComponent: dependency.profileComponent
             )
         }

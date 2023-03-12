@@ -5,7 +5,7 @@
 //  Created by Igor Efimov on 09.03.2023.
 //
 
-import ElegantCalendar
+import SPAlert
 import SwiftUI
 
 struct ScheduleView: View {
@@ -17,13 +17,42 @@ struct ScheduleView: View {
 
             WeekSwitcherView(viewModel: viewModel.weekSwitcherViewModel)
 
-            Spacer()
-        }
-    }
-}
+            TabView(selection: $viewModel.displayingDayEnum) {
+                LessonsListView(dispalyingLessons: viewModel.displayingDaysData.leftDisplayingDayData)
+                    .tag(DisplayingDayEnum.left)
+                    .onDisappear {
+                        viewModel.displayingDayChanged()
+                    }
 
-struct ScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScheduleView(viewModel: .init(displayingSchedule: .init(type: .classroom, id: UUID().uuidString)))
+                LessonsListView(dispalyingLessons: viewModel.displayingDaysData.centerDisplayingDayData)
+                    .tag(DisplayingDayEnum.center)
+                    .onDisappear {
+                        viewModel.displayingDayChanged()
+                    }
+
+                LessonsListView(dispalyingLessons: viewModel.displayingDaysData.rightDisplayingDayData)
+                    .tag(DisplayingDayEnum.right)
+                    .onDisappear {
+                        viewModel.displayingDayChanged()
+                    }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//            .overlay {
+//                if !viewModel.isAbleToChangePage {
+//                    Rectangle()
+//                        .foregroundColor(.black.opacity(0.00001))
+//                }
+//            }
+            .onAppear {
+                viewModel.viewDidAppear()
+            }
+        }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }

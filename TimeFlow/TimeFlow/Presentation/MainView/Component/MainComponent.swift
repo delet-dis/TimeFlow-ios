@@ -67,6 +67,10 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var lessonsRepository: LessonsRepository {
+        LessonsRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+    }
+
     // MARK: Auth use cases
 
     var loginUseCase: LoginUseCase {
@@ -157,6 +161,26 @@ class MainComponent: BootstrapComponent {
     var getUserRoleUseCase: GetUserRoleUseCase {
         shared {
             GetUserRoleUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    // MARK: Lessons repository use cases
+
+    var getTeacherLessonsUseCase: GetTeacherLessonsUseCase {
+        shared {
+            GetTeacherLessonsUseCase(lessonsRepository: lessonsRepository)
+        }
+    }
+
+    var getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase {
+        shared {
+            GetStudentGroupLessonsUseCase(lessonsRepository: lessonsRepository)
+        }
+    }
+
+    var getClassroomLessonsUseCase: GetClassroomLessonsUseCase {
+        shared {
+            GetClassroomLessonsUseCase(lessonsRepository: lessonsRepository)
         }
     }
 

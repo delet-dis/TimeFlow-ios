@@ -36,11 +36,11 @@ class ProfileViewModel: ObservableObject {
 
         print(error)
     }
-    
+
     func viewDidAppear() {
         getProfileRoleUser()
     }
-    
+
     func getProfileRoleUser() {
         getTokensUseCase.execute(tokenType: .auth) { [self] result in
             switch result {
@@ -52,15 +52,12 @@ class ProfileViewModel: ObservableObject {
                     case .failure(let error):
                         processError(error)
                     }
-                    
                 }
             case .failure(let error):
                 processError(error)
             }
         }
     }
-        
-
 
     func updateExternalUserProfileData() {
         getTokensUseCase.execute(tokenType: .auth) { [self] result in

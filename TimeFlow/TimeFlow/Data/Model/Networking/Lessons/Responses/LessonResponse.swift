@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LessonResponse: Codable {
+struct LessonResponse: Codable, Identifiable {
     let id: String
     let studentGroup: StudentGroup
     let subject: Subject
