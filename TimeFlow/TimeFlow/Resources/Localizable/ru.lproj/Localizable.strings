@@ -53,9 +53,10 @@
 // MARK: Shared
 "loading" = "Загрузка";
 
-
 // MARK: Profile
 "FIO" = "ФИО";
 "role" = "Роль";
 "statusUser" = "Статус";
 
+// MARK: Schedule
+"pleaseSpecifyPreferredScheduleInProfile" = "Установите желаемое расписание в профиле";

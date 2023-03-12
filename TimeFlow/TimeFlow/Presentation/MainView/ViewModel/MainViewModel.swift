@@ -76,11 +76,7 @@ class MainViewModel: ObservableObject {
         authStatusObserver = Defaults.observe(\.isAuthorized) { [self] update in
             if let isAuthorized = update.newValue,
                let isAuthorizedUnwrapped = isAuthorized {
-                if isAuthorizedUnwrapped {
-                    mainViewDispalyingMode = .homeScreen
-                } else {
-                    mainViewDispalyingMode = .authorization
-                }
+                processAuthStatus(isAuthorized: isAuthorizedUnwrapped)
             }
         }
     }

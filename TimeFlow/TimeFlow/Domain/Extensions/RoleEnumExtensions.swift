@@ -8,8 +8,8 @@
 import Foundation
 
 extension RoleEnum {
-    static func getValueByRequest(_ requestValue: String) -> Self? {
-        switch requestValue {
+    static func getValueFromString(_ string: String) -> Self? {
+        switch string {
         case "ROLE_USER":
             return .user
         case "ROLE_STUDENT":

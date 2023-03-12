@@ -84,7 +84,8 @@ class MainComponent: BootstrapComponent {
             LogoutUseCase(
                 authRepository: authRepository,
                 saveTokensUseCase: saveTokensUseCase,
-                saveAuthStatusUseCase: saveAuthStatusUseCase
+                saveAuthStatusUseCase: saveAuthStatusUseCase,
+                saveDisplayingScheduleUseCase: saveDisplayingScheduleUseCase
             )
         }
     }
@@ -147,6 +148,24 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var getProfileStudentUseCase: GetProfileStudentUseCase {
+        shared {
+            GetProfileStudentUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
+        shared {
+            GetProfileEmployeeUseCaseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getUserRoleUseCase: GetUserRoleUseCase {
+        shared {
+            GetUserRoleUseCase(profileRepository: profileRepository)
+        }
+    }
+
     // MARK: Request interceptor
 
     var requestInterceptor: RequestInterceptor {
@@ -185,6 +204,18 @@ class MainComponent: BootstrapComponent {
     var getAuthStatusUseCase: GetAuthStatusUseCase {
         shared {
             GetAuthStatusUseCase()
+        }
+    }
+
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase {
+        shared {
+            SaveDisplayingScheduleUseCase()
+        }
+    }
+
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase {
+        shared {
+            GetDisplayingScheduleUseCase()
         }
     }
 

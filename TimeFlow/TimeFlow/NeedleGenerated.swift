@@ -75,6 +75,24 @@ private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: Needle
     return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class HomeComponentDependency887e91671f4424758155Provider: HomeComponentDependency {
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase {
+        return mainComponent.getDisplayingScheduleUseCase
+    }
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase {
+        return mainComponent.saveDisplayingScheduleUseCase
+    }
+    var getUserRoleUseCase: GetUserRoleUseCase {
+        return mainComponent.getUserRoleUseCase
+    }
+    var getProfileStudentUseCase: GetProfileStudentUseCase {
+        return mainComponent.getProfileStudentUseCase
+    }
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
+        return mainComponent.getProfileEmployeeUseCase
+    }
+    var getTokensUseCase: GetTokensUseCase {
+        return mainComponent.getTokensUseCase
+    }
     var profileComponent: ProfileComponent {
         return mainComponent.profileComponent
     }
@@ -122,12 +140,16 @@ extension ProfileComponent: Registration {
     public func registerItems() {
         keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
         keyPathToName[\ProfileComponentDependency.getProfileExternalUseCase] = "getProfileExternalUseCase-GetProfileExternalUseCase"
-        keyPathToName[\ProfileComponentDependency.getRoleUserUseCase] = "getRoleUserUseCase-GetRoleUserUseCase"
-        keyPathToName[\ProfileComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }
 extension HomeComponent: Registration {
     public func registerItems() {
+        keyPathToName[\HomeComponentDependency.getDisplayingScheduleUseCase] = "getDisplayingScheduleUseCase-GetDisplayingScheduleUseCase"
+        keyPathToName[\HomeComponentDependency.saveDisplayingScheduleUseCase] = "saveDisplayingScheduleUseCase-SaveDisplayingScheduleUseCase"
+        keyPathToName[\HomeComponentDependency.getUserRoleUseCase] = "getUserRoleUseCase-GetUserRoleUseCase"
+        keyPathToName[\HomeComponentDependency.getProfileStudentUseCase] = "getProfileStudentUseCase-GetProfileStudentUseCase"
+        keyPathToName[\HomeComponentDependency.getProfileEmployeeUseCase] = "getProfileEmployeeUseCase-GetProfileEmployeeUseCaseCase"
+        keyPathToName[\HomeComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
         keyPathToName[\HomeComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }
