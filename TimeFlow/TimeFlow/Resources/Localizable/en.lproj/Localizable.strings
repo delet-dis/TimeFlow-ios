@@ -70,9 +70,11 @@
 "postRole" = "Post role";
 "postName" = "Post name";
 "currentLessons" = "Current lessons";
-"teacher" = "Teacher";
+"teacherType" = "Teacher";
 "classroom" = "Classroom";
 "group" = "Group";
+"changeEmail" = "Change email";
+"changePassword" = "Change password";
 
 // MARK: Schedule
 "pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";

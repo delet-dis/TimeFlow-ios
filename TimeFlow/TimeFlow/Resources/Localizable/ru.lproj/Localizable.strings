@@ -70,9 +70,12 @@
 "postRole" = "Должность";
 "postName" = "Название должности";
 "currentLessons" = "Выбранное расписание";
-"teacher" = "Преподаватель";
+"teacherType" = "Преподаватель";
 "classroom" = "Аудитория";
 "group" = "Группа";
+"changeEmail" = "Сменить почту";
+"changePassword" = "Сменить пароль";
+
 
 
 // MARK: Schedule

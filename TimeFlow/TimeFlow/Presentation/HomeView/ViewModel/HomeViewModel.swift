@@ -27,9 +27,17 @@ class HomeViewModel: ObservableObject {
     private let getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase
     private let getTokensUseCase: GetTokensUseCase
 
+    @Published var teacherList: [TeachersList] = []
+    @Published var classroomList: [ClassroomList] = []
+    @Published var studentGroups: [StudentGroup] = []
+    
     private let getTeacherLessonsUseCase: GetTeacherLessonsUseCase
     private let getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase
     private let getClassroomLessonsUseCase: GetClassroomLessonsUseCase
+    
+    private let getTeachersListUseCase: GetTeachersListUseCase
+    private let getClassroomsListUseCase: GetClassroomsListUseCase
+    private let getStudentGroupsUseCase: GetStudentGroupsUseCase
 
     init(
         getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase,
@@ -38,6 +46,9 @@ class HomeViewModel: ObservableObject {
         getProfileStudentUseCase: GetProfileStudentUseCase,
         getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase,
         getTokensUseCase: GetTokensUseCase,
+        getTeachersListUseCase: GetTeachersListUseCase,
+        getClassroomsListUseCase: GetClassroomsListUseCase,
+        getStudentGroupsUseCase: GetStudentGroupsUseCase,
 
         getTeacherLessonsUseCase: GetTeacherLessonsUseCase,
         getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase,
@@ -55,6 +66,10 @@ class HomeViewModel: ObservableObject {
         self.getTeacherLessonsUseCase = getTeacherLessonsUseCase
         self.getStudentGroupLessonsUseCase = getStudentGroupLessonsUseCase
         self.getClassroomLessonsUseCase = getClassroomLessonsUseCase
+        
+        self.getStudentGroupsUseCase = getStudentGroupsUseCase
+        self.getTeachersListUseCase = getTeachersListUseCase
+        self.getClassroomsListUseCase = getClassroomsListUseCase
 
         self.profileComponent = profileComponent
 
@@ -72,6 +87,39 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    func getTeachearListData() {
+        getTeachersListUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let teacherList):
+                self?.teacherList = teacherList
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    func getClassroomListData() {
+        getClassroomsListUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let classroomList):
+                self?.classroomList = classroomList
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    func getStudentGroups() {
+        getStudentGroupsUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let groups):
+                self?.studentGroups = groups.sorted(by: { $0.number ?? 0 < $1.number ?? 0 })
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
 
     private func getDisplayingSchedule() {
         LoaderView.startLoading()
@@ -81,6 +129,14 @@ class HomeViewModel: ObservableObject {
 
             switch result {
             case .success(let displayingSchedule):
+                
+//                switch displayingSchedule?.type{
+//                    case .teacher:
+//                    case .group:
+//                    case .classroom:
+//                    case .none:
+//                        ()
+//                }
                 self?.processDisplayingSchedule(displayingSchedule)
 
                 if displayingSchedule == nil {

@@ -16,16 +16,28 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if let profileView = viewModel.profileComponent?.profileView {
-                    NavigationLink {
-                        profileView
-                    } label: {
-                        Image(systemName: "person.crop.circle")
-                            .font(.system(size: 50))
-                            .foregroundColor(.gray)
+                HStack{
+                    Text("SomeText")
+                        .font(
+                            Font(
+                                R.font.ralewayMedium(size: 16) ??
+                                    .systemFont(ofSize: 20, weight: .medium)
+                            )
+                        )
+                        .padding(.horizontal, 30)
+                    if let profileView = viewModel.profileComponent?.profileView {
+                        NavigationLink {
+                            profileView
+                        } label: {
+                            Image(systemName: "person.crop.circle")
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                        .padding()
                     }
-                    .padding()
                 }
+                
 
                 Group {
                     if let scheduleViewModel = viewModel.scheduleViewModel {

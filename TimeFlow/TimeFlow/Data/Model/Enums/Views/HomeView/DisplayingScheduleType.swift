@@ -15,7 +15,7 @@ enum DisplayingScheduleType: Codable, Identifiable, CaseIterable {
     var networkingValue: String? {
         switch self {
         case .teacher:
-            return R.string.localizable.teacher()
+            return R.string.localizable.teacherType()
         case .group:
             return R.string.localizable.group()
         case .classroom:
@@ -36,7 +36,7 @@ enum DisplayingScheduleType: Codable, Identifiable, CaseIterable {
     
     static func getValueFromString(_ string: String) -> Self? {
         switch string {
-        case R.string.localizable.teacher():
+        case R.string.localizable.teacherType():
             return .teacher
         case R.string.localizable.group():
             return .group

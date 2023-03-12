@@ -24,6 +24,9 @@ class ProfileViewModel: ObservableObject {
     @Published var sharedStudentProfileData = SharedStudentViewData()
     @Published var sharedEmployeeProfileData = SharedEmployeeViewData()
     @Published var sheduleTypeViewData = SheduleTypeViewData()
+    @Published var teachersViewData = TeacherViewData()
+    @Published var classroomViewData = ClassroomViewData()
+    @Published var sharedStudentRegistrationData = StudentRegistrationViewData()
 
     @Published private(set) var externalUserProfileData: User?
 
@@ -68,6 +71,9 @@ class ProfileViewModel: ObservableObject {
 
     func viewDidAppear() {
         getProfileRoleUser()
+        getStudentGroups()
+        getTeachearListData()
+        getClassroomListData()
     }
 
     func getProfileRoleUser() {
@@ -135,6 +141,14 @@ class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
+    func viewDidDisappear() {
+        teacherList = []
+        classroomList = []
+        studentGroups = []
+    }
+
+   
 
     func getTeachearListData() {
         getTeachersListUseCase.execute { [weak self] result in

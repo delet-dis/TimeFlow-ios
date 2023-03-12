@@ -120,6 +120,8 @@
 		4F059DED29BE28B100804DE1 /* ClassroomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F059DEC29BE28B100804DE1 /* ClassroomList.swift */; };
 		4F059DEF29BE2A7200804DE1 /* GetTeachersListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F059DEE29BE2A7200804DE1 /* GetTeachersListUseCase.swift */; };
 		4F059DF129BE2AD700804DE1 /* GetClassroomsListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F059DF029BE2AD700804DE1 /* GetClassroomsListUseCase.swift */; };
+		4F059DF329BE319000804DE1 /* TeacherViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F059DF229BE319000804DE1 /* TeacherViewData.swift */; };
+		4F059DF629BE31F900804DE1 /* ClassroomViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F059DF529BE31F900804DE1 /* ClassroomViewData.swift */; };
 		4F0849D9299FC8600050439F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849D8299FC8600050439F /* RegistrationView.swift */; };
 		4F0849DE299FC9820050439F /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0849DD299FC9820050439F /* RegistrationComponent.swift */; };
 		4F0849E1299FCA400050439F /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0849E0299FCA400050439F /* SwiftyUserDefaults */; };
@@ -286,6 +288,8 @@
 		4F059DEC29BE28B100804DE1 /* ClassroomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomList.swift; sourceTree = "<group>"; };
 		4F059DEE29BE2A7200804DE1 /* GetTeachersListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeachersListUseCase.swift; sourceTree = "<group>"; };
 		4F059DF029BE2AD700804DE1 /* GetClassroomsListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClassroomsListUseCase.swift; sourceTree = "<group>"; };
+		4F059DF229BE319000804DE1 /* TeacherViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewData.swift; sourceTree = "<group>"; };
+		4F059DF529BE31F900804DE1 /* ClassroomViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewData.swift; sourceTree = "<group>"; };
 		4F0849D8299FC8600050439F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4F0849DD299FC9820050439F /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
 		4F0849E529A0BF710050439F /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
@@ -610,6 +614,8 @@
 				304585D529BD89290050537B /* DisplayingScheduleType.swift */,
 				30245C4C29BDB77B0065E9ED /* DisplayingDayEnum.swift */,
 				4F059DE629BE215800804DE1 /* SheduleTypeViewData.swift */,
+				4F059DF229BE319000804DE1 /* TeacherViewData.swift */,
+				4F059DF529BE31F900804DE1 /* ClassroomViewData.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1331,6 +1337,7 @@
 				4F58629F299E099200DB82FC /* LoginViewModel.swift in Sources */,
 				4FA0A69C29BB887C00AB3A66 /* GroupResponse.swift in Sources */,
 				4FA0A6A629BC6CF200AB3A66 /* RoleEnumExtensions.swift in Sources */,
+				4F059DF629BE31F900804DE1 /* ClassroomViewData.swift in Sources */,
 				4FA0A69829BB87C800AB3A66 /* TeacherResponse.swift in Sources */,
 				30D4AE6429ACDE5100D4BA10 /* RegistrationRepositoryImpl.swift in Sources */,
 				304585C929BC984F0050537B /* TokenTypeEnum.swift in Sources */,
@@ -1419,6 +1426,7 @@
 				30D4AE6A29ACE22B00D4BA10 /* RegisterExternalUserUseCase.swift in Sources */,
 				303E8492299E91ED003D8FC3 /* LoginUseCase.swift in Sources */,
 				4F059DEF29BE2A7200804DE1 /* GetTeachersListUseCase.swift in Sources */,
+				4F059DF329BE319000804DE1 /* TeacherViewData.swift in Sources */,
 				303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */,
 				30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */,
 				30D0288A29BB2A5800C5D698 /* LessonResponseExtensions.swift in Sources */,
