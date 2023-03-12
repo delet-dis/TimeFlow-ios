@@ -14,11 +14,11 @@ class ProfileViewModel: ObservableObject {
     @Published private(set) var alertText = ""
 
     private let getTokensUseCase: GetTokensUseCase
-    private let getProfileUseCase: GetProfileUseCase
+    private let getProfileUseCase: GetProfileExternalUseCase
 
     init(
         getTokensUseCase: GetTokensUseCase,
-        getProfileUseCase: GetProfileUseCase
+        getProfileUseCase: GetProfileExternalUseCase
     ) {
         self.getTokensUseCase = getTokensUseCase
         self.getProfileUseCase = getProfileUseCase

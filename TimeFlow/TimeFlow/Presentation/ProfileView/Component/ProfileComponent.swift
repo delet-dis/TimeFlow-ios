@@ -11,7 +11,7 @@ import SwiftUI
 
 protocol ProfileComponentDependency: Dependency {
     var getTokensUseCase: GetTokensUseCase { get }
-    var getProfileUseCase: GetProfileUseCase { get }
+    var getProfileUseCase: GetProfileExternalUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {

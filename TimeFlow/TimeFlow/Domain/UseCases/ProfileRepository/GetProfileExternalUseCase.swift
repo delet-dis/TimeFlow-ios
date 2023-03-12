@@ -8,11 +8,11 @@
 import Foundation
 import NeedleFoundation
 
-protocol GetProfileUseCaseProvider: Dependency {
-    var getProfileUseCaseProvider: GetProfileUseCase { get }
+protocol GetProfileExternalUseCaseProvider: Dependency {
+    var getProfileUseCaseProvider: GetProfileExternalUseCase { get }
 }
 
-class GetProfileUseCase {
+class GetProfileExternalUseCase {
     private let profileRepository: ProfileRepository
 
     init(profileRepository: ProfileRepository) {
