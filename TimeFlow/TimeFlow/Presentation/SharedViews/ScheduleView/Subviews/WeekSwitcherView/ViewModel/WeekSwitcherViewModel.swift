@@ -21,6 +21,9 @@ class WeekSwitcherViewModel: ObservableObject {
     @Published private(set) var isAbleToChangePage = true
 
     @Published var isDragRecentlyHappend = false
+    @Published private(set) var isTapHappend = false
+
+    private(set) var isChangesAnimationRequired = false
 
     private var dayPickedClosure: ((Date) -> Void)?
 
@@ -33,7 +36,33 @@ class WeekSwitcherViewModel: ObservableObject {
             self?.dayPickedClosure?(day)
         }
 
-        calendarManager.selectedDate = .now
+        calendarManager.selectDay(.now)
+    }
+
+    func selectDate(_ date: Date){
+        calendarManager.selectDay(date)
+
+        if let startOfWeek = displayingWeeksData.centerDisplayingWeek.startOfWeek, date < startOfWeek {
+            isChangesAnimationRequired = true
+            displayingWeekEnum = .left
+
+            DispatchQueue.runAsyncOnMainWithDelay {[weak self] in
+                self?.isChangesAnimationRequired = false
+            }
+        }
+
+        if let endOfWeek = displayingWeeksData.centerDisplayingWeek.endOfWeek,  date > endOfWeek {
+            isChangesAnimationRequired = true
+            displayingWeekEnum = .right
+
+            DispatchQueue.runAsyncOnMainWithDelay {[weak self] in
+                self?.isChangesAnimationRequired = false
+            }
+        }
+    }
+
+    func toggleIsTapHappend() {
+        isTapHappend = true
     }
 
     func setDayPickedClosure(_ closure: @escaping ((Date) -> Void)) {

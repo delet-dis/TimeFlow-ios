@@ -40,9 +40,6 @@ extension AFDataResponse {
             return
         }
 
-        print(response)
-        print(String(data: self.data ?? Data(), encoding: .utf8))
-
         if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode ||
             self.response?.statusCode == NetworkingConstants.userAlreadyExistsStatusCode {
             completion?(.failure(processError()))

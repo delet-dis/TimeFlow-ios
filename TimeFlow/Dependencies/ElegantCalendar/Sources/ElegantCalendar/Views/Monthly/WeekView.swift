@@ -10,17 +10,20 @@ public struct WeekView: View, MonthlyCalendarManagerDirectAccess {
 
     private let isDisplayingMonthsDifferences: Bool
     private let isDragRecentlyHappend: Bool
+    private let isTapHappend: Bool
 
     public init(
         calendarManager: MonthlyCalendarManager,
         week: Date,
         isDisplayingMonthsDifferences: Bool = true,
-        isDragReccentlyHappend: Bool = false
+        isDragReccentlyHappend: Bool = false,
+        isTapHappend: Bool = false
     ) {
         self.calendarManager = calendarManager
         self.week = week
         self.isDisplayingMonthsDifferences = isDisplayingMonthsDifferences
         self.isDragRecentlyHappend = isDragReccentlyHappend
+        self.isTapHappend = isTapHappend
     }
 
     private var days: [Date] {
@@ -40,7 +43,8 @@ public struct WeekView: View, MonthlyCalendarManagerDirectAccess {
                     week: self.week,
                     day: day,
                     isDisplayingMonthsDifferences: isDisplayingMonthsDifferences,
-                    isDragRecentlyHappend: isDragRecentlyHappend
+                    isDragRecentlyHappend: isDragRecentlyHappend,
+                    isTapHappend: isTapHappend
                 )
             }
         }

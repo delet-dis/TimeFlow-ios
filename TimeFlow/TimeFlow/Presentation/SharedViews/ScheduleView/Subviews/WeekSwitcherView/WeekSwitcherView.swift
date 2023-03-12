@@ -11,40 +11,60 @@ import SwiftUI
 struct WeekSwitcherView: View {
     @ObservedObject var viewModel: WeekSwitcherViewModel
 
+    @State private var displayingWeekEnum: DisplayingWeekEnum = .center {
+        willSet {
+            if viewModel.displayingWeekEnum != newValue {
+                viewModel.displayingWeekEnum = newValue
+            }
+        }
+    }
+
     var body: some View {
         VStack {
-            TabView(selection: $viewModel.displayingWeekEnum) {
+            TabView(selection: $displayingWeekEnum) {
                 WeekView(
                     calendarManager: viewModel.calendarManager,
                     week: viewModel.displayingWeeksData.leftDisplayingWeek,
                     isDisplayingMonthsDifferences: false,
-                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend
+                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend,
+                    isTapHappend: viewModel.isTapHappend
                 )
                 .tag(DisplayingWeekEnum.left)
                 .onDisappear {
-                    viewModel.displayingWeekChanged()
+                    DispatchQueue.main.asyncAfter(deadline: .now() +
+                        (viewModel.isChangesAnimationRequired ? 0.5 : 0)) {
+                            viewModel.displayingWeekChanged()
+                        }
                 }
 
                 WeekView(
                     calendarManager: viewModel.calendarManager,
                     week: viewModel.displayingWeeksData.centerDisplayingWeek,
                     isDisplayingMonthsDifferences: false,
-                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend
+                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend,
+                    isTapHappend: viewModel.isTapHappend
                 )
                 .tag(DisplayingWeekEnum.center)
                 .onDisappear {
-                    viewModel.displayingWeekChanged()
+                    DispatchQueue.main.asyncAfter(deadline: .now() +
+                        (viewModel.isChangesAnimationRequired ? 0.5 : 0)) {
+                            viewModel.displayingWeekChanged()
+                        }
                 }
 
                 WeekView(
                     calendarManager: viewModel.calendarManager,
                     week: viewModel.displayingWeeksData.rightDisplayingWeek,
                     isDisplayingMonthsDifferences: false,
-                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend
+                    isDragReccentlyHappend: viewModel.isDragRecentlyHappend,
+                    isTapHappend: viewModel.isTapHappend
                 )
                 .tag(DisplayingWeekEnum.right)
                 .onDisappear {
-                    viewModel.displayingWeekChanged()
+                    DispatchQueue.main.asyncAfter(deadline: .now() +
+                        (viewModel.isChangesAnimationRequired ? 0.5 : 0)) {
+                            viewModel.displayingWeekChanged()
+                        }
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -109,6 +129,15 @@ struct WeekSwitcherView: View {
             Spacer()
         }
         .frame(height: 130)
+        .onReceive(viewModel.$displayingWeekEnum) { value in
+            if viewModel.isChangesAnimationRequired {
+                withAnimation {
+                    displayingWeekEnum = value
+                }
+            } else {
+                displayingWeekEnum = value
+            }
+        }
     }
 }
 

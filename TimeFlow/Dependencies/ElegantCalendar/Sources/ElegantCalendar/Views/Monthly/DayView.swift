@@ -12,19 +12,22 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
 
     private let isDisplayingMonthsDifferences: Bool
     private let isDragRecentlyHappend: Bool
+    private let isTapHappend: Bool
 
     init(
         calendarManager: MonthlyCalendarManager,
         week: Date,
         day: Date,
         isDisplayingMonthsDifferences: Bool = true,
-        isDragRecentlyHappend: Bool = false
+        isDragRecentlyHappend: Bool = false,
+        isTapHappend: Bool = false
     ) {
         self.calendarManager = calendarManager
         self.week = week
         self.day = day
         self.isDisplayingMonthsDifferences = isDisplayingMonthsDifferences
         self.isDragRecentlyHappend = isDragRecentlyHappend
+        self.isTapHappend = isTapHappend
     }
 
     private var isDayWithinDateRange: Bool {
@@ -49,7 +52,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
 
     private var isSelected: Bool {
         guard let selectedDate = selectedDate else { return false }
-        return calendar.isDate(selectedDate, equalTo: day, toGranularities: [.day, .month, .year])
+        return calendar.isDate(selectedDate, equalTo: isTapHappend ? day.nextDay : day, toGranularities: [.day, .month, .year])
     }
 
     @State private var isUnselectAniamtionDisplaying = false
@@ -117,7 +120,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
         guard isDayWithinDateRange && canSelectDay else { return }
 
         if isDayToday || isDayWithinWeekMonthAndYear || !isDisplayingMonthsDifferences {
-            calendarManager.dayTapped(day: day, withHaptic: true)
+            calendarManager.dayTapped(day: day.nextDay, withHaptic: true)
         }
     }
 }

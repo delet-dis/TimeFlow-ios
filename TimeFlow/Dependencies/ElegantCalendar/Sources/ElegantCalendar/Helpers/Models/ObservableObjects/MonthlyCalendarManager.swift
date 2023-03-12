@@ -57,6 +57,10 @@ public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess
     public func setDidSelectDayClosure(_ didSelectDayClosure: ((Date) -> Void)? = nil) {
         self.didSelectDayClosure = didSelectDayClosure
     }
+
+    public func selectDay(_ date: Date) {
+        selectedDate = date
+    }
 }
 
 extension MonthlyCalendarManager {

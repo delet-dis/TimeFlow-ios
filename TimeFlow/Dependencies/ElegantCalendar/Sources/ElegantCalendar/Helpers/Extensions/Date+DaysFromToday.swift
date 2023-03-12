@@ -8,5 +8,12 @@ extension Date {
         Date().addingTimeInterval(TimeInterval(60*60*24*days))
     }
 
+    var nextDay: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+
+    var previousDay: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
+    }
 }
 

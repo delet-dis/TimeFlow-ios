@@ -11,7 +11,7 @@ struct LessonsListView: View {
     let dispalyingLessons: [LessonResponse]
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 20) {
                 ForEach(Array(dispalyingLessons.enumerated()), id: \.offset) { index, lesson in
                     LessonView(displayingLesson: lesson)

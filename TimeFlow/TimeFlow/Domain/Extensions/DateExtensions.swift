@@ -9,23 +9,19 @@ import Foundation
 
 extension Date {
     var previousWeek: Date {
-        Calendar.current.date(byAdding: DateComponents(day: -7), to: self)!
+        Calendar.autoupdatingCurrent.date(byAdding: DateComponents(day: -7), to: self)!
     }
 
     var nextWeek: Date {
-        Calendar.current.date(byAdding: DateComponents(day: +7), to: self)!
+        Calendar.autoupdatingCurrent.date(byAdding: DateComponents(day: +7), to: self)!
     }
-
-    var noon: Date {
-        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
-    }
-
+    
     var previousDay: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+        return Calendar.autoupdatingCurrent.date(byAdding: .day, value: -1, to: self)!
     }
 
     var nextDay: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+        return Calendar.autoupdatingCurrent.date(byAdding: .day, value: 1, to: self)!
     }
 
     var startOfWeek: Date? {

@@ -19,6 +19,10 @@ class ScheduleViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    @Published private(set) var isLessonsListDisplaying = true
+
+    private var loadedSchedule: [String: [LessonResponse]] = [:]
+
     private let displayingSchedule: DisplayingSchedule
 
     private var displayingDay = Date.now
@@ -28,6 +32,10 @@ class ScheduleViewModel: ObservableObject {
     private let getTeacherLessonsUseCase: GetTeacherLessonsUseCase
     private let getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase
     private let getClassroomLessonsUseCase: GetClassroomLessonsUseCase
+
+    private var dateFormatter: ISO8601DateFormatter
+
+    private var isWeekSwitcherTappedOnce = false
 
     init(
         displayingSchedule: DisplayingSchedule,
@@ -41,37 +49,40 @@ class ScheduleViewModel: ObservableObject {
         self.getStudentGroupLessonsUseCase = getStudentGroupLessonsUseCase
         self.getClassroomLessonsUseCase = getClassroomLessonsUseCase
 
-        self.weekSwitcherViewModel = .init()
+        weekSwitcherViewModel = .init()
+
+        dateFormatter = .init()
+        dateFormatter.formatOptions = [.withFullDate]
 
         weekSwitcherViewModel.setDayPickedClosure { [weak self] day in
-            self?.changeDisplayingDay(day)
+            self?.weekSwitcherViewModel.toggleIsTapHappend()
+
+            self?.isLessonsListDisplaying = false
+
+            DispatchQueue.runAsyncOnMainWithDelay {
+                self?.changeDisplayingDay(day)
+            }
         }
 
         initDisplayingDayObserving()
     }
 
     func displayingDayChanged() {
-//        isAbleToChangePage = false
-//
-//        switch displayingWeekEnum {
-//        case .left:
-//            displayingWeeksData.centerDisplayingWeek = displayingWeeksData.leftDisplayingWeek
-//        case .center:
-//            ()
-//        case .right:
-//            displayingWeeksData.centerDisplayingWeek = displayingWeeksData.rightDisplayingWeek
-//        }
-//
-//        displayingWeeksData.leftDisplayingWeek = displayingWeeksData.centerDisplayingWeek.previousWeek
-//        displayingWeeksData.rightDisplayingWeek = displayingWeeksData.centerDisplayingWeek.nextWeek
-//
-//        displayingWeekEnum = .center
-//
-//        isAbleToChangePage = true
+        switch displayingDayEnum {
+        case .left:
+            changeDisplayingDay(displayingDay.previousDay)
+        case .center:
+            ()
+        case .right:
+            changeDisplayingDay(displayingDay.nextDay)
+        }
     }
 
     func viewDidAppear() {
-        loadDisplayingSchedule()
+        loadScheduleForWeek(displayingDay) { [weak self] in
+            guard let self = self else { return }
+            self.changeDisplayingDay(self.displayingDay)
+        }
     }
 
     private func processError(_ error: Error) {
@@ -81,16 +92,24 @@ class ScheduleViewModel: ObservableObject {
         print(error)
     }
 
-    private func loadDisplayingSchedule() {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withFullDate]
+    // swiftlint:disable:next cyclomatic_complexity
+    private func loadScheduleForWeek(
+        _ date: Date,
+        isSilentLoading: Bool = false,
+        completion: (() -> Void)? = nil
+    ) {
+        if !isSilentLoading {
+            LoaderView.startLoading()
+        }
 
-        guard let startOfWeek = displayingDay.startOfWeek, let endOfWeek = displayingDay.endOfWeek else {
+        loadedSchedule = [:]
+
+        guard let startOfWeek = date.startOfWeek, let endOfWeek = date.endOfWeek else {
             return
         }
 
-        let startOfWeekFormatted = formatter.string(from: startOfWeek)
-        let endOfWeekFormatted = formatter.string(from: endOfWeek)
+        let startOfWeekFormatted = dateFormatter.string(from: startOfWeek)
+        let endOfWeekFormatted = dateFormatter.string(from: endOfWeek)
 
         switch displayingSchedule.type {
         case .teacher:
@@ -101,7 +120,7 @@ class ScheduleViewModel: ObservableObject {
             ) { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.displayingDaysData.centerDisplayingDayData = response.lessons
+                    self?.splitLessonsResponseByDays(response.lessons, completion: completion)
                 case .failure(let error):
                     self?.processError(error)
                 }
@@ -114,7 +133,7 @@ class ScheduleViewModel: ObservableObject {
             ) { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.displayingDaysData.centerDisplayingDayData = response.lessons
+                    self?.splitLessonsResponseByDays(response.lessons, completion: completion)
                 case .failure(let error):
                     self?.processError(error)
                 }
@@ -127,7 +146,7 @@ class ScheduleViewModel: ObservableObject {
             ) { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.displayingDaysData.centerDisplayingDayData = response.lessons
+                    self?.splitLessonsResponseByDays(response.lessons, completion: completion)
                 case .failure(let error):
                     self?.processError(error)
                 }
@@ -135,16 +154,88 @@ class ScheduleViewModel: ObservableObject {
         }
     }
 
+    private func splitLessonsResponseByDays(
+        _ lessons: [LessonResponse],
+        completion: (() -> Void)? = nil
+    ) {
+        lessons.forEach { lesson in
+            if !(loadedSchedule[lesson.date]?.contains(where: { $0.id == lesson.id }) ?? false) {
+                var lessonsCopy = loadedSchedule[lesson.date] ?? []
+                lessonsCopy.append(lesson)
+
+                loadedSchedule.updateValue(lessonsCopy, forKey: lesson.date)
+            }
+        }
+
+        completion?()
+
+        LoaderView.endLoading()
+    }
+
     private func initDisplayingDayObserving() {
         $displayingDayEnum.sink { [weak self] _ in
-            self?.isAbleToChangePage = true
+            self?.isAbleToChangePage = false
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self?.isAbleToChangePage = false
+                self?.isAbleToChangePage = true
             }
         }
         .store(in: &subscribers)
     }
 
-    private func changeDisplayingDay(_ date: Date) {}
+    private func changeDisplayingDay(_ date: Date) {
+        isAbleToChangePage = false
+
+        weekSwitcherViewModel.selectDate(date)
+
+        guard let endOfWeek = displayingDay.endOfWeek,
+              let startOfWeek = displayingDay.startOfWeek else {
+            return
+        }
+
+        displayingDay = date
+
+        let processLoadedData = { [weak self] in
+            guard let self = self else { return }
+
+            self.displayingDaysData.leftDisplayingDayData = self.loadedSchedule[
+                self.dateFormatter.string(from: self.displayingDay.previousDay)
+            ] ?? []
+            self.displayingDaysData.centerDisplayingDayData = self.loadedSchedule[
+                self.dateFormatter.string(from: self.displayingDay)
+            ] ?? []
+            self.displayingDaysData.rightDisplayingDayData = self.loadedSchedule[
+                self.dateFormatter.string(from: self.displayingDay.nextDay)
+            ] ?? []
+
+            self.displayingDayEnum = .center
+
+            self.isAbleToChangePage = true
+            self.isLessonsListDisplaying = true
+        }
+
+        if date > endOfWeek || date < startOfWeek {
+            loadScheduleForWeek(date, isSilentLoading: false) {
+                processLoadedData()
+            }
+        }
+
+        if date.startOfWeek == displayingDay {
+            loadScheduleForWeek(displayingDay.previousWeek, isSilentLoading: true) {
+                processLoadedData()
+            }
+
+            return
+        }
+
+        if date.endOfWeek == displayingDay {
+            loadScheduleForWeek(displayingDay.nextWeek, isSilentLoading: true) {
+                processLoadedData()
+            }
+
+            return
+        }
+
+        processLoadedData()
+    }
 }

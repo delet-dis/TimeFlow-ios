@@ -11,6 +11,8 @@ import SwiftUI
 struct ScheduleView: View {
     @ObservedObject var viewModel: ScheduleViewModel
 
+    @State private var isTasksListDisplaying = true
+
     var body: some View {
         VStack {
             Spacer()
@@ -37,14 +39,20 @@ struct ScheduleView: View {
                     }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//            .overlay {
-//                if !viewModel.isAbleToChangePage {
-//                    Rectangle()
-//                        .foregroundColor(.black.opacity(0.00001))
-//                }
-//            }
-            .onAppear {
-                viewModel.viewDidAppear()
+            .overlay {
+                if !viewModel.isAbleToChangePage {
+                    Rectangle()
+                        .foregroundColor(.black.opacity(0.00001))
+                }
+            }
+            .opacity(isTasksListDisplaying ? 1 : 0.0001)
+        }
+        .onAppear {
+            viewModel.viewDidAppear()
+        }
+        .onReceive(viewModel.$isLessonsListDisplaying) { value in
+            withAnimation {
+                isTasksListDisplaying = value
             }
         }
         .SPAlert(
