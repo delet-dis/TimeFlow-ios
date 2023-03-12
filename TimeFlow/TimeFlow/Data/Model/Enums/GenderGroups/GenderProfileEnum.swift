@@ -39,4 +39,15 @@ enum GenderProfileEnum: Int, CaseIterable, Identifiable, Codable {
             return "MALE"
         }
     }
+    
+    static func getValueFromString(_ gender: String) -> Self? {
+        switch gender {
+        case "FEMALE":
+            return .female
+        case "MALE":
+            return .male
+        default:
+            return nil
+        }
+    }
 }

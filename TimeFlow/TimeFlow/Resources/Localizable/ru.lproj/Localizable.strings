@@ -56,7 +56,19 @@
 // MARK: Profile
 "FIO" = "ФИО";
 "role" = "Роль";
+"profile" = "Профиль";
 "statusUser" = "Статус";
+"activate" = "Активный";
+"pending" = "На рассмотрении";
+"denied" = "Отказано";
+"studentRole" = "Студент";
+"externalUserRole" = "Внешний пользователь";
+"teacherRole" = "Сотрудник";
+"gender" = "Пол";
+"logOut" = "Выйти";
+
 
 // MARK: Schedule
 "pleaseSpecifyPreferredScheduleInProfile" = "Установите желаемое расписание в профиле";
+
+

@@ -57,6 +57,15 @@
 "FIO" = "FIO";
 "role" = "role";
 "statusUser" = "status";
+"profile" = "Profile";
+"activate" = "Active";
+"pending" = "On consideration";
+"denied" = "Denied";
+"studentRole" = "Student";
+"externalUserRole" = "External user";
+"teacherRole" = "Employee";
+"gender" = "Gender";
+"logOut" = "Log out";
 
 // MARK: Schedule
 "pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";

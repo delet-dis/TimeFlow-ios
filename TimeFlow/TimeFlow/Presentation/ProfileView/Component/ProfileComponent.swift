@@ -12,7 +12,9 @@ import SwiftUI
 protocol ProfileComponentDependency: Dependency {
     var getTokensUseCase: GetTokensUseCase { get }
     var getProfileExternalUseCase: GetProfileExternalUseCase { get }
+    var getProfileStudentUseCase: GetProfileStudentUseCase { get }
     var getUserRoleUseCase: GetUserRoleUseCase { get }
+    var logoutUseCase: LogoutUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
@@ -20,8 +22,9 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
         shared {
             ProfileViewModel(
                 getTokensUseCase: dependency.getTokensUseCase,
-                getProfileExternalUseCase: dependency.getProfileExternalUseCase,
-                getUserRoleUseCase: dependency.getUserRoleUseCase
+                getProfileExternalUseCase: dependency.getProfileExternalUseCase, getProfileStudentUseCase: dependency.getProfileStudentUseCase,
+                getUserRoleUseCase: dependency.getUserRoleUseCase,
+                logoutUseCase: dependency.logoutUseCase
             )
         }
     }
