@@ -69,6 +69,9 @@ private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: Needle
     return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class HomeComponentDependency887e91671f4424758155Provider: HomeComponentDependency {
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase {
+        return mainComponent.getDisplayingScheduleUseCase
+    }
     var profileComponent: ProfileComponent {
         return mainComponent.profileComponent
     }
@@ -120,6 +123,7 @@ extension ProfileComponent: Registration {
 }
 extension HomeComponent: Registration {
     public func registerItems() {
+        keyPathToName[\HomeComponentDependency.getDisplayingScheduleUseCase] = "getDisplayingScheduleUseCase-GetDisplayingScheduleUseCase"
         keyPathToName[\HomeComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }

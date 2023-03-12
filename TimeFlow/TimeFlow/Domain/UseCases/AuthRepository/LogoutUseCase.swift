@@ -16,15 +16,18 @@ class LogoutUseCase {
     private let authRepository: AuthRepository
     private let saveTokensUseCase: SaveTokensUseCase
     private let saveAuthStatusUseCase: SaveAuthStatusUseCase
+    private let saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase
 
     init(
         authRepository: AuthRepository,
         saveTokensUseCase: SaveTokensUseCase,
-        saveAuthStatusUseCase: SaveAuthStatusUseCase
+        saveAuthStatusUseCase: SaveAuthStatusUseCase,
+        saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase
     ) {
         self.authRepository = authRepository
         self.saveTokensUseCase = saveTokensUseCase
         self.saveAuthStatusUseCase = saveAuthStatusUseCase
+        self.saveDisplayingScheduleUseCase = saveDisplayingScheduleUseCase
     }
 
     func execute(
@@ -39,5 +42,6 @@ class LogoutUseCase {
         saveTokensUseCase.execute(authToken: "", refreshToken: "")
 
         saveAuthStatusUseCase.execute(isAuthorized: false)
+        saveDisplayingScheduleUseCase.execute(displayingSchedule: nil)
     }
 }

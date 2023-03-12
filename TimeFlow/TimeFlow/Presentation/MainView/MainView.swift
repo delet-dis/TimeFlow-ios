@@ -5,7 +5,7 @@
 //  Created by Igor Efimov on 14.02.2023.
 //
 
-import NeedleFoundation
+import SPAlert
 import SwiftUI
 
 struct MainView: View {
@@ -39,6 +39,13 @@ struct MainView: View {
         .onAppear {
             viewModel.viewDidAppear()
         }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }
 

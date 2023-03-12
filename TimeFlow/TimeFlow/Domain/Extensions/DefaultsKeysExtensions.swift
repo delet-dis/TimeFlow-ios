@@ -10,4 +10,7 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     var isAuthorized: DefaultsKey<Bool?> { .init("isAuthorized", defaultValue: false) }
+    var displayingSchedule: DefaultsKey<DisplayingSchedule?> {
+        .init("displayingSchedule", defaultValue: nil)
+    }
 }

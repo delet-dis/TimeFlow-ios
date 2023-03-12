@@ -88,7 +88,7 @@ class ProfileRepositoryImpl: ProfileRepository {
             }
     }
 
-    func getRole(token: String, completion: ((Result<Role, Error>) -> Void)?) {
+    func getRole(token: String, completion: ((Result<String, Error>) -> Void)?) {
         AF.request(
             Self.url + Self.accountSegment + Self.role,
             method: .get,

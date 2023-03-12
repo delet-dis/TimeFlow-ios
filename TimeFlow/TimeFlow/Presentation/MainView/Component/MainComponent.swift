@@ -83,7 +83,8 @@ class MainComponent: BootstrapComponent {
             LogoutUseCase(
                 authRepository: authRepository,
                 saveTokensUseCase: saveTokensUseCase,
-                saveAuthStatusUseCase: saveAuthStatusUseCase
+                saveAuthStatusUseCase: saveAuthStatusUseCase,
+                saveDisplayingScheduleUseCase: saveDisplayingScheduleUseCase
             )
         }
     }
@@ -178,6 +179,18 @@ class MainComponent: BootstrapComponent {
     var getAuthStatusUseCase: GetAuthStatusUseCase {
         shared {
             GetAuthStatusUseCase()
+        }
+    }
+
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase {
+        shared {
+            SaveDisplayingScheduleUseCase()
+        }
+    }
+
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase {
+        shared {
+            GetDisplayingScheduleUseCase()
         }
     }
 

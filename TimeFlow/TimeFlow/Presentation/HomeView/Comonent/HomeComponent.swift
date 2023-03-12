@@ -10,13 +10,17 @@ import NeedleFoundation
 import SwiftUI
 
 protocol HomeComponentDependency: Dependency {
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase { get }
     var profileComponent: ProfileComponent { get }
 }
 
 final class HomeComponent: Component<HomeComponentDependency> {
     var homeViewModel: HomeViewModel {
         shared {
-            HomeViewModel(profileComponent: dependency.profileComponent)
+            HomeViewModel(
+                getDisplayingScheduleUseCase: dependency.getDisplayingScheduleUseCase,
+                profileComponent: dependency.profileComponent
+            )
         }
     }
 
