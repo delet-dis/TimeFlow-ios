@@ -11,13 +11,7 @@ import SwiftUI
 struct WeekSwitcherView: View {
     @ObservedObject var viewModel: WeekSwitcherViewModel
 
-    @State private var displayingWeekEnum: DisplayingWeekEnum = .center {
-        willSet {
-            if viewModel.displayingWeekEnum != newValue {
-                viewModel.displayingWeekEnum = newValue
-            }
-        }
-    }
+    @State private var displayingWeekEnum: DisplayingWeekEnum = .center
 
     var body: some View {
         VStack {
@@ -32,7 +26,7 @@ struct WeekSwitcherView: View {
                 .tag(DisplayingWeekEnum.left)
                 .onDisappear {
                     DispatchQueue.main.asyncAfter(deadline: .now() +
-                        (viewModel.isChangesAnimationRequired ? 0.5 : 0)) {
+                        (viewModel.isChangesAnimationRequired ? 0.5 : 0.1)) {
                             viewModel.displayingWeekChanged()
                         }
                 }
@@ -47,7 +41,7 @@ struct WeekSwitcherView: View {
                 .tag(DisplayingWeekEnum.center)
                 .onDisappear {
                     DispatchQueue.main.asyncAfter(deadline: .now() +
-                        (viewModel.isChangesAnimationRequired ? 0.5 : 0)) {
+                        (viewModel.isChangesAnimationRequired ? 0.5 : 0.1)) {
                             viewModel.displayingWeekChanged()
                         }
                 }
@@ -99,7 +93,7 @@ struct WeekSwitcherView: View {
                 HStack {
                     Button {
                         withAnimation {
-                            viewModel.displayingWeekEnum = .left
+                            displayingWeekEnum = .left
                         }
                     } label: {
                         Image(systemName: "chevron.left")
@@ -112,7 +106,7 @@ struct WeekSwitcherView: View {
 
                     Button {
                         withAnimation {
-                            viewModel.displayingWeekEnum = .right
+                            displayingWeekEnum = .right
                         }
                     } label: {
                         Image(systemName: "chevron.right")
@@ -124,7 +118,7 @@ struct WeekSwitcherView: View {
                 .contentShape(Rectangle())
                 .padding(.horizontal, -12)
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 24)
 
             Spacer()
         }
@@ -136,6 +130,11 @@ struct WeekSwitcherView: View {
                 }
             } else {
                 displayingWeekEnum = value
+            }
+        }
+        .onChange(of: displayingWeekEnum){ value in
+            if viewModel.displayingWeekEnum != value {
+                viewModel.displayingWeekEnum = value
             }
         }
     }

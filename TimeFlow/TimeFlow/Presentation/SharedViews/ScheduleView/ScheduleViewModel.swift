@@ -167,6 +167,12 @@ class ScheduleViewModel: ObservableObject {
             }
         }
 
+        loadedSchedule.keys.forEach{ key in
+            loadedSchedule[key] = loadedSchedule[key]?.sorted(by: {
+                $0.timeslot.sequenceNumber < $1.timeslot.sequenceNumber
+            })
+        }
+
         completion?()
 
         LoaderView.endLoading()

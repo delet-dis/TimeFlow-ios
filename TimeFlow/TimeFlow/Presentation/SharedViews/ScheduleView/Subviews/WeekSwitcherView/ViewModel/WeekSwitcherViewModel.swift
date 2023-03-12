@@ -39,24 +39,28 @@ class WeekSwitcherViewModel: ObservableObject {
         calendarManager.selectDay(.now)
     }
 
-    func selectDate(_ date: Date){
+    func selectDate(_ date: Date) {
         calendarManager.selectDay(date)
 
         if let startOfWeek = displayingWeeksData.centerDisplayingWeek.startOfWeek, date < startOfWeek {
             isChangesAnimationRequired = true
             displayingWeekEnum = .left
 
-            DispatchQueue.runAsyncOnMainWithDelay {[weak self] in
+            DispatchQueue.runAsyncOnMainWithDelay { [weak self] in
                 self?.isChangesAnimationRequired = false
+
+                self?.displayingWeekChanged()
             }
         }
 
-        if let endOfWeek = displayingWeeksData.centerDisplayingWeek.endOfWeek,  date > endOfWeek {
+        if let endOfWeek = displayingWeeksData.centerDisplayingWeek.endOfWeek, date > endOfWeek {
             isChangesAnimationRequired = true
             displayingWeekEnum = .right
 
-            DispatchQueue.runAsyncOnMainWithDelay {[weak self] in
+            DispatchQueue.runAsyncOnMainWithDelay { [weak self] in
                 self?.isChangesAnimationRequired = false
+
+                self?.displayingWeekChanged()
             }
         }
     }

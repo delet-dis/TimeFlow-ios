@@ -92,7 +92,7 @@ struct LessonView: View {
                     getLessonParameter(
                         systemImageName: "rectangle.inset.filled.and.person.filled",
                         // swiftlint:disable:next line_length
-                        text: "\(displayingLesson?.teacher.name ?? "") \(displayingLesson?.teacher.surname ?? "")"
+                        text: "\(displayingLesson?.teacher.name ?? "") \(displayingLesson?.teacher.surname ?? "\(displayingLesson?.teacher.patronymic ?? "")") "
                     )
                     .padding(.horizontal, 10)
 
