@@ -11,6 +11,11 @@ import SwiftUI
 
 protocol HomeComponentDependency: Dependency {
     var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase { get }
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase { get }
+    var getUserRoleUseCase: GetUserRoleUseCase { get }
+    var getProfileStudentUseCase: GetProfileStudentUseCase { get }
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase { get }
+    var getTokensUseCase: GetTokensUseCase { get }
     var profileComponent: ProfileComponent { get }
 }
 
@@ -19,7 +24,11 @@ final class HomeComponent: Component<HomeComponentDependency> {
         shared {
             HomeViewModel(
                 getDisplayingScheduleUseCase: dependency.getDisplayingScheduleUseCase,
-                profileComponent: dependency.profileComponent
+                saveDisplayingScheduleUseCase: dependency.saveDisplayingScheduleUseCase,
+                getUserRoleUseCase: dependency.getUserRoleUseCase,
+                getProfileStudentUseCase: dependency.getProfileStudentUseCase,
+                getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase,
+                getTokensUseCase: dependency.getTokensUseCase
             )
         }
     }

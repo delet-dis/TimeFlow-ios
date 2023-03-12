@@ -32,6 +32,7 @@
 		304585DB29BD8A0E0050537B /* SaveDisplayingScheduleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585DA29BD8A0E0050537B /* SaveDisplayingScheduleUseCase.swift */; };
 		304585DD29BD8A510050537B /* GetDisplayingScheduleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585DC29BD8A510050537B /* GetDisplayingScheduleUseCase.swift */; };
 		304585E229BD93EA0050537B /* GenderProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585E129BD93EA0050537B /* GenderProfileEnum.swift */; };
+		304585E429BD99290050537B /* GetUserRoleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585E329BD99290050537B /* GetUserRoleUseCase.swift */; };
 		30499AB729B778CE0025689A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499AB629B778CE0025689A /* DateExtensions.swift */; };
 		30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */; };
 		30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABE29B77B360025689A /* DisplayingWeeksData.swift */; };
@@ -185,6 +186,7 @@
 		304585DA29BD8A0E0050537B /* SaveDisplayingScheduleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDisplayingScheduleUseCase.swift; sourceTree = "<group>"; };
 		304585DC29BD8A510050537B /* GetDisplayingScheduleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDisplayingScheduleUseCase.swift; sourceTree = "<group>"; };
 		304585E129BD93EA0050537B /* GenderProfileEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderProfileEnum.swift; sourceTree = "<group>"; };
+		304585E329BD99290050537B /* GetUserRoleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserRoleUseCase.swift; sourceTree = "<group>"; };
 		30499AB629B778CE0025689A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeekEnum.swift; sourceTree = "<group>"; };
 		30499ABE29B77B360025689A /* DisplayingWeeksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingWeeksData.swift; sourceTree = "<group>"; };
@@ -1027,6 +1029,7 @@
 				4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */,
 				4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */,
 				4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */,
+				304585E329BD99290050537B /* GetUserRoleUseCase.swift */,
 			);
 			path = ProfileRepository;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 				30D0287729BB243400C5D698 /* LessonView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
 				4FD7C2E529B5E781006EB2AF /* User.swift in Sources */,
+				304585E429BD99290050537B /* GetUserRoleUseCase.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
 				4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,

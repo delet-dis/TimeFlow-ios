@@ -53,9 +53,10 @@
 // MARK: Shared
 "loading" = "Loading";
 
-
 // MARK: Profile
 "FIO" = "FIO";
 "role" = "role";
 "statusUser" = "status";
 
+// MARK: Schedule
+"pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";

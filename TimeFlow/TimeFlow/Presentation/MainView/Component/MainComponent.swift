@@ -136,9 +136,27 @@ class MainComponent: BootstrapComponent {
 
     // MARK: Profile use cases
 
-    var getProfileUseCase: GetProfileExternalUseCase {
+    var getProfileExternalUseCase: GetProfileExternalUseCase {
         shared {
             GetProfileExternalUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getProfileStudentUseCase: GetProfileStudentUseCase {
+        shared {
+            GetProfileStudentUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
+        shared {
+            GetProfileEmployeeUseCaseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getUserRoleUseCase: GetUserRoleUseCase {
+        shared {
+            GetUserRoleUseCase(profileRepository: profileRepository)
         }
     }
 

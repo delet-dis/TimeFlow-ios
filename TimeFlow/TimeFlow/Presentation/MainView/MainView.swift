@@ -16,15 +16,16 @@ struct MainView: View {
 
     var body: some View {
         ZStack {
-            switch displayingMode {
-            case .authorization:
-                viewModel.loginComponent?.loginView
-            case .homeScreen:
-                viewModel.homeComponent?.homeView
+            if isSplashDisplaying {
+                SplashView()
+            } else {
+                switch displayingMode {
+                case .authorization:
+                    viewModel.loginComponent?.loginView
+                case .homeScreen:
+                    viewModel.homeComponent?.homeView
+                }
             }
-
-            SplashView()
-                .opacity(isSplashDisplaying ? 1 : 0)
         }
         .onReceive(viewModel.$mainViewDispalyingMode) { value in
             withAnimation {

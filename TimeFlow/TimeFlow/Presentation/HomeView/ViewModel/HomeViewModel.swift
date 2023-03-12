@@ -22,19 +22,25 @@ class HomeViewModel: ObservableObject {
 
     private let getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase
     private let saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase
-    private let getProfileUseCase: GetProfileUseCase
+    private let getUserRoleUseCase: GetUserRoleUseCase
+    private let getProfileStudentUseCase: GetProfileStudentUseCase
+    private let getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase
     private let getTokensUseCase: GetTokensUseCase
 
     init(
         getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase,
         saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase,
-        getProfileUseCase: GetProfileUseCase,
+        getUserRoleUseCase: GetUserRoleUseCase,
+        getProfileStudentUseCase: GetProfileStudentUseCase,
+        getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase,
         getTokensUseCase: GetTokensUseCase,
         profileComponent: ProfileComponent? = nil
     ) {
         self.getDisplayingScheduleUseCase = getDisplayingScheduleUseCase
         self.saveDisplayingScheduleUseCase = saveDisplayingScheduleUseCase
-        self.getProfileUseCase = getProfileUseCase
+        self.getUserRoleUseCase = getUserRoleUseCase
+        self.getProfileStudentUseCase = getProfileStudentUseCase
+        self.getProfileEmployeeUseCase = getProfileEmployeeUseCase
         self.getTokensUseCase = getTokensUseCase
 
         self.profileComponent = profileComponent
@@ -53,7 +59,6 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-
     private func getDisplayingSchedule() {
         LoaderView.startLoading()
 
@@ -65,25 +70,78 @@ class HomeViewModel: ObservableObject {
                 self?.processDisplayingSchedule(displayingSchedule)
 
                 if displayingSchedule == nil {
-                    self?.getTokensUseCase.execute(tokenType: .auth){[weak self] result in
-                        switch result {
-                        case .success(let token):
-                            self?.getProfileUseCase.execute(token: token){[weak self] result in
-                                switch result{
-                                case .success(let user):
-                                    switch RoleEnum.getValueFromString(user.role){
-                                    case .student
-                                    }
-                                case .failure(let error):
-                                }
-                            }
-                        case .failure(let error):
-                            self?.processError(error)
-                        }
-                    }
+                    self?.loadScheduleToDisplay()
                 }
             case .failure(let error):
                 self?.processError(error)
+            }
+        }
+    }
+
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
+    private func loadScheduleToDisplay() {
+        LoaderView.startLoading()
+
+        let showUnableToLoadScheduleMessage = {[weak self] in
+            self?.processError(
+                NSError.createErrorWithLocalizedDescription(
+                    R.string.localizable.pleaseSpecifyPreferredScheduleInProfile()
+                )
+            )
+        }
+
+        getTokensUseCase.execute(tokenType: .auth) { [weak self] result in
+            switch result {
+            case .success(let token):
+                self?.getUserRoleUseCase.execute(token: token) { [weak self] result in
+                    switch result {
+                    case .success(let role):
+                        switch RoleEnum.getValueFromString(role) {
+                        case .student:
+                            self?.getProfileStudentUseCase.execute(
+                                token: token
+                            ) { [weak self] result in
+                                LoaderView.endLoading()
+
+                                switch result {
+                                case .success(let student):
+                                    self?.saveDisplayingScheduleUseCase.execute(
+                                        displayingSchedule: .init(
+                                            type: .group,
+                                            id: student.group.id
+                                        )
+                                    )
+                                case .failure:
+                                    showUnableToLoadScheduleMessage()
+                                }
+                            }
+                        case .employee:
+                            self?.getProfileEmployeeUseCase.execute(
+                                token: token
+                            ) { [weak self] result in
+                                LoaderView.endLoading()
+
+                                switch result {
+                                case .success(let employee):
+                                    self?.saveDisplayingScheduleUseCase.execute(
+                                        displayingSchedule: .init(
+                                            type: .teacher,
+                                            id: employee.userInfo.role
+                                        )
+                                    )
+                                case .failure:
+                                    showUnableToLoadScheduleMessage()
+                                }
+                            }
+                        case .none, .user:
+                            showUnableToLoadScheduleMessage()
+                        }
+                    case .failure:
+                        showUnableToLoadScheduleMessage()
+                    }
+                }
+            case .failure:
+                showUnableToLoadScheduleMessage()
             }
         }
     }

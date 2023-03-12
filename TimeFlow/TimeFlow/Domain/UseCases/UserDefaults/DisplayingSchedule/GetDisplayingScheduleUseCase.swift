@@ -10,12 +10,6 @@ import SwiftyUserDefaults
 
 class GetDisplayingScheduleUseCase {
     func execute(completion: ((Result<DisplayingSchedule?, Error>) -> Void)? = nil) {
-        guard let displayingSchedule = Defaults[\.displayingSchedule] else {
-            completion?(.failure(DefaultsRepositoryErrorsEnum.unableToGetData))
-
-            return
-        }
-
-        completion?(.success(displayingSchedule))
+        completion?(.success(Defaults[\.displayingSchedule]))
     }
 }
