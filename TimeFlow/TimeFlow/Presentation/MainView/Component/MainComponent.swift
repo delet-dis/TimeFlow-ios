@@ -34,7 +34,8 @@ class MainComponent: BootstrapComponent {
 
     var authRepository: AuthRepository {
         shared {
-            AuthRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+            AuthRepositoryImpl(jsonDecoder: jsonDecoder,
+                               jsonEncoder: jsonEncoder)
         }
     }
 
@@ -134,9 +135,9 @@ class MainComponent: BootstrapComponent {
 
     // MARK: Profile use cases
 
-    var getProfileUseCase: GetProfileUseCase {
+    var getProfileUseCase: GetProfileExternalUseCase {
         shared {
-            GetProfileUseCase(profileRepository: profileRepository)
+            GetProfileExternalUseCase(profileRepository: profileRepository)
         }
     }
 
