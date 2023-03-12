@@ -9,10 +9,25 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
+//    @State private var userRole = RoleEnum.student
 
     var body: some View {
-        Text("Профиль")
+//
+//        switch userRole {
+//        case .user:
+//            Text("Внешний пользователь")
+//        case .employee:
+//            Text("Сотрудник")
+//        case .student:
+//            Text("Студент")
+//        }
+        
+        Text("Test")
             .onAppear {
+                viewModel.viewDidAppear()
+                print(viewModel.userRole)
+                print("Roleee")
+                print(RoleEnum.getValueByRequest(viewModel.userRole) as Any)
                 viewModel.updateExternalUserProfileData()
             }
     }

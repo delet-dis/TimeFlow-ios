@@ -25,7 +25,7 @@ protocol ProfileRepository {
 
     func getRole(
         token: String,
-        completion: ((Result<Role, Error>) -> Void)?
+        completion: ((Result<String, Error>) -> Void)?
     )
 
     func changePassword(

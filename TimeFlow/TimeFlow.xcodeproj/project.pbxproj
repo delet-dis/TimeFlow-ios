@@ -122,6 +122,7 @@
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
 		4F8A06AC29BD97230014947E /* GetProfileStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */; };
 		4F8A06AE29BD97870014947E /* GetProfileEmployeeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */; };
+		4F8A06B029BD991D0014947E /* GetRoleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */; };
 		4FA0A66F29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */; };
 		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */; };
 		4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */; };
@@ -266,6 +267,7 @@
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileStudentUseCase.swift; sourceTree = "<group>"; };
 		4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileEmployeeUseCase.swift; sourceTree = "<group>"; };
+		4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRoleUserUseCase.swift; sourceTree = "<group>"; };
 		4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileExternalUseCase.swift; sourceTree = "<group>"; };
 		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthenticationUrlsEnum.swift; sourceTree = "<group>"; };
@@ -1001,6 +1003,7 @@
 				4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */,
 				4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */,
 				4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */,
+				4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */,
 			);
 			path = ProfileRepository;
 			sourceTree = "<group>";
@@ -1255,6 +1258,7 @@
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
+				4F8A06B029BD991D0014947E /* GetRoleUserUseCase.swift in Sources */,
 				30D0288629BB28AC00C5D698 /* Classroom.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,

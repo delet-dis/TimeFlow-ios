@@ -56,8 +56,14 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var getTokensUseCase: GetTokensUseCase {
         return mainComponent.getTokensUseCase
     }
-    var getProfileUseCase: GetProfileExternalUseCase {
-        return mainComponent.getProfileUseCase
+    var getProfileExternalUseCase: GetProfileExternalUseCase {
+        return mainComponent.getProfileExternalUseCase
+    }
+    var getRoleUserUseCase: GetRoleUserUseCase {
+        return mainComponent.getRoleUserUseCase
+    }
+    var profileComponent: ProfileComponent {
+        return mainComponent.profileComponent
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -115,7 +121,9 @@ extension AuthorizationComponent: Registration {
 extension ProfileComponent: Registration {
     public func registerItems() {
         keyPathToName[\ProfileComponentDependency.getTokensUseCase] = "getTokensUseCase-GetTokensUseCase"
-        keyPathToName[\ProfileComponentDependency.getProfileUseCase] = "getProfileUseCase-GetProfileExternalUseCase"
+        keyPathToName[\ProfileComponentDependency.getProfileExternalUseCase] = "getProfileExternalUseCase-GetProfileExternalUseCase"
+        keyPathToName[\ProfileComponentDependency.getRoleUserUseCase] = "getRoleUserUseCase-GetRoleUserUseCase"
+        keyPathToName[\ProfileComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
     }
 }
 extension HomeComponent: Registration {
