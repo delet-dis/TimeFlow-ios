@@ -69,6 +69,10 @@
 "studentCardNumber" = "Number of student card";
 "postRole" = "Post role";
 "postName" = "Post name";
+"currentLessons" = "Current lessons";
+"teacher" = "Teacher";
+"classroom" = "Classroom";
+"group" = "Group";
 
 // MARK: Schedule
 "pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";

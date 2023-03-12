@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 
 class ProfileRepositoryImpl: ProfileRepository {
+    
     private static let url = "\(NetworkingConstants.baseUrl)"
 
     private static let accountSegment = NetworkingConstants.accountSegment
@@ -166,6 +167,38 @@ class ProfileRepositoryImpl: ProfileRepository {
                 }
         } catch {
             completion?(.failure(error))
+        }
+    }
+    
+    func getTeachersList(completion: ((Result<[TeachersList], Error>) -> Void)?){
+        AF.request(
+            Self.url + NetworkingConstants.teachers,
+            method: .get,
+            encoding: JSONEncoding.default,
+            headers: NetworkingConstants.headers
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
+        }
+    }
+    
+    func getClassroomList(completion: ((Result<[ClassroomList], Error>) -> Void)?) {
+        AF.request(
+            Self.url + NetworkingConstants.classrooms,
+            method: .get,
+            encoding: JSONEncoding.default,
+            headers: NetworkingConstants.headers
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
+        .validate()
+        .response { [self] result in
+            result.processResult(
+                jsonDecoder: jsonDecoder,
+                completion: completion
+            )
         }
     }
 }

@@ -12,12 +12,18 @@ class ProfileViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published var isSuccessAlertShowing = false
     @Published private(set) var alertText = ""
+    @Published var selectedSheduleType = DisplayingScheduleType.classroom
+
+    @Published var teacherList: [TeachersList] = []
+    @Published var classroomList: [ClassroomList] = []
+    @Published var studentGroups: [StudentGroup] = []
 
     @Published var userRole: RoleEnum?
 
     @Published var sharedUserProfileData = SharedProfileViewData()
     @Published var sharedStudentProfileData = SharedStudentViewData()
     @Published var sharedEmployeeProfileData = SharedEmployeeViewData()
+    @Published var sheduleTypeViewData = SheduleTypeViewData()
 
     @Published private(set) var externalUserProfileData: User?
 
@@ -26,6 +32,9 @@ class ProfileViewModel: ObservableObject {
     private let getProfileStudentUseCase: GetProfileStudentUseCase
     private let getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase
     private let getUserRoleUseCase: GetUserRoleUseCase
+    private let getTeachersListUseCase: GetTeachersListUseCase
+    private let getClassroomsListUseCase: GetClassroomsListUseCase
+    private let getStudentGroupsUseCase: GetStudentGroupsUseCase
     private let logoutUseCase: LogoutUseCase
 
     init(
@@ -34,7 +43,10 @@ class ProfileViewModel: ObservableObject {
         getProfileStudentUseCase: GetProfileStudentUseCase,
         getUserRoleUseCase: GetUserRoleUseCase,
         logoutUseCase: LogoutUseCase,
-        getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase
+        getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase,
+        getTeachersListUseCase: GetTeachersListUseCase,
+        getClassroomsListUseCase: GetClassroomsListUseCase,
+        getStudentGroupsUseCase: GetStudentGroupsUseCase
     ) {
         self.getTokensUseCase = getTokensUseCase
         self.getProfileExternalUseCase = getProfileExternalUseCase
@@ -42,6 +54,9 @@ class ProfileViewModel: ObservableObject {
         self.getUserRoleUseCase = getUserRoleUseCase
         self.logoutUseCase = logoutUseCase
         self.getProfileEmployeeUseCase = getProfileEmployeeUseCase
+        self.getTeachersListUseCase = getTeachersListUseCase
+        self.getClassroomsListUseCase = getClassroomsListUseCase
+        self.getStudentGroupsUseCase = getStudentGroupsUseCase
     }
 
     private func processError(_ error: Error) {
@@ -121,6 +136,39 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
+    func getTeachearListData() {
+        getTeachersListUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let teacherList):
+                self?.teacherList = teacherList
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    func getClassroomListData() {
+        getClassroomsListUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let classroomList):
+                self?.classroomList = classroomList
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
+    func getStudentGroups() {
+        getStudentGroupsUseCase.execute { [weak self] result in
+            switch result {
+            case .success(let groups):
+                self?.studentGroups = groups.sorted(by: { $0.number ?? 0 < $1.number ?? 0 })
+            case .failure(let error):
+                self?.processError(error)
+            }
+        }
+    }
+
     private func getEmployeeProfileData() {
         getTokensUseCase.execute(tokenType: .auth) { [self] result in
             switch result {
@@ -162,7 +210,7 @@ class ProfileViewModel: ObservableObject {
         sharedUserProfileData.emailText = profileData.email
         sharedUserProfileData.userRole =
             (RoleEnum.getValueFromString(profileData.role)?.networkingValue)!
-        sharedUserProfileData.acccountStatus = (AccountStatusEnum.getValueFromString(profileData.accountStatus)?.networkingValue)!
+        sharedUserProfileData.acccountStatus = (AccountStatusEnum.getValueFromString(profileData.accountStatus)?.networkingValue) ?? ""
         sharedUserProfileData.genderType = GenderProfileEnum.getValueFromString(profileData.sex)!.rawValue
     }
 

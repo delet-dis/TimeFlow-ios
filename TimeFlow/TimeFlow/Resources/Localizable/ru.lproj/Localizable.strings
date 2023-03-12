@@ -69,6 +69,10 @@
 "studentCardNumber" = "Номер студенческого";
 "postRole" = "Должность";
 "postName" = "Название должности";
+"currentLessons" = "Выбранное расписание";
+"teacher" = "Преподаватель";
+"classroom" = "Аудитория";
+"group" = "Группа";
 
 
 // MARK: Schedule

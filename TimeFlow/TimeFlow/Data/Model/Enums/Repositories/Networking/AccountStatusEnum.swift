@@ -24,11 +24,11 @@ enum AccountStatusEnum: String, Codable {
     
     static func getValueFromString(_ status: String) -> Self? {
         switch status {
-        case "ACTIVATE":
+        case "ACTIVATED":
             return .activate
         case "PENDING":
             return .pending
-        case "DENIED":
+        case "REJECTED":
             return .denied
         default:
             return nil

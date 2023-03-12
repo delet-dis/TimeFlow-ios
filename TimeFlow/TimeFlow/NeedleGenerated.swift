@@ -71,6 +71,15 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
         return mainComponent.getProfileEmployeeUseCase
     }
+    var getTeachersListUseCase: GetTeachersListUseCase {
+        return mainComponent.getTeachersListUseCase
+    }
+    var getClassroomsListUseCase: GetClassroomsListUseCase {
+        return mainComponent.getClassroomsListUseCase
+    }
+    var getStudentGroupsUseCase: GetStudentGroupsUseCase {
+        return mainComponent.getStudentGroupsUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -159,6 +168,9 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.getUserRoleUseCase] = "getUserRoleUseCase-GetUserRoleUseCase"
         keyPathToName[\ProfileComponentDependency.logoutUseCase] = "logoutUseCase-LogoutUseCase"
         keyPathToName[\ProfileComponentDependency.getProfileEmployeeUseCase] = "getProfileEmployeeUseCase-GetProfileEmployeeUseCaseCase"
+        keyPathToName[\ProfileComponentDependency.getTeachersListUseCase] = "getTeachersListUseCase-GetTeachersListUseCase"
+        keyPathToName[\ProfileComponentDependency.getClassroomsListUseCase] = "getClassroomsListUseCase-GetClassroomsListUseCase"
+        keyPathToName[\ProfileComponentDependency.getStudentGroupsUseCase] = "getStudentGroupsUseCase-GetStudentGroupsUseCase"
     }
 }
 extension HomeComponent: Registration {

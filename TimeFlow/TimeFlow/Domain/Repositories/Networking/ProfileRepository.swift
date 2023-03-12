@@ -39,4 +39,8 @@ protocol ProfileRepository {
         email: String,
         completion: ((Result<User, Error>) -> Void)?
     )
+
+    func getTeachersList(completion: ((Result<[TeachersList], Error>) -> Void)?)
+
+    func getClassroomList(completion: ((Result<[ClassroomList], Error>) -> Void)?)
 }

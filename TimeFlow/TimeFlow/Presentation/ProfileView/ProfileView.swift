@@ -9,15 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
-
+    
     @State private var motionManager = MotionManager()
     @State private var isLogoTopLocated = true
-
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.mainWindowSize) var mainWindowSize
     
-    
-
     var body: some View {
         VStack {
             HStack {
@@ -26,10 +23,10 @@ struct ProfileView: View {
                     Text(R.string.localizable.profile() + " " + R.string.localizable.externalUser())
                 case .employee:
                     Text(R.string.localizable.profile() + " " + R.string.localizable.teacher())
-
+                    
                 case .student:
                     Text(R.string.localizable.profile() + " " + R.string.localizable.student())
-
+                    
                 case .none:
                     Text("Problems")
                 }
@@ -37,35 +34,65 @@ struct ProfileView: View {
             .font(
                 Font(R.font.ralewayMedium(size: 30) ?? .systemFont(ofSize: 30, weight: .medium))
             )
-
+            
             Spacer()
-
+            
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 10) {
+                VStack(spacing: 5) {
+                    Text(R.string.localizable.currentLessons())
+                        .font(
+                            Font(
+                                R.font.ralewayBold(size: 15) ??
+                                    .systemFont(ofSize: 10, weight: .medium)
+                            )
+                        )
+                        .padding([.leading])
+                    
+                    HStack(spacing: 0) {
+                        Picker("", selection: $viewModel.sheduleTypeViewData.sheduleType) {
+                            ForEach(DisplayingScheduleType.allCases) { type in
+                                Text(type.networkingValue!).tag(type.networkingValue!)
+                                    .font(
+                                        Font(
+                                            R.font.ralewayMedium(size: 15) ??
+                                                .systemFont(ofSize: 15, weight: .medium)
+                                        )
+                                    )
+                            }
+                        }
+                        //                        switch DisplayingScheduleType.getValueFromString($viewModel.sheduleTypeViewData.sheduleType){
+                        //                        case .classroom:
+                        //                        case .teacher:
+                        //                        case .group:
+                    }
+                    
+                    //                        Picker("", selection:) {
+                    //
+                    //                        }
+                
+                    .modifier(ElevatedTextFieldModifier())
+                
                     SharedProfileView(
                         viewData: $viewModel.sharedUserProfileData
                     )
                     .padding(.horizontal, 24)
                     .padding(.top, 25)
-                    
-                    switch viewModel.userRole{
+                
+                    switch viewModel.userRole {
                     case .student:
                         SharedProfileStudentView(
                             viewData: $viewModel.sharedStudentProfileData)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 25)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 25)
                     case .employee:
                         SharedProfileEmployeeView(
                             viewData:
-                                $viewModel.sharedEmployeeProfileData)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 25)
+                            $viewModel.sharedEmployeeProfileData)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 25)
                     default:
                         Text("")
-                    
                     }
-                    
-                    
                 }
                 Spacer()
                 VStack {
@@ -94,12 +121,17 @@ struct ProfileView: View {
                 }.padding(.vertical, 30)
             }
         }
-
+        .onChange(of: viewModel.sheduleTypeViewData.sheduleType) { newValue in
+            withAnimation {
+                print(newValue)
+            }
+        }
+    
         .background(
             VStack {
                 HStack {
                     Spacer()
-
+                    
                     Image(uiImage: R.image.appIconCopy() ?? .strokedCheckmark)
                         .resizable()
                         .frame(width: 200, height: 200)
@@ -111,7 +143,7 @@ struct ProfileView: View {
                             y: isLogoTopLocated ? 0 : mainWindowSize.height / 2
                         )
                 }
-
+                
                 Spacer()
             }
             .ignoresSafeArea()
@@ -119,9 +151,7 @@ struct ProfileView: View {
         )
         .onAppear {
             viewModel.viewDidAppear()
-            
         }
-        
     }
 }
 

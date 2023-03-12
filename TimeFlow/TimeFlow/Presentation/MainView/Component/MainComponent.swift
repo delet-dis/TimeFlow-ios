@@ -163,6 +163,18 @@ class MainComponent: BootstrapComponent {
             GetUserRoleUseCase(profileRepository: profileRepository)
         }
     }
+    
+    var getClassroomsListUseCase: GetClassroomsListUseCase{
+        shared {
+            GetClassroomsListUseCase(profileRepository: profileRepository)
+        }
+    }
+    
+    var getTeachersListUseCase: GetTeachersListUseCase {
+        shared {
+            GetTeachersListUseCase(profileRepository: profileRepository)
+        }
+    }
 
     // MARK: Lessons repository use cases
 

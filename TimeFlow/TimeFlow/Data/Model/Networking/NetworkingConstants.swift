@@ -28,6 +28,8 @@ class NetworkingConstants {
     static let refreshToken = "refresh-tokens"
     static let classroom = "classroom"
     static let group = "group"
+    static let teachers = "teachers"
+    static let classrooms = "classrooms"
 
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",
