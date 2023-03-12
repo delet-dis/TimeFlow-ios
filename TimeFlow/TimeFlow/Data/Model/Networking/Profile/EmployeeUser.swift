@@ -10,5 +10,5 @@ import Foundation
 struct EmployeeUser: Codable {
     let userInfo: User
     let contractNumber: String
-    let posts: [PostData]
+    let posts: PostData
 }

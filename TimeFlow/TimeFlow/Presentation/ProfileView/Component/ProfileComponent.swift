@@ -15,6 +15,7 @@ protocol ProfileComponentDependency: Dependency {
     var getProfileStudentUseCase: GetProfileStudentUseCase { get }
     var getUserRoleUseCase: GetUserRoleUseCase { get }
     var logoutUseCase: LogoutUseCase { get }
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
@@ -24,7 +25,8 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
                 getTokensUseCase: dependency.getTokensUseCase,
                 getProfileExternalUseCase: dependency.getProfileExternalUseCase, getProfileStudentUseCase: dependency.getProfileStudentUseCase,
                 getUserRoleUseCase: dependency.getUserRoleUseCase,
-                logoutUseCase: dependency.logoutUseCase
+                logoutUseCase: dependency.logoutUseCase,
+                getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase
             )
         }
     }

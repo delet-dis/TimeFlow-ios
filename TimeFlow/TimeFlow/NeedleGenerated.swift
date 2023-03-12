@@ -68,6 +68,9 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var logoutUseCase: LogoutUseCase {
         return mainComponent.logoutUseCase
     }
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
+        return mainComponent.getProfileEmployeeUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -155,6 +158,7 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.getProfileStudentUseCase] = "getProfileStudentUseCase-GetProfileStudentUseCase"
         keyPathToName[\ProfileComponentDependency.getUserRoleUseCase] = "getUserRoleUseCase-GetUserRoleUseCase"
         keyPathToName[\ProfileComponentDependency.logoutUseCase] = "logoutUseCase-LogoutUseCase"
+        keyPathToName[\ProfileComponentDependency.getProfileEmployeeUseCase] = "getProfileEmployeeUseCase-GetProfileEmployeeUseCaseCase"
     }
 }
 extension HomeComponent: Registration {

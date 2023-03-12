@@ -66,6 +66,9 @@
 "teacherRole" = "Employee";
 "gender" = "Gender";
 "logOut" = "Log out";
+"studentCardNumber" = "Number of student card";
+"postRole" = "Post role";
+"postName" = "Post name";
 
 // MARK: Schedule
 "pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";

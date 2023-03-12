@@ -66,6 +66,9 @@
 "teacherRole" = "Сотрудник";
 "gender" = "Пол";
 "logOut" = "Выйти";
+"studentCardNumber" = "Номер студенческого";
+"postRole" = "Должность";
+"postName" = "Название должности";
 
 
 // MARK: Schedule

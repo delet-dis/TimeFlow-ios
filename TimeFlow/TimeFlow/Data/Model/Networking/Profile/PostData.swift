@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostData: Codable {
+struct PostData: Codable, Identifiable {
     let id: String
     let postRole: String
     let postName: String
