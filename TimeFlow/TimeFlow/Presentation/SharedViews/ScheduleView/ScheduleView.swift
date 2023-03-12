@@ -14,9 +14,7 @@ struct ScheduleView: View {
     @State private var isTasksListDisplaying = true
 
     var body: some View {
-        VStack {
-            Spacer()
-
+        VStack(spacing: 0) {
             WeekSwitcherView(viewModel: viewModel.weekSwitcherViewModel)
 
             TabView(selection: $viewModel.displayingDayEnum) {
@@ -46,6 +44,7 @@ struct ScheduleView: View {
                 }
             }
             .opacity(isTasksListDisplaying ? 1 : 0.0001)
+            .padding(.top, -30)
         }
         .onAppear {
             viewModel.viewDidAppear()
