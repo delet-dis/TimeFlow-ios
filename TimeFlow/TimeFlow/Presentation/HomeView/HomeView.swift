@@ -34,14 +34,11 @@ struct HomeView: View {
                 }
                 .opacity(isScheduleDisplaying ? 1 : 0)
             }
-            .overlay {
-                LessonView(displayingLesson: nil)
-            }
             .padding(.horizontal, 24)
             .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
-            .onChange(of: viewModel.isScheduleDisplaying) { newValue in
+            .onReceive(viewModel.$isScheduleDisplaying) { value in
                 withAnimation {
-                    isScheduleDisplaying = newValue
+                    isScheduleDisplaying = value
                 }
             }
             .onAppear {

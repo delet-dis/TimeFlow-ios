@@ -28,7 +28,8 @@ final class HomeComponent: Component<HomeComponentDependency> {
                 getUserRoleUseCase: dependency.getUserRoleUseCase,
                 getProfileStudentUseCase: dependency.getProfileStudentUseCase,
                 getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase,
-                getTokensUseCase: dependency.getTokensUseCase
+                getTokensUseCase: dependency.getTokensUseCase,
+                profileComponent: dependency.profileComponent
             )
         }
     }

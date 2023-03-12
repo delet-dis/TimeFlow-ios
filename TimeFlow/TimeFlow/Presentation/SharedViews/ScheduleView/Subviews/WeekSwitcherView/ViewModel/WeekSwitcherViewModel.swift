@@ -28,6 +28,13 @@ class WeekSwitcherViewModel: ObservableObject {
 
     init() {
         initDisplayingWeekObserving()
+
+        calendarManager.setDidSelectDayClosure { [weak self] day in
+            self?.dayPickedClosure?(day)
+        }
+
+        calendarManager.selectedDate = .now
+        dayPickedClosure?(.now)
     }
 
     func setDayPickedClosure(_ closure: @escaping ((Date) -> Void)) {

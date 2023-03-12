@@ -5,7 +5,6 @@ import ElegantPages
 import SwiftUI
 
 public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess {
-
     @Published public private(set) var currentMonth: Date
     @Published public var selectedDate: Date? = nil
 
@@ -24,17 +23,23 @@ public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess
 
     private var anyCancellable: AnyCancellable?
 
-    public init(configuration: CalendarConfiguration, initialMonth: Date? = nil) {
+    private var didSelectDayClosure: ((Date) -> Void)?
+
+    public init(
+        configuration: CalendarConfiguration,
+        initialMonth: Date? = nil
+    ) {
         self.configuration = configuration
 
         let months = configuration.calendar.generateDates(
             inside: DateInterval(start: configuration.startDate,
                                  end: configuration.calendar.endOfDay(for: configuration.endDate)),
-            matching: .firstDayOfEveryMonth)
+            matching: .firstDayOfEveryMonth
+        )
 
         self.months = configuration.ascending ? months : months.reversed()
 
-        var startingPage: Int = 0
+        var startingPage = 0
         if let initialMonth = initialMonth {
             startingPage = configuration.calendar.monthsBetween(configuration.referenceDate, and: initialMonth)
         }
@@ -42,17 +47,19 @@ public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess
         currentMonth = months[startingPage]
 
         listManager = .init(startingPage: startingPage,
-                             pageCount: months.count)
+                            pageCount: months.count)
 
         anyCancellable = $delegate.sink {
             $0?.calendar(willDisplayMonth: self.currentMonth)
         }
     }
 
+    public func setDidSelectDayClosure(_ didSelectDayClosure: ((Date) -> Void)? = nil) {
+        self.didSelectDayClosure = didSelectDayClosure
+    }
 }
 
 extension MonthlyCalendarManager {
-
     func configureNewMonth(at page: Int) {
         if months[page] != currentMonth {
             currentMonth = months[page]
@@ -60,30 +67,28 @@ extension MonthlyCalendarManager {
 
             delegate?.calendar(willDisplayMonth: currentMonth)
 
-            if allowsHaptics && isHapticActive {
+            if allowsHaptics, isHapticActive {
                 UIImpactFeedbackGenerator.generateSelectionHaptic()
             } else {
                 isHapticActive = true
             }
         }
     }
-
 }
 
-extension MonthlyCalendarManager {
-
+public extension MonthlyCalendarManager {
     @discardableResult
-    public func scrollBackToToday() -> Bool {
+    func scrollBackToToday() -> Bool {
         scrollToDay(Date())
     }
 
     @discardableResult
-    public func scrollToDay(_ day: Date, animated: Bool = true) -> Bool {
+    func scrollToDay(_ day: Date, animated: Bool = true) -> Bool {
         let didScrollToMonth = scrollToMonth(day, animated: animated)
         let canSelectDay = datasource?.calendar(canSelectDate: day) ?? true
 
         if canSelectDay {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.15) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.dayTapped(day: day, withHaptic: !didScrollToMonth)
             }
         }
@@ -91,17 +96,19 @@ extension MonthlyCalendarManager {
         return canSelectDay
     }
 
-    func dayTapped(day: Date, withHaptic: Bool) {
-        if allowsHaptics && withHaptic {
+    internal func dayTapped(day: Date, withHaptic: Bool) {
+        if allowsHaptics, withHaptic {
             UIImpactFeedbackGenerator.generateSelectionHaptic()
         }
 
         selectedDate = day
         delegate?.calendar(didSelectDay: day)
+
+        didSelectDayClosure?(day)
     }
 
     @discardableResult
-    public func scrollToMonth(_ month: Date, animated: Bool = true) -> Bool {
+    func scrollToMonth(_ month: Date, animated: Bool = true) -> Bool {
         isHapticActive = animated
 
         let needsToScroll = !calendar.isDate(currentMonth, equalTo: month, toGranularities: [.month, .year])
@@ -115,25 +122,19 @@ extension MonthlyCalendarManager {
 
         return needsToScroll
     }
-
 }
 
 extension MonthlyCalendarManager {
-
     static let mock = MonthlyCalendarManager(configuration: .mock)
     static let mockWithInitialMonth = MonthlyCalendarManager(configuration: .mock, initialMonth: .daysFromToday(60))
-
 }
 
 protocol MonthlyCalendarManagerDirectAccess: ConfigurationDirectAccess {
-
     var calendarManager: MonthlyCalendarManager { get }
     var configuration: CalendarConfiguration { get }
-
 }
 
 extension MonthlyCalendarManagerDirectAccess {
-
     var configuration: CalendarConfiguration {
         calendarManager.configuration
     }
@@ -173,17 +174,14 @@ extension MonthlyCalendarManagerDirectAccess {
     func scrollBackToToday() {
         calendarManager.scrollBackToToday()
     }
-
 }
 
 private extension Calendar {
-
     func monthsBetween(_ date1: Date, and date2: Date) -> Int {
         let startOfMonthForDate1 = startOfMonth(for: date1)
         let startOfMonthForDate2 = startOfMonth(for: date2)
         return abs(dateComponents([.month],
-                              from: startOfMonthForDate1,
-                              to: startOfMonthForDate2).month!)
+                                  from: startOfMonthForDate1,
+                                  to: startOfMonthForDate2).month!)
     }
-
 }

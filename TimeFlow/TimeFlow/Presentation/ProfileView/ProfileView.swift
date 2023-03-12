@@ -12,23 +12,25 @@ struct ProfileView: View {
 //    @State private var userRole = RoleEnum.student
 
     var body: some View {
-//
-//        switch userRole {
-//        case .user:
-//            Text("Внешний пользователь")
-//        case .employee:
-//            Text("Сотрудник")
-//        case .student:
-//            Text("Студент")
-//        }
+
+        switch viewModel.userRole {
+        case .user:
+            Text("Внешний пользователь")
+        case .employee:
+            Text("Сотрудник")
+        case .student:
+            Text("Студент")
+        case.none:
+            Text("Problems")
+        }
         
         Text("Test")
             .onAppear {
                 viewModel.viewDidAppear()
-                print(viewModel.userRole)
-                print("Roleee")
-                print(RoleEnum.getValueByRequest(viewModel.userRole) as Any)
-                viewModel.updateExternalUserProfileData()
+//                print(viewModel.userRole)
+//                print("Roleee")
+//                print(RoleEnum.getValueByRequest(viewModel.userRole) as Any)
+//                viewModel.updateExternalUserProfileData()
             }
     }
 }

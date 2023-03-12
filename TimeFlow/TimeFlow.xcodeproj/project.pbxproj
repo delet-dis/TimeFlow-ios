@@ -13,6 +13,7 @@
 		300E412429A79D0400851BB8 /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E412329A79D0400851BB8 /* StatefulPreviewWrapper.swift */; };
 		300E412829A79DEA00851BB8 /* ElevatedViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */; };
 		3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */; };
+		30245C4A29BDB4D20065E9ED /* GetUserRoleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30245C4929BDB4D20065E9ED /* GetUserRoleUseCase.swift */; };
 		303E8467299E815E003D8FC3 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8466299E815E003D8FC3 /* AuthRepository.swift */; };
 		303E846F299E891F003D8FC3 /* AuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E846E299E891F003D8FC3 /* AuthorizationRequest.swift */; };
 		303E8472299E8A3F003D8FC3 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */; };
@@ -32,7 +33,6 @@
 		304585DB29BD8A0E0050537B /* SaveDisplayingScheduleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585DA29BD8A0E0050537B /* SaveDisplayingScheduleUseCase.swift */; };
 		304585DD29BD8A510050537B /* GetDisplayingScheduleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585DC29BD8A510050537B /* GetDisplayingScheduleUseCase.swift */; };
 		304585E229BD93EA0050537B /* GenderProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585E129BD93EA0050537B /* GenderProfileEnum.swift */; };
-		304585E429BD99290050537B /* GetUserRoleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304585E329BD99290050537B /* GetUserRoleUseCase.swift */; };
 		30499AB729B778CE0025689A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499AB629B778CE0025689A /* DateExtensions.swift */; };
 		30499ABB29B77AF90025689A /* DisplayingWeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABA29B77AF90025689A /* DisplayingWeekEnum.swift */; };
 		30499ABF29B77B360025689A /* DisplayingWeeksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30499ABE29B77B360025689A /* DisplayingWeeksData.swift */; };
@@ -127,7 +127,6 @@
 		4F85EB6E29A2285000C09BEE /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */; };
 		4F8A06AC29BD97230014947E /* GetProfileStudentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */; };
 		4F8A06AE29BD97870014947E /* GetProfileEmployeeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */; };
-		4F8A06B029BD991D0014947E /* GetRoleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */; };
 		4FA0A66F29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */; };
 		4FA0A68029BB0E9F00AB3A66 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */; };
 		4FA0A68229BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */; };
@@ -167,6 +166,7 @@
 		300E412729A79DEA00851BB8 /* ElevatedViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedViewModifier.swift; sourceTree = "<group>"; };
 		3016F98E29A08B4300B5EFED /* ElevatedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatedTextFieldModifier.swift; sourceTree = "<group>"; };
 		3016F99129A08E6A00B5EFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		30245C4929BDB4D20065E9ED /* GetUserRoleUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserRoleUseCase.swift; sourceTree = "<group>"; };
 		303E8466299E815E003D8FC3 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		303E846E299E891F003D8FC3 /* AuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRequest.swift; sourceTree = "<group>"; };
 		303E8471299E8A3F003D8FC3 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
@@ -276,7 +276,6 @@
 		4F85EB6D29A2285000C09BEE /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileStudentUseCase.swift; sourceTree = "<group>"; };
 		4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileEmployeeUseCase.swift; sourceTree = "<group>"; };
-		4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRoleUserUseCase.swift; sourceTree = "<group>"; };
 		4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileExternalUseCase.swift; sourceTree = "<group>"; };
 		4FA0A67F29BB0E9F00AB3A66 /* RequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
 		4FA0A68129BB236500AB3A66 /* NetworkAuthenticationUrlsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthenticationUrlsEnum.swift; sourceTree = "<group>"; };
@@ -552,6 +551,14 @@
 			path = DisplayingSchedule;
 			sourceTree = "<group>";
 		};
+		304585E729BDB3820050537B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				304585E329BD99290050537B /* GetUserRoleUseCase.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		30499AB929B77AE40025689A /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +583,7 @@
 				4FD7C2DB29B1DA9A006EB2AF /* ElegantCalendar.xcassets */,
 				30781819299BC88600FD916D /* TimeFlow */,
 				30781818299BC88600FD916D /* Products */,
+				304585E729BDB3820050537B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1031,7 +1039,7 @@
 				4FA0A66E29BAE30E00AB3A66 /* GetProfileExternalUseCase.swift */,
 				4F8A06AB29BD97230014947E /* GetProfileStudentUseCase.swift */,
 				4F8A06AD29BD97870014947E /* GetProfileEmployeeUseCase.swift */,
-				4F8A06AF29BD991D0014947E /* GetRoleUserUseCase.swift */,
+				30245C4929BDB4D20065E9ED /* GetUserRoleUseCase.swift */,
 			);
 			path = ProfileRepository;
 			sourceTree = "<group>";
@@ -1241,7 +1249,7 @@
 				30D0287729BB243400C5D698 /* LessonView.swift in Sources */,
 				309BAB9F29B04763009E59AC /* SaveTokensUseCase.swift in Sources */,
 				4FD7C2E529B5E781006EB2AF /* User.swift in Sources */,
-				304585E429BD99290050537B /* GetUserRoleUseCase.swift in Sources */,
+				30245C4A29BDB4D20065E9ED /* GetUserRoleUseCase.swift in Sources */,
 				30C014F129B1E91D0029612F /* LottieView.swift in Sources */,
 				4FD7C2EE29B5F0AC006EB2AF /* EmployeeUser.swift in Sources */,
 				3016F98F29A08B4300B5EFED /* ElevatedTextFieldModifier.swift in Sources */,
@@ -1288,7 +1296,6 @@
 				309BABAA29B04D03009E59AC /* GetAuthStatusUseCase.swift in Sources */,
 				4FD7C2E129B5E64D006EB2AF /* ProfileRepository.swift in Sources */,
 				30FE8BD629A794A9008AC4F2 /* StringExtensions.swift in Sources */,
-				4F8A06B029BD991D0014947E /* GetRoleUserUseCase.swift in Sources */,
 				30D0288629BB28AC00C5D698 /* Classroom.swift in Sources */,
 				4F80611429A8A88E004DDA52 /* StudentRegistrationViewData.swift in Sources */,
 				30ABBB2929A37C1F00108535 /* LoginViewDisplayingModeEnum.swift in Sources */,

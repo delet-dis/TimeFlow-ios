@@ -58,7 +58,8 @@ class ProfileRepositoryImpl: ProfileRepository {
             Self.url + Self.studentAccountSegment,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -77,7 +78,8 @@ class ProfileRepositoryImpl: ProfileRepository {
             Self.url + Self.employeeAccountSegment,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -93,7 +95,8 @@ class ProfileRepositoryImpl: ProfileRepository {
             Self.url + Self.accountSegment + Self.role,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token),
+            interceptor: requestInterceptor
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -120,7 +123,8 @@ class ProfileRepositoryImpl: ProfileRepository {
                 method: .put,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
-                headers: NetworkingHelper.getHeadersWithBearer(token: token)
+                headers: NetworkingHelper.getHeadersWithBearer(token: token),
+                interceptor: requestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in
@@ -150,7 +154,8 @@ class ProfileRepositoryImpl: ProfileRepository {
                 method: .put,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
-                headers: NetworkingHelper.getHeadersWithBearer(token: token)
+                headers: NetworkingHelper.getHeadersWithBearer(token: token),
+                interceptor: requestInterceptor
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in

@@ -9,23 +9,25 @@ import Foundation
 
 class ProfileViewModel: ObservableObject {
     @Published var sharedProfileData = SharedProfileViewData()
+
     @Published var isAlertShowing = false
     @Published var isSuccessAlertShowing = false
     @Published private(set) var alertText = ""
-    @Published var userRole = ""
+
+    @Published var userRole: RoleEnum?
 
     private let getTokensUseCase: GetTokensUseCase
     private let getProfileExternalUseCase: GetProfileExternalUseCase
-    private let getRoleUserUseCase: GetRoleUserUseCase
+    private let getUserRoleUseCase: GetUserRoleUseCase
 
     init(
         getTokensUseCase: GetTokensUseCase,
         getProfileExternalUseCase: GetProfileExternalUseCase,
-        getRoleUserUseCase: GetRoleUserUseCase
+        getUserRoleUseCase: GetUserRoleUseCase
     ) {
         self.getTokensUseCase = getTokensUseCase
         self.getProfileExternalUseCase = getProfileExternalUseCase
-        self.getRoleUserUseCase = getRoleUserUseCase
+        self.getUserRoleUseCase = getUserRoleUseCase
     }
 
     private func processError(_ error: Error) {
@@ -39,14 +41,14 @@ class ProfileViewModel: ObservableObject {
         getProfileRoleUser()
     }
     
-    func getProfileRoleUser(){
+    func getProfileRoleUser() {
         getTokensUseCase.execute(tokenType: .auth) { [self] result in
             switch result {
             case .success(let token):
-                getRoleUserUseCase.execute(token: token) { [self] result in
+                getUserRoleUseCase.execute(token: token) { [self] result in
                     switch result {
                     case .success(let role):
-                        self.userRole = role
+                        self.userRole = .getValueFromString(role)
                     case .failure(let error):
                         processError(error)
                     }

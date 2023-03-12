@@ -141,12 +141,6 @@ class MainComponent: BootstrapComponent {
             GetProfileExternalUseCase(profileRepository: profileRepository)
         }
     }
-    
-    var getRoleUserUseCase: GetRoleUserUseCase {
-        shared {
-            GetRoleUserUseCase(profileRepository: profileRepository)
-        }
-    }
 
     var getProfileStudentUseCase: GetProfileStudentUseCase {
         shared {
