@@ -80,6 +80,9 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var getStudentGroupsUseCase: GetStudentGroupsUseCase {
         return mainComponent.getStudentGroupsUseCase
     }
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase {
+        return mainComponent.saveDisplayingScheduleUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -180,6 +183,7 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.getTeachersListUseCase] = "getTeachersListUseCase-GetTeachersListUseCase"
         keyPathToName[\ProfileComponentDependency.getClassroomsListUseCase] = "getClassroomsListUseCase-GetClassroomsListUseCase"
         keyPathToName[\ProfileComponentDependency.getStudentGroupsUseCase] = "getStudentGroupsUseCase-GetStudentGroupsUseCase"
+        keyPathToName[\ProfileComponentDependency.saveDisplayingScheduleUseCase] = "saveDisplayingScheduleUseCase-SaveDisplayingScheduleUseCase"
     }
 }
 extension HomeComponent: Registration {

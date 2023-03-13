@@ -26,7 +26,6 @@ struct ProfileView: View {
                     Text(R.string.localizable.profile() + " " + R.string.localizable.teacher())
                 case .student:
                     Text(R.string.localizable.profile() + " " + R.string.localizable.student())
-                    
                 case .none:
                     Text("Problems")
                 }
@@ -81,7 +80,6 @@ struct ProfileView: View {
                             Picker("", selection:
                                 $viewModel.classroomViewData.number) {
                                     ForEach(viewModel.classroomList) { classroom in
-                                                            
                                         if let classroomNumber = classroom.number {
                                             Text(classroomNumber).tag(classroomNumber)
                                                 .font(
@@ -139,54 +137,6 @@ struct ProfileView: View {
                 Spacer()
                 VStack(spacing: 10) {
                     Button {
-                        showActionSheet = true
-                    }
-                    label: {
-                        HStack {
-                            Text(R.string.localizable.changeEmail())
-                                .font(
-                                    Font(
-                                        R.font.ralewayMedium(size: 16) ??
-                                            .systemFont(ofSize: 20, weight: .medium)
-                                    )
-                                )
-                        }
-                    }
-                    .frame(minWidth: 250, minHeight: 50)
-                    .foregroundColor(.white)
-                    .background {
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(
-                                Color(uiColor: R.color.lightYellow() ?? .yellow)
-                            )
-                    }
-                    .shadow(color: Color(uiColor: R.color.lightYellow() ?? .yellow), radius: 20, x: 0, y: 0)
-                        
-                    Button {
-                        showActionSheet = true
-                    }
-                    label: {
-                        HStack {
-                            Text(R.string.localizable.changePassword())
-                                .font(
-                                    Font(
-                                        R.font.ralewayMedium(size: 16) ??
-                                            .systemFont(ofSize: 20, weight: .medium)
-                                    )
-                                )
-                        }
-                    }
-                    .frame(minWidth: 250, minHeight: 50)
-                    .foregroundColor(.white)
-                    .background {
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(
-                                Color(uiColor: R.color.lightYellow() ?? .yellow)
-                            )
-                    }
-                    .shadow(color: Color(uiColor: R.color.lightYellow() ?? .yellow), radius: 20, x: 0, y: 0)
-                        
-                    Button {
                         viewModel.logout()
                     } label: {
                         HStack {
@@ -211,6 +161,9 @@ struct ProfileView: View {
                         
                 }.padding(.vertical, 30)
             }
+        }
+        .onDisappear {
+            viewModel.savePickedShedule()
         }
         .onChange(of: viewModel.sheduleTypeViewData.sheduleType) { newValue in
             withAnimation {

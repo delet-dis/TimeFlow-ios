@@ -19,6 +19,7 @@ protocol ProfileComponentDependency: Dependency {
     var getTeachersListUseCase: GetTeachersListUseCase { get }
     var getClassroomsListUseCase: GetClassroomsListUseCase { get }
     var getStudentGroupsUseCase: GetStudentGroupsUseCase { get }
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
@@ -32,7 +33,8 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
                 getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase,
                 getTeachersListUseCase: dependency.getTeachersListUseCase,
                 getClassroomsListUseCase: dependency.getClassroomsListUseCase,
-                getStudentGroupsUseCase: dependency.getStudentGroupsUseCase
+                getStudentGroupsUseCase: dependency.getStudentGroupsUseCase,
+                saveDisplayingScheduleUseCase: dependency.saveDisplayingScheduleUseCase
             )
         }
     }

@@ -12,6 +12,7 @@ class ProfileViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published var isSuccessAlertShowing = false
     @Published private(set) var alertText = ""
+    @Published var selectedShedule = DisplayingSchedule.init(type: DisplayingScheduleType.teacher, id: "")
     @Published var selectedSheduleType = DisplayingScheduleType.classroom
 
     @Published var teacherList: [TeachersList] = []
@@ -38,6 +39,7 @@ class ProfileViewModel: ObservableObject {
     private let getTeachersListUseCase: GetTeachersListUseCase
     private let getClassroomsListUseCase: GetClassroomsListUseCase
     private let getStudentGroupsUseCase: GetStudentGroupsUseCase
+    private let saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase
     private let logoutUseCase: LogoutUseCase
 
     init(
@@ -49,7 +51,8 @@ class ProfileViewModel: ObservableObject {
         getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase,
         getTeachersListUseCase: GetTeachersListUseCase,
         getClassroomsListUseCase: GetClassroomsListUseCase,
-        getStudentGroupsUseCase: GetStudentGroupsUseCase
+        getStudentGroupsUseCase: GetStudentGroupsUseCase,
+        saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase
     ) {
         self.getTokensUseCase = getTokensUseCase
         self.getProfileExternalUseCase = getProfileExternalUseCase
@@ -60,6 +63,7 @@ class ProfileViewModel: ObservableObject {
         self.getTeachersListUseCase = getTeachersListUseCase
         self.getClassroomsListUseCase = getClassroomsListUseCase
         self.getStudentGroupsUseCase = getStudentGroupsUseCase
+        self.saveDisplayingScheduleUseCase = saveDisplayingScheduleUseCase
     }
 
     private func processError(_ error: Error) {
@@ -74,6 +78,10 @@ class ProfileViewModel: ObservableObject {
         getStudentGroups()
         getTeachearListData()
         getClassroomListData()
+    }
+    
+    func savePickedShedule(){
+        saveDisplayingScheduleUseCase.execute(displayingSchedule:selectedShedule)
     }
 
     func getProfileRoleUser() {

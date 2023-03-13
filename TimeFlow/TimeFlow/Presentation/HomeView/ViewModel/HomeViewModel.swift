@@ -8,10 +8,12 @@
 import Combine
 import Foundation
 import SwiftyUserDefaults
+import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published private(set) var scheduleViewModel: ScheduleViewModel?
     @Published private(set) var isScheduleDisplaying = true
+    @Published var textShedule = ""
 
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
@@ -130,13 +132,16 @@ class HomeViewModel: ObservableObject {
             switch result {
             case .success(let displayingSchedule):
                 
-//                switch displayingSchedule?.type{
-//                    case .teacher:
-//                    case .group:
-//                    case .classroom:
-//                    case .none:
-//                        ()
-//                }
+                switch displayingSchedule?.type{
+                    case .teacher:
+                        ()
+                    case .group:
+                        ()
+                    case .classroom:
+                        ()
+                    case .none:
+                        ()
+                }
                 self?.processDisplayingSchedule(displayingSchedule)
 
                 if displayingSchedule == nil {

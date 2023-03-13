@@ -17,14 +17,6 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("SomeText")
-                        .font(
-                            Font(
-                                R.font.ralewayMedium(size: 16) ??
-                                    .systemFont(ofSize: 20, weight: .medium)
-                            )
-                        )
-                        .padding(.horizontal, 30)
                     if let profileView = viewModel.profileComponent?.profileView {
                         NavigationLink {
                             profileView
