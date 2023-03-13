@@ -10,10 +10,12 @@ import NeedleFoundation
 import SwiftUI
 
 class MainComponent: BootstrapComponent {
+    private var mainViewModelCopy: MainViewModel?
+
     var jsonDecoder: JSONDecoder {
         shared {
             let decoder = JSONDecoder()
-            //            decoder.dateDecodingStrategy = .iso8601
+            decoder.dateDecodingStrategy = .iso8601
 
             return decoder
         }
@@ -22,7 +24,7 @@ class MainComponent: BootstrapComponent {
     var jsonEncoder: JSONEncoder {
         shared {
             let encoder = JSONEncoder()
-            //            encoder.dateEncodingStrategy = .iso8601
+            encoder.dateEncodingStrategy = .iso8601
 
             return encoder
         }
@@ -32,7 +34,8 @@ class MainComponent: BootstrapComponent {
 
     var authRepository: AuthRepository {
         shared {
-            AuthRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+            AuthRepositoryImpl(jsonDecoder: jsonDecoder,
+                               jsonEncoder: jsonEncoder)
         }
     }
 
@@ -54,6 +57,20 @@ class MainComponent: BootstrapComponent {
         }
     }
 
+    var profileRepository: ProfileRepository {
+        shared {
+            ProfileRepositoryImpl(
+                jsonDecoder: jsonDecoder,
+                jsonEncoder: jsonEncoder,
+                requestInterceptor: requestInterceptor
+            )
+        }
+    }
+
+    var lessonsRepository: LessonsRepository {
+        LessonsRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+    }
+
     // MARK: Auth use cases
 
     var loginUseCase: LoginUseCase {
@@ -63,6 +80,23 @@ class MainComponent: BootstrapComponent {
                 saveTokensUseCase: saveTokensUseCase,
                 saveAuthStatusUseCase: saveAuthStatusUseCase
             )
+        }
+    }
+
+    var logoutUseCase: LogoutUseCase {
+        shared {
+            LogoutUseCase(
+                authRepository: authRepository,
+                saveTokensUseCase: saveTokensUseCase,
+                saveAuthStatusUseCase: saveAuthStatusUseCase,
+                saveDisplayingScheduleUseCase: saveDisplayingScheduleUseCase
+            )
+        }
+    }
+
+    var refreshTokenUseCase: RefreshTokenUseCase {
+        shared {
+            RefreshTokenUseCase(authRepository: authRepository)
         }
     }
 
@@ -104,9 +138,74 @@ class MainComponent: BootstrapComponent {
         }
     }
 
-    var logoutUseCase: LogoutUseCase {
+    // MARK: Profile use cases
+
+    var getProfileExternalUseCase: GetProfileExternalUseCase {
         shared {
-            LogoutUseCase(authRepository: authRepository)
+            GetProfileExternalUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getProfileStudentUseCase: GetProfileStudentUseCase {
+        shared {
+            GetProfileStudentUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getProfileEmployeeUseCase: GetProfileEmployeeUseCaseCase {
+        shared {
+            GetProfileEmployeeUseCaseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var getUserRoleUseCase: GetUserRoleUseCase {
+        shared {
+            GetUserRoleUseCase(profileRepository: profileRepository)
+        }
+    }
+    
+    var getClassroomsListUseCase: GetClassroomsListUseCase{
+        shared {
+            GetClassroomsListUseCase(profileRepository: profileRepository)
+        }
+    }
+    
+    var getTeachersListUseCase: GetTeachersListUseCase {
+        shared {
+            GetTeachersListUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    // MARK: Lessons repository use cases
+
+    var getTeacherLessonsUseCase: GetTeacherLessonsUseCase {
+        shared {
+            GetTeacherLessonsUseCase(lessonsRepository: lessonsRepository)
+        }
+    }
+
+    var getStudentGroupLessonsUseCase: GetStudentGroupLessonsUseCase {
+        shared {
+            GetStudentGroupLessonsUseCase(lessonsRepository: lessonsRepository)
+        }
+    }
+
+    var getClassroomLessonsUseCase: GetClassroomLessonsUseCase {
+        shared {
+            GetClassroomLessonsUseCase(lessonsRepository: lessonsRepository)
+        }
+    }
+
+    // MARK: Request interceptor
+
+    var requestInterceptor: RequestInterceptor {
+        shared {
+            RequestInterceptor(
+                saveTokensUseCase: saveTokensUseCase,
+                getTokensUseCase: getTokensUseCase,
+                refreshTokenUseCase: refreshTokenUseCase,
+                logoutUseCase: logoutUseCase
+            )
         }
     }
 
@@ -115,6 +214,12 @@ class MainComponent: BootstrapComponent {
     var saveTokensUseCase: SaveTokensUseCase {
         shared {
             SaveTokensUseCase(keychainRepository: keychainRepository)
+        }
+    }
+
+    var getTokensUseCase: GetTokensUseCase {
+        shared {
+            GetTokensUseCase(keychainRepository: keychainRepository)
         }
     }
 
@@ -129,6 +234,18 @@ class MainComponent: BootstrapComponent {
     var getAuthStatusUseCase: GetAuthStatusUseCase {
         shared {
             GetAuthStatusUseCase()
+        }
+    }
+
+    var saveDisplayingScheduleUseCase: SaveDisplayingScheduleUseCase {
+        shared {
+            SaveDisplayingScheduleUseCase()
+        }
+    }
+
+    var getDisplayingScheduleUseCase: GetDisplayingScheduleUseCase {
+        shared {
+            GetDisplayingScheduleUseCase()
         }
     }
 
@@ -155,6 +272,12 @@ class MainComponent: BootstrapComponent {
     var homeComponent: HomeComponent {
         shared {
             HomeComponent(parent: self)
+        }
+    }
+
+    var profileComponent: ProfileComponent {
+        shared {
+            ProfileComponent(parent: self)
         }
     }
 

@@ -12,8 +12,14 @@ protocol AuthRepository {
         authorizationRequest: AuthorizationRequest,
         completion: ((Result<LoginResponse, Error>) -> Void)?
     )
+
     func logout(
-        authorizationRequest: AuthorizationRequest,
+        token: String,
         completion: ((Result<VoidResponse, Error>) -> Void)?
+    )
+
+    func refreshToken(
+        refreshTokenRequest: RefreshTokenRequest,
+        completion: ((Result<LoginResponse, Error>) -> Void)?
     )
 }

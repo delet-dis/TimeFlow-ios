@@ -201,7 +201,7 @@ class RegistrationViewModel: ObservableObject {
         case .teacher:
             if !AuthorizationOrRegistrationDataHelper
                 .isTeacherNumberValid(sharedTeacherRegistrationData
-                    .contractNumber) {
+                                        .contractNumber) {
                 sharedTeacherRegistrationState.isContractNumberValid = false
                 areFieldsValid = false
                 return false
@@ -209,7 +209,7 @@ class RegistrationViewModel: ObservableObject {
         case .student:
             if !AuthorizationOrRegistrationDataHelper
                 .isStudentNumberValid(sharedStudentRegistrationData
-                    .studentNumber) {
+                                        .studentNumber) {
                 sharedStudentRegistrationState.isStudentNumberValid = false
                 areFieldsValid = false
                 return false
@@ -270,8 +270,6 @@ class RegistrationViewModel: ObservableObject {
         )
     }
 
-    private func handleSuccessRegistrationRequestReponse() {}
-
     private func processError(_ error: Error) {
         alertText = error.localizedDescription
         isAlertShowing = true
@@ -289,10 +287,8 @@ class RegistrationViewModel: ObservableObject {
             teacherRegistrationRequest: request
         ) { [weak self] result in
             LoaderView.endLoading()
-            switch result {
-            case .success:
-                self?.handleSuccessRegistrationRequestReponse()
-            case .failure(let error):
+
+            if case .failure(let error) = result {
                 self?.processError(error)
             }
         }
@@ -308,10 +304,8 @@ class RegistrationViewModel: ObservableObject {
             studentRegistrationRequest: request
         ) { [weak self] result in
             LoaderView.endLoading()
-            switch result {
-            case .success:
-                self?.handleSuccessRegistrationRequestReponse()
-            case .failure(let error):
+
+            if case .failure(let error) = result {
                 self?.processError(error)
             }
         }
@@ -327,12 +321,9 @@ class RegistrationViewModel: ObservableObject {
             externalUserRegistrationRequest: request
         ) { [weak self] result in
             LoaderView.endLoading()
-            switch result {
-            case .success:
-                self?.handleSuccessRegistrationRequestReponse()
-            case .failure(let error):
+
+            if case .failure(let error) = result {
                 self?.processError(error)
-                print(error)
             }
         }
     }

@@ -41,7 +41,7 @@ class MainViewModel: ObservableObject {
     }
 
     private func startSplashCountdown() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             self?.isSplashDisplaying = false
         }
     }
@@ -76,11 +76,7 @@ class MainViewModel: ObservableObject {
         authStatusObserver = Defaults.observe(\.isAuthorized) { [self] update in
             if let isAuthorized = update.newValue,
                let isAuthorizedUnwrapped = isAuthorized {
-                if isAuthorizedUnwrapped {
-                    mainViewDispalyingMode = .homeScreen
-                } else {
-                    mainViewDispalyingMode = .authorization
-                }
+                processAuthStatus(isAuthorized: isAuthorizedUnwrapped)
             }
         }
     }

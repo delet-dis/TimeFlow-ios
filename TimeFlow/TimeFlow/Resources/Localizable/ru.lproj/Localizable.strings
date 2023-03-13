@@ -52,3 +52,33 @@
 
 // MARK: Shared
 "loading" = "Загрузка";
+
+// MARK: Profile
+"FIO" = "ФИО";
+"role" = "Роль";
+"profile" = "Профиль";
+"statusUser" = "Статус";
+"activate" = "Активный";
+"pending" = "На рассмотрении";
+"denied" = "Отказано";
+"studentRole" = "Студент";
+"externalUserRole" = "Внешний пользователь";
+"teacherRole" = "Сотрудник";
+"gender" = "Пол";
+"logOut" = "Выйти";
+"studentCardNumber" = "Номер студенческого";
+"postRole" = "Должность";
+"postName" = "Название должности";
+"currentLessons" = "Выбранное расписание";
+"teacherType" = "Преподаватель";
+"classroom" = "Аудитория";
+"group" = "Группа";
+"changeEmail" = "Сменить почту";
+"changePassword" = "Сменить пароль";
+
+
+
+// MARK: Schedule
+"pleaseSpecifyPreferredScheduleInProfile" = "Установите желаемое расписание в профиле";
+
+

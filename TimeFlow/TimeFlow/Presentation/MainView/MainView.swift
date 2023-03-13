@@ -5,7 +5,7 @@
 //  Created by Igor Efimov on 14.02.2023.
 //
 
-import NeedleFoundation
+import SPAlert
 import SwiftUI
 
 struct MainView: View {
@@ -16,15 +16,16 @@ struct MainView: View {
 
     var body: some View {
         ZStack {
-            switch displayingMode {
-            case .authorization:
-                viewModel.loginComponent?.loginView
-            case .homeScreen:
-                viewModel.homeComponent?.homeView
+            if isSplashDisplaying {
+                SplashView()
+            } else {
+                switch displayingMode {
+                case .authorization:
+                    viewModel.loginComponent?.loginView
+                case .homeScreen:
+                    viewModel.homeComponent?.homeView
+                }
             }
-
-            SplashView()
-                .opacity(isSplashDisplaying ? 1 : 0)
         }
         .onReceive(viewModel.$mainViewDispalyingMode) { value in
             withAnimation {
@@ -39,6 +40,13 @@ struct MainView: View {
         .onAppear {
             viewModel.viewDidAppear()
         }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }
 

@@ -5,18 +5,58 @@
 //  Created by Igor Efimov on 02.03.2023.
 //
 
-import ElegantCalendar
+import SPAlert
 import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
 
-    @ObservedObject var calendarManager = ElegantCalendarManager(
-        configuration: CalendarConfiguration(startDate: Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (-30 * 36))),
-                                             endDate: Date().addingTimeInterval(TimeInterval(60 * 60 * 24 * (30 * 36)))))
+    @State private var isScheduleDisplaying = false
 
     var body: some View {
-        ElegantCalendarView(calendarManager: calendarManager)
+        NavigationView {
+            VStack {
+                HStack {
+                    if let profileView = viewModel.profileComponent?.profileView {
+                        NavigationLink {
+                            profileView
+                        } label: {
+                            Image(systemName: "person.crop.circle")
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                        .padding()
+                    }
+                }
+
+                Group {
+                    if let scheduleViewModel = viewModel.scheduleViewModel {
+                        ScheduleView(viewModel: scheduleViewModel)
+                    } else {
+                        Spacer()
+                    }
+                }
+                .opacity(isScheduleDisplaying ? 1 : 0)
+                .edgesIgnoringSafeArea(.bottom)
+            }
+            .onAppear {
+                viewModel.viewDidAppear()
+            }
+            .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
+            .onReceive(viewModel.$isScheduleDisplaying) { value in
+                withAnimation {
+                    isScheduleDisplaying = value
+                }
+            }
+        }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
     }
 }
 

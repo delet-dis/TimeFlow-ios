@@ -5,19 +5,19 @@
 //  Created by Igor Efimov on 03.03.2023.
 //
 
-import SwiftUI
 import Lottie
+import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
 
-            LottieView(name: "LoadingAnimation")
+            LottieView(name: R.data.loadingAnimation.name)
 
             Spacer()
         }
-        .background(.white)
+        .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
     }
 }
 

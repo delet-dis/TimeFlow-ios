@@ -39,7 +39,7 @@ struct StudentRegistrationFormView: View {
             Text(R.string.localizable.studentCard)
                 .font(
                     Font(R.font.ralewayBold(size: 24) ??
-                        .systemFont(ofSize: 24, weight: .medium))
+                            .systemFont(ofSize: 24, weight: .medium))
                 )
 
             VStack(spacing: 15) {

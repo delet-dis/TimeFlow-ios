@@ -15,11 +15,11 @@ extension AFDataResponse {
                let responseAsDictionary =
                try JSONSerialization.jsonObject(
                    with: data, options: .allowFragments
-               ) as? [String: String] {
+               ) as? [String: [String]] {
                 let errorMessage = responseAsDictionary.keys
                     .sorted(by: <)
                     .map { responseAsDictionary[$0]! }
-                    .reduce("") { $0 + String($1 + "\n") }
+                    .reduce("") { $0 + String($1.joined(separator: "\n") + "\n") }
 
                 return NSError.createErrorWithLocalizedDescription(errorMessage)
             } else {
@@ -32,8 +32,7 @@ extension AFDataResponse {
 
     func processResult<T: Codable>(
         jsonDecoder: JSONDecoder,
-        completion: ((Result<T, Error>) -> Void)?,
-        logoutUseCase: LogoutUseCase? = nil
+        completion: ((Result<T, Error>) -> Void)?
     ) {
         if let underlyingError = error?.asAFError?.underlyingError {
             completion?(.failure(underlyingError))
@@ -41,22 +40,8 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode {
-            // TODO: Add passing user credentials
-            //            logoutUseCase?.execute { _ in
-            //                completion?(.failure(NetworkingErrorsEnum.wrongUserCredentials))
-            //            }
-
-            return
-        }
-
-        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode {
-            completion?(.failure(processError()))
-
-            return
-        }
-
-        if case .failure = result {
+        if self.response?.statusCode == NetworkingConstants.wrongDataStatusCode ||
+            self.response?.statusCode == NetworkingConstants.userAlreadyExistsStatusCode {
             completion?(.failure(processError()))
 
             return

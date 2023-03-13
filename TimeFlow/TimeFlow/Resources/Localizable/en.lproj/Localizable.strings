@@ -52,3 +52,29 @@
 
 // MARK: Shared
 "loading" = "Loading";
+
+// MARK: Profile
+"FIO" = "FIO";
+"role" = "role";
+"statusUser" = "status";
+"profile" = "Profile";
+"activate" = "Active";
+"pending" = "On consideration";
+"denied" = "Denied";
+"studentRole" = "Student";
+"externalUserRole" = "External user";
+"teacherRole" = "Employee";
+"gender" = "Gender";
+"logOut" = "Log out";
+"studentCardNumber" = "Number of student card";
+"postRole" = "Post role";
+"postName" = "Post name";
+"currentLessons" = "Current lessons";
+"teacherType" = "Teacher";
+"classroom" = "Classroom";
+"group" = "Group";
+"changeEmail" = "Change email";
+"changePassword" = "Change password";
+
+// MARK: Schedule
+"pleaseSpecifyPreferredScheduleInProfile" = "Please specify preferred schedule in profile";
