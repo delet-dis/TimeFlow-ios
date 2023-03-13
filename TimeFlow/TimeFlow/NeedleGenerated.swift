@@ -120,6 +120,15 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
     var profileComponent: ProfileComponent {
         return mainComponent.profileComponent
     }
+    var getTeachersListUseCase: GetTeachersListUseCase {
+        return mainComponent.getTeachersListUseCase
+    }
+    var getClassroomsListUseCase: GetClassroomsListUseCase {
+        return mainComponent.getClassroomsListUseCase
+    }
+    var getStudentGroupsUseCase: GetStudentGroupsUseCase {
+        return mainComponent.getStudentGroupsUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -185,6 +194,9 @@ extension HomeComponent: Registration {
         keyPathToName[\HomeComponentDependency.getStudentGroupLessonsUseCase] = "getStudentGroupLessonsUseCase-GetStudentGroupLessonsUseCase"
         keyPathToName[\HomeComponentDependency.getClassroomLessonsUseCase] = "getClassroomLessonsUseCase-GetClassroomLessonsUseCase"
         keyPathToName[\HomeComponentDependency.profileComponent] = "profileComponent-ProfileComponent"
+        keyPathToName[\HomeComponentDependency.getTeachersListUseCase] = "getTeachersListUseCase-GetTeachersListUseCase"
+        keyPathToName[\HomeComponentDependency.getClassroomsListUseCase] = "getClassroomsListUseCase-GetClassroomsListUseCase"
+        keyPathToName[\HomeComponentDependency.getStudentGroupsUseCase] = "getStudentGroupsUseCase-GetStudentGroupsUseCase"
     }
 }
 extension MainComponent: Registration {

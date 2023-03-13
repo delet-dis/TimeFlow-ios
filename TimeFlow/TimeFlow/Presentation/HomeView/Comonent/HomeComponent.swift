@@ -22,6 +22,10 @@ protocol HomeComponentDependency: Dependency {
     var getClassroomLessonsUseCase: GetClassroomLessonsUseCase { get }
 
     var profileComponent: ProfileComponent { get }
+    
+    var getTeachersListUseCase: GetTeachersListUseCase { get }
+    var getClassroomsListUseCase: GetClassroomsListUseCase { get }
+    var getStudentGroupsUseCase: GetStudentGroupsUseCase { get }
 }
 
 final class HomeComponent: Component<HomeComponentDependency> {
@@ -35,6 +39,10 @@ final class HomeComponent: Component<HomeComponentDependency> {
                 getProfileEmployeeUseCase: dependency.getProfileEmployeeUseCase,
                 getTokensUseCase: dependency.getTokensUseCase,
 
+                getTeachersListUseCase: dependency.getTeachersListUseCase,
+                getClassroomsListUseCase: dependency.getClassroomsListUseCase,
+                getStudentGroupsUseCase: dependency.getStudentGroupsUseCase,
+                
                 getTeacherLessonsUseCase: dependency.getTeacherLessonsUseCase,
                 getStudentGroupLessonsUseCase: dependency.getStudentGroupLessonsUseCase,
                 getClassroomLessonsUseCase: dependency.getClassroomLessonsUseCase,

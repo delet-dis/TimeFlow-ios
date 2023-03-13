@@ -218,6 +218,21 @@ struct ProfileView: View {
                 print(newValue)
             }
         }
+        .onChange(of: viewModel.sharedStudentRegistrationData.groupId) { newValue in
+            withAnimation {
+                print(newValue)
+            }
+        }
+        .onChange(of: viewModel.classroomViewData.number) { newValue in
+            withAnimation {
+                print(newValue)
+            }
+        }
+        .onChange(of: viewModel.teachersViewData.teacherFIO) { newValue in
+            withAnimation {
+                print(newValue)
+            }
+        }
             
         .background(
             VStack {
