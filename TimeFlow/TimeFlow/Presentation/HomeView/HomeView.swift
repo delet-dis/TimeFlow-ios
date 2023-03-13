@@ -41,13 +41,15 @@ struct HomeView: View {
                 Group {
                     if let scheduleViewModel = viewModel.scheduleViewModel {
                         ScheduleView(viewModel: scheduleViewModel)
-                            .onAppear {
-                                viewModel.viewDidAppear()
-                            }
+                    } else {
+                        Spacer()
                     }
                 }
                 .opacity(isScheduleDisplaying ? 1 : 0)
                 .edgesIgnoringSafeArea(.bottom)
+            }
+            .onAppear {
+                viewModel.viewDidAppear()
             }
             .background(Color(uiColor: R.color.nearbyWhite() ?? .white))
             .onReceive(viewModel.$isScheduleDisplaying) { value in
