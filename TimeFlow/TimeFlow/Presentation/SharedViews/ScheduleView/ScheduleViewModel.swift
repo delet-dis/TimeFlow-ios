@@ -65,6 +65,8 @@ class ScheduleViewModel: ObservableObject {
         }
 
         initDisplayingDayObserving()
+
+        viewDidAppear()
     }
 
     func displayingDayChanged() {

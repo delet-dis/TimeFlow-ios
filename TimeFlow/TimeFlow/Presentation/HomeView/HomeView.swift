@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack{
+                HStack {
                     Text("SomeText")
                         .font(
                             Font(
@@ -37,11 +37,13 @@ struct HomeView: View {
                         .padding()
                     }
                 }
-                
 
                 Group {
                     if let scheduleViewModel = viewModel.scheduleViewModel {
                         ScheduleView(viewModel: scheduleViewModel)
+                            .onAppear {
+                                viewModel.viewDidAppear()
+                            }
                     }
                 }
                 .opacity(isScheduleDisplaying ? 1 : 0)
@@ -52,9 +54,6 @@ struct HomeView: View {
                 withAnimation {
                     isScheduleDisplaying = value
                 }
-            }
-            .onAppear {
-                viewModel.viewDidAppear()
             }
         }
         .SPAlert(

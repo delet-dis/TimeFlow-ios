@@ -24,7 +24,6 @@ struct ProfileView: View {
                     Text(R.string.localizable.profile() + " " + R.string.localizable.externalUser())
                 case .employee:
                     Text(R.string.localizable.profile() + " " + R.string.localizable.teacher())
-                    
                 case .student:
                     Text(R.string.localizable.profile() + " " + R.string.localizable.student())
                     
